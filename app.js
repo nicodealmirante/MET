@@ -55,7 +55,7 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
                   if(ctx.body == "SM" || ctx.body == "Sm" || ctx.body == "sm"){
                     return gotoFlow(Menuflow),
                     endFlow() }
-             await provider.getInstance().sendMessage(mywhatsa, {text: `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*` })
+              provider.getInstance().sendMessage(mywhatsa, {text: `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*` })
          
     .addAnswer("Buenisimo, A la brevedad me estare comunicando con usted. Tambien puede enviarme a mi numero personal 11-4005-4474. Muchisimas Gracias. Quedo a sus ordenes", {capture:true, delay:5000}, async (ctx ,{gotoFlow,endFlow,provider,fallBack}) => {
           if(ctx.body == "SM" ||ctx.body == "Sm" || ctx.body == "sm"){
