@@ -255,7 +255,7 @@ const main = async () => {
         jwtToken: 'EAAMziR3dWTwBO0dBceZArmJhZBQSEIygUsmBsKFw0LAyzdpLfznHunGZCbh4uvaHbZBp2ago7mZBds122x7KH3CoWFYG2JjGCltdUKroz8ZBMDxwbEGlFPMCdoVAwXK53UzYq68tTY0spXZBRbIazEsDgfe0wMZBAQggYogDS7F5GNTK26vo6toXy67HyJ2aZBu5WzFkyZCng58PnLj2o5ZBtOZAoK15uhG2rCZB9p6XZA',
         numberId: '103110496094657',
         verifyToken: 'asdasd',
-        version: 'v16.0',
+        version: 'v18.0',
     })
 
     createBot({
