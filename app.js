@@ -114,14 +114,9 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
                      
             
 
-async (ctx, {provider}) => {
-    await provider.sendMedia(number, 'mensaje', url) // en caso de enviar una imagen
-}
-              ])
-       
-       .addAnswer('Plataforma 360 Super Slow',{
-           media: 'banner.jpg' })
-
+              ], {capture:false}, async (ctx, {provider}) => {
+                await provider.sendMedia(number, 'Plataforma 360 Super Slow', banner.jpg) // en caso de enviar una imagen
+            })
       .addAnswer(['🔒Los valores se congelan y la fecha se reserva solo al señar el servicio (2023)', 
              '🚚El valor no incluye traslados',
              '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'],{capture:false}, async (ctx, {endFlow,gotoFlow }) => {
