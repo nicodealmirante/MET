@@ -226,9 +226,7 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
         
                      
             const Menuflow2 = addKeyword(["me-nu"], { sensitive: true })
-  
-
-            .addAnswer("*MENU*", { 
+     .addAnswer("*MENU*", { 
                       capture: true,
                       buttons: [
                           {body: 'HABLAR CON ASESOR'},
@@ -238,15 +236,16 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
                    delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, sock}) => {
               
               if (ctx.body == 'PAGINA WEB') {
-                await provider.sendtext(ctx.key.remoteJid, 'WEB: https://espejoselfiemirror.com.ar' );
-                gotoFlow(Menuflow);
+                flowDynamic('https://www.espejoselfiemirror.com.ar')        
+                        gotoFlow(Menuflow);
       } else if (ctx.body == 'HABLAR CON ASESOR') {
          nombre = "Cliente"
          gotoFlow(Cliente)
       } else if (ctx.body == 'INFO DE LA EMPRESA') {
-    await provider.sendtext(ctx.key.remoteJid,  '*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
-    await provider.sendtext(ctx.key.remoteJid,   'Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
-    await provider.sendmedia(ctx.key.remoteJid,  "video.mp4");
+        flowDynamic('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
+        flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
+   
+        .addAnswer('Selfie Mirror', {media: 'video.mp4'})
       
         gotoFlow(Menuflow);
          }
