@@ -1,1 +1,186 @@
-[]
+[
+  {
+    "ref": "a704bcb4-309d-48b9-947f-05b52fc653f6",
+    "keyword": "be4a0c53a64a26f08d7217e3d886a539",
+    "answer": "ads",
+    "options": {},
+    "from": "5491140054474",
+    "refSerialize": "d7045d3415e75947cd440a450fd0a336"
+  },
+  {
+    "ref": "ans_4a3b8326-9027-47c7-9c6c-fd1e779cab3f",
+    "keyword": "key_ca49834f-6b85-4c79-821a-e6c358c627a9",
+    "answer": {
+      "sticker": "sticker.webp"
+    },
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "cfe401efd4028042a7b122282ad1aba4",
+    "from": "5491140054474"
+  },
+  {
+    "ref": "ans_98e777fe-7e2a-478d-9cfa-6e8beba104f8",
+    "keyword": "ans_4a3b8326-9027-47c7-9c6c-fd1e779cab3f",
+    "answer": "Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "e5c456860da8ac79f092ea4dfb454045",
+    "from": "5491140054474"
+  },
+  {
+    "ref": "ans_98e777fe-7e2a-478d-9cfa-6e8beba104f8",
+    "keyword": "ans_4a3b8326-9027-47c7-9c6c-fd1e779cab3f",
+    "answer": "Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "e5c456860da8ac79f092ea4dfb454045",
+    "from": "5491140054474"
+  },
+  {
+    "ref": "ans_4a3b8326-9027-47c7-9c6c-fd1e779cab3f",
+    "keyword": "key_ca49834f-6b85-4c79-821a-e6c358c627a9",
+    "answer": {
+      "sticker": "sticker.webp"
+    },
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "cfe401efd4028042a7b122282ad1aba4",
+    "from": "5492325428085"
+  },
+  {
+    "ref": "ans_98e777fe-7e2a-478d-9cfa-6e8beba104f8",
+    "keyword": "ans_4a3b8326-9027-47c7-9c6c-fd1e779cab3f",
+    "answer": "Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "e5c456860da8ac79f092ea4dfb454045",
+    "from": "5492325428085"
+  },
+  {
+    "ref": "ans_98e777fe-7e2a-478d-9cfa-6e8beba104f8",
+    "keyword": "ans_4a3b8326-9027-47c7-9c6c-fd1e779cab3f",
+    "answer": "Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "e5c456860da8ac79f092ea4dfb454045",
+    "from": "5492325428085"
+  },
+  {
+    "ref": "84df40a8-3b38-430e-b270-673973c72129",
+    "keyword": "e5c456860da8ac79f092ea4dfb454045",
+    "answer": "Soy Marisa",
+    "options": {},
+    "from": "5492325428085",
+    "refSerialize": "c41dc0844e21c614e54fb58d4cc783f9"
+  },
+  {
+    "ref": "ans_4a3b8326-9027-47c7-9c6c-fd1e779cab3f",
+    "keyword": "key_ca49834f-6b85-4c79-821a-e6c358c627a9",
+    "answer": {
+      "sticker": "sticker.webp"
+    },
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "cfe401efd4028042a7b122282ad1aba4",
+    "from": "5492325428085"
+  },
+  {
+    "ref": "ans_98e777fe-7e2a-478d-9cfa-6e8beba104f8",
+    "keyword": "ans_4a3b8326-9027-47c7-9c6c-fd1e779cab3f",
+    "answer": "Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "e5c456860da8ac79f092ea4dfb454045",
+    "from": "5492325428085"
+  },
+  {
+    "ref": "ans_98e777fe-7e2a-478d-9cfa-6e8beba104f8",
+    "keyword": "ans_4a3b8326-9027-47c7-9c6c-fd1e779cab3f",
+    "answer": "Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "e5c456860da8ac79f092ea4dfb454045",
+    "from": "5492325428085"
+  }
+]
