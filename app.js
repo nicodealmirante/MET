@@ -199,7 +199,6 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
 
   const flowPrincipal = addKeyword(EVENTS.WELCOME)
                   .addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás", { capture: false }, async (ctx, { provider,gotoFlow, endFlow }) => {
-                   await provider.getInstance().sendMessage(ctx.key.remoteJid, {sticker: { url: "sticker.webp"}})
                    console.log(ctx.body) 
                     await gotoFlow(Menuflow);
                     endFlow()})
