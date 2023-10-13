@@ -199,7 +199,7 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
                     
 
                     console.log(ctx.body) 
-                     gotoFlow(Menuflow);
+                     await gotoFlow(Menuflow);
                     endFlow()})
                     
 
