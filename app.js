@@ -244,7 +244,6 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
          nombre = "Cliente"
          gotoFlow(Cliente)
       } else if (ctx.body == 'INFO DE LA EMPRESA') {
-   await provider.sendtext(ctx.key.remoteJid, {location:{degreesLatitude: -34.65693027316358, degreesLongitude: -58.56245348955204}})
     await provider.sendtext(ctx.key.remoteJid,  '*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
     await provider.sendtext(ctx.key.remoteJid,   'Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
     await provider.sendmedia(ctx.key.remoteJid,  "video.mp4");
