@@ -220,13 +220,9 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
          gotoFlow(flowVenta)
         } else if (ctx.body == '+ OPCIONES') {
             gotoFlow(Menuflow2)
-        } else {
-            return fallBack({ body: 'Esta respuesta es automática y solo acepta una respuesta numérica. Responde 1 para *Alquiler*, 2 para *Venta* o 3 para derivarlo a un *Asesor*. Gracias' });
-           }   [flowVenta, flowsAlquiler, Cliente]});
-        
-                     
-            const Menuflow2 = addKeyword(["me-nu"], { sensitive: true })
-     .addAnswer("*MENU*", { 
+    }
+)                    
+     .addAnswer("", { 
                       capture: true,
                       buttons: [
                           {body: 'HABLAR CON ASESOR'},
@@ -248,11 +244,11 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
         flowDynamic('Selfie Mirror', {media: 'video.mp4'})
       
         gotoFlow(Menuflow);
-         }
-            
-         [flowVenta, flowsAlquiler, Cliente]}
-    
-            )
+         
+             } else {
+            return fallBack({ body: 'Esta respuesta es automática y solo acepta una respuesta numérica. Responde 1 para *Alquiler*, 2 para *Venta* o 3 para derivarlo a un *Asesor*. Gracias' });
+           }   [flowVenta, flowsAlquiler, Cliente]});
+        
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
