@@ -50,7 +50,7 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
                   if(ctx.body == "SM" || ctx.body == "Sm" || ctx.body == "sm"){
                     return gotoFlow(Menuflow),
                     endFlow() }
-             await provider.getInstance().sendtext(mywhatsa, {text: `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*` })})
+             await provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)})
          
     .addAnswer("Buenisimo, A la brevedad me estare comunicando con usted. Tambien puede enviarme a mi numero personal 11-4005-4474. Muchisimas Gracias. Quedo a sus ordenes", {capture:true, delay:5000}, async (ctx ,{gotoFlow,endFlow,provider,fallBack}) => {
           if(ctx.body == "SM" ||ctx.body == "Sm" || ctx.body == "sm"){
@@ -58,7 +58,7 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
               endFlow()}
     const mywhatsa = "5491140054474@s.whatsapp.net";
 
-        await provider.getInstance().sendtext(mywhatsa, {text:`SIG MSJ\nNumero: +${ctx.from}\nINFO: *${ctx.body}*`}) 
+    await provider.sendtext(mywhatsa, `SIG MSJ\nNumero: +${ctx.from}\nINFO: *${ctx.body}*`) 
      return fallBack("Gracias por comunicarse con nosotros. Escriba *SM* para volver al menu inicial")
   }) 
 
@@ -195,9 +195,6 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
 
   const flowPrincipal = addKeyword(EVENTS.WELCOME)  
   .addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás", { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
-
-                    
-
                     console.log(ctx.body) 
                      await gotoFlow(Menuflow);
                     endFlow()})
@@ -215,7 +212,7 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
                 {body: 'INFO. VENTA'},
                 {body: '+ OPCIONES'},
             ],
-         delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, sock}) => {
+         delay: 5000 }, async (ctx, { fallBack, gotoFlow, provider, sock}) => {
     
     if (ctx.body == 'INFO. ALQUILER') {
           gotoFlow(flowsAlquiler)
@@ -241,21 +238,23 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
                    delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, sock}) => {
               
               if (ctx.body == 'PAGINA WEB') {
-                await provider.getInstance().sendtext(ctx.key.remoteJid, { text: 'WEB: https://espejoselfiemirror.com.ar' });
+                await provider.sendtext(ctx.key.remoteJid, 'WEB: https://espejoselfiemirror.com.ar' );
                 gotoFlow(Menuflow);
       } else if (ctx.body == 'HABLAR CON ASESOR') {
          nombre = "Cliente"
          gotoFlow(Cliente)
       } else if (ctx.body == 'INFO DE LA EMPRESA') {
-   await provider.getInstance().sendtext(ctx.key.remoteJid, { location: { degreesLatitude: -34.65693027316358, degreesLongitude: -58.56245348955204 } });
-    await provider.getInstance().sendtext(ctx.key.remoteJid, { text: '*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' });
-    await provider.getInstance().sendtext(ctx.key.remoteJid, { text: 'Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' });
-    await provider.getInstance().sendtext(ctx.key.remoteJid, { video: readFileSync("video.mp4"), caption: "Showroom", gifPlayback: true });
-       
-      gotoFlow(Menuflow);
-    } [flowVenta, flowsAlquiler, Cliente];})
-              
-  
+   await provider.sendtext(ctx.key.remoteJid, {location:{degreesLatitude: -34.65693027316358, degreesLongitude: -58.56245348955204}})
+    await provider.sendtext(ctx.key.remoteJid,  '*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
+    await provider.sendtext(ctx.key.remoteJid,   'Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
+    await provider.sendmedia(ctx.key.remoteJid,  "video.mp4");
+      
+        gotoFlow(Menuflow);
+         }
+            
+         [flowVenta, flowsAlquiler, Cliente]}
+    
+            )
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
