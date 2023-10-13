@@ -114,7 +114,9 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
                      
             
 
-
+async (ctx, {provider}) => {
+    await provider.sendMedia(number, 'mensaje', url) // en caso de enviar una imagen
+}
               ])
        
        .addAnswer('Plataforma 360 Super Slow',{
@@ -124,7 +126,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
              '🚚El valor no incluye traslados',
              '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'],{capture:false}, async (ctx, {endFlow,gotoFlow }) => {
        ///      numero2(ctx.from)
-           motivo= "Alquiler";
+           motivo= "Alquiler";aasdasd.  
              await gotoFlow(Cliente);
             endFlow()}
              )
