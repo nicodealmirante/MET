@@ -252,10 +252,10 @@ const main = async () => {
     const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono])
 
     const adapterProvider = createProvider(MetaProvider, {
-        jwtToken: 'EAAMziR3dWTwBO0dBceZArmJhZBQSEIygUsmBsKFw0LAyzdpLfznHunGZCbh4uvaHbZBp2ago7mZBds122x7KH3CoWFYG2JjGCltdUKroz8ZBMDxwbEGlFPMCdoVAwXK53UzYq68tTY0spXZBRbIazEsDgfe0wMZBAQggYogDS7F5GNTK26vo6toXy67HyJ2aZBu5WzFkyZCng58PnLj2o5ZBtOZAoK15uhG2rCZB9p6XZA',
-        numberId: '103110496094657',
+        jwtToken: 'EAAMziR3dWTwBOZB5U4Ok6z0zGyYAkgjtPUJ41nYNhYWxHjfkJZAtBsc0BZANhqGFXFnGTeyVeLhoYG3ICBVALp9DnJpXeCg6GuCrcaLc62O6W4qBl4PguvxHH7tyK6ZCM6W3va1W8myWLESRCEmOThdcBjPNBUl1IOgpDEEl1c5NGCEenURtzDLUvTc4mmiiZCtucwjmNHP39ZCn8n',
+        numberId: '133862353148114',
         verifyToken: 'asdasd',
-        version: 'v18.0',
+        version: 'v16.0',
     })
 
     createBot({
