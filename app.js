@@ -245,7 +245,7 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
         flowDynamic('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
         flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
    
-        .addAnswer('Selfie Mirror', {media: 'video.mp4'})
+        flowDynamic('Selfie Mirror', {media: 'video.mp4'})
       
         gotoFlow(Menuflow);
          }
