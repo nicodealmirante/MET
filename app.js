@@ -233,7 +233,7 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
                           {body: 'INFO DE LA EMPRESA'},
                           {body: 'PAGINA WEB'},
                       ],
-                   delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, sock}) => {
+                   delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
               
               if (ctx.body == 'PAGINA WEB') {
                 flowDynamic('https://www.espejoselfiemirror.com.ar')        
