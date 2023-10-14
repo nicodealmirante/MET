@@ -220,7 +220,7 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
          gotoFlow(flowVenta)
         } else if (ctx.body == '+ OPCIONES') {
             gotoFlow(Menuflow2)
-    }
+    }}
 )                    
      .addAnswer("", { 
                       capture: true,
