@@ -221,7 +221,10 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
         } else if (ctx.body == '+ OPCIONES') {
             gotoFlow(Menuflow2)
     }}
-)                    
+) 
+  const Menuflow2 = addKeyword(["me-nu"], { sensitive: true })
+
+  
      .addAnswer("", { 
                       capture: true,
                       buttons: [
