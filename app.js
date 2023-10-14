@@ -222,10 +222,11 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
             gotoFlow(Menuflow2)
     }}
 ) 
+
   const Menuflow2 = addKeyword(["me-nu"], { sensitive: true })
 
   
-     .addAnswer("", { 
+     .addAnswer("Menu", { 
                       capture: true,
                       buttons: [
                           {body: 'HABLAR CON ASESOR'},
