@@ -263,7 +263,7 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
     const adapterDB = new JsonFileAdapter()
     const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono,Menuflow2])
     const adapterProvider = createProvider(MetaProvider, {
-        jwtToken: 'EAAMziR3dWTwBO0dBceZArmJhZBQSEIygUsmBsKFw0LAyzdpLfznHunGZCbh4uvaHbZBp2ago7mZBds122x7KH3CoWFYG2JjGCltdUKroz8ZBMDxwbEGlFPMCdoVAwXK53UzYq68tTY0spXZBRbIazEsDgfe0wMZBAQggYogDS7F5GNTK26vo6toXy67HyJ2aZBu5WzFkyZCng58PnLj2o5ZBtOZAoK15uhG2rCZB9p6XZA',
+        jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
         numberId: '133862353148114',
         verifyToken: 'asdasd',
         version: 'v16.0',
