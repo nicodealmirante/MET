@@ -6,7 +6,6 @@ const { readFileSync } = require("fs");
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 const fs = require("fs")
 const axios = require("axios");
-const ServerAPI = require('./http');
 
 let motivo;  
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -269,7 +268,6 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
         verifyToken: 'asdasd',
         version: 'v16.0',
     })
-     const httpServer = new ServerAPI(adapterProvider, adapterDB)
 
     httpServer.start()
 
@@ -279,7 +277,6 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
         database: adapterDB,
     })
 
-    httpServer.start()
 }
 
 main()
