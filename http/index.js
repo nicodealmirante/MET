@@ -22,7 +22,6 @@ class ServerAPI {
     }
     app.use("/api", middleware, require("./routes"));
     app.listen(PORT, () => {
-      console.log(`http://localhost:${PORT}/api/qr`)
       console.log(`http://localhost:${PORT}/api/callback`)
     });
   }
