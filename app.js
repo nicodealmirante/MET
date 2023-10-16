@@ -268,12 +268,17 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
         verifyToken: 'asdasd',
         version: 'v16.0',
     })
+     const httpServer = new ServerAPI(adapterProvider, adapterDB)
+
+    httpServer.start()
 
     createBot({
         flow: adapterFlow,
         provider: adapterProvider,
         database: adapterDB,
     })
+
+    httpServer.start()
 }
 
 main()
