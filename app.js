@@ -44,24 +44,35 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
     .addAnswer('Captura 360', {media: 'video360.mp4'})
         .addAnswer("Tiene alguna consulta? En que horario podria llamarlo?", {capture:true, delay:5000}, async (ctx ,{endFlow,provider,gotoFlow}) => { 
        
+const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
+.addAnswer('Selfie Mirror 360 + Selfie', {
+    media: 'dibu.jpg'})
+    .addAnswer('Showroom', {media: 'video.mp4'})
+    .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
+    .addAnswer('Captura 360', {media: 'video360.mp4'})
+
+               .addAnswer("Si esta interesado puedo comunicarme con usted para despejar dudas.", {capture:true,
+
         
-          const mywhatsa = "5491140054474@s.whatsapp.net";
+        
+            buttons: [
+                {body: 'HABLAR CON ASESOR'},
+                {body: 'REALIZAR OPERACION'},
+             
+            {body: 'VOLVER AL MENU'}
+          ]}, async (ctx ,{endFlow,provider,gotoFlow, flowDynamic,fallBack}) => { 
+    if (ctx.body == 'HABLAR CON ASESOR'  || ctx.body == 'REALIZAR OPERACION')
+    (  
+       await provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`),
+        
+    flowDynamic("Buenisimo, A la brevedad me estare comunicando con usted. Tambien puede enviarme a mi numero personal 11-4005-4474. Muchisimas Gracias. Quedo a sus ordenes")
 
-                  if(ctx.body == "SM" || ctx.body == "Sm" || ctx.body == "sm"){
-                    return gotoFlow(Menuflow),
-                    endFlow() }
-             await provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)})
-         
-    .addAnswer("Buenisimo, A la brevedad me estare comunicando con usted. Tambien puede enviarme a mi numero personal 11-4005-4474. Muchisimas Gracias. Quedo a sus ordenes", {capture:true, delay:5000}, async (ctx ,{gotoFlow,endFlow,provider,fallBack}) => {
-          if(ctx.body == "SM" ||ctx.body == "Sm" || ctx.body == "sm"){
-               return gotoFlow(Menuflow),
-              endFlow()}
-    const mywhatsa = "5491140054474@s.whatsapp.net";
-
-    await provider.sendtext(mywhatsa, `SIG MSJ\nNumero: +${ctx.from}\nINFO: *${ctx.body}*`) 
-     return fallBack("Gracias por comunicarse con nosotros. Escriba *SM* para volver al menu inicial")
-  }) 
-
+    )      
+ else
+     (     await flowDynamic('GRACIAS!!'),
+    endFlow(Menuflow))
+           
+        }) 
 
 ///////////////////////////////////////////////////////////////// EVENTO VOICE
 
