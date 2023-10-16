@@ -185,8 +185,8 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
  \n 
 💱[1 U$S = AR ${dolar}.-]💱`);
    
-       await gotoFlow(Cliente); 
-       endFlow()})
+       gotoFlow(Cliente); 
+    await   endFlow()})
   
 
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
