@@ -6,7 +6,6 @@ const { readFileSync } = require("fs");
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 const fs = require("fs")
 const axios = require("axios");
-const ServerAPI = require('./http');
 
 let motivo;  
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -57,7 +56,6 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
           if(ctx.body == "SM" ||ctx.body == "Sm" || ctx.body == "sm"){
                return gotoFlow(Menuflow),
               endFlow()}
-    const mywhatsa = "5491140054474@s.whatsapp.net";
 
     await provider.sendtext(mywhatsa, `SIG MSJ\nNumero: +${ctx.from}\nINFO: *${ctx.body}*`) 
      return fallBack("Gracias por comunicarse con nosotros. Escriba *SM* para volver al menu inicial")
