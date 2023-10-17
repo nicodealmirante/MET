@@ -43,6 +43,7 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
     .addAnswer('Showroom', {media: 'video.mp4'})
     .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
     .addAnswer('Captura 360', {media: 'video360.mp4'})
+ console_log("Tiene alguna consulta? En que horario podria llamarlo?")
         .addAnswer("Tiene alguna consulta? En que horario podria llamarlo?", {capture:true, delay:5000}, async (ctx ,{endFlow,provider,gotoFlow}) => { 
        
         
@@ -171,8 +172,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
         .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
  let dolar
       await fetch('https://api.bluelytics.com.ar/v2/latest')
-.then(response => response.json())
-.then(json => dolar = json.blue.value_sell)
+.then(response => response.blue.value_sell)
                 motivo = "VENTA"         
             //   numero(ctx.from);
         
@@ -186,7 +186,7 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓
  \n 
 💱[1 U$S = AR ${dolar}.-]💱`);
-   
+   console_log(ctx.from+dolar)
     await gotoFlow(Cliente); 
        endFlow()})
   
@@ -275,7 +275,7 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
         provider: adapterProvider,
         database: adapterDB,
     })
-
+console_log(main.adapterDB)
 }
 
 main()
