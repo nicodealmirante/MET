@@ -43,12 +43,12 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
     .addAnswer('Showroom', {media: 'video.mp4'})
     .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
     .addAnswer('Captura 360', {media: 'video360.mp4'})
- console_log("Tiene alguna consulta? En que horario podria llamarlo?")
         .addAnswer("Tiene alguna consulta? En que horario podria llamarlo?", {capture:true, delay:5000}, async (ctx ,{endFlow,provider,gotoFlow}) => { 
        
-        
-          const mywhatsa = "5491140054474@s.whatsapp.net";
+         console_log("Tiene alguna consulta? En que horario podria llamarlo?")
 
+          const mywhatsa = "5491140054474@s.whatsapp.net";
+console_log(ctx.body)
                   if(ctx.body == "SM" || ctx.body == "Sm" || ctx.body == "sm"){
                     return gotoFlow(Menuflow),
                     endFlow() }
@@ -59,6 +59,7 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
                return gotoFlow(Menuflow),
               endFlow()}
     const mywhatsa = "5491140054474@s.whatsapp.net";
+    console_log(ctx.body)
 
     await provider.sendtext(mywhatsa, `SIG MSJ\nNumero: +${ctx.from}\nINFO: *${ctx.body}*`) 
      return fallBack("Gracias por comunicarse con nosotros. Escriba *SM* para volver al menu inicial")
