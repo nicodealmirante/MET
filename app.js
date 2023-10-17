@@ -275,7 +275,11 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
         provider: adapterProvider,
         database: adapterDB,
     })
+<<<<<<< HEAD
 console_log(main.adapterDB)
+=======
+console_log(adapterDV)
+>>>>>>> 6a084455d8d706248dd959f7fedb19b25d823264
 }
 
 main()
