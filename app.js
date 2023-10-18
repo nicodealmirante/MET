@@ -44,7 +44,7 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
     .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
     .addAnswer('Captura 360', {media: 'video360.mp4'})
         .addAnswer("Tiene alguna consulta? En que horario podria llamarlo?", {capture:true, delay:5000}, async (ctx ,{endFlow,provider,gotoFlow}) => { 
-       
+        
 
           const mywhatsa = "5491140054474@s.whatsapp.net";
 
