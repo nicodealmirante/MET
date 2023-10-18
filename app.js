@@ -65,7 +65,7 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
   }) 
 
 
-///////////////////////////////////////////////////////////////// EVENTO VOICE
+//////////////////////////////zx</////////////////////////////////// EVENTO VOICE
 
 const audiono = addKeyword(EVENTS.VOICE_NOTE)
   .addAnswer('Disculpe, no puedo escuchar audios. Por favor utilice solo texto.')
