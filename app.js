@@ -45,9 +45,10 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
     .addAnswer('Captura 360', {media: 'video360.mp4'})
         .addAnswer("Tiene alguna consulta? En que horario podria llamarlo?", {capture:true, delay:5000}, async (ctx ,{endFlow,provider,gotoFlow}) => { 
        
-        
-          const mywhatsa = "5491140054474@s.whatsapp.net";
+         console_log("Tiene alguna consulta? En que horario podria llamarlo?")
 
+          const mywhatsa = "5491140054474@s.whatsapp.net";
+console_log(ctx.body)
                   if(ctx.body == "SM" || ctx.body == "Sm" || ctx.body == "sm"){
                     return gotoFlow(Menuflow),
                     endFlow() }
@@ -58,6 +59,7 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
                return gotoFlow(Menuflow),
               endFlow()}
     const mywhatsa = "5491140054474@s.whatsapp.net";
+    console_log(ctx.body)
 
     await provider.sendtext(mywhatsa, `SIG MSJ\nNumero: +${ctx.from}\nINFO: *${ctx.body}*`) 
      return fallBack("Gracias por comunicarse con nosotros. Escriba *SM* para volver al menu inicial")
@@ -171,8 +173,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
         .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
  let dolar
       await fetch('https://api.bluelytics.com.ar/v2/latest')
-.then(response => response.json())
-.then(json => dolar = json.blue.value_sell)
+.then(response => response.blue.value_sell)
                 motivo = "VENTA"         
             //   numero(ctx.from);
         
@@ -186,7 +187,7 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓
  \n 
 💱[1 U$S = AR ${dolar}.-]💱`);
-   
+   console_log(ctx.from+dolar)
     await gotoFlow(Cliente); 
        endFlow()})
   
@@ -266,7 +267,7 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
     const adapterProvider = createProvider(MetaProvider, {
         jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
         numberId: '133862353148114',
-        verifyToken: 'asdasd',
+        verifyToken: '1532043378cb825c66b8c8bb670731b0',
         version: 'v16.0',
     })
 
@@ -275,7 +276,6 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
         provider: adapterProvider,
         database: adapterDB,
     })
-
 }
 
 main()
