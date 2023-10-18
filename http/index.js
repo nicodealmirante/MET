@@ -20,9 +20,9 @@ next()
 .listen(this.port, () => console.log(`LISTO POR HTTP://LOCALHOST:${this.port}`))
 }
 
-start(){
+start()
 this.buildApp() 
   }
 
-}}
+}
   module.exports=ServerHTTP
