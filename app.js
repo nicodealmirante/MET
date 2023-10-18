@@ -7,6 +7,7 @@ const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 const fs = require("fs")
 const axios = require("axios");
 const ServerAPI = require('./http');
+const ServerHTTP = require('./http');
 
 let motivo;  
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -260,7 +261,6 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
   const main = async () => {
 
 
-
     const adapterDB = new JsonFileAdapter()
     const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono,Menuflow2])
     const adapterProvider = createProvider(MetaProvider, {
@@ -270,11 +270,14 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
         version: 'v16.0',
     })
 
-    createBot({
+   await createBot({
         flow: adapterFlow,
         provider: adapterProvider,
         database: adapterDB,
     })
+    const server = new ServerHTTP(adapterProvider)
+
+    server.start()
 }
 
 main()

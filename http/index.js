@@ -1,31 +1,28 @@
-const express = require("express");
-const app = express();
+const express = require('express')
+const routes = require('./routes/chaty')
 
-const PORT = process.env.PORT ?? 4000;
+class ServerHTTP {
+app;
+port=process.env.PORT ?? 3003
+providerWs;
+constructor(_providerWs){
+this.providerWs=_providerWs
 
-/**
- * Clase de API REST
- */
-class ServerAPI {
-  providerWS;
-  providerDB;
-  constructor(_providerWS, _providerDB) {
-    this.providerWS = _providerWS;
-    this.providerDB = _providerDB;
-  }
+buildApp= () => {
+return this.app=express()
+.use(express.json())
+.use((req, _, next)=>{
+req.providerWs=this.providerWs
+next()
 
-  start() {
-    const middleware = (req, _, next) => {
-      req.ws = this.providerWS
-      req.db = this.providerDB
-      next()
-    }
-    app.use("/api", middleware, require("./routes"));
-    app.listen(PORT, () => {
-      console.log(`http://localhost:${PORT}/api/qr`)
-      console.log(`http://localhost:${PORT}/api/callback`)
-    });
-  }
+})
+.use(routes)
+.listen(this.port, () => console.log(`LISTO POR HTTP://LOCALHOST:${this.port}`))
 }
 
-module.exports = ServerAPI;
+start(){
+this.buildApp() 
+  }
+
+}}
+  module.exports=ServerHTTP
