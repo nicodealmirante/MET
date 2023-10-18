@@ -266,7 +266,7 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
     const adapterProvider = createProvider(MetaProvider, {
         jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
         numberId: '133862353148114',
-        verifyToken: '1532043378cb825c66b8c8bb670731b0',
+        verifyToken: 'asdasd',
         version: 'v16.0',
     })
 
