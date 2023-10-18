@@ -170,12 +170,13 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
         .addAnswer('Selfie Mirror', {media: 'banner22.jpg'})
 
         .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
- let dolar
-      await fetch('https://api.bluelytics.com.ar/v2/latest')
-.then(response => response.blue.value_sell)
-                motivo = "VENTA"         
-            //   numero(ctx.from);
-        
+          let dolar
+          await fetch('https://api.bluelytics.com.ar/v2/latest')
+    .then(response => response.json())
+    .then(json => dolar = json.blue.value_sell)
+                    motivo = "VENTA"         
+                //   numero(ctx.from);
+            
 await flowDynamic(`*VALOR ESPEJO MAGICO* \n
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
@@ -186,7 +187,7 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓
  \n 
 💱[1 U$S = AR ${dolar}.-]💱`);
-   console_log(ctx.from+dolar)
+
     await gotoFlow(Cliente); 
        endFlow()})
   
