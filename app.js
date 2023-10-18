@@ -131,7 +131,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
 
 
   const flowVenta = addKeyword(['VE-NTA'], { sensitive: true })
-          .addAnswer('👌 Te envío la info de Venta.')
+          .addAnswer('👌 Te envío la info de Venta.',{delay: 2000})
 
           .addAnswer(['*Espejo Mágico Selfie Mirror*',
                     '\nEl Espejo Mágico de Selfie Mirror cuenta con una cámara web de alta calidad, vidrio templado resistente, una Mini PC y un',
