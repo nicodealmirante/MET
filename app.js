@@ -58,8 +58,6 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
                return gotoFlow(Menuflow),
               endFlow()}
     const mywhatsa = "5491140054474@s.whatsapp.net";
-    console_log(ctx.body)
-
     await provider.sendtext(mywhatsa, `SIG MSJ\nNumero: +${ctx.from}\nINFO: *${ctx.body}*`) 
      return fallBack("Gracias por comunicarse con nosotros. Escriba *SM* para volver al menu inicial")
   }) 
@@ -197,7 +195,7 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
 
   const flowPrincipal = addKeyword(EVENTS.WELCOME)  
   .addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás", { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
-                    console.log(ctx.body) 
+            
                      await gotoFlow(Menuflow);
                     endFlow()})
                     
