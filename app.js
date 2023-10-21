@@ -138,10 +138,39 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
              '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'],{capture:false}, async (ctx, {gotoFlow,endFlow}) => {
        ///      numero2(ctx.from)
            motivo= "Alquiler";
-      console.log('GOTOCLIENTE')
-           return  gotoFlow(Cliente);
-      }
-                   )
+      console.log('GOTOCLIENTE');
+    }
+      )
+      .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
+    .addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
+    .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
+    .addAnswer('Captura 360', {media: 'video360.mp4'})
+    .addAnswer("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
+      capture: true,
+      buttons: [
+          {body: 'CONTINUAR CON AGENTE'},
+          {body: 'VOLVER AL MENU'},
+          {body: 'FINALIZAR'},
+      ],
+  }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
+          const mywhatsa = "5491140054474@s.whatsapp.net";
+
+if (ctx.body == 'CONTINUAR CON AGENTE') {
+
+await provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
+await endFlow()
+
+} else if (ctx.body == 'VOLVER AL MENU') {
+
+ await gotoFlow(Menuflow)
+
+  } else if (ctx.body == 'FINALIZAR') {
+    flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
+await endFlow()
+}}
+)       
+
 
 /////////////////////////////////////////////////////////////////////////////////////////// FLUJO VENTA
 
@@ -202,12 +231,37 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
 💱 > U$D = AR$ > 💱
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`);
  await flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
-console.log('GOTOCLIENTE')
+console.log('GOTOCLIENTE')})
+.addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
+    .addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
+    .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
+    .addAnswer('Captura 360', {media: 'video360.mp4'})
+    .addAnswer("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
+      capture: true,
+      buttons: [
+          {body: 'CONTINUAR CON AGENTE'},
+          {body: 'VOLVER AL MENU'},
+          {body: 'FINALIZAR'},
+      ],
+  }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
+          const mywhatsa = "5491140054474@s.whatsapp.net";
 
-   return  gotoFlow(Cliente); 
+if (ctx.body == 'CONTINUAR CON AGENTE') {
+
+await provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
+await endFlow()
+
+} else if (ctx.body == 'VOLVER AL MENU') {
+
+ await gotoFlow(Menuflow)
+
+  } else if (ctx.body == 'FINALIZAR') {
+    flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
+await endFlow()
+}}
+)        
    
-        })
-
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
 
 
