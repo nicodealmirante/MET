@@ -236,7 +236,7 @@ console.log('GOTOCLIENTE')})
     .addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
     .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
     .addAnswer('Captura 360', {media: 'video360.mp4'})
-    .addAnswer("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
+    await .addAnswer("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
       capture: true,
       buttons: [
           {body: 'CONTINUAR CON AGENTE'},
