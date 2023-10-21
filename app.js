@@ -138,7 +138,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
        ///      numero2(ctx.from)
            motivo= "Alquiler";
       console.log('GOTOCLIENTE')
-             gotoFlow(Cliente);
+           await  gotoFlow(Cliente);
       }
                    )
 
@@ -192,15 +192,15 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
                     motivo = "VENTA"       ;  
                 //   numero(ctx.from);
             
- flowDynamic(`*VALOR ESPEJO MAGICO* \n
+ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓 `);
-      flowDynamic(`*VALOR PLATAFORMA 360*\n     
+    await  flowDynamic(`*VALOR PLATAFORMA 360*\n     
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`);
-  flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
+ await flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
 console.log('GOTOCLIENTE')
 
    await  gotoFlow(Cliente); 
