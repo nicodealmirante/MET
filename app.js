@@ -37,8 +37,8 @@ console.log('Numero Agendado de Alquiler');*/
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
-.addAnswer('Selfie Mirror 360 + Selfie', {media: 'dibu.jpg'})
-    .addAnswer('Showroom', {media: 'video.mp4'})
+.addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
+    .addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
     .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
     .addAnswer('Captura 360', {media: 'video360.mp4'})
     .addAnswer("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
