@@ -139,8 +139,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
        ///      numero2(ctx.from)
            motivo= "Alquiler";
       console.log('GOTOCLIENTE');
-    }
-      )
+ 
       await flowDynamic('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
       await flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
       await flowDynamic('Selfie Mirror', {media: 'video2.mp4'});
@@ -171,7 +170,8 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
       await endFlow()
       }}
       )        
-         
+            }
+      )
 
 
 /////////////////////////////////////////////////////////////////////////////////////////// FLUJO VENTA
