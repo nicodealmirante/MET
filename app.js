@@ -268,7 +268,7 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
         jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
         numberId: '133862353148114',
         verifyToken: 'asdasd',
-        version: 'v16.0',
+        version: 'v18.0',
     })
 
     const BotCreate = await createBot({
@@ -278,7 +278,7 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
     });
   
     BotWrapper.initialize(BotCreate, {
-      CHATWOOT_URL: "https://chatwoot-production-36d7.up.railway.app/api/",
+      CHATWOOT_URL: "https://chatwoot-production-36d7.up.railway.app/",
       CHATWOOT_ID:"1",
       CHATWOOT_INBOX_ID:  "4",
       CHATWOOT_API_ACCESS_TOKEN: "wshJN4RodjHhKosYNaVC7SMn",
