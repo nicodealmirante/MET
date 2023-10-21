@@ -137,7 +137,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
              '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'],{capture:false}, async (ctx, {gotoFlow }) => {
        ///      numero2(ctx.from)
            motivo= "Alquiler";
-      console_log('GOTOCLIENTE')
+      console.log('GOTOCLIENTE')
            await   gotoFlow(Cliente);
       }
                    )
@@ -201,7 +201,7 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
 💱 > U$D = AR$ > 💱
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`);
 await  flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
-console_log('GOTOCLIENTE')
+console.log('GOTOCLIENTE')
 
    await  gotoFlow(Cliente); 
    
