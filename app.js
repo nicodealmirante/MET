@@ -232,10 +232,10 @@ await endFlow()
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`);
  await flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
 console.log('GOTOCLIENTE')});
-await flowDynamic('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'});
-await flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
-await flowDynamic('Selfie Mirror', {media: 'video2.mp4'});
-await flowDynamic('Captura 360', {media: 'video360.mp4'});
+ flowDynamic('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'});
+ flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
+ flowDynamic('Selfie Mirror', {media: 'video2.mp4'});
+ flowDynamic('Captura 360', {media: 'video360.mp4'});
 return flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
       capture: true,
       buttons: [
