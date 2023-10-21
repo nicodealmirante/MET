@@ -48,7 +48,7 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
           {body: 'VOLVER AL MENU'},
           {body: 'FINALIZAR'},
       ],
-   delay: 5000 }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
+  }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
           const mywhatsa = "5491140054474@s.whatsapp.net";
 
 if (ctx.body == 'CONTINUAR CON AGENTE') {
@@ -138,7 +138,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
        ///      numero2(ctx.from)
            motivo= "Alquiler";
       console.log('GOTOCLIENTE')
-           await   gotoFlow(Cliente);
+             gotoFlow(Cliente);
       }
                    )
 
