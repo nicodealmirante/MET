@@ -6,7 +6,8 @@ const { readFileSync } = require("fs");
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 const fs = require("fs")
 const axios = require("axios");
-const ServerAPI = require('./http');
+const BotWrapper = require("./Services/class/botWrapper");
+
 
 let motivo;  
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -121,6 +122,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
              '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'],{capture:false}, async (ctx, {endFlow,gotoFlow }) => {
        ///      numero2(ctx.from)
            motivo= "Alquiler";
+           axios('https://tudominio./comwebhook', {message: 'asd'})
              await gotoFlow(Cliente);
             endFlow()}
                    )
@@ -269,11 +271,18 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
         version: 'v16.0',
     })
 
-    createBot({
-        flow: adapterFlow,
-        provider: adapterProvider,
-        database: adapterDB,
-    })
-}
-
-main()
+    const BotCreate = await createBot({
+      flow: adapterFlow,
+      provider: adapterProvider,
+      database: adapterDB,
+    });
+  
+    BotWrapper.initialize(BotCreate, {
+      CHATWOOT_URL: "https://chatwoot-production-36d7.up.railway.app/",
+      CHATWOOT_ID: "1",
+      CHATWOOT_INBOX_ID: "1",
+      CHATWOOT_API_ACCESS_TOKEN: "wshJN4RodjHhKosYNaVC7SMn",
+    });
+  };
+  
+  main();
