@@ -277,12 +277,7 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
       database: adapterDB,
     });
   
-    BotWrapper.initialize(BotCreate, {
-      CHATWOOT_URL: "https://chatwoot-production-36d7.up.railway.app/",
-      CHATWOOT_ID:"1",
-      CHATWOOT_INBOX_ID:  "1",
-      CHATWOOT_API_ACCESS_TOKEN: "S6xhUEkzKByL8XE9NXuTYNEr",
-    });
+   
   };
   
   main();
