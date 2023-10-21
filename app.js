@@ -134,11 +134,11 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
 
       .addAnswer(['🔒Los valores se congelan y la fecha se reserva solo al señar el servicio (2023)', 
              '🚚El valor no incluye traslados',
-             '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'],{capture:false}, async (ctx, {gotoFlow }) => {
+             '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'],{capture:false}, async (ctx, {gotoFlow,endFlow}) => {
        ///      numero2(ctx.from)
            motivo= "Alquiler";
       console.log('GOTOCLIENTE')
-           await  gotoFlow(Cliente);
+           await  endFlow(Cliente);
       }
                    )
 
@@ -203,7 +203,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
  await flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
 console.log('GOTOCLIENTE')
 
-   await  gotoFlow(Cliente); 
+   await  endFlow(Cliente); 
    
         })
 
