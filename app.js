@@ -141,8 +141,8 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
        ///      numero2(ctx.from)
            motivo= "Alquiler";
       
-             await gotoFlow(Cliente);
-            endFlow()}
+              gotoFlow(Cliente);
+      }
                    )
 
 /////////////////////////////////////////////////////////////////////////////////////////// FLUJO VENTA
@@ -205,9 +205,9 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`);
 await  flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
 
-    await gotoFlow(Cliente); 
-       endFlow()})
-  
+   await  gotoFlow(Cliente); 
+   
+        })
 
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
 
