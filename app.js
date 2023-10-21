@@ -199,7 +199,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
       flowDynamic(`*VALOR PLATAFORMA 360*\n     
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
-📈 AR$ ${new Intl.NumberFormat('e.s-MX').format(dolar*1500)} .-🔓`);
+📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`);
   flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
 console.log('GOTOCLIENTE')
 
