@@ -54,16 +54,16 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
 if (ctx.body == 'CONTINUAR CON AGENTE') {
 
 await provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
-   await  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
-endFlow()
+  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
+await endFlow()
 
 } else if (ctx.body == 'VOLVER AL MENU') {
 
  await gotoFlow(Menuflow)
 
   } else if (ctx.body == 'FINALIZAR') {
-   await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
-    endFlow()
+    flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
+await endFlow()
 }}
 )        
 /** 
@@ -189,18 +189,18 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
           await fetch('https://dolarapi.com/v1/dolares/blue')
     .then(response => response.json())
     .then(json => dolar = json.venta)
-                    motivo = "VENTA"         
+                    motivo = "VENTA"       ;  
                 //   numero(ctx.from);
             
-await flowDynamic(`*VALOR ESPEJO MAGICO* \n
+ flowDynamic(`*VALOR ESPEJO MAGICO* \n
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓 `);
-    await  flowDynamic(`*VALOR PLATAFORMA 360*\n     
+      flowDynamic(`*VALOR PLATAFORMA 360*\n     
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
-📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`);
-await  flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
+📈 AR$ ${new IntlNumberFormat('e.s-MX').format(dolar*1500)} .-🔓`);
+  flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
 console.log('GOTOCLIENTE')
 
    await  gotoFlow(Cliente); 
@@ -232,11 +232,11 @@ console.log('GOTOCLIENTE')
          delay: 5000 }, async (ctx, { fallBack, gotoFlow, provider, sock}) => {
     
     if (ctx.body == 'INFO. ALQUILER') {
-          gotoFlow(flowsAlquiler)
+      await   gotoFlow(flowsAlquiler)
       } else if (ctx.body == 'INFO. VENTA') {
-         gotoFlow(flowVenta)
+       await  gotoFlow(flowVenta)
         } else if (ctx.body == '+ OPCIONES') {
-            gotoFlow(Menuflow2)
+          await  gotoFlow(Menuflow2)
     }}
 ) 
 
