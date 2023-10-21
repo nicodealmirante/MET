@@ -171,9 +171,9 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
 
         .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
           let dolar
-          await fetch('https://api.bluelytics.com.ar/v2/latest')
+          await fetch('https://dolarapi.com/v1/dolares/blue')
     .then(response => response.json())
-    .then(json => dolar = json.blue.value_sell)
+    .then(json => dolar = json.venta)
                     motivo = "VENTA"         
                 //   numero(ctx.from);
             
