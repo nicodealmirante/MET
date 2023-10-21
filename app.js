@@ -144,7 +144,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
       await flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
       await flowDynamic('Selfie Mirror', {media: 'video2.mp4'});
       await flowDynamic('Captura 360', {media: 'video360.mp4'});
-      return flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
+      await flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
             capture: true,
             buttons: [
                 {body: 'CONTINUAR CON AGENTE'},
@@ -166,7 +166,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
        await gotoFlow(Menuflow)
       
         } else if (ctx.body == 'FINALIZAR') {
-          flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
+          await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
       await endFlow()
       }}
       )        
@@ -238,7 +238,7 @@ await flowDynamic('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
 await flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
 await flowDynamic('Selfie Mirror', {media: 'video2.mp4'});
 await flowDynamic('Captura 360', {media: 'video360.mp4'});
-return flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
+await flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
       capture: true,
       buttons: [
           {body: 'CONTINUAR CON AGENTE'},
