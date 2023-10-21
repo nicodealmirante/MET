@@ -44,17 +44,35 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
     .addAnswer('Showroom', {media: 'video.mp4'})
     .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
     .addAnswer('Captura 360', {media: 'video360.mp4'})
-        .addAnswer("Tiene alguna consulta? En que horario podria llamarlo?", {capture:true, delay:5000}, async (ctx ,{endFlow,provider,gotoFlow}) => { 
-       
-
+    .addAnswer("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
+      capture: true,
+      buttons: [
+          {body: 'CONTINUAR CON AGENTE'},
+          {body: 'VOLVER AL MENU'},
+          {body: 'FINALIZAR'},
+      ],
+   delay: 5000 }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
           const mywhatsa = "5491140054474@s.whatsapp.net";
 
-                  if(ctx.body == "SM" || ctx.body == "Sm" || ctx.body == "sm"){
-                    return gotoFlow(Menuflow),
-                    endFlow() }
-             await provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)})
+if (ctx.body == 'CONTINUAR CON AGENTE') {
+
+await provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+     flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
+
+
+} else if (ctx.body == 'VOLVER AL MENU') {
+
+  gotoFlow(Menuflow)
+
+  } else if (ctx.body == 'FINALIZAR') {
+    flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
+    endFlow()
+}}
+)        
+/** 
+})
          
-    .addAnswer("Buenisimo, A la brevedad me estare comunicando con usted. Tambien puede enviarme a mi numero personal 11-4005-4474. Muchisimas Gracias. Quedo a sus ordenes", {capture:true, delay:5000}, async (ctx ,{gotoFlow,endFlow,provider,fallBack}) => {
+    .addAnswer("ESTE CHAT AUTOMATICO A FINALIZADO. NOS PONDREMOS EN CONTACTO CON USTED", {capture:true, delay:5000}, async (ctx ,{gotoFlow,endFlow,provider,fallBack}) => {
           if(ctx.body == "SM" ||ctx.body == "Sm" || ctx.body == "sm"){
                return gotoFlow(Menuflow),
               endFlow()}
@@ -62,7 +80,7 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
     await provider.sendtext(mywhatsa, `SIG MSJ\nNumero: +${ctx.from}\nINFO: *${ctx.body}*`) 
      return fallBack("Gracias por comunicarse con nosotros. Escriba *SM* para volver al menu inicial")
   }) 
-
+*/
 
 //////////////////////////////zx</////////////////////////////////// EVENTO VOICE
 
@@ -122,7 +140,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
              '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'],{capture:false}, async (ctx, {endFlow,gotoFlow }) => {
        ///      numero2(ctx.from)
            motivo= "Alquiler";
-           axios('https://tudominio./comwebhook', {message: 'asd'})
+      
              await gotoFlow(Cliente);
             endFlow()}
                    )
@@ -184,9 +202,8 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
     await  flowDynamic(`*VALOR PLATAFORMA 360*\n     
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
-📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓
- \n 
-💱[1 U$S = AR ${dolar}.-]💱`);
+📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`);
+await  flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
 
     await gotoFlow(Cliente); 
        endFlow()})
