@@ -135,7 +135,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
 
       .addAnswer(['🔒Los valores se congelan y la fecha se reserva solo al señar el servicio (2023)', 
              '🚚El valor no incluye traslados',
-             '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'],{capture:false}, async (ctx, {gotoFlow,endFlow}) => {
+             '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'],{capture:false}, async (ctx, {gotoFlow,endFlow,flowDynamic}) => {
        ///      numero2(ctx.from)
            motivo= "Alquiler";
       console.log('GOTOCLIENTE');
