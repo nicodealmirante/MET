@@ -57,15 +57,15 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
 if (ctx.body == 'CONTINUAR CON AGENTE') {
 
 await provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
-     flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
-
+   await  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
+endFlow()
 
 } else if (ctx.body == 'VOLVER AL MENU') {
 
-  gotoFlow(Menuflow)
+ await gotoFlow(Menuflow)
 
   } else if (ctx.body == 'FINALIZAR') {
-    flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
+   await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
     endFlow()
 }}
 )        
@@ -141,7 +141,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
        ///      numero2(ctx.from)
            motivo= "Alquiler";
       
-              gotoFlow(Cliente);
+           await   gotoFlow(Cliente);
       }
                    )
 
@@ -216,7 +216,7 @@ await  flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
   .addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás", { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
             
                      await gotoFlow(Menuflow);
-                    endFlow()})
+         }       )
                     
 
 
