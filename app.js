@@ -6,8 +6,6 @@ const { readFileSync } = require("fs");
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 const fs = require("fs")
 const axios = require("axios");
-const BotWrapper = require("./Services/class/botWrapper");
-
 
 let motivo;  
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -39,8 +37,7 @@ console.log('Numero Agendado de Alquiler');*/
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
-.addAnswer('Selfie Mirror 360 + Selfie', {
-    media: 'dibu.jpg'})
+.addAnswer('Selfie Mirror 360 + Selfie', {media: 'dibu.jpg'})
     .addAnswer('Showroom', {media: 'video.mp4'})
     .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
     .addAnswer('Captura 360', {media: 'video360.mp4'})
@@ -137,10 +134,10 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
 
       .addAnswer(['🔒Los valores se congelan y la fecha se reserva solo al señar el servicio (2023)', 
              '🚚El valor no incluye traslados',
-             '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'],{capture:false}, async (ctx, {endFlow,gotoFlow }) => {
+             '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'],{capture:false}, async (ctx, {gotoFlow }) => {
        ///      numero2(ctx.from)
            motivo= "Alquiler";
-      
+      console_log('GOTOCLIENTE')
            await   gotoFlow(Cliente);
       }
                    )
@@ -204,6 +201,7 @@ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
 💱 > U$D = AR$ > 💱
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`);
 await  flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
+console_log('GOTOCLIENTE')
 
    await  gotoFlow(Cliente); 
    
@@ -242,7 +240,7 @@ await  flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
     }}
 ) 
 
-  const Menuflow2 = addKeyword(["me-nu"], { sensitive: true })
+  const Menuflow2 = addKeyword(["me-?nu"], { sensitive: true })
 
   
      .addAnswer("Menu", { 
