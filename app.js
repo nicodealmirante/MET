@@ -279,7 +279,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
 
         .addAnswer('Selfie Mirror', {media: 'banner22.jpg'})
 
-        .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { gotoFlow, endFlow }
+        .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, {flowDynamic, gotoFlow, endFlow }
          ) => {
           let dolar
           await fetch('https://dolarapi.com/v1/dolares/blue')
