@@ -301,7 +301,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
 
   flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
 flowDynamic('Selfie Mirror', {media: 'video2.mp4'});
-flowDynamic('Captura 360', {media: 'video360.mp4'}); },  
+flowDynamic('Captura 360', {media: 'video360.mp4'});  
  flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
       capture: true,
       buttons: [
@@ -310,21 +310,21 @@ flowDynamic('Captura 360', {media: 'video360.mp4'}); },
           {body: 'FINALIZAR'},
       ],
   }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
-          const mywhatsa = "5491140054474@s.whatsapp.net"}))
-
+          const mywhatsa = "5491140054474@s.whatsapp.net"}
+ )
+      
 if (ctx.body == 'CONTINUAR CON AGENTE') {
  provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
-  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
- endFlow()
+  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD');
 
 } else if (ctx.body == 'VOLVER AL MENU') {
 
   gotoFlow(Menuflow) 
-}
-  else if (ctx.body == 'FINALIZAR') {
+
+ } else if (ctx.body == 'FINALIZAR') {
     flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
- endFlow()}
-   
+ endFlow()
+}   
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
 const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 .addAnswer(['¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
@@ -450,5 +450,5 @@ gotoFlow(Menuflow);
 */
 
 };
-
-  main();
+})
+  main()
