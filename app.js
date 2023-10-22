@@ -237,7 +237,8 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
 
         })
             if(ctx.body=='ESPEJO MAGICO SELFIE MIRROR'){console.log('BIEN2')}
-            flowDynamic('👌 Te envío la info de Venta.',{delay: 2000})
+            
+            flowDynamic('👌 Te envío la info de Venta.')
 
           flowDynamic(['*Espejo Mágico Selfie Mirror*',
                     '\nEl Espejo Mágico de Selfie Mirror cuenta con una cámara web de alta calidad, vidrio templado resistente, una Mini PC y un',
