@@ -279,8 +279,9 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 '*VALOR CADENA 1.5 mts 10.000 AR$*',
 '*VALOR SOGA 1.5 mts 20.000 AR$*',
 '*POR FAVOR COMUNIQUESE AL +5491140054474 PARA CONTINUAR*'], {capture:false}, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
-await flowDynamic('FILA VIP', {media: 'ledselfie.mp4'});
-await flowDynamic('FOTO FILA VIP', {media: '111.jpg'});
+ flowDynamic('FILA VIP', {media: 'ledselfie.mp4'});
+ flowDynamic('FOTO FILA VIP', {media: '111.jpg'});
+gotoFlow(Menuflow);
 
 })
 
@@ -292,10 +293,10 @@ await flowDynamic('FOTO FILA VIP', {media: '111.jpg'});
   .addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás")
     .addAnswer("Presentamos los nuevos organizadores de fila *FILA VIP* - Completamente unicos y originales. Otro producto innovador de Selfie Mirror.", {capture: true,
     buttons: [
-        {body: 'INFO ORGANIZADORES LED'},
+        {body: 'INFO ORDENADORES LED'},
         {body: 'CONTINUAR AL MENU'}    ],
  delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
-  if(ctx.body=='INFO ORGANIZADORES LED'){await gotoFlow(organizadorflow)}else
+  if(ctx.body=='INFO ORDENADORES LED'){await gotoFlow(organizadorflow)}else
                     {await gotoFlow(Menuflow)}
          }       )
                     
@@ -361,7 +362,7 @@ await flowDynamic('FOTO FILA VIP', {media: '111.jpg'});
 
 
     const adapterDB = new JsonFileAdapter()
-    const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono,Menuflow2])
+    const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono,Menuflow2,organizadorflow])
     const adapterProvider = createProvider(MetaProvider, {
         jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
         numberId: '133862353148114',
