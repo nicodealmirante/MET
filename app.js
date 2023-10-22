@@ -275,12 +275,14 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 '🌟 Destaca entre la multitud: Con nuestros organizadores de fila Pixel LED, tu negocio destacará en cualquier entorno, desde eventos, ferias comerciales hasta tiendas minoristas y restaurantes.',
 '¡Es el momento de darle a tu negocio una ventaja competitiva!',
 '¡Haz que tu negocio brille con nuestros organizadores de fila Pixel LED! 💫✨ #TecnologíaLED #OrganizaciónEfectiva #AtraeClientes',
-'*VALOR 80.000 AR$ CADA COLUMNA*',
+'*VALORES*',
+'*ORDENADOR LED 80.000 AR$ C/U*',
 '*VALOR CADENA 1.5 mts 10.000 AR$*',
-'*VALOR SOGA 1.5 mts 20.000 AR$*',
+'*VALOR SOGA 1.5 mts 20.000 AR$*(COLORES)*',
+'*DEMORA DE PRODUCCION ACTUAL (7/10 DIAS)*',
 '*POR FAVOR COMUNIQUESE AL +5491140054474 PARA CONTINUAR*'], {capture:false}, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
  flowDynamic('FILA VIP', {media: 'ledselfie.mp4'});
- flowDynamic('FOTO FILA VIP', {media: '111.jpg'});
+await flowDynamic('FOTO FILA VIP', {media: '111.jpg'});
 gotoFlow(Menuflow);
 
 })
@@ -294,8 +296,7 @@ gotoFlow(Menuflow);
     .addAnswer("Presentamos los nuevos organizadores de fila *FILA VIP* - Completamente unicos y originales. Otro producto innovador de Selfie Mirror.", {capture: true,
     buttons: [
         {body: 'INFO ORDENADORES LED'},
-        {body: 'CONTINUAR AL MENU'}    ],
- delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
+        {body: 'CONTINUAR AL MENU'}    ]}, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
   if(ctx.body=='INFO ORDENADORES LED'){await gotoFlow(organizadorflow)}else
                     {await gotoFlow(Menuflow)}
          }       )
