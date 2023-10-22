@@ -179,7 +179,6 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
 /////////////////////////////////////////////////////////////////////////////////////////// FLUJO VENTA
 
 
-  const flowVenta = addKeyword(['VE-NTA'], { sensitive: true })
        
     .addAnswer(
         'OK',
@@ -344,7 +343,6 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 '*POR FAVOR COMUNIQUESE AL +5491140054474 PARA CONTINUAR*'], {capture:false}, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
  flowDynamic('FILA VIP', {media: 'ledselfie.mp4'});
 await flowDynamic('FOTO FILA VIP', {media: '111.jpg'});
-gotoFlow(Menuflow);
 
 })
 
@@ -354,15 +352,154 @@ gotoFlow(Menuflow);
 
   const flowPrincipal = addKeyword(EVENTS.WELCOME)  
   .addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás")
-    .addAnswer("Presentamos los nuevos organizadores de fila *FILA VIP* - Completamente unicos y originales. Otro producto innovador de Selfie Mirror.", {capture: true,
-    buttons: [
-        {body: 'INFO ORDENADORES LED'},
-        {body: 'CONTINUAR AL MENU'}    ]}, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
-  if(ctx.body=='INFO ORDENADORES LED'){await gotoFlow(organizadorflow)}else
-                    {await gotoFlow(Menuflow)}
+    .addAnswer("Presentamos los nuevos organizadores de fila *FILA VIP* - Completamente unicos y originales. Otro producto innovador de Selfie Mirror.")
+    const flowVenta = addKeyword(['VE-NTA'], { sensitive: true })
+       
+    .addAnswer(
+      {
+            capture: false
+        },
+        async (ctx, {provider}) => {
+            const headerText = 'Selfie Mirror'
+            const bodyText = '*Seleccione una opcion*'
+            const footerText = 'Sistema Automatico FAQ'
+            const buttonList = 'OPCIONES'
+            const listParams = [
+                {
+                    title: '*VENTA*',
+                    rows: [
+                        {
+                            id: 'ID_1',
+                            title: 'ESPEJO MAGICO SELFIE MIRROR',
+                            description: 'VENTA'
+                        },
+                        {
+                            id: 'ID_2',
+                            title: 'PLATAFORMA 360',
+                            description: 'SUPER SLOW'
+                        },
+                        {
+                            id: 'ID_3',
+                            title: 'ORDENADORES DE FILA LED',
+                            description: 'FILA VIP'
+                        }
+                    ]
+                },
+                        {
+                  title: 'LA EMPRESA',
+                  rows: [
+                      {
+                          id: 'ID_1',
+                          title: 'UBICACION',
+                          description: 'SHOWRROOM'
+                      },
+                      {
+                          id: 'ID_2',
+                          title: 'PAGINA WEB',
+                          description: 'PORTALES DIGITALES'
+                      },
+                      {
+                          id: 'ID_3',
+                          title: 'HABLAR CON ASESOR',
+                          description: 'WHATSAPP ASESOR'
+                      }
+                  ]
+                },
+            ]
+            await provider.sendList(ctx.from, headerText, bodyText, footerText, buttonList ,listParams)
+     
+
+        })
+
+  .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'},async(ctx,{flowDynamic})=>{
+            if(ctx.body=='PAGINA WEB'){console.log('BIEN');
+       if(ctx.body=='ESPEJO MAGICO SELFIE MIRROR'){console.log('BIEN2')}}})
+            .addAnswer('👌 Te envío la info de Venta.')
+            
+
+            .addAnswer(['*Espejo Mágico Selfie Mirror*',
+                    '\nEl Espejo Mágico de Selfie Mirror cuenta con una cámara web de alta calidad, vidrio templado resistente, una Mini PC y un',
+                    'televisor LED de 32 pulgadas. Estas características garantizan una experiencia de alta definición para capturar momentos',
+                    'especiales.',
+                   '\nSu diseño compacto y portátil, con dimensiones de 126 cm de alto x 70 cm de ancho y 20 cm de profundidad en el modelo',
+                   'Slim, permite transportarlo fácilmente en cualquier vehículo. Esto brinda una gran versatilidad y conveniencia para eventos ',
+                    'y fiestas.'  ])
 
 
-                  }       )
+                    .addAnswer(['La facilidad de uso es una de las ventajas clave del Espejo Mágico. Simplemente tienes que enchufarlo y presionar el',
+                      'botón de encendido para que empiece a funcionar. Esto agiliza la instalación y permite que los eventos comiencen rápidamente.',
+                    '\nEs importante mencionar que el Selfie Mirror no incluye una impresora, pero está preparado para funcionar con cualquier ',
+                    'impresora que se adapte a las necesidades del cliente. Esto brinda flexibilidad para elegir la impresora que mejor se ajuste a',
+                    'los requerimientos de impresión.',
+                   '\nEn cuanto al precio, el valor del equipo es de 1500 dólares o pesos al valor del dólar blue del día.'],{ capture: false }, async (ctx, { flowDynamic,axios}) => {
+                                            
+                           
+                    } )
+        .addAnswer('Equipo Slim Selfie Mirror', {media: 'banner4.jpg'})
+
+        .addAnswer(['*Plataforma 360 Super Slow*',
+        '\nNuestra plataforma incluye todo lo necesario para poder brindar un servicio profesional. Incluye Monitor transmitiendo en vivo. Proceso de editado automatico.',
+        ' (Una vez grabado se reproduce en el monitor automaticamente ya editado)',
+        'Los invitados podran escanear un codigo QR UNICO para poder visualizar todos los videos del evento *EN EL MOMENTO*',
+                  '\nLa plataforma controlada por mando a distancia incluye: variador de velocidad, arranque y parada suave, soporte reforzado, Aro de Led, 4 bastones led pixel de 1 mt, led rgb en plataforma, stand para TV (no incluida) y asesoramiento tecnico.',
+                 '\n*Equipo listo para trabajar*.',
+                'El valor del equipo es de 1500 U$S.' ,
+                '▶ REQUERIDO:Necesita contar con un Apple Iphone 13 o suoperior (dispositivo de grabacion)',
+      'y un TV LED de 32 o mas (monitoreo)'])
+      .addAnswer('Selfie Mirror', {media: 'video3.mp4'})
+
+      .addAnswer('Formas de pago: efectivo, transferencia/depósito')
+
+        .addAnswer('Selfie Mirror', {media: 'banner22.jpg'})
+
+        .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, {flowDynamic, gotoFlow, endFlow }
+         ) => {
+          let dolar
+          await fetch('https://dolarapi.com/v1/dolares/blue')
+    .then(response => response.json())
+    .then(json => dolar = json.venta)
+                    motivo = "VENTA"  
+                //   numero(ctx.from);
+             
+  flowDynamic(`*VALOR ESPEJO MAGICO* \n
+💵   *U$D 1,500 .-*   🔒
+💱 > U$D = AR$ > 💱
+📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓 `);
+     flowDynamic(`*VALOR PLATAFORMA 360*\n     
+💵   *U$D 1,500 .-*   🔒
+💱 > U$D = AR$ > 💱
+📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`);
+  flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
+   flowDynamic('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'});
+
+  flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
+flowDynamic('Selfie Mirror', {media: 'video2.mp4'});
+flowDynamic('Captura 360', {media: 'video360.mp4'});  
+ flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
+      capture: true,
+      buttons: [
+          {body: 'CONTINUAR CON AGENTE'},
+          {body: 'VOLVER AL MENU'},
+          {body: 'FINALIZAR'},
+      ],
+  }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
+          const mywhatsa = "5491140054474@s.whatsapp.net"}
+ )
+      
+if (ctx.body == 'CONTINUAR CON AGENTE') {
+ provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD');
+
+} else if (ctx.body == 'VOLVER AL MENU') {
+
+  gotoFlow(Menuflow) 
+
+ } else if (ctx.body == 'FINALIZAR') {
+    flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
+ endFlow()
+}   })
+
+
                     
 
 
@@ -426,7 +563,7 @@ gotoFlow(Menuflow);
 
 
     const adapterDB = new JsonFileAdapter()
-    const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente,  audiono,organizadorflow])
+    const adapterFlow = createFlow([flowPrincipal, flowsAlquiler, Cliente,  audiono,organizadorflow])
     const adapterProvider = createProvider(MetaProvider, {
         jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
         numberId: '133862353148114',
