@@ -237,7 +237,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
 
         })
             if(ctx.body=='ESPEJO MAGICO SELFIE MIRROR'){console.log('BIEN2')}
-            
+
             flowDynamic('👌 Te envío la info de Venta.')
 
           flowDynamic(['*Espejo Mágico Selfie Mirror*',
@@ -248,7 +248,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
                    'Slim, permite transportarlo fácilmente en cualquier vehículo. Esto brinda una gran versatilidad y conveniencia para eventos ',
                     'y fiestas.'  ])
 
-        .flowDynamic('Plataforma 360 Super Slow', {media: 'banner.jpg'});
+        flowDynamic('Plataforma 360 Super Slow', {media: 'banner.jpg'});
             if(ctx.body=='PAGINA WEB'){console.log('BIEN');}
             
 
