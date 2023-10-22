@@ -180,17 +180,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
 
 
   const flowVenta = addKeyword(['VE-NTA'], { sensitive: true })
-          .addAnswer('👌 Te envío la info de Venta.',{delay: 2000})
-
-          .addAnswer(['*Espejo Mágico Selfie Mirror*',
-                    '\nEl Espejo Mágico de Selfie Mirror cuenta con una cámara web de alta calidad, vidrio templado resistente, una Mini PC y un',
-                    'televisor LED de 32 pulgadas. Estas características garantizan una experiencia de alta definición para capturar momentos',
-                    'especiales.',
-                   '\nSu diseño compacto y portátil, con dimensiones de 126 cm de alto x 70 cm de ancho y 20 cm de profundidad en el modelo',
-                   'Slim, permite transportarlo fácilmente en cualquier vehículo. Esto brinda una gran versatilidad y conveniencia para eventos ',
-                    'y fiestas.'  ])
-
-        .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
+       
     .addAnswer(
         'OK',
         {
@@ -246,7 +236,18 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
             await provider.sendList(ctx.from, headerText, bodyText, footerText, buttonList ,listParams)
 
         })
-            if(ctx.body=='ESPEJO MAGICO SELFIE MIRROR'){console.log('BIEN2')};
+            if(ctx.body=='ESPEJO MAGICO SELFIE MIRROR'){console.log('BIEN2')}
+            flowDynamic('👌 Te envío la info de Venta.',{delay: 2000})
+
+          flowDynamic(['*Espejo Mágico Selfie Mirror*',
+                    '\nEl Espejo Mágico de Selfie Mirror cuenta con una cámara web de alta calidad, vidrio templado resistente, una Mini PC y un',
+                    'televisor LED de 32 pulgadas. Estas características garantizan una experiencia de alta definición para capturar momentos',
+                    'especiales.',
+                   '\nSu diseño compacto y portátil, con dimensiones de 126 cm de alto x 70 cm de ancho y 20 cm de profundidad en el modelo',
+                   'Slim, permite transportarlo fácilmente en cualquier vehículo. Esto brinda una gran versatilidad y conveniencia para eventos ',
+                    'y fiestas.'  ])
+
+        .flowDynamic('Plataforma 360 Super Slow', {media: 'banner.jpg'});
             if(ctx.body=='PAGINA WEB'){console.log('BIEN');}
             
 
