@@ -300,7 +300,7 @@ await endFlow()}
 }
 
 
-await flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
+ flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
   capture: true,
   buttons: [
       {body: 'CONTINUAR CON AGENTE'},
