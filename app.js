@@ -301,7 +301,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
 
   flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
 flowDynamic('Selfie Mirror', {media: 'video2.mp4'});
-flowDynamic('Captura 360', {media: 'video360.mp4'}); }   )
+flowDynamic('Captura 360', {media: 'video360.mp4'}); },  
  flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
       capture: true,
       buttons: [
@@ -310,23 +310,20 @@ flowDynamic('Captura 360', {media: 'video360.mp4'}); }   )
           {body: 'FINALIZAR'},
       ],
   }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
-          const mywhatsa = "5491140054474@s.whatsapp.net";
+          const mywhatsa = "5491140054474@s.whatsapp.net"}))
 
 if (ctx.body == 'CONTINUAR CON AGENTE') {
-
 await provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
   flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
 await endFlow()
 
-} else if (ctx.body == 'VOLVER AL MENU') {
+} else if (ctx.body == 'VOLVER AL MENU') 
 
- await gotoFlow(Menuflow)
+ await gotoFlow(Menuflow) 
 
-  } else if (ctx.body == 'FINALIZAR') {
+  else if (ctx.body == 'FINALIZAR') {
     flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
-await endFlow()
-}}
-)        
+await endFlow()}
    
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
 const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
