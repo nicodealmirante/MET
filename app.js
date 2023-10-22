@@ -319,7 +319,7 @@ if (ctx.body == 'CONTINUAR CON AGENTE') {
 
 } else if (ctx.body == 'VOLVER AL MENU') {
 
- await gotoFlow(Menuflow) 
+  gotoFlow(Menuflow) 
 }
   else if (ctx.body == 'FINALIZAR') {
     flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
