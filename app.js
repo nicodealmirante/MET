@@ -279,14 +279,15 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
 
         .addAnswer('Selfie Mirror', {media: 'banner22.jpg'})
 
-        .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
+        .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }
+         ) => {
           let dolar
           await fetch('https://dolarapi.com/v1/dolares/blue')
     .then(response => response.json())
     .then(json => dolar = json.venta)
-                    motivo = "VENTA"       ;  
+                    motivo = "VENTA"  
                 //   numero(ctx.from);
-            
+              }   )
   flowDynamic(`*VALOR ESPEJO MAGICO* \n
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
