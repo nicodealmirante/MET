@@ -315,7 +315,7 @@ flowDynamic('Captura 360', {media: 'video360.mp4'}); },
 if (ctx.body == 'CONTINUAR CON AGENTE') {
  provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
   flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
-await endFlow()
+ endFlow()
 
 } else if (ctx.body == 'VOLVER AL MENU') {
 
@@ -323,7 +323,7 @@ await endFlow()
 }
   else if (ctx.body == 'FINALIZAR') {
     flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
-await endFlow()}
+ endFlow()}
    
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
 const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
