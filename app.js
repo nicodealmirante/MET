@@ -238,7 +238,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
 
         })
 
-        flowDynamic('Plataforma 360 Super Slow', {media: 'banner.jpg'},async(ctx,{flowDynamic})=>{
+  .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'},async(ctx,{flowDynamic})=>{
             if(ctx.body=='PAGINA WEB'){console.log('BIEN');
        if(ctx.body=='ESPEJO MAGICO SELFIE MIRROR'){console.log('BIEN2')}
             flowDynamic('👌 Te envío la info de Venta.')}
