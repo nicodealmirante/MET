@@ -301,7 +301,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
 
   flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
 flowDynamic('Selfie Mirror', {media: 'video2.mp4'});
-flowDynamic('Captura 360', {media: 'video360.mp4'}); }   )
+flowDynamic('Captura 360', {media: 'video360.mp4'}); 
  flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
       capture: true,
       buttons: [
@@ -327,7 +327,7 @@ await endFlow()
 await endFlow()
 }}
 )        
-   
+   }   )
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
 const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 .addAnswer(['¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
