@@ -450,6 +450,5 @@ gotoFlow(Menuflow);
 */
 
 };
-
-  main()
 })
+  main()
