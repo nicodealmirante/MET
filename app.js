@@ -174,54 +174,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
       )
 
 
- 
 
-
-
-      .addAnswer(
-          'Aqui va un mensaje',
-          {
-              capture: true
-          },
-          async (ctx, {provider}) => {
-              const list = {
-                  "header": {
-                      "type": "text",
-                      "text": "<HEADER_TEXT>"
-                  },
-                  "body": {
-                      "text": "<BODY_TEXT>"
-                  },
-                  "footer": {
-                      "text": "<FOOTER_TEXT>"
-                  },
-                  "action": {
-                      "button": "<BUTTON_TEXT>",
-                      "sections": [
-                          {
-                              "title": "<LIST_SECTION_1_TITLE>",
-                              "rows": [
-                                  {
-                                      "id": "<LIST_SECTION_1_ROW_1_ID>",
-                                      "title": "<SECTION_1_ROW_1_TITLE>",
-                                      "description": "<SECTION_1_ROW_1_DESC>"
-                                  },
-                                  {
-                                      "id": "<LIST_SECTION_1_ROW_2_ID>",
-                                      "title": "<SECTION_1_ROW_2_TITLE>",
-                                      "description": "<SECTION_1_ROW_2_DESC>"
-                                  }
-                              ]
-                          },
-                       
-                       
-                          
-                      ]
-                  }
-              }
-              await provider.sendLists(ctx.from, list)
-          }
-      )
 
 /////////////////////////////////////////////////////////////////////////////////////////// FLUJO VENTA
 
@@ -238,6 +191,62 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
                     'y fiestas.'  ])
 
         .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
+        const flowServices = addKeyword('hola')
+    .addAnswer(
+        'OK',
+        {
+            capture: true
+        },
+        async (ctx, {provider}) => {
+            const headerText = 'HEADER_TEXT'
+            const bodyText = 'BODY_TEXT'
+            const footerText = 'FOOTER_TEXT'
+            const buttonList = 'BUTTON_LIST'
+            const listParams = [
+                {
+                    title: 'TITLE_1',
+                    rows: [
+                        {
+                            id: 'ID_1',
+                            title: 'TITLE_1',
+                            description: 'DESCRIPTION_1'
+                        },
+                        {
+                            id: 'ID_2',
+                            title: 'TITLE_2',
+                            description: 'DESCRIPTION_2'
+                        },
+                        {
+                            id: 'ID_3',
+                            title: 'TITLE_3',
+                            description: 'DESCRIPTION_3'
+                        }
+                    ]
+                },
+                {
+                    title: 'TITLE_2',
+                    rows: [
+                        {
+                            id: 'ID_1',
+                            title: 'TITLE_1',
+                            description: 'DESCRIPTION_1'
+                        },
+                        {
+                            id: 'ID_2',
+                            title: 'TITLE_2',
+                            description: 'DESCRIPTION_2'
+                        },
+                        {
+                            id: 'ID_3',
+                            title: 'TITLE_3',
+                            description: 'DESCRIPTION_3'
+                        }
+                    ]
+                }
+            ]
+            await provider.sendList(ctx.from, headerText, bodyText, footerText, buttonList ,listParams)
+        }
+    )
 
         .addAnswer(['La facilidad de uso es una de las ventajas clave del Espejo Mágico. Simplemente tienes que enchufarlo y presionar el ',
                       'botón de encendido para que empiece a funcionar. Esto agiliza la instalación y permite que los eventos comiencen rápidamente.',
@@ -264,68 +273,6 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
         .addAnswer('Formas de pago: efectivo, transferencia/depósito')
 
         .addAnswer('Selfie Mirror', {media: 'banner22.jpg'})
-        .addAnswer(
-          'Aqui va un mensaje',
-          {
-              capture: true
-          },
-          async (ctx, {provider}) => {
-              const list = {
-                  "header": {
-                      "type": "text",
-                      "text": "11"
-                  },
-                  "body": {
-                      "text": "22"
-                  },
-                  "footer": {
-                      "text": "ww"
-                  },
-                  "action": {
-                      "button": "<BUT12313EXT>",
-                      "sections": [
-                          {
-                              "title": "Venta",
-                              "rows": [
-                                  {
-                                      "id": "1",
-                                      "title": "Venta Plataforma",
-                                      "description": "Venta Plataforma 360"
-                                  },
-                                  {
-                                      "id": "2",
-                                      "title": "333333333",
-                                      "description": "<SEC23132DESC>"
-                                  },
-                                  {
-                                    "id": "3",
-                                    "title": "<SECTION_1_R23132123_TITLE>",
-                                    "description": "<SECTION_322323ESC>"
-                                },
-                                {
-                                    "id": "4",
-                                    "title": "<SECTION_1_RO34224342_TITLE>",
-                                    "description": "<SECTweewqqewW_2_DESC>"
-                                },
-                                {
-                                  "id": "6",
-                                  "title": "<SECTION_1_ROW_1_TITLE>",
-                                  "description": "<SECTI354ROW_1_DESC>"
-                              },
-                              {
-                                  "id": "7",
-                                  "title": "<SECTION_1_ROW_2_TITLE>",
-                                  "description": "<SECTION435345W_2_DESC>"
-                              }
-                              ]}                  
-                                             
-                      ]
-                  }
-              }
-              await provider.sendLists(ctx.from, list)
-          }
-      )
-
 
         .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
           let dolar
@@ -349,7 +296,6 @@ await flowDynamic('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
 await flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
 await flowDynamic('Selfie Mirror', {media: 'video2.mp4'});
 await flowDynamic('Captura 360', {media: 'video360.mp4'});
-
 await flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
       capture: true,
       buttons: [
