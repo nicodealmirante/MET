@@ -222,22 +222,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
                         }
                     ]
                 },
-                {
-                    title: 'ALAQUILER',
-                    rows: [
-                      {
-                        id: 'ID_1',
-                        title: 'ESPEJO MAGICO ',
-                        description: 'SELFIE MIRROR'
-                    },
-                    {
-                        id: 'ID_2',
-                        title: 'PLATAFORMA 360',
-                        description: 'SUPER SLOW'
-                    },
-                    ]
-                  },
-                {
+                        {
                   title: 'LA EMPRESA',
                   rows: [
                       {
@@ -260,7 +245,9 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
             ]
             await provider.sendList(ctx.from, headerText, bodyText, footerText, buttonList ,listParams)
 
-            if(ctx.body=='ESPEJO MAGICO SELFIE MIRROR'){console.log('BIEN')}
+            if(ctx.body=='ESPEJO MAGICO SELFIE MIRROR'){console.log('BIEN2')}
+            if(ctx.body=='PAGINA WEB'){console.log('BIEN')}
+
         }
     )
 
