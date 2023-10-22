@@ -368,7 +368,7 @@ gotoFlow(Menuflow);
 
   /////////////////////////////////////////////////////////////////////////  FLUJO MENU
   
-  const Menuflow = addKeyword(["me-nu"], { sensitive: true })
+/** const Menuflow = addKeyword(["me-nu"], { sensitive: true })
 
   .addAnswer("*MENU*", { 
             capture: true,
@@ -418,7 +418,7 @@ gotoFlow(Menuflow);
            fallBack({ body: 'Esta respuesta es automática y solo acepta una respuesta numérica. Responde 1 para *Alquiler*, 2 para *Venta* o 3 para derivarlo a un *Asesor*. Gracias' });
            }   [flowVenta, flowsAlquiler, Cliente]});
         
-
+*/
 ////////////////////////////////////////////////////////////////////////////////////////
 
   const main = async () => {
@@ -434,8 +434,7 @@ gotoFlow(Menuflow);
         version: 'v16.0',
     })
 
-   
-  const BotCreate = await createBot({
+   createBot({
     flow: adapterFlow,
     provider: adapterProvider,
     database: adapterDB,
@@ -444,11 +443,14 @@ gotoFlow(Menuflow);
   BotWrapper.initialize(BotCreate, {
     CHATWOOT_URL: "https://chatwoot-production-36d7.up.railway.app/webhooks/whatsapp/+541166704322",
     CHATWOOT_ID: "1",
-    CHATWOOT_INBOX_ID: "1",
+    CHATWOOT_INBOX_ID: "",
     CHATWOOT_API_ACCESS_TOKEN: "a19cc4f38d1c129044b376f5a89d90c7",
-  });
-*/
+ /*/
+    main();
+  
+       };
 
-};
-})
-  main()
+      
+    },);
+
+
