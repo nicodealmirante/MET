@@ -168,7 +168,7 @@ endFlow()})
             },
         ]
         await provider.sendList(ctx.from, headerText, bodyText, footerText, buttonList ,listParams)
-
+      
       if(ctx.body.ty=='ESPEJO SELFIE MIRROR - SLIM -'){}
 
       const flowVenta = addKeyword('asdijo34ijor234')
