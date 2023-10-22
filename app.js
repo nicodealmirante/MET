@@ -174,6 +174,55 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
       )
 
 
+ 
+
+
+
+      .addAnswer(
+          'Aqui va un mensaje',
+          {
+              capture: true
+          },
+          async (ctx, {provider}) => {
+              const list = {
+                  "header": {
+                      "type": "text",
+                      "text": "<HEADER_TEXT>"
+                  },
+                  "body": {
+                      "text": "<BODY_TEXT>"
+                  },
+                  "footer": {
+                      "text": "<FOOTER_TEXT>"
+                  },
+                  "action": {
+                      "button": "<BUTTON_TEXT>",
+                      "sections": [
+                          {
+                              "title": "<LIST_SECTION_1_TITLE>",
+                              "rows": [
+                                  {
+                                      "id": "<LIST_SECTION_1_ROW_1_ID>",
+                                      "title": "<SECTION_1_ROW_1_TITLE>",
+                                      "description": "<SECTION_1_ROW_1_DESC>"
+                                  },
+                                  {
+                                      "id": "<LIST_SECTION_1_ROW_2_ID>",
+                                      "title": "<SECTION_1_ROW_2_TITLE>",
+                                      "description": "<SECTION_1_ROW_2_DESC>"
+                                  }
+                              ]
+                          },
+                       
+                       
+                          
+                      ]
+                  }
+              }
+              await provider.sendLists(ctx.from, list)
+          }
+      )
+
 /////////////////////////////////////////////////////////////////////////////////////////// FLUJO VENTA
 
 
@@ -215,6 +264,107 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
         .addAnswer('Formas de pago: efectivo, transferencia/depósito')
 
         .addAnswer('Selfie Mirror', {media: 'banner22.jpg'})
+        .addAnswer(
+          'Aqui va un mensaje',
+          {
+              capture: true
+          },
+          async (ctx, {provider}) => {
+              const list = {
+                  "header": {
+                      "type": "text",
+                      "text": "<HEADER_TEXT>"
+                  },
+                  "body": {
+                      "text": "<BODY_TEXT>"
+                  },
+                  "footer": {
+                      "text": "<FOOTER_TEXT>"
+                  },
+                  "action": {
+                      "button": "<BUTTON_TEXT>",
+                      "sections": [
+                          {
+                              "title": "Venta",
+                              "rows": [
+                                  {
+                                      "id": "1",
+                                      "title": "Venta Plataforma",
+                                      "description": "Venta Plataforma 360"
+                                  },
+                                  {
+                                      "id": "2",
+                                      "title": "<SECTION_1_ROW_2_TITLE>",
+                                      "description": "<SECTION_1_ROW_2_DESC>"
+                                  },
+                                  {
+                                    "id": "3",
+                                    "title": "<SECTION_1_ROW_1_TITLE>",
+                                    "description": "<SECTION_1_ROW_1_DESC>"
+                                },
+                                {
+                                    "id": "4",
+                                    "title": "<SECTION_1_ROW_2_TITLE>",
+                                    "description": "<SECTION_3_ROW_2_DESC>"
+                                },
+                                {
+                                  "id": "6",
+                                  "title": "<SECTION_1_ROW_1_TITLE>",
+                                  "description": "<SECTION_1_ROW_1_DESC>"
+                              },
+                              {
+                                  "id": "7",
+                                  "title": "<SECTION_1_ROW_2_TITLE>",
+                                  "description": "<SECTION_5ROW_2_DESC>"
+                              }
+                              ]},
+
+                              {
+                                "title": "Alquiler",
+                                "rows": [
+                              
+                                {
+                                    "id": "1",
+                                    "title": "Venta Plataforma",
+                                    "description": "Venta Plataforma 360"
+                                },
+                                {
+                                    "id": "2",
+                                    "title": "<SECTION_1_ROW_2_TITLE>",
+                                    "description": "<SECTION_1_ROW_2_DESC>"
+                                },
+                                {
+                                  "id": "3",
+                                  "title": "<SECTION_1_ROW_1_TITLE>",
+                                  "description": "<SECTION_1_ROW_1_DESC>"
+                              },
+                              {
+                                  "id": "4",
+                                  "title": "<SECTION_1_ROW_2_TITLE>",
+                                  "description": "<SECTION_3_ROW_2_DESC>"
+                              },
+                              {
+                                "id": "6",
+                                "title": "<SECTION_1_ROW_1_TITLE>",
+                                "description": "<SECTION_1_ROW_1_DESC>"
+                            },
+                            {
+                                "id": "7",
+                                "title": "<SECTION_1_ROW_2_TITLE>",
+                                "description": "<SECTION_5ROW_2_DESC>"
+                            }
+                            ]
+                          },
+                       
+                       
+                          
+                      ]
+                  }
+              }
+              await provider.sendLists(ctx.from, list)
+          }
+      )
+
 
         .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
           let dolar
@@ -238,6 +388,7 @@ await flowDynamic('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
 await flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
 await flowDynamic('Selfie Mirror', {media: 'video2.mp4'});
 await flowDynamic('Captura 360', {media: 'video360.mp4'});
+
 await flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
       capture: true,
       buttons: [
@@ -276,11 +427,11 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 '¡Es el momento de darle a tu negocio una ventaja competitiva!\n',
 '¡Haz que tu negocio brille con nuestros organizadores de fila Pixel LED! 💫✨ #TecnologíaLED #OrganizaciónEfectiva #AtraeClientes\n',
 '*VALORES*\n',
-'*ORDENADOR LED 80.000 AR$ C/U*\n',
-'*VALOR CADENA 1.5 mts 10.000 AR$*\n',
-'*VALOR SOGA 1.5 mts 20.000 AR$*(COLORES)*\n',
-'*DEMORA DE PRODUCCION ACTUAL (7/10 DIAS)*\n',
-'*POR FAVOR COMUNIQUESE AL +5491140054474 PARA CONTINUAR*\n'], {capture:false}, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
+'*FILA VIP LED 80.000 AR$ C/U*\n',
+'*CADENA 1.5 mts $ 10.000 AR$*\n',
+'*SOGA 1.5 mts $ 20.000 AR$*\n',
+'*PRODUCCION ACTUAL (7/10 DIAS)*\n',
+'*POR FAVOR COMUNIQUESE AL +5491140054474 PARA CONTINUAR*'], {capture:false}, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
  flowDynamic('FILA VIP', {media: 'ledselfie.mp4'});
 await flowDynamic('FOTO FILA VIP', {media: '111.jpg'});
 gotoFlow(Menuflow);
