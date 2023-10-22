@@ -273,16 +273,16 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
               const list = {
                   "header": {
                       "type": "text",
-                      "text": "<HEADER_TEXT>"
+                      "text": "11"
                   },
                   "body": {
-                      "text": "<BODY_TEXT>"
+                      "text": "22"
                   },
                   "footer": {
-                      "text": "<FOOTER_TEXT>"
+                      "text": "ww"
                   },
                   "action": {
-                      "button": "<BUTTON_TEXT>",
+                      "button": "<BUT12313EXT>",
                       "sections": [
                           {
                               "title": "Venta",
@@ -294,70 +294,31 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
                                   },
                                   {
                                       "id": "2",
-                                      "title": "<SECTION_1_ROW_2_TITLE>",
-                                      "description": "<SECTION_1_ROW_2_DESC>"
+                                      "title": "333333333",
+                                      "description": "<SEC23132DESC>"
                                   },
                                   {
                                     "id": "3",
-                                    "title": "<SECTION_1_ROW_1_TITLE>",
-                                    "description": "<SECTION_1_ROW_1_DESC>"
+                                    "title": "<SECTION_1_R23132123_TITLE>",
+                                    "description": "<SECTION_322323ESC>"
                                 },
                                 {
                                     "id": "4",
-                                    "title": "<SECTION_1_ROW_2_TITLE>",
-                                    "description": "<SECTION_3_ROW_2_DESC>"
+                                    "title": "<SECTION_1_RO34224342_TITLE>",
+                                    "description": "<SECTweewqqewW_2_DESC>"
                                 },
                                 {
                                   "id": "6",
                                   "title": "<SECTION_1_ROW_1_TITLE>",
-                                  "description": "<SECTION_1_ROW_1_DESC>"
+                                  "description": "<SECTI354ROW_1_DESC>"
                               },
                               {
                                   "id": "7",
                                   "title": "<SECTION_1_ROW_2_TITLE>",
-                                  "description": "<SECTION_5ROW_2_DESC>"
+                                  "description": "<SECTION435345W_2_DESC>"
                               }
-                              ]},
-
-                              {
-                                "title": "Alquiler",
-                                "rows": [
-                              
-                                {
-                                    "id": "1",
-                                    "title": "Venta Plataforma",
-                                    "description": "Venta Plataforma 360"
-                                },
-                                {
-                                    "id": "2",
-                                    "title": "<SECTION_1_ROW_2_TITLE>",
-                                    "description": "<SECTION_1_ROW_2_DESC>"
-                                },
-                                {
-                                  "id": "3",
-                                  "title": "<SECTION_1_ROW_1_TITLE>",
-                                  "description": "<SECTION_1_ROW_1_DESC>"
-                              },
-                              {
-                                  "id": "4",
-                                  "title": "<SECTION_1_ROW_2_TITLE>",
-                                  "description": "<SECTION_3_ROW_2_DESC>"
-                              },
-                              {
-                                "id": "6",
-                                "title": "<SECTION_1_ROW_1_TITLE>",
-                                "description": "<SECTION_1_ROW_1_DESC>"
-                            },
-                            {
-                                "id": "7",
-                                "title": "<SECTION_1_ROW_2_TITLE>",
-                                "description": "<SECTION_5ROW_2_DESC>"
-                            }
-                            ]
-                          },
-                       
-                       
-                          
+                              ]}                  
+                                             
                       ]
                   }
               }
