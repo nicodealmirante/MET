@@ -446,11 +446,9 @@ gotoFlow(Menuflow);
     CHATWOOT_INBOX_ID: "",
     CHATWOOT_API_ACCESS_TOKEN: "a19cc4f38d1c129044b376f5a89d90c7",
  /*/
-   
-  
-       };
-
-      
-    },);
- main();
+     
+       }
+    }
+    )
+ main()
 
