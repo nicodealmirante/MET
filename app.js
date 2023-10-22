@@ -352,62 +352,8 @@ await flowDynamic('FOTO FILA VIP', {media: '111.jpg'});
 
 
     const flowServices = addKeyword(EVENTS.WELCOME)
-    .addAnswer(
-        'Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás',
-        {
-            capture: true
-        },
-        async (ctx, {provider}) => {
-            const headerText = 'Selfie Mirror'
-            const bodyText = 'Seleccione una opcion'
-            const footerText = 'Canal de respuestas automaticas'
-            const buttonList = 'OPCIONES'
-            const listParams = [
-                {
-                    title: 'Equipos',
-                    rows: [
-                        {
-                            id: 'ID_1',
-                            title: 'Espejo Selfie Mirror',
-                            description: 'Alquiler y Venta'
-                        },
-                        {
-                            id: 'ID_2',
-                            title: 'Plataforma 360 - Super Slow',
-                            description: 'Alquiler y Venta'
-                        },
-                        {
-                            id: 'ID_3',
-                            title: 'Organizadores de fila PIXEL',
-                            description: 'SOLO VENTA'
-                        }
-                    ]
-                },
-                {
-                    title: 'Sobre Selfie Mirror',
-                    rows: [
-                        {
-                            id: 'ID_1',
-                            title: 'Ubicacion',
-                            description: 'ShowRoom'
-                        },
-                        {
-                            id: 'ID_2',
-                            title: 'Medios ONLINE',
-                            description: 'Sitios Web'
-                        },
-                        {
-                            id: 'ID_3',
-                            title: 'Horarios',
-                            description: 'Siempre con cita.'
-                        }
-                    ]
-                }
-            ]
-            await provider.sendList(ctx.from, headerText, bodyText, footerText, buttonList ,listParams)
-        }
-    )     
-  
+
+                                             
   
     .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'},async(ctx,{flowDynamic})=>{
        
