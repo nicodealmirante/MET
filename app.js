@@ -245,13 +245,13 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
             ]
             await provider.sendList(ctx.from, headerText, bodyText, footerText, buttonList ,listParams)
 
-            if(ctx.body=='ESPEJO MAGICO SELFIE MIRROR'){console.log('BIEN2')}
-            if(ctx.body=='PAGINA WEB'){console.log('BIEN')}
+        })
+            if(ctx.body=='ESPEJO MAGICO SELFIE MIRROR'){console.log('BIEN2')};
+            if(ctx.body=='PAGINA WEB'){console.log('BIEN');}
+            
 
-        }
-    )
 
-        .addAnswer(['La facilidad de uso es una de las ventajas clave del Espejo Mágico. Simplemente tienes que enchufarlo y presionar el ',
+        flowDynamic(['La facilidad de uso es una de las ventajas clave del Espejo Mágico. Simplemente tienes que enchufarlo y presionar el',
                       'botón de encendido para que empiece a funcionar. Esto agiliza la instalación y permite que los eventos comiencen rápidamente.',
                     '\nEs importante mencionar que el Selfie Mirror no incluye una impresora, pero está preparado para funcionar con cualquier ',
                     'impresora que se adapte a las necesidades del cliente. Esto brinda flexibilidad para elegir la impresora que mejor se ajuste a',
@@ -260,9 +260,9 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
                                             
                            
                     } )
-        .addAnswer('Equipo Slim Selfie Mirror', {media: 'banner4.jpg'})
+        .flowDynamic('Equipo Slim Selfie Mirror', {media: 'banner4.jpg'})
 
-        .addAnswer(['*Plataforma 360 Super Slow*',
+        .flowDynamic(['*Plataforma 360 Super Slow*',
         '\nNuestra plataforma incluye todo lo necesario para poder brindar un servicio profesional. Incluye Monitor transmitiendo en vivo. Proceso de editado automatico.',
         ' (Una vez grabado se reproduce en el monitor automaticamente ya editado)',
         'Los invitados podran escanear un codigo QR UNICO para poder visualizar todos los videos del evento *EN EL MOMENTO*',
@@ -271,13 +271,13 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
                 'El valor del equipo es de 1500 U$S.' ,
                 '▶ REQUERIDO:Necesita contar con un Apple Iphone 13 o suoperior (dispositivo de grabacion)',
       'y un TV LED de 32 o mas (monitoreo)'])
-        .addAnswer('Selfie Mirror', {media: 'video3.mp4'})
+        .flowDynamic('Selfie Mirror', {media: 'video3.mp4'})
 
-        .addAnswer('Formas de pago: efectivo, transferencia/depósito')
+        .flowDynamic('Formas de pago: efectivo, transferencia/depósito')
 
         .addAnswer('Selfie Mirror', {media: 'banner22.jpg'})
 
-        .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
+        .flowDynamic('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
           let dolar
           await fetch('https://dolarapi.com/v1/dolares/blue')
     .then(response => response.json())
