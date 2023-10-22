@@ -234,11 +234,15 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
                 },
             ]
             await provider.sendList(ctx.from, headerText, bodyText, footerText, buttonList ,listParams)
+     
 
         })
-            if(ctx.body=='ESPEJO MAGICO SELFIE MIRROR'){console.log('BIEN2')}
 
-            flowDynamic('👌 Te envío la info de Venta.')
+        flowDynamic('Plataforma 360 Super Slow', {media: 'banner.jpg'},async(ctx,{flowDynamic})=>{
+            if(ctx.body=='PAGINA WEB'){console.log('BIEN');
+       if(ctx.body=='ESPEJO MAGICO SELFIE MIRROR'){console.log('BIEN2')}
+            flowDynamic('👌 Te envío la info de Venta.')}
+            
 
           flowDynamic(['*Espejo Mágico Selfie Mirror*',
                     '\nEl Espejo Mágico de Selfie Mirror cuenta con una cámara web de alta calidad, vidrio templado resistente, una Mini PC y un',
@@ -247,10 +251,6 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
                    '\nSu diseño compacto y portátil, con dimensiones de 126 cm de alto x 70 cm de ancho y 20 cm de profundidad en el modelo',
                    'Slim, permite transportarlo fácilmente en cualquier vehículo. Esto brinda una gran versatilidad y conveniencia para eventos ',
                     'y fiestas.'  ])
-
-        flowDynamic('Plataforma 360 Super Slow', {media: 'banner.jpg'},async(ctx,{flowDynamic})=>{
-            if(ctx.body=='PAGINA WEB'){console.log('BIEN');}
-            
 
 
         flowDynamic(['La facilidad de uso es una de las ventajas clave del Espejo Mágico. Simplemente tienes que enchufarlo y presionar el',
