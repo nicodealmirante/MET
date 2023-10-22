@@ -138,13 +138,13 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
              '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'],{capture:false}, async (ctx, {gotoFlow,endFlow,flowDynamic}) => {
        ///      numero2(ctx.from)
            motivo= "Alquiler";
-      console.log('GOTOCLIENTE');
+    
  
-      await flowDynamic('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
-      await flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
-      await flowDynamic('Selfie Mirror', {media: 'video2.mp4'});
-      await flowDynamic('Captura 360', {media: 'video360.mp4'});
-      await flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
+    flowDynamic('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
+     flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
+      flowDynamic('Selfie Mirror', {media: 'video2.mp4'});
+       flowDynamic('Captura 360', {media: 'video360.mp4'});
+     flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
             capture: true,
             buttons: [
                 {body: 'CONTINUAR CON AGENTE'},
@@ -184,7 +184,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
     .addAnswer(
         'OK',
         {
-            capture: true
+            capture: false
         },
         async (ctx, {provider}) => {
             const headerText = 'Selfie Mirror'
