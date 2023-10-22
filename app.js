@@ -259,6 +259,8 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
                 },
             ]
             await provider.sendList(ctx.from, headerText, bodyText, footerText, buttonList ,listParams)
+
+            if(ctx.body=='ESPEJO MAGICO SELFIE MIRROR'){console.log('BIEN')}
         }
     )
 
