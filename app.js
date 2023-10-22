@@ -355,64 +355,69 @@ await flowDynamic('FOTO FILA VIP', {media: '111.jpg'});
     .addAnswer("Presentamos los nuevos organizadores de fila *FILA VIP* - Completamente unicos y originales. Otro producto innovador de Selfie Mirror.")
     const flowVenta = addKeyword(['VE-NTA'], { sensitive: true })
        
+    const flowServices = addKeyword('hola')
     .addAnswer(
-      {
-            capture: false
+        'Aqui va un mensaje',
+        {
+            capture: true
         },
         async (ctx, {provider}) => {
             const headerText = 'Selfie Mirror'
-            const bodyText = '*Seleccione una opcion*'
-            const footerText = 'Sistema Automatico FAQ'
+            const bodyText = 'Seleccione una opcion'
+            const footerText = 'Canal de respuestas automaticas'
             const buttonList = 'OPCIONES'
             const listParams = [
                 {
-                    title: '*VENTA*',
+                    title: 'Equipos',
                     rows: [
                         {
                             id: 'ID_1',
-                            title: 'ESPEJO MAGICO SELFIE MIRROR',
-                            description: 'VENTA'
+                            title: 'Espejo Selfie Mirror',
+                            description: 'Alquiler y Venta'
                         },
                         {
                             id: 'ID_2',
-                            title: 'PLATAFORMA 360',
-                            description: 'SUPER SLOW'
+                            title: 'Plataforma 360 - Super Slow',
+                            description: 'Alquiler y Venta'
                         },
                         {
                             id: 'ID_3',
-                            title: 'ORDENADORES DE FILA LED',
-                            description: 'FILA VIP'
+                            title: 'Organizadores de fila PIXEL',
+                            description: 'SOLO VENTA'
                         }
                     ]
                 },
+                {
+                    title: 'Sobre Selfie Mirror',
+                    rows: [
                         {
-                  title: 'LA EMPRESA',
-                  rows: [
-                      {
-                          id: 'ID_1',
-                          title: 'UBICACION',
-                          description: 'SHOWRROOM'
-                      },
-                      {
-                          id: 'ID_2',
-                          title: 'PAGINA WEB',
-                          description: 'PORTALES DIGITALES'
-                      },
-                      {
-                          id: 'ID_3',
-                          title: 'HABLAR CON ASESOR',
-                          description: 'WHATSAPP ASESOR'
-                      }
-                  ]
-                },
+                            id: 'ID_1',
+                            title: 'Ubicacion',
+                            description: 'ShowRoom'
+                        },
+                        {
+                            id: 'ID_2',
+                            title: 'Medios ONLINE',
+                            description: 'Sitios Web'
+                        },
+                        {
+                            id: 'ID_3',
+                            title: 'Horarios',
+                            description: 'Siempre con cita.'
+                        }
+                    ]
+                }
             ]
             await provider.sendList(ctx.from, headerText, bodyText, footerText, buttonList ,listParams)
-     
-
-        })
-
-  .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'},async(ctx,{flowDynamic})=>{
-            if(ctx.body=='PAGINA WEB'){console.log('BIEN');
+        }
+    )     
+  
+  
+    .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'},async(ctx,{flowDynamic})=>{
+       
+    
+    
+    if(ctx.body=='PAGINA WEB'){console.log('BIEN');
        if(ctx.body=='ESPEJO MAGICO SELFIE MIRROR'){console.log('BIEN2')}}})
             .addAnswer('👌 Te envío la info de Venta.')
             
