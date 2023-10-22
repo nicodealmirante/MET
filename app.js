@@ -287,7 +287,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
     .then(json => dolar = json.venta)
                     motivo = "VENTA"  
                 //   numero(ctx.from);
-              }   )
+             
   flowDynamic(`*VALOR ESPEJO MAGICO* \n
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
@@ -301,7 +301,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
 
   flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
 flowDynamic('Selfie Mirror', {media: 'video2.mp4'});
-flowDynamic('Captura 360', {media: 'video360.mp4'});
+flowDynamic('Captura 360', {media: 'video360.mp4'}); }   )
  flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
       capture: true,
       buttons: [
