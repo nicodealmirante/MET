@@ -324,7 +324,7 @@ if (ctx.body == 'CONTINUAR CON AGENTE') {
  } else if (ctx.body == 'FINALIZAR') {
     flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
  endFlow()
-}   
+}   })
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
 const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 .addAnswer(['¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
@@ -420,7 +420,7 @@ gotoFlow(Menuflow);
         
 */
 ////////////////////////////////////////////////////////////////////////////////////////
-
+        
   const main = async () => {
 
 
@@ -433,12 +433,12 @@ gotoFlow(Menuflow);
         verifyToken: 'asdasd',
         version: 'v16.0',
     })
-
+ 
    createBot({
     flow: adapterFlow,
     provider: adapterProvider,
     database: adapterDB,
-  });
+  }); 
 /** 
   BotWrapper.initialize(BotCreate, {
     CHATWOOT_URL: "https://chatwoot-production-36d7.up.railway.app/webhooks/whatsapp/+541166704322",
@@ -447,8 +447,7 @@ gotoFlow(Menuflow);
     CHATWOOT_API_ACCESS_TOKEN: "a19cc4f38d1c129044b376f5a89d90c7",
  /*/
      
-       }
+       
     }
-    )
  main()
 
