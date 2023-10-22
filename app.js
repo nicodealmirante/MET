@@ -278,11 +278,11 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 '*VALOR 80.000 AR$ CADA COLUMNA*',
 '*VALOR CADENA 1.5 mts 10.000 AR$*',
 '*VALOR SOGA 1.5 mts 20.000 AR$*',
-'*POR FAVOR COMUNIQUESE AL +5491140054474 PARA CONTINUAR*',)
+'*POR FAVOR COMUNIQUESE AL +5491140054474 PARA CONTINUAR*', {capture:false}, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
 await flowDynamic('FILA VIP', {media: 'ledselfie.mp4'});
 await flowDynamic('FOTO FILA VIP', {media: '111.jpg'});
 
-
+})
 
 
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
