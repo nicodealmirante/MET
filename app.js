@@ -265,12 +265,38 @@ await endFlow()
 )        
    })
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
+const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
+.addAnswer('¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!',
+'En SELFIE MediaError, entendemos la importancia de mantener tus espacios organizados y atractivos. Nuestros organizadores de fila no solo te ayudarán a mantener un flujo ordenado de clientes, sino que también añadirán un toque de modernidad y estilo a tu negocio.',
+'¿Qué hace que nuestros organizadores de fila con tecnología Pixel LED sean especiales?',
+'✨ Iluminación espectacular: Nuestra tecnología Pixel LED ofrece una iluminación vibrante y personalizable que destacará tu marca y creará una experiencia memorable para tus clientes.',
+'🧹 Organización efectiva: Mantén tus filas en orden y evita la confusión con nuestros organizadores de alta calidad. ¡El caos será cosa del pasado!',
+'🎨 Personalización total: Personaliza la apariencia de tus organizadores para que se adapten a tu imagen corporativa o al tema de tu negocio.',
+'🌟 Destaca entre la multitud: Con nuestros organizadores de fila Pixel LED, tu negocio destacará en cualquier entorno, desde eventos, ferias comerciales hasta tiendas minoristas y restaurantes.',
+'¡Es el momento de darle a tu negocio una ventaja competitiva!',
+'¡Haz que tu negocio brille con nuestros organizadores de fila Pixel LED! 💫✨ #TecnologíaLED #OrganizaciónEfectiva #AtraeClientes',
+'*VALOR 80.000 AR$ CADA COLUMNA*',
+'*VALOR CADENA 1.5 mts 10.000 AR$*',
+'*VALOR SOGA 1.5 mts 20.000 AR$*',
+'*POR FAVOR COMUNIQUESE AL +5491140054474 PARA CONTINUAR*',)
+await flowDynamic('FILA VIP', {media: 'ledselfie.mp4'});
+await flowDynamic('FOTO FILA VIP', {media: '111.jpg'});
+
+
+
+
+//////////////////////////////////////////////////////////////// EVENTO WELCOME
 
 
   const flowPrincipal = addKeyword(EVENTS.WELCOME)  
-  .addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás", { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
-            
-                     await gotoFlow(Menuflow);
+  .addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás")
+    .addAnswer("Presentamos los nuevos organizadores de fila *FILA VIP* - Completamente unicos y originales. Otro producto innovador de Selfie Mirror.", {capture: true,
+    buttons: [
+        {body: 'INFO ORGANIZADORES LED'},
+        {body: 'CONTINUAR AL MENU'}    ],
+ delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
+  if(ctx.body=='INFO ORGANIZADORES LED'){await gotoFlow(organizadorflow)}else
+                    {await gotoFlow(Menuflow)}
          }       )
                     
 
