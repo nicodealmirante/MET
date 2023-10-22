@@ -279,7 +279,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
 
         .addAnswer('Selfie Mirror', {media: 'banner22.jpg'})
 
-        .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }
+        .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { gotoFlow, endFlow }
          ) => {
           let dolar
           await fetch('https://dolarapi.com/v1/dolares/blue')
@@ -331,7 +331,7 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 'En SELFIE MediaError, entendemos la importancia de mantener tus espacios organizados y atractivos. Nuestros organizadores de fila no solo te ayudarán a mantener un flujo ordenado de clientes, sino que también añadirán un toque de modernidad y estilo a tu negocio.\n',
 '¿Qué hace que nuestros organizadores de fila con tecnología Pixel LED sean especiales?\n',
 '✨ Iluminación espectacular: Nuestra tecnología Pixel LED ofrece una iluminación vibrante y personalizable que destacará tu marca y creará una experiencia memorable para tus clientes.\n',
-'🧹 Organización efectiva: Mantén tus filas en orden y evita la confusión con nuestros organizadores de alta calidad. ¡El caos será cosa del pasado!\n',
+'🧹 Organización efectiva: Mantén tus filas en orden y |evita la confusión con nuestros organizadores de alta calidad. ¡El caos será cosa del pasado!\n',
 '🎨 Personalización total: Personaliza la apariencia de tus organizadores para que se adapten a tu imagen corporativa o al tema de tu negocio.\n',
 '🌟 Destaca entre la multitud: Con nuestros organizadores de fila Pixel LED, tu negocio destacará en cualquier entorno, desde eventos, ferias comerciales hasta tiendas minoristas y restaurantes.\n',
 '¡Es el momento de darle a tu negocio una ventaja competitiva!\n',
