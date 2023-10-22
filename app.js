@@ -266,7 +266,7 @@ await endFlow()
    })
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
 const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
-.addAnswer('¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!',
+.addAnswer(['¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!',
 'En SELFIE MediaError, entendemos la importancia de mantener tus espacios organizados y atractivos. Nuestros organizadores de fila no solo te ayudarán a mantener un flujo ordenado de clientes, sino que también añadirán un toque de modernidad y estilo a tu negocio.',
 '¿Qué hace que nuestros organizadores de fila con tecnología Pixel LED sean especiales?',
 '✨ Iluminación espectacular: Nuestra tecnología Pixel LED ofrece una iluminación vibrante y personalizable que destacará tu marca y creará una experiencia memorable para tus clientes.',
@@ -278,7 +278,7 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 '*VALOR 80.000 AR$ CADA COLUMNA*',
 '*VALOR CADENA 1.5 mts 10.000 AR$*',
 '*VALOR SOGA 1.5 mts 20.000 AR$*',
-'*POR FAVOR COMUNIQUESE AL +5491140054474 PARA CONTINUAR*', {capture:false}, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
+'*POR FAVOR COMUNIQUESE AL +5491140054474 PARA CONTINUAR*'], {capture:false}, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
 await flowDynamic('FILA VIP', {media: 'ledselfie.mp4'});
 await flowDynamic('FOTO FILA VIP', {media: '111.jpg'});
 
