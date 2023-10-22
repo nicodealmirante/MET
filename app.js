@@ -296,9 +296,9 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
 💱 > U$D = AR$ > 💱
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`);
   flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
-console.log('GOTOCLIENTE')})
- flowDynamic('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
- flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
+   flowDynamic('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'});
+
+  flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
 flowDynamic('Selfie Mirror', {media: 'video2.mp4'});
 flowDynamic('Captura 360', {media: 'video360.mp4'});
  flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
