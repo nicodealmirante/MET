@@ -197,51 +197,66 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
             capture: true
         },
         async (ctx, {provider}) => {
-            const headerText = 'HEADER_TEXT'
-            const bodyText = 'BODY_TEXT'
-            const footerText = 'FOOTER_TEXT'
-            const buttonList = 'BUTTON_LIST'
+            const headerText = 'Selfie Mirror'
+            const bodyText = '*Seleccione una opcion*'
+            const footerText = 'Sistema Automatico FAQ'
+            const buttonList = 'OPCIONES'
             const listParams = [
                 {
-                    title: 'TITLE_1',
+                    title: '*VENTA*',
                     rows: [
                         {
                             id: 'ID_1',
-                            title: 'TITLE_1',
-                            description: 'DESCRIPTION_1'
+                            title: 'ESPEJO MAGICO ',
+                            description: 'SELFIE MIRROR'
                         },
                         {
                             id: 'ID_2',
-                            title: 'TITLE_2',
-                            description: 'DESCRIPTION_2'
+                            title: 'PLATAFORMA 360',
+                            description: 'SUPER SLOW'
                         },
                         {
                             id: 'ID_3',
-                            title: 'TITLE_3',
-                            description: 'DESCRIPTION_3'
+                            title: 'ORDENADORES DE FILA LED',
+                            description: 'FILA VIP'
                         }
                     ]
                 },
                 {
-                    title: 'TITLE_2',
+                    title: 'ALAQUILER',
                     rows: [
-                        {
-                            id: 'ID_1',
-                            title: 'TITLE_1',
-                            description: 'DESCRIPTION_1'
-                        },
-                        {
-                            id: 'ID_2',
-                            title: 'TITLE_2',
-                            description: 'DESCRIPTION_2'
-                        },
-                        {
-                            id: 'ID_3',
-                            title: 'TITLE_3',
-                            description: 'DESCRIPTION_3'
-                        }
+                      {
+                        id: 'ID_1',
+                        title: 'ESPEJO MAGICO ',
+                        description: 'SELFIE MIRROR'
+                    },
+                    {
+                        id: 'ID_2',
+                        title: 'PLATAFORMA 360',
+                        description: 'SUPER SLOW'
+                    },
                     ]
-                }
+                  },
+                {
+                  title: 'LA EMPRESA',
+                  rows: [
+                      {
+                          id: 'ID_1',
+                          title: 'UBICACION',
+                          description: 'SHOWRROOM'
+                      },
+                      {
+                          id: 'ID_2',
+                          title: 'PAGINA WEB',
+                          description: 'PORTALES DIGITALES'
+                      },
+                      {
+                          id: 'ID_3',
+                          title: 'HABLAR CON ASESOR',
+                          description: 'WHATSAPP ASESOR'
+                      }
+                  ]
+                },
             ]
             await provider.sendList(ctx.from, headerText, bodyText, footerText, buttonList ,listParams)
         }
