@@ -207,8 +207,8 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
                     rows: [
                         {
                             id: 'ID_1',
-                            title: 'ESPEJO MAGICO ',
-                            description: 'SELFIE MIRROR'
+                            title: 'ESPEJO MAGICO SELFIE MIRROR',
+                            description: 'VENTA'
                         },
                         {
                             id: 'ID_2',
