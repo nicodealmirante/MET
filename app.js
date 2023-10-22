@@ -240,11 +240,11 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
 
   .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'},async(ctx,{flowDynamic})=>{
             if(ctx.body=='PAGINA WEB'){console.log('BIEN');
-       if(ctx.body=='ESPEJO MAGICO SELFIE MIRROR'){console.log('BIEN2')}
-            flowDynamic('👌 Te envío la info de Venta.')}
+       if(ctx.body=='ESPEJO MAGICO SELFIE MIRROR'){console.log('BIEN2')}}})
+            .addAnswer('👌 Te envío la info de Venta.')
             
 
-          flowDynamic(['*Espejo Mágico Selfie Mirror*',
+            .addAnswer(['*Espejo Mágico Selfie Mirror*',
                     '\nEl Espejo Mágico de Selfie Mirror cuenta con una cámara web de alta calidad, vidrio templado resistente, una Mini PC y un',
                     'televisor LED de 32 pulgadas. Estas características garantizan una experiencia de alta definición para capturar momentos',
                     'especiales.',
@@ -253,7 +253,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
                     'y fiestas.'  ])
 
 
-        flowDynamic(['La facilidad de uso es una de las ventajas clave del Espejo Mágico. Simplemente tienes que enchufarlo y presionar el',
+                    .addAnswer(['La facilidad de uso es una de las ventajas clave del Espejo Mágico. Simplemente tienes que enchufarlo y presionar el',
                       'botón de encendido para que empiece a funcionar. Esto agiliza la instalación y permite que los eventos comiencen rápidamente.',
                     '\nEs importante mencionar que el Selfie Mirror no incluye una impresora, pero está preparado para funcionar con cualquier ',
                     'impresora que se adapte a las necesidades del cliente. Esto brinda flexibilidad para elegir la impresora que mejor se ajuste a',
@@ -262,9 +262,9 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
                                             
                            
                     } )
-        .flowDynamic('Equipo Slim Selfie Mirror', {media: 'banner4.jpg'})
+        .addAnswer('Equipo Slim Selfie Mirror', {media: 'banner4.jpg'})
 
-        .flowDynamic(['*Plataforma 360 Super Slow*',
+        .addAnswer(['*Plataforma 360 Super Slow*',
         '\nNuestra plataforma incluye todo lo necesario para poder brindar un servicio profesional. Incluye Monitor transmitiendo en vivo. Proceso de editado automatico.',
         ' (Una vez grabado se reproduce en el monitor automaticamente ya editado)',
         'Los invitados podran escanear un codigo QR UNICO para poder visualizar todos los videos del evento *EN EL MOMENTO*',
@@ -273,13 +273,13 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
                 'El valor del equipo es de 1500 U$S.' ,
                 '▶ REQUERIDO:Necesita contar con un Apple Iphone 13 o suoperior (dispositivo de grabacion)',
       'y un TV LED de 32 o mas (monitoreo)'])
-        .flowDynamic('Selfie Mirror', {media: 'video3.mp4'})
+      .addAnswer('Selfie Mirror', {media: 'video3.mp4'})
 
-        .flowDynamic('Formas de pago: efectivo, transferencia/depósito')
+      .addAnswer('Formas de pago: efectivo, transferencia/depósito')
 
         .addAnswer('Selfie Mirror', {media: 'banner22.jpg'})
 
-        .flowDynamic('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
+        .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
           let dolar
           await fetch('https://dolarapi.com/v1/dolares/blue')
     .then(response => response.json())
@@ -326,7 +326,7 @@ await endFlow()
 await endFlow()
 }}
 )        
-   })
+   
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
 const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 .addAnswer(['¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
