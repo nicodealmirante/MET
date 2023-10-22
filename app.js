@@ -313,14 +313,14 @@ flowDynamic('Captura 360', {media: 'video360.mp4'}); },
           const mywhatsa = "5491140054474@s.whatsapp.net"}))
 
 if (ctx.body == 'CONTINUAR CON AGENTE') {
-await provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+ provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
   flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
 await endFlow()
 
-} else if (ctx.body == 'VOLVER AL MENU') 
+} else if (ctx.body == 'VOLVER AL MENU') {
 
  await gotoFlow(Menuflow) 
-
+}
   else if (ctx.body == 'FINALIZAR') {
     flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
 await endFlow()}
