@@ -287,21 +287,21 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
                     motivo = "VENTA"       ;  
                 //   numero(ctx.from);
             
- await flowDynamic(`*VALOR ESPEJO MAGICO* \n
+  flowDynamic(`*VALOR ESPEJO MAGICO* \n
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓 `);
-    await  flowDynamic(`*VALOR PLATAFORMA 360*\n     
+     flowDynamic(`*VALOR PLATAFORMA 360*\n     
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`);
- await flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
+  flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
 console.log('GOTOCLIENTE')})
-await flowDynamic('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
-await flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
-await flowDynamic('Selfie Mirror', {media: 'video2.mp4'});
-await flowDynamic('Captura 360', {media: 'video360.mp4'});
-await flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
+ flowDynamic('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
+ flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
+flowDynamic('Selfie Mirror', {media: 'video2.mp4'});
+flowDynamic('Captura 360', {media: 'video360.mp4'});
+ flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
       capture: true,
       buttons: [
           {body: 'CONTINUAR CON AGENTE'},
