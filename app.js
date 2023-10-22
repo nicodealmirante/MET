@@ -191,7 +191,6 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
                     'y fiestas.'  ])
 
         .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
-        const flowServices = addKeyword('hola')
     .addAnswer(
         'OK',
         {
