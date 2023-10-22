@@ -54,7 +54,7 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
 
 if (ctx.body == 'CONTINUAR CON AGENTE') {
 
-await provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+await provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *$*\nINFO: \n*${ctx.body}*`)
   flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
 await endFlow()
 
@@ -360,7 +360,9 @@ gotoFlow(Menuflow);
         {body: 'CONTINUAR AL MENU'}    ]}, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
   if(ctx.body=='INFO ORDENADORES LED'){await gotoFlow(organizadorflow)}else
                     {await gotoFlow(Menuflow)}
-         }       )
+
+
+                  }       )
                     
 
 
