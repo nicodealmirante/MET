@@ -286,9 +286,8 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 '*POR FAVOR COMUNIQUESE AL +5491140054474 PARA CONTINUAR*'])
 .addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
 .addAnswer('FOTO FILA VIP', {media: '111.jpg'})
-.addAction(async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
-return gotoFlow(Menuflow);
-})
+.addAction(async (ctx, { endFlow}) => {
+ await endFlow(Menuflow)})
 
 
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
