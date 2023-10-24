@@ -42,7 +42,7 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
     .addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
     .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
     .addAnswer('Captura 360', {media: 'video360.mp4'})
-    .addAnswer("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
+    .addAnswer("*CONTINUAR*", { 
       capture: true,
       buttons: [
           {body: 'CONTINUAR CON AGENTE'},
@@ -191,76 +191,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
                     'y fiestas.'  ])
 
         .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
-    .addAnswer(
-        'OK',
-        {
-            capture: true
-        },
-        async (ctx, {provider}) => {
-            const headerText = 'Selfie Mirror'
-            const bodyText = '*Seleccione una opcion*'
-            const footerText = 'Sistema Automatico FAQ'
-            const buttonList = 'OPCIONES'
-            const listParams = [
-                {
-                    title: '*VENTA*',
-                    rows: [
-                        {
-                            id: 'ID_1',
-                            title: 'ESPEJO MAGICO ',
-                            description: 'SELFIE MIRROR'
-                        },
-                        {
-                            id: 'ID_2',
-                            title: 'PLATAFORMA 360',
-                            description: 'SUPER SLOW'
-                        },
-                        {
-                            id: 'ID_3',
-                            title: 'ORDENADORES DE FILA LED',
-                            description: 'FILA VIP'
-                        }
-                    ]
-                },
-                {
-                    title: 'ALAQUILER',
-                    rows: [
-                      {
-                        id: 'ID_1',
-                        title: 'ESPEJO MAGICO ',
-                        description: 'SELFIE MIRROR'
-                    },
-                    {
-                        id: 'ID_2',
-                        title: 'PLATAFORMA 360',
-                        description: 'SUPER SLOW'
-                    },
-                    ]
-                  },
-                {
-                  title: 'LA EMPRESA',
-                  rows: [
-                      {
-                          id: 'ID_1',
-                          title: 'UBICACION',
-                          description: 'SHOWRROOM'
-                      },
-                      {
-                          id: 'ID_2',
-                          title: 'PAGINA WEB',
-                          description: 'PORTALES DIGITALES'
-                      },
-                      {
-                          id: 'ID_3',
-                          title: 'HABLAR CON ASESOR',
-                          description: 'WHATSAPP ASESOR'
-                      }
-                  ]
-                },
-            ]
-            await provider.sendList(ctx.from, headerText, bodyText, footerText, buttonList ,listParams)
-        }
-    )
+    
 
         .addAnswer(['La facilidad de uso es una de las ventajas clave del Espejo Mágico. Simplemente tienes que enchufarlo y presionar el ',
                       'botón de encendido para que empiece a funcionar. Esto agiliza la instalación y permite que los eventos comiencen rápidamente.',
