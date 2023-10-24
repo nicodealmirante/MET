@@ -351,10 +351,7 @@ if(ctx.body=='INFO ORDENADORES LED'){gotoFlow(organizadorflow)}else
         flowDynamic('Selfie Mirror', {media: 'video.mp4'})
       
         gotoFlow(Menuflow);
-         
-             } else {
-            return fallBack({ body: 'Esta respuesta es automática y solo acepta una respuesta numérica. Responde 1 para *Alquiler*, 2 para *Venta* o 3 para derivarlo a un *Asesor*. Gracias' });
-           }   [flowVenta, flowsAlquiler, Cliente]});
+         }   [flowVenta, flowsAlquiler, Cliente]});
         
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -378,15 +375,14 @@ if(ctx.body=='INFO ORDENADORES LED'){gotoFlow(organizadorflow)}else
     provider: adapterProvider,
     database: adapterDB,
   });
-/** 
+
+
+};
+
+  main(); 
   BotWrapper.initialize(BotCreate, {
-    CHATWOOT_URL: "https://chatwoot-production-36d7.up.railway.app/webhooks",
+    CHATWOOT_URL: "https://chatwoot-production-36d7.up.railway.app",
     CHATWOOT_ID: "1",
     CHATWOOT_INBOX_ID: "1",
     CHATWOOT_API_ACCESS_TOKEN: "a19cc4f38d1c129044b376f5a89d90c7",
-  
-);
-}*/
-};
-
-  main();
+})
