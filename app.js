@@ -286,7 +286,8 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 '*POR FAVOR COMUNIQUESE AL +5491140054474 PARA CONTINUAR*'])
 .addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
 .addAnswer('FOTO FILA VIP', {media: '111.jpg'}, async (ctx, { endFlow}) => {
- await gotoFlow(Menuflow)})
+ await gotoFlow(Menuflow)
+})
 
 
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
@@ -376,7 +377,7 @@ if(ctx.body=='INFO ORDENADORES LED'){gotoFlow(organizadorflow)}else
     database: adapterDB,
   });
  BotWrapper.initialize(BotCreate, {
-    CHATWOOT_URL: "https://chatwoot-production-36d7.up.railway.app",
+    CHATWOOT_URL: "https://chatwoot-production-36d7.up.railway.app/app",
     CHATWOOT_ID: "1",
     CHATWOOT_INBOX_ID: "1",
     CHATWOOT_API_ACCESS_TOKEN: "wshJN4RodjHhKosYNaVC7SMn",
