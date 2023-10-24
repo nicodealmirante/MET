@@ -283,12 +283,12 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 '*CADENA 1.5 mts $ 10.000 AR$*\n',
 '*SOGA 1.5 mts $ 20.000 AR$*\n',
 '*PRODUCCION ACTUAL (7/10 DIAS)*\n',
-'*POR FAVOR COMUNIQUESE AL +5491140054474 PARA CONTINUAR*'], {capture:false}, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
- flowDynamic('FILA VIP', {media: 'ledselfie.mp4'});
- flowDynamic('FOTO FILA VIP', {media: '111.jpg'});
-gotoFlow(Menuflow)
-}
-)
+'*POR FAVOR COMUNIQUESE AL +5491140054474 PARA CONTINUAR*'])
+.addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
+.addAnswer('FOTO FILA VIP', {media: '111.jpg'})
+.addAction(async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
+gotoFlow(Menuflow);
+})
 
 
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
