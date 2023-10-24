@@ -379,7 +379,7 @@ if(ctx.body=='INFO ORDENADORES LED'){gotoFlow(organizadorflow)}else
     CHATWOOT_URL: "https://chatwoot-production-36d7.up.railway.app",
     CHATWOOT_ID: "1",
     CHATWOOT_INBOX_ID: "1",
-    CHATWOOT_API_ACCESS_TOKEN: "a19cc4f38d1c129044b376f5a89d90c7",
+    CHATWOOT_API_ACCESS_TOKEN: "wshJN4RodjHhKosYNaVC7SMn",
 })
 
 };
