@@ -287,7 +287,7 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 .addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
 .addAnswer('FOTO FILA VIP', {media: '111.jpg'})
 .addAction(async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
-gotoFlow(Menuflow);
+return gotoFlow(Menuflow);
 })
 
 
