@@ -295,64 +295,15 @@ gotoFlow(Menuflow);
 
 
   const flowPrincipal = addKeyword(EVENTS.WELCOME)  
-        
-  .addAnswer(
-    'Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás',
-    {
-        capture: false
-    },
-    async (ctx, {provider}) => {
-        const headerText = 'Selfie Mirror'
-        const bodyText = '*Seleccione una opcion*'
-        const footerText = 'Sistema Automatico FAQ'
-        const buttonList = 'OPCIONES'
-        const listParams = [
-            {
-                title: '*VENTA*',
-                rows: [
-                    {
-                        id: 'ID_1',
-                        title: 'ESPEJO MAGICO SELFIE MIRROR',
-                        description: 'VENTA'
-                    },
-                    {
-                        id: 'ID_2',
-                        title: 'PLATAFORMA 360',
-                        description: 'SUPER SLOW'
-                    },
-                    {
-                        id: 'ID_3',
-                        title: 'ORDENADORES DE FILA LED',
-                        description: 'FILA VIP'
-                    }
-                ]
-            },
-                    {
-              title: 'LA EMPRESA',
-              rows: [
-                  {
-                      id: 'ID_1',
-                      title: 'UBICACION',
-                      description: 'SHOWRROOM'
-                  },
-                  {
-                      id: 'ID_2',
-                      title: 'PAGINA WEB',
-                      description: 'PORTALES DIGITALES'
-                  },
-                  {
-                      id: 'ID_3',
-                      title: 'HABLAR CON ASESOR',
-                      description: 'WHATSAPP ASESOR'
-                  }
-              ]
-            },
-        ]
-        await provider.sendList(ctx.from, headerText, bodyText, footerText, buttonList ,listParams)
- 
+  .addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás")
+  .addAnswer("Presentamos los nuevos organizadores de fila *FILA VIP* - Completamente unicos y originales. Otro producto innovador de Selfie Mirror.", {capture: true,
+  buttons: [
+      {body: 'INFO ORDENADORES LED'},
+      {body: 'CONTINUAR AL MENU'}    ]}, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
+if(ctx.body=='INFO ORDENADORES LED'){await gotoFlow(organizadorflow)}else
+                  {await gotoFlow(Menuflow)}
+       }       )
 
-    }) 
-                    
 
 
   /////////////////////////////////////////////////////////////////////////  FLUJO MENU
