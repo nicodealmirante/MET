@@ -285,10 +285,10 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 '*PRODUCCION ACTUAL (7/10 DIAS)*\n',
 '*POR FAVOR COMUNIQUESE AL +5491140054474 PARA CONTINUAR*'], {capture:false}, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
  flowDynamic('FILA VIP', {media: 'ledselfie.mp4'});
-await flowDynamic('FOTO FILA VIP', {media: '111.jpg'});
-gotoFlow(Menuflow);
-
-})
+ flowDynamic('FOTO FILA VIP', {media: '111.jpg'});
+gotoFlow(Menuflow)
+}
+)
 
 
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
