@@ -56,15 +56,15 @@ if (ctx.body == 'CONTINUAR CON AGENTE') {
 
 await provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
   flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
-await endFlow()
+return endFlow()
 
 } else if (ctx.body == 'VOLVER AL MENU') {
 
- await gotoFlow(Menuflow)
+ return gotoFlow(Menuflow)
 
   } else if (ctx.body == 'FINALIZAR') {
-    flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
-await endFlow()
+   await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
+return endFlow()
 }}
 )        
 /** 
@@ -85,8 +85,7 @@ await endFlow()
 const audiono = addKeyword(EVENTS.VOICE_NOTE)
   .addAnswer('Disculpe, no puedo escuchar audios. Por favor utilice solo texto.')
   .addAction(async(ctx, {gotoFlow,endFlow}) => { 
-gotoFlow(Menuflow),
-endFlow()})
+return endFlow(Menuflow)})
 
 ///////////////////////////////////////////////////////////////// FLUJO ALQUILER
 
@@ -158,16 +157,16 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
        await flowDynamic('En que fecha y donde se realizara el evento?') ,{capture: true},async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
             const mywhatsa = "5491140054474@s.whatsapp.net";
 
-      await provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+       provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
         flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD' );
-      await endFlow()}
+      return endFlow()}
       } else if (ctx.body == 'VOLVER AL MENU') {
       
-       await gotoFlow(Menuflow)
+       return gotoFlow(Menuflow)
       
         } else if (ctx.body == 'FINALIZAR') {
           await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
-      await endFlow()
+      return endFlow()
       }}
       )        
             }
@@ -253,17 +252,17 @@ await flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", {
 
 if (ctx.body == 'CONTINUAR CON AGENTE') {
 
-await provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
-  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
-await endFlow()
+ provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+await  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
+return endFlow()
 
 } else if (ctx.body == 'VOLVER AL MENU') {
 
- await gotoFlow(Menuflow)
+ return gotoFlow(Menuflow)
 
   } else if (ctx.body == 'FINALIZAR') {
-    flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
-await endFlow()
+  await  flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
+return endFlow()
 }}
 )        
    })
@@ -286,7 +285,7 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 '*POR FAVOR COMUNIQUESE AL +5491140054474 PARA CONTINUAR*'])
 .addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
 .addAnswer('FOTO FILA VIP', {media: '111.jpg'}, async (ctx, { endFlow}) => {
- await gotoFlow(Menuflow)
+ return gotoFlow(Menuflow)
 })
 
 
@@ -299,8 +298,8 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
   buttons: [
       {body: 'INFO ORDENADORES LED'},
       {body: 'CONTINUAR AL MENU'}    ]}, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
-if(ctx.body=='INFO ORDENADORES LED'){gotoFlow(organizadorflow)}else
-                  {gotoFlow(Menuflow)}
+if(ctx.body=='INFO ORDENADORES LED'){return gotoFlow(organizadorflow)}else
+                  {return gotoFlow(Menuflow)}
        }       )
 
 
@@ -319,11 +318,11 @@ if(ctx.body=='INFO ORDENADORES LED'){gotoFlow(organizadorflow)}else
          delay: 5000 }, async (ctx, { fallBack, gotoFlow, provider, sock}) => {
     
     if (ctx.body == 'INFO. ALQUILER') {
-      await   gotoFlow(flowsAlquiler)
+      return   gotoFlow(flowsAlquiler)
       } else if (ctx.body == 'INFO. VENTA') {
-       await  gotoFlow(flowVenta)
+       return  gotoFlow(flowVenta)
         } else if (ctx.body == '+ OPCIONES') {
-          await  gotoFlow(Menuflow2)
+          return  gotoFlow(Menuflow2)
     }}
 ) 
 
@@ -344,14 +343,14 @@ if(ctx.body=='INFO ORDENADORES LED'){gotoFlow(organizadorflow)}else
                         gotoFlow(Menuflow);
       } else if (ctx.body == 'HABLAR CON ASESOR') {
          nombre = "Cliente"
-         gotoFlow(Cliente)
+         return gotoFlow(Cliente)
       } else if (ctx.body == 'INFO DE LA EMPRESA') {
-        flowDynamic('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
-        flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
+       await flowDynamic('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
+       await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
    
-        flowDynamic('Selfie Mirror', {media: 'video.mp4'})
+       await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
       
-        gotoFlow(Menuflow);
+      return  gotoFlow(Menuflow);
          }   [flowVenta, flowsAlquiler, Cliente]});
         
 
@@ -376,7 +375,7 @@ if(ctx.body=='INFO ORDENADORES LED'){gotoFlow(organizadorflow)}else
     provider: adapterProvider,
     database: adapterDB,
   });
- BotWrapper.initialize(BotCreate, {
+  BotWrapper.initialize(BotCreate, {
     CHATWOOT_URL: "https://chatwoot-production-36d7.up.railway.app/",
     CHATWOOT_ID: "1",
     CHATWOOT_INBOX_ID: "8",
