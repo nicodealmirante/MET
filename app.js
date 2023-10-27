@@ -50,22 +50,20 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
           {body: 'FINALIZAR'},
       ],
   }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
-          const mywhatsa = "5491140054474@s.whatsapp.net";
+          const mywhatsa = "5491140054474@s.whatsapp.net"
 
-if (ctx.body == 'CONTINUAR CON AGENTE') {
-
-await provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+if(ctx.body == 'CONTINUAR CON AGENTE')
+  {
+    await provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
   flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
 return endFlow()
 
-} else if (ctx.body == 'VOLVER AL MENU') {
-
- return gotoFlow(Menuflow)
-
-  } else if (ctx.body == 'FINALIZAR') {
+} else{if(ctx.body == 'VOLVER AL MENU') {
+ return gotoFlow(Menuflow)} else {if (ctx.body == 'FINALIZAR') {
    await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
 return endFlow()
-}}
+}
+}}}
 )        
 /** 
 })
