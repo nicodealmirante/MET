@@ -282,7 +282,7 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 '*PRODUCCION ACTUAL (7/10 DIAS)*\n',
 '*POR FAVOR COMUNIQUESE AL +5491140054474 PARA CONTINUAR*'])
 .addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
-.addAnswer('FOTO FILA VIP', {media: '111.jpg'}, async (ctx, { gendFlow, endFlow}) => {
+.addAnswer('FOTO FILA VIP', {media: '111.jpg'}, async (ctx, { gotoFlow, endFlow}) => {
  return gotoFlow(Menuflow)
 })
 
