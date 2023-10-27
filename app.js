@@ -50,12 +50,13 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
           {body: 'FINALIZAR'},
       ],
   }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
-          const mywhatsa = "5491140054474@s.whatsapp.net"
 
 if(ctx.body == 'CONTINUAR CON AGENTE')
-  {
-    await provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
-  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
+  {      
+        const mywhatsa = "5491140054474@s.whatsapp.net"
+
+     provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+  await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
 return endFlow()
 
 } else{if(ctx.body == 'VOLVER AL MENU') {
@@ -246,9 +247,9 @@ await flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", {
           {body: 'FINALIZAR'},
       ],
   }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
-          const mywhatsa = "5491140054474@s.whatsapp.net";
 
 if (ctx.body == 'CONTINUAR CON AGENTE') {
+          const mywhatsa = "5491140054474@s.whatsapp.net";
 
  provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
 await  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
@@ -276,13 +277,13 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 '¡Es el momento de darle a tu negocio una ventaja competitiva!\n',
 '¡Haz que tu negocio brille con nuestros organizadores de fila Pixel LED! 💫✨ #TecnologíaLED #OrganizaciónEfectiva #AtraeClientes\n',
 '*VALORES*\n',
-'*FILA VIP LED 80.000 AR$ C/U*\n',
-'*CADENA 1.5 mts $ 10.000 AR$*\n',
-'*SOGA 1.5 mts $ 20.000 AR$*\n',
+'*FILA VIP LED AR$ 80.000 C/U*\n',
+'*CADENA 1.5 mts  AR$ 10.000*\n',
+'*SOGA 1.5 mts AR$ 15.000*\n',  
 '*PRODUCCION ACTUAL (7/10 DIAS)*\n',
 '*POR FAVOR COMUNIQUESE AL +5491140054474 PARA CONTINUAR*'])
 .addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
-.addAnswer('FOTO FILA VIP', {media: '111.jpg'}, async (ctx, { endFlow}) => {
+.addAnswer('FOTO FILA VIP', {media: '111.jpg'}, async (ctx, { gendFlow, endFlow}) => {
  return gotoFlow(Menuflow)
 })
 
@@ -373,14 +374,14 @@ if(ctx.body=='INFO ORDENADORES LED'){return gotoFlow(organizadorflow)}else
     provider: adapterProvider,
     database: adapterDB,
   });
- /**  BotWrapper.initialize(BotCreate, {
-    CHATWOOT_URL: "https://chatwoot-production-36d7.up.railway.app/",
-    CHATWOOT_ID: "1",
-    CHATWOOT_INBOX_ID: "8",
-    CHATWOOT_API_ACCESS_TOKEN: "wshJN4RodjHhKosYNaVC7SMn",
-})
-*/
-};
+ 
+}
+BotWrapper.initialize(BotCreate, {
+    CHATWOOT_URL: 'https://chatwoot-production-36d7.up.railway.app/',
+    CHATWOOT_ID: '1',
+    CHATWOOT_INBOX_ID: '8',
+    CHATWOOT_API_ACCESS_TOKEN: 'wshJN4RodjHhKosYNaVC7SMn'
+});
 
   main(); 
  
