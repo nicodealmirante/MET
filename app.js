@@ -374,10 +374,10 @@ if(ctx.body=='INFO ORDENADORES LED'){return gotoFlow(organizadorflow)}else
     database: adapterDB,
   });
 await    BotWrapper.initialize(BotCreate, {
-      CHATWOOT_URL: 'https://chatwoot-production-36d7.up.railway.app/',
+      CHATWOOT_URL: 'https://chatwoot-production-0566.up.railway.app/',
       CHATWOOT_ID: '1',
-      CHATWOOT_INBOX_ID: '8',
-      CHATWOOT_API_ACCESS_TOKEN: 'wshJN4RodjHhKosYNaVC7SMn'
+      CHATWOOT_INBOX_ID: '1',
+      CHATWOOT_API_ACCESS_TOKEN: 'mS5dKUsvKEYVn2zBUx6y6C32'
   })
 }
 
