@@ -373,12 +373,14 @@ if(ctx.body=='INFO ORDENADORES LED'){return gotoFlow(organizadorflow)}else
     provider: adapterProvider,
     database: adapterDB,
   });
+  /**
  await BotWrapper.initialize(BotCreate, {
       CHATWOOT_URL: 'https://chatwoot-production-0566.up.railway.app:3000',
       CHATWOOT_ID: '1',
       CHATWOOT_INBOX_ID: '1',
       CHATWOOT_API_ACCESS_TOKEN: 'mS5dKUsvKEYVn2zBUx6y6C32'
   })
+  */
 }
 
   main(
