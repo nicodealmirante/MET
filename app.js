@@ -154,7 +154,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
                 const mywhatsa = "5491140054474@s.whatsapp.net";
       
       if (ctx.body == 'CONTINUAR CON AGENTE') {
-       await flowDynamic('En que fecha y donde se realizara el evento?') ,{capture: true},async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
+       await flowDynamic('En que fecha y donde se realizara el evento?' ,{capture: true}),async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
             const mywhatsa = "5491140054474@s.whatsapp.net";
 
        provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
@@ -167,7 +167,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
         } else if (ctx.body == 'FINALIZAR') {
           await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
       return endFlow()
-      }}
+    }}
       )        
             }
       )
