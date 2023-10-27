@@ -171,13 +171,6 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
             }
       )
 
-      BotWrapper.initialize(BotCreate, {
-        CHATWOOT_URL: 'https://chatwoot-production-36d7.up.railway.app/',
-        CHATWOOT_ID: '1',
-        CHATWOOT_INBOX_ID: '8',
-        CHATWOOT_API_ACCESS_TOKEN: 'wshJN4RodjHhKosYNaVC7SMn'
-    });
-    
 
 
 /////////////////////////////////////////////////////////////////////////////////////////// FLUJO VENTA
@@ -383,5 +376,12 @@ if(ctx.body=='INFO ORDENADORES LED'){return gotoFlow(organizadorflow)}else
 
 }
 
-  main(); 
+  main(
+    BotWrapper.initialize(BotCreate, {
+      CHATWOOT_URL: 'https://chatwoot-production-36d7.up.railway.app/',
+      CHATWOOT_ID: '1',
+      CHATWOOT_INBOX_ID: '8',
+      CHATWOOT_API_ACCESS_TOKEN: 'wshJN4RodjHhKosYNaVC7SMn'
+  })
+  ); 
  
