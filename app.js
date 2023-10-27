@@ -7,12 +7,6 @@ const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 const fs = require("fs")
 const axios = require("axios");
 const BotWrapper = require("./Services/class/botWrapper");
-BotWrapper.initialize(BotCreate, {
-  CHATWOOT_URL: 'https://chatwoot-production-36d7.up.railway.app/',
-  CHATWOOT_ID: '1',
-  CHATWOOT_INBOX_ID: '8',
-  CHATWOOT_API_ACCESS_TOKEN: 'wshJN4RodjHhKosYNaVC7SMn'
-});
 
 let motivo;  
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -177,7 +171,13 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
             }
       )
 
-
+      BotWrapper.initialize(BotCreate, {
+        CHATWOOT_URL: 'https://chatwoot-production-36d7.up.railway.app/',
+        CHATWOOT_ID: '1',
+        CHATWOOT_INBOX_ID: '8',
+        CHATWOOT_API_ACCESS_TOKEN: 'wshJN4RodjHhKosYNaVC7SMn'
+    });
+    
 
 
 /////////////////////////////////////////////////////////////////////////////////////////// FLUJO VENTA
