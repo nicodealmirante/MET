@@ -374,7 +374,6 @@ if(ctx.body=='INFO ORDENADORES LED'){return gotoFlow(organizadorflow)}else
     provider: adapterProvider,
     database: adapterDB,
   });
- 
 }
 BotWrapper.initialize(BotCreate, {
     CHATWOOT_URL: 'https://chatwoot-production-36d7.up.railway.app/',
