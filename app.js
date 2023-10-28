@@ -144,7 +144,7 @@ const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
           {body: 'CONTINUAR CON AGENTE'},
           {body: 'VOLVER AL MENU'},
           {body: 'FINALIZAR'},
-      ],
+      ],delay: 5000
   }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
 
 if(ctx.body == 'CONTINUAR CON AGENTE')
@@ -249,13 +249,13 @@ await flowDynamic('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
 await flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
 await flowDynamic('Selfie Mirror', {media: 'video2.mp4'});
 await flowDynamic('Captura 360', {media: 'video360.mp4'});
-await flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", { 
+await flowDynamic("*CONTINUAR*", { 
       capture: true,
       buttons: [
           {body: 'CONTINUAR CON AGENTE'},
           {body: 'VOLVER AL MENU'},
           {body: 'FINALIZAR'},
-      ],
+      ],delay: 5000
   }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
 
 if (ctx.body == 'CONTINUAR CON AGENTE') {
@@ -283,7 +283,7 @@ return endFlow()
       {body: 'INFO. ALQUILER'},
       {body: 'INFO. VENTA'},
       {body: 'UNIFILA LED'},
-  ]}
+  ], delay: 5000}
 ) 
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
 const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
