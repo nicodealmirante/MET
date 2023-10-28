@@ -276,6 +276,61 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 
 
   const flowPrincipal = addKeyword(EVENTS.WELCOME)
+    .addAnswer(
+        'Aqui va un mensaje',
+        {
+            capture: true
+        },
+        async (ctx, {provider}) => {
+            const headerText = 'HEADER_TEXt'
+            const bodyText = 'BODY_TEXT'
+            const footerText = 'FOOTER_TEXT'
+            const buttonList = 'BUTTON_LIST'
+            const listParams = [
+                {
+                    title: 'TITLE_1',
+                    rows: [
+                        {
+                            id: 'ID_1',
+                            title: 'TITLE_1',
+                            description: 'DESCRIPTION_1'
+                        },
+                        {
+                            id: 'ID_2',
+                            title: 'TITLE_2',
+                            description: 'DESCRIPTION_2'
+                        },
+                        {
+                            id: 'ID_3',
+                            title: 'TITLE_3',
+                            description: 'DESCRIPTION_3'
+                        }
+                    ]
+                },
+                {
+                    title: 'TITLE_2',
+                    rows: [
+                        {
+                            id: 'ID_1',
+                            title: 'TITLE_1',
+                            description: 'DESCRIPTION_1'
+                        },
+                        {
+                            id: 'ID_2',
+                            title: 'TITLE_2',
+                            description: 'DESCRIPTION_2'
+                        },
+                        {
+                            id: 'ID_3',
+                            title: 'TITLE_3',
+                            description: 'DESCRIPTION_3'
+                        }
+                    ]
+                }
+            ]
+            await provider.sendList(ctx.from, headerText, bodyText, footerText, buttonList ,listParams)
+        }
+    )
   .addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás")
   .addAnswer("Presentamos los nuevos organizadores de fila *FILA VIP* - Completamente unicos y originales. Otro producto innovador de Selfie Mirror.", {capture: true,
   buttons: [
@@ -359,7 +414,11 @@ if(ctx.body=='INFO ORDENADORES LED'){return gotoFlow(organizadorflow);
     flow: adapterFlow,
     provider: adapterProvider,
     database: adapterDB,
-  });
+  },
+  {
+      blackList: '+5491140054474'
+  }) 
+
   /**
 
   BotWrapper.initialize(BotCreate, {
