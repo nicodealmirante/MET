@@ -277,13 +277,13 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 
   const flowPrincipal = addKeyword(EVENTS.WELCOME)
   .addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea automáticas la cual respondera inmediatamente preguntas frecuentes. ASESOR: +5491140054474 - Nicolás")
-
+    .addAction(async (ctx, {provider}) => { 
 await flowDynamic('Seleccione un boton', {capture: true, buttons: [
           {body: 'Informacion y Precios'},
           {body: 'Comprar un equipo'},
           {body: 'Contratar un servicio'}]
         })
-        .addAction(async (ctx, {provider}) => { 
+    
 
           if(ctx.body=='Informacion y Precios'){
             const headerText = 'MENU'
