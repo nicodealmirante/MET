@@ -279,14 +279,14 @@ return endFlow()
    })
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
 
-.addAnswer("*MENU*", { 
+.addAnswer("*INFO*", { 
   capture: true,
   buttons: [
       {body: 'INFO. ALQUILER'},
       {body: 'INFO. VENTA'},
       {body: 'UNIFILA LED'},
   ], delay: 5000}
-) .addAnswer("Menu", { 
+) .addAnswer("Contacto", { 
   capture: true,
   buttons: [
       {body: 'HABLAR CON ASESOR'},
@@ -308,7 +308,7 @@ await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 1
 await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
 
 return  gotoFlow(Menuflow);
-}   [flowVenta, flowsAlquiler, Cliente]});
+}});
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
 const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
 .addAnswer(['¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
@@ -373,7 +373,7 @@ await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 1
 await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
 
 return  gotoFlow(Menuflow);
-}   [flowVenta, flowsAlquiler, Cliente]});
+}});
           
     
  /**   {capture: true},async (ctx, {provider}) => {
@@ -443,7 +443,7 @@ return  gotoFlow(Menuflow);
   
   const Menuflow = addKeyword(["me-nu"], { sensitive: true })
 
-  .addAnswer("*MENU*", { 
+  .addAnswer("*Info*", { 
             capture: false,
             buttons: [
                 {body: 'INFO. ALQUILER'},
