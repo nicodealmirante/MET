@@ -352,7 +352,7 @@ if(ctx.body=='INFO ORDENADORES LED'){return gotoFlow(organizadorflow)}else
       return  gotoFlow(Menuflow);
          }   [flowVenta, flowsAlquiler, Cliente]});
         
-console.log(data)
+
 ////////////////////////////////////////////////////////////////////////////////////////
 
   const main = async () => {
