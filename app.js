@@ -205,22 +205,45 @@ return endFlow()
         .addAnswer('Formas de pago: efectivo, transferencia/depósito')
 
         .addAnswer('Selfie Mirror', {media: 'banner22.jpg'})
-
+       .addAnswer(['¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
+        'En SELFIE MediaError, entendemos la importancia de mantener tus espacios organizados y atractivos. Nuestros organizadores de fila no solo te ayudarán a mantener un flujo ordenado de clientes, sino que también añadirán un toque de modernidad y estilo a tu negocio.\n',
+        '¿Qué hace que nuestros organizadores de fila con tecnología Pixel LED sean especiales?\n',
+        '✨ Iluminación espectacular: Nuestra tecnología Pixel LED ofrece una iluminación vibrante y personalizable que destacará tu marca y creará una experiencia memorable para tus clientes.\n',
+        '🧹 Organización efectiva: Mantén tus filas en orden y evita la confusión con nuestros organizadores de alta calidad. ¡El caos será cosa del pasado!\n',
+        '🎨 Personalización total: Personaliza la apariencia de tus organizadores para que se adapten a tu imagen corporativa o al tema de tu negocio.\n',
+        '🌟 Destaca entre la multitud: Con nuestros organizadores de fila Pixel LED, tu negocio destacará en cualquier entorno, desde eventos, ferias comerciales hasta tiendas minoristas y restaurantes.\n',
+        '¡Es el momento de darle a tu negocio una ventaja competitiva!\n',
+        '¡Haz que tu negocio brille con nuestros organizadores de fila Pixel LED! 💫✨ #TecnologíaLED #OrganizaciónEfectiva #AtraeClientes\n',
+        '*VALORES*\n',
+        'https://filavip.ar'])
+        .addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
+        .addAnswer('FOTO FILA VIP', {media: '111.jpg'})
         .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
           let dolar
           await fetch('https://dolarapi.com/v1/dolares/blue')
     .then(response => response.json())
     .then(json => dolar = json.venta)
-                       
+
  await flowDynamic(`*VALOR ESPEJO MAGICO* \n
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓 `);
+
     await  flowDynamic(`*VALOR PLATAFORMA 360*\n     
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`);
+
  await flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
+ await  flowDynamic(`*VALOR FILA VIP*\n`
+ `ORGANIZADORES DE FILA PIXEL CON`,
+ ` 🚧 BASE NEGRA / PLATA / ORO  🚧`,
+ ` 📍AR$ 60.000 / 85.000 / 95.000 📍`,
+ `SOGAS TRENZADA CON CAPUCHON`,
+ ` ⛓️  NEGRO / PLATA / ORO ⛓️  `,
+ ` AR$ 14.000 / 15.000 / 25.000 `,
+ ` PACK 4 PIXEL + 2 SOGAS (NEGRO)`,
+ `💲💲💲 AR$ 255.000 💲💲💲`,)
 console.log('GOTOCLIENTE')
 await flowDynamic('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
 await flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
@@ -253,20 +276,7 @@ return endFlow()
 )        
    })
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
-const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
-.addAnswer(['¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
-'En SELFIE MediaError, entendemos la importancia de mantener tus espacios organizados y atractivos. Nuestros organizadores de fila no solo te ayudarán a mantener un flujo ordenado de clientes, sino que también añadirán un toque de modernidad y estilo a tu negocio.\n',
-'¿Qué hace que nuestros organizadores de fila con tecnología Pixel LED sean especiales?\n',
-'✨ Iluminación espectacular: Nuestra tecnología Pixel LED ofrece una iluminación vibrante y personalizable que destacará tu marca y creará una experiencia memorable para tus clientes.\n',
-'🧹 Organización efectiva: Mantén tus filas en orden y evita la confusión con nuestros organizadores de alta calidad. ¡El caos será cosa del pasado!\n',
-'🎨 Personalización total: Personaliza la apariencia de tus organizadores para que se adapten a tu imagen corporativa o al tema de tu negocio.\n',
-'🌟 Destaca entre la multitud: Con nuestros organizadores de fila Pixel LED, tu negocio destacará en cualquier entorno, desde eventos, ferias comerciales hasta tiendas minoristas y restaurantes.\n',
-'¡Es el momento de darle a tu negocio una ventaja competitiva!\n',
-'¡Haz que tu negocio brille con nuestros organizadores de fila Pixel LED! 💫✨ #TecnologíaLED #OrganizaciónEfectiva #AtraeClientes\n',
-'*VALORES*\n',
-'https://filavip.ar'])
-.addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
-.addAnswer('FOTO FILA VIP', {media: '111.jpg'})
+
 .addAnswer("*MENU*", { 
   capture: true,
   buttons: [
