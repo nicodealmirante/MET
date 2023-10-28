@@ -285,7 +285,9 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
           {body: 'Comprar un equipo'},
           {body: 'Contratar un servicio'}]
         },
-        async (ctx, {provider}) => {
+        async (ctx, {provider}) => { 
+
+          if(ctx.body=='Informacion y Precios'){
             const headerText = 'MENU'
             const bodyText = 'Informacion y Precios'
             const footerText = 'Seleccione'
@@ -343,6 +345,17 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
             ]
             await provider.sendList(ctx.from, headerText, bodyText, footerText, buttonList ,listParams)
         }
+        
+        if(ctx.body=='Comprar un equipo'){
+
+ 
+
+        }
+        
+        if(ctx.body=='Contratar un servicio'){
+
+          
+           }   }
     )
   .addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás")
   .addAnswer("Presentamos los nuevos organizadores de fila *FILA VIP* - Completamente unicos y originales. Otro producto innovador de Selfie Mirror.", {capture: true,
