@@ -276,55 +276,68 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 
 
   const flowPrincipal = addKeyword(EVENTS.WELCOME)
+  .addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea automáticas la cual respondera inmediatamente preguntas frecuentes. ASESOR: +5491140054474 - Nicolás")
+
     .addAnswer(
-        'Aqui va un mensaje',
-        {
-            capture: true
+        'Seleccione un boton',
+        {buttons: [
+          {body: 'Informacion y Precios'},
+          {body: 'Comprar un equipo'},
+          {body: 'Contratar un servicio'}]
         },
         async (ctx, {provider}) => {
-            const headerText = 'HEADER_TEXt'
-            const bodyText = 'BODY_TEXT'
-            const footerText = 'FOOTER_TEXT'
-            const buttonList = 'BUTTON_LIST'
+            const headerText = 'MENU'
+            const bodyText = 'Informacion y Precios'
+            const footerText = 'Seleccione'
+            const buttonList = 'Lista'
             const listParams = [
                 {
-                    title: 'TITLE_1',
+                    title: 'COMPRAR',
                     rows: [
                         {
                             id: 'ID_1',
-                            title: 'TITLE_1',
-                            description: 'DESCRIPTION_1'
+                            title: 'Selfie Mirror',
+                            description: 'Espejo Magico'
                         },
                         {
                             id: 'ID_2',
-                            title: 'TITLE_2',
-                            description: 'DESCRIPTION_2'
+                            title: 'FilaVip',
+                            description: 'Organizadores de fila LED'
                         },
                         {
                             id: 'ID_3',
-                            title: 'TITLE_3',
-                            description: 'DESCRIPTION_3'
+                            title: 'Plataforma 360 Super Slow',
+                            description: 'Plataforma con camara giratoraia'
                         }
                     ]
                 },
                 {
-                    title: 'TITLE_2',
+                    title: 'ALQUILER',
                     rows: [
                         {
                             id: 'ID_1',
-                            title: 'TITLE_1',
-                            description: 'DESCRIPTION_1'
+                            title: 'Selfie Mirror',
+                            description: 'Espejo Magico'
                         },
                         {
                             id: 'ID_2',
-                            title: 'TITLE_2',
-                            description: 'DESCRIPTION_2'
-                        },
+                            title: 'Plataforma 360 Super Slow',
+                            description: 'Plataforma con camara giratoraia'
+         } ] },
                         {
-                            id: 'ID_3',
-                            title: 'TITLE_3',
-                            description: 'DESCRIPTION_3'
-                        }
+                          title: 'Empresa',
+                          rows: [
+                              {
+                                  id: 'ID_1',
+                                  title: 'Ubicacion',
+                                  description: 'Ubicacion y Horarios'
+                              },
+                              {
+                                  id: 'ID_2',
+                                  title: 'Sitio Web',
+                                  description: 'Paginas de productos'
+                              }
+                  
                     ]
                 }
             ]
