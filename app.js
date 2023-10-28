@@ -276,7 +276,6 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 
 
   const flowPrincipal = addKeyword(EVENTS.WELCOME)
-  .addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea automáticas la cual respondera inmediatamente preguntas frecuentes. ASESOR: +5491140054474 - Nicolás")
 
 .addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás")
   .addAnswer("Presentamos los nuevos organizadores de fila *FILA VIP* - Completamente unicos y originales. Otro producto innovador de Selfie Mirror.", {capture: true,
