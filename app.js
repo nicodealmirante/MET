@@ -291,7 +291,7 @@ await flowDynamic("*CONTINUAR*", {
 if (ctx.body == 'CONTINUAR CON AGENTE') {
   const mywhatsa = "+5491140054474@s.whatsapp.net"
 
-  provider.sendtext(mywhatsa, `*Directo* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+  provider.sendtext(mywhatsa, `*VENTA* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
 await  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
 return endFlow()
 
