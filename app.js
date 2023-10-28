@@ -89,7 +89,7 @@ return endFlow(Menuflow)})
 ///////////////////////////////////////////////////////////////// FLUJO ALQUILER
 
 
-const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
+const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
           .addAnswer('👌Te envio la info de alquiler.')
           
           .addAnswer('Selfie Mirror',{
@@ -166,7 +166,7 @@ return endFlow()
 /////////////////////////////////////////////////////////////////////////////////////////// FLUJO VENTA
 
 
-  const flowVenta = addKeyword(['VE-NTA'], { sensitive: true })
+  const flowVenta = addKeyword(['INFO. VENTA'], { sensitive: true })
           .addAnswer('👌 Te envío la info de Venta.',{delay: 2000})
 
           .addAnswer(['*Espejo Mágico Selfie Mirror*',
@@ -205,7 +205,7 @@ return endFlow()
         .addAnswer('Formas de pago: efectivo, transferencia/depósito')
 
         .addAnswer('Selfie Mirror', {media: 'banner22.jpg'})
-       .addAnswer(['¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
+       .addAnswer(['*UNIFILA LED*\n¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
         'En SELFIE MediaError, entendemos la importancia de mantener tus espacios organizados y atractivos. Nuestros organizadores de fila no solo te ayudarán a mantener un flujo ordenado de clientes, sino que también añadirán un toque de modernidad y estilo a tu negocio.\n',
         '¿Qué hace que nuestros organizadores de fila con tecnología Pixel LED sean especiales?\n',
         '✨ Iluminación espectacular: Nuestra tecnología Pixel LED ofrece una iluminación vibrante y personalizable que destacará tu marca y creará una experiencia memorable para tus clientes.\n',
@@ -282,33 +282,39 @@ return endFlow()
   buttons: [
       {body: 'INFO. ALQUILER'},
       {body: 'INFO. VENTA'},
-      {body: '+ OPCIONES'},
-  ],
-delay: 5000 }, async (ctx, {gotoFlow}) => {
-
-if (ctx.body == 'INFO. ALQUILER') {
-return   gotoFlow(flowsAlquiler)
-} else if (ctx.body == 'INFO. VENTA') {
-return  gotoFlow(flowVenta)
-} else if (ctx.body == '+ OPCIONES') {
-return  gotoFlow(Menuflow2)
-}}
+      {body: 'UNIFILA LED'},
+  ]}
 ) 
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
-
+const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
+.addAnswer(['¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
+'En SELFIE MediaError, entendemos la importancia de mantener tus espacios organizados y atractivos. Nuestros organizadores de fila no solo te ayudarán a mantener un flujo ordenado de clientes, sino que también añadirán un toque de modernidad y estilo a tu negocio.\n',
+'¿Qué hace que nuestros organizadores de fila con tecnología Pixel LED sean especiales?\n',
+'✨ Iluminación espectacular: Nuestra tecnología Pixel LED ofrece una iluminación vibrante y personalizable que destacará tu marca y creará una experiencia memorable para tus clientes.\n',
+'🧹 Organización efectiva: Mantén tus filas en orden y evita la confusión con nuestros organizadores de alta calidad. ¡El caos será cosa del pasado!\n',
+'🎨 Personalización total: Personaliza la apariencia de tus organizadores para que se adapten a tu imagen corporativa o al tema de tu negocio.\n',
+'🌟 Destaca entre la multitud: Con nuestros organizadores de fila Pixel LED, tu negocio destacará en cualquier entorno, desde eventos, ferias comerciales hasta tiendas minoristas y restaurantes.\n',
+'¡Es el momento de darle a tu negocio una ventaja competitiva!\n',
+'¡Haz que tu negocio brille con nuestros organizadores de fila Pixel LED! 💫✨ #TecnologíaLED #OrganizaciónEfectiva #AtraeClientes\n',
+'*VALORES*\n',
+'https://filavip.ar'])
+.addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
+.addAnswer('FOTO FILA VIP', {media: '111.jpg'})
+.addAction(async (ctx, { gotoFlow}) => {
+ return gotoFlow(Menuflow)
+}
+)
 
   const flowPrincipal = addKeyword(EVENTS.WELCOME)
 
 .addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás")
-  .addAnswer("Presentamos los nuevos organizadores de fila *FILA VIP* - Completamente unicos y originales. Otro producto innovador de Selfie Mirror.", {capture: true,
-  buttons: [
-      {body: 'INFO ORDENADORES LED'},
-      {body: 'CONTINUAR AL MENU'}]}, async (ctx, {gotoFlow}) => {
-if(ctx.body=='INFO ORDENADORES LED'){return gotoFlow(organizadorflow);
-}else{
-  return gotoFlow(Menuflow);
-}
-       }       )
+  .addAnswer("Presentamos los nuevos organizadores de fila *FILA VIP* - Completamente unicos y originales. Otro producto innovador de Selfie Mirror.", {capture: true, 
+      buttons: [
+          {body: 'INFO. ALQUILER'},
+          {body: 'INFO. VENTA'},
+          {body: 'UNIFILA LED'},
+      ]}
+    ) 
      
           
     
@@ -380,11 +386,11 @@ if(ctx.body=='INFO ORDENADORES LED'){return gotoFlow(organizadorflow);
   const Menuflow = addKeyword(["me-nu"], { sensitive: true })
 
   .addAnswer("*MENU*", { 
-            capture: true,
+            capture: false,
             buttons: [
                 {body: 'INFO. ALQUILER'},
                 {body: 'INFO. VENTA'},
-                {body: '+ OPCIONES'},
+                {body: 'UNIFILAS LED'},
             ],
          delay: 5000 }, async (ctx, {gotoFlow}) => {
     
