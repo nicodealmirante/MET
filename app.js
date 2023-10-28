@@ -1,12 +1,17 @@
-const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
 
-const MetaProvider = require('@bot-whatsapp/provider/meta')
-const JsonFileAdapter = require('@bot-whatsapp/database/json')
-const { readFileSync } = require("fs");
+const {
+  createBot,
+  createProvider,
+  createFlow,
+  addKeyword,
+} = require("@bot-whatsapp/bot");
+const MetaProvider = require("@bot-whatsapp/provider/meta");
+const MockAdapter = require("@bot-whatsapp/database/mock");
+const { createDashboard } = require("../src");const { readFileSync } = require("fs");
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 const fs = require("fs")
 const axios = require("axios");
-const BotWrapper = require("./Services/class/botWrapper");
+
 
 let motivo;  
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -497,41 +502,35 @@ return  gotoFlow(Menuflow);
         
 
 ////////////////////////////////////////////////////////////////////////////////////////
+const main = async () => {
+  const adapterDB = new MockAdapter();
+  const adapterFlow = createFlow([flowPrincipal]);
 
-  const main = async () => {
+  const adapterProvider = createProvider(MetaProvider, {
+    jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
+    numberId: '133862353148114',
+    verifyToken: 'asdasd',
+    version: 'v16.0',
+  });
 
-
-
-    const adapterDB = new JsonFileAdapter()
-    const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono,Menuflow2,organizadorflow])
-    const adapterProvider = createProvider(MetaProvider, {
-        jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
-        numberId: '133862353148114',
-        verifyToken: 'asdasd',
-        version: 'v16.0',
-    })
-
-   
-  const BotCreate = createBot({
+  const BotCreate = await createBot({
     flow: adapterFlow,
     provider: adapterProvider,
+    database: adapterDB,
     database: adapterDB,
   },
   {
       blackList: '+5491140054474'
   }) 
 
-  /**
+  createDashboard({
+    CHATWOOT_URL: 'https://chatwoot-production-0566.up.railway.app',
+    CHATWOOT_ID: '1',
+    CHATWOOT_INBOX_ID: '1',
+    CHATWOOT_API_ACCESS_TOKEN: 'mS5dKUsvKEYVn2zBUx6y6C32'
+    }, BotCreate)
 
-  BotWrapper.initialize(BotCreate, {
-      CHATWOOT_URL: 'https://chatwoot-production-0566.up.railway.app',
-      CHATWOOT_ID: '1',
-      CHATWOOT_INBOX_ID: '1',
-      CHATWOOT_API_ACCESS_TOKEN: 'mS5dKUsvKEYVn2zBUx6y6C32'
-  })
-  */
-}
+};
 
-  main(
-  ); 
- 
+main();
+
