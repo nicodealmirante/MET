@@ -179,18 +179,16 @@ const organizadorflow = addKeyword('UNIFILAS LED',{sensitive:true})
 'https://filavip.ar'])
 .addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
 .addAnswer('FOTO FILA VIP', {media: '111.jpg'})
-.addAction(async (ctx, { gotoFlow}) => {
+.addAction(async (ctx, { gotoFlow,flowDynamic}) => {
   await  flowDynamic([`*VALOR FILA VIP*\n
- ORGANIZADORES DE FILA PIXEL CON\n
-  🚧 BASE NEGRA / PLATA / ORO  🚧\n
-  📍AR$ 60.000 / 85.000 / 95.000 📍\n
- SOGAS TRENZADA CON CAPUCHON\n
-  ⛓️  NEGRO / PLATA / ORO ⛓️ \n
-  AR$ 14.000 / 15.000 / 25.000 \n
-  PACK 4 PIXEL + 2 SOGAS (NEGRO)\n
- 💲💲💲 AR$ 255.000 💲💲💲`])
- console.log('UNIFILA')
-
+  ORGANIZADORES DE FILA PIXEL\n
+    🚧 NEGRO  ◼️  PLATA 🥈  ORO  🥇 \n
+   AR$ 60.000 ◼️ 85.000 🥈 95.000 🥇\n
+  SOGAS TRENZADA. CAPUCHON\n
+   ⛓️  NEGRO ◼️  PLATA  🥈  ORO  🥇\n
+  AR$ 14.000 ◼️ 15.000 🥈 25.000 🥇\n
+   PACK 4 PIXEL + 2 SOGAS (NEGRO)\n
+  💲💲💲 AR$ 255.000 💲💲💲`])
  return gotoFlow(Menuflow)
 }
 )
