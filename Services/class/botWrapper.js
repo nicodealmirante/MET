@@ -1,5 +1,5 @@
 const Queue = require("queue-promise");
-const ChatwootClient = require("./chatwoot");
+const ChatwootClient = require("chatwoot");
 
 class BotWrapper {
   // Instancia del bot.
