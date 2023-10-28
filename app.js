@@ -133,7 +133,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
 
       .addAnswer(['🔒Los valores se congelan y la fecha se reserva solo al señar el servicio (2023)', 
              '🚚El valor no incluye traslados',
-             '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'],{capture:false}, async (ctx, {gotoFlow,endFlow,flowDynamic}) => {
+             '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'],{capture:false}, async (ctx, {endFlow,flowDynamic}) => {
        ///      numero2(ctx.from)
            motivo= "Alquiler";
       console.log('GOTOCLIENTE');
@@ -141,15 +141,15 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
       await flowDynamic('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
       await flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
       await flowDynamic('Selfie Mirror', {media: 'video2.mp4'});
-      await flowDynamic('Captura 360', {media: 'video360.mp4',
-   
+      await flowDynamic('Captura 360', {media: 'video360.mp4',   
             capture: true,
             buttons: [
                 {body: 'CONTINUAR CON AGENTE'},
                 {body: 'VOLVER AL MENU'},
                 {body: 'FINALIZAR'},
-            ],
-        }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
+            ]})
+            
+        .addAction(async,(ctx,{flowDynamic,endFlow})=> { async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
                 const mywhatsa = "5491140054474@s.whatsapp.net";
       
       if (ctx.body == 'CONTINUAR CON AGENTE') {
@@ -166,7 +166,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
         } else if (ctx.body == 'FINALIZAR') {
           await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
       return endFlow()
-    }}
+    }}}
       )        
             }
       )
