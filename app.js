@@ -133,32 +133,30 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
 
       .addAnswer(['🔒Los valores se congelan y la fecha se reserva solo al señar el servicio (2023)', 
              '🚚El valor no incluye traslados',
-             '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'],{capture:false}, async (ctx, {endFlow,flowDynamic})=> {
+             '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'],{capture:false}, async (ctx, {gotoFlow,endFlow,flowDynamic}) => {
        ///      numero2(ctx.from)
            motivo= "Alquiler";
-      console.log('GOTOCLIENTE')}) 
-             
-             
+      console.log('GOTOCLIENTE');
+ 
       await flowDynamic('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
       await flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
       await flowDynamic('Selfie Mirror', {media: 'video2.mp4'});
-
-      await flowDynamic('Captura 360', {media: 'video360.mp4'},{  
+      await flowDynamic('Captura 360', {media: 'video360.mp4',
+   
             capture: true,
             buttons: [
                 {body: 'CONTINUAR CON AGENTE'},
                 {body: 'VOLVER AL MENU'},
                 {body: 'FINALIZAR'},
-            ]})
-            
-        .addAction(async,(ctx,{flowDynamic,endFlow})=> { async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
+            ],
+        }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
                 const mywhatsa = "5491140054474@s.whatsapp.net";
       
       if (ctx.body == 'CONTINUAR CON AGENTE') {
        await flowDynamic('En que fecha y donde se realizara el evento?' ,{capture: true}),async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
             const mywhatsa = "5491140054474@s.whatsapp.net";
 
-       provider.Promise().sendMessage(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+       provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
         flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD' );
       return endFlow()}
       } else if (ctx.body == 'VOLVER AL MENU') {
@@ -168,10 +166,10 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
         } else if (ctx.body == 'FINALIZAR') {
           await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
       return endFlow()
-    }}}
+    }}
       )        
-          
-      
+            }
+      )
 
 
 
@@ -252,7 +250,7 @@ await flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", {
 if (ctx.body == 'CONTINUAR CON AGENTE') {
           const mywhatsa = "5491140054474@s.whatsapp.net";
 
- provider.sendMessage(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+ provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
 await  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
 return endFlow()
 
