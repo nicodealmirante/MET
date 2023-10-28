@@ -267,11 +267,23 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 'https://filavip.ar'])
 .addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
 .addAnswer('FOTO FILA VIP', {media: '111.jpg'})
-.addAction(async (ctx, { gotoFlow}) => {
- return gotoFlow(Menuflow)
-}
-)
+.addAnswer("*MENU*", { 
+  capture: true,
+  buttons: [
+      {body: 'INFO. ALQUILER'},
+      {body: 'INFO. VENTA'},
+      {body: '+ OPCIONES'},
+  ],
+delay: 5000 }, async (ctx, {gotoFlow}) => {
 
+if (ctx.body == 'INFO. ALQUILER') {
+return   gotoFlow(flowsAlquiler)
+} else if (ctx.body == 'INFO. VENTA') {
+return  gotoFlow(flowVenta)
+} else if (ctx.body == '+ OPCIONES') {
+return  gotoFlow(Menuflow2)
+}}
+) 
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
 
 
