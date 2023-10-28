@@ -237,12 +237,12 @@ return endFlow()
 
  await flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
  await  flowDynamic([`*VALOR FILA VIP*\n
- ORGANIZADORES DE FILA PIXEL CON\n
-  🚧 BASE NEGRA / PLATA / ORO  🚧\n
-  📍AR$ 60.000 / 85.000 / 95.000 📍\n
- SOGAS TRENZADA CON CAPUCHON\n
-  ⛓️  NEGRO / PLATA / ORO ⛓️ \n
-  AR$ 14.000 / 15.000 / 25.000 \n
+ ORGANIZADORES DE FILA PIXEL\n
+   🚧 NEGRO  ◼️  PLATA 🥈  ORO  🥇 \n
+  AR$ 60.000 ◼️ 85.000 🥈 95.000 🥇\n
+ SOGAS TRENZADA. CAPUCHON\n
+  ⛓️  NEGRO ◼️  PLATA  🥈  ORO  🥇\n
+ AR$ 14.000 ◼️ 15.000 🥈 25.000 🥇\n
   PACK 4 PIXEL + 2 SOGAS (NEGRO)\n
  💲💲💲 AR$ 255.000 💲💲💲`])
  return gotoFlow(Menuflow)
