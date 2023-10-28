@@ -156,7 +156,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
        await flowDynamic('En que fecha y donde se realizara el evento?' ,{capture: true}),async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
             const mywhatsa = "5491140054474@s.whatsapp.net";
 
-       provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+       provider.Promise().sendMessage(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
         flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD' );
       return endFlow()}
       } else if (ctx.body == 'VOLVER AL MENU') {
@@ -250,7 +250,7 @@ await flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", {
 if (ctx.body == 'CONTINUAR CON AGENTE') {
           const mywhatsa = "5491140054474@s.whatsapp.net";
 
- provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+ provider.sendMessage(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
 await  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
 return endFlow()
 
@@ -292,9 +292,11 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
   .addAnswer("Presentamos los nuevos organizadores de fila *FILA VIP* - Completamente unicos y originales. Otro producto innovador de Selfie Mirror.", {capture: true,
   buttons: [
       {body: 'INFO ORDENADORES LED'},
-      {body: 'CONTINUAR AL MENU'}]}, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
-if(ctx.body=='INFO ORDENADORES LED'){return gotoFlow(organizadorflow)}else
-                  {return gotoFlow(Menuflow)}
+      {body: 'CONTINUAR AL MENU'}]}, async (ctx, {gotoFlow}) => {
+if(ctx.body=='INFO ORDENADORES LED'){return gotoFlow(organizadorflow);
+}else{
+  return gotoFlow(Menuflow);
+}
        }       )
 
 
@@ -310,7 +312,7 @@ if(ctx.body=='INFO ORDENADORES LED'){return gotoFlow(organizadorflow)}else
                 {body: 'INFO. VENTA'},
                 {body: '+ OPCIONES'},
             ],
-         delay: 5000 }, async (ctx, { fallBack, gotoFlow, provider, sock}) => {
+         delay: 5000 }, async (ctx, {gotoFlow}) => {
     
     if (ctx.body == 'INFO. ALQUILER') {
       return   gotoFlow(flowsAlquiler)
