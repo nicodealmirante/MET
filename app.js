@@ -43,28 +43,14 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
     .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
     .addAnswer('Captura 360', {media: 'video360.mp4'})
     .addAnswer("*CONTINUAR*", { 
-      capture: true,
-      buttons: [
-          {body: 'CONTINUAR CON AGENTE'},
-          {body: 'VOLVER AL MENU'},
-          {body: 'FINALIZAR'},
-      ],
-  }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
-
-if(ctx.body == 'CONTINUAR CON AGENTE')
-  {      
+      capture: false},async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
         const mywhatsa = "+5491140054474@s.whatsapp.net"
-
      provider.sendtext(mywhatsa, `*Directo* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
   await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
-return endFlow()
-
-} else{if(ctx.body == 'VOLVER AL MENU') {
- return gotoFlow(Menuflow)} else {if (ctx.body == 'FINALIZAR') {
    await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
 return endFlow()
 }
-}}}
+
 )        
 /** 
 })
