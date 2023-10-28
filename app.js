@@ -146,7 +146,6 @@ const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
           {body: 'FINALIZAR'},
       ],delay: 5000
   }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
-
 if(ctx.body == 'CONTINUAR CON AGENTE')
   {      
         const mywhatsa = "+5491140054474@s.whatsapp.net"
@@ -235,7 +234,7 @@ return endFlow()
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`);
 
  await flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
- await  flowDynamic(`*VALOR FILA VIP*\n`,
+ await  flowDynamic([`*VALOR FILA VIP*\n`,
  `ORGANIZADORES DE FILA PIXEL CON`,
  ` 🚧 BASE NEGRA / PLATA / ORO  🚧`,
  ` 📍AR$ 60.000 / 85.000 / 95.000 📍`,
@@ -243,7 +242,7 @@ return endFlow()
  ` ⛓️  NEGRO / PLATA / ORO ⛓️  `,
  ` AR$ 14.000 / 15.000 / 25.000 `,
  ` PACK 4 PIXEL + 2 SOGAS (NEGRO)`,
- `💲💲💲 AR$ 255.000 💲💲💲`,)
+ `💲💲💲 AR$ 255.000 💲💲💲`])
 console.log('GOTOCLIENTE')
 await flowDynamic('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
 await flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
@@ -284,7 +283,29 @@ return endFlow()
       {body: 'INFO. VENTA'},
       {body: 'UNIFILA LED'},
   ], delay: 5000}
-) 
+) .addAnswer("Menu", { 
+  capture: true,
+  buttons: [
+      {body: 'HABLAR CON ASESOR'},
+      {body: 'INFO DE LA EMPRESA'},
+      {body: 'PAGINA WEB'},
+  ],
+delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
+
+if (ctx.body == 'PAGINA WEB') {
+flowDynamic('https://www.espejoselfiemirror.com.ar')        
+    gotoFlow(Menuflow);
+} else if (ctx.body == 'HABLAR CON ASESOR') {
+nombre = "Cliente"
+return gotoFlow(Cliente)
+} else if (ctx.body == 'INFO DE LA EMPRESA') {
+await flowDynamic('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
+await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
+
+await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
+
+return  gotoFlow(Menuflow);
+}   [flowVenta, flowsAlquiler, Cliente]});
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
 const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
 .addAnswer(['¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
@@ -300,8 +321,9 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
 'https://filavip.ar'])
 
 .addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
-.addAnswer('FOTO FILA VIP', {media: '111.jpg'}, async (ctx, {flowDynamic, gotoFlow}) => {
-  await  flowDynamic(`*VALOR FILA VIP*\n`,
+.addAnswer('FOTO FILA VIP', {media: '111.jpg'})
+.addAction(async (ctx, { gotoFlow}) => {
+  await  flowDynamic([`*VALOR FILA VIP*\n`,
  `ORGANIZADORES DE FILA PIXEL CON`,
  ` 🚧 BASE NEGRA / PLATA / ORO  🚧`,
  ` 📍AR$ 60.000 / 85.000 / 95.000 📍`,
@@ -309,7 +331,7 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
  ` ⛓️  NEGRO / PLATA / ORO ⛓️  `,
  ` AR$ 14.000 / 15.000 / 25.000 `,
  ` PACK 4 PIXEL + 2 SOGAS (NEGRO)`,
- `💲💲💲 AR$ 255.000 💲💲💲`)
+ `💲💲💲 AR$ 255.000 💲💲💲`])
  return gotoFlow(Menuflow)
 }
 )
@@ -324,7 +346,29 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
           {body: 'UNIFILA LED'},
       ]}
     ) 
-     
+    .addAnswer("Menu", { 
+      capture: true,
+      buttons: [
+          {body: 'HABLAR CON ASESOR'},
+          {body: 'INFO DE LA EMPRESA'},
+          {body: 'PAGINA WEB'},
+      ],
+   delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
+
+if (ctx.body == 'PAGINA WEB') {
+flowDynamic('https://www.espejoselfiemirror.com.ar')        
+        gotoFlow(Menuflow);
+} else if (ctx.body == 'HABLAR CON ASESOR') {
+nombre = "Cliente"
+return gotoFlow(Cliente)
+} else if (ctx.body == 'INFO DE LA EMPRESA') {
+await flowDynamic('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
+await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
+
+await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
+
+return  gotoFlow(Menuflow);
+}   [flowVenta, flowsAlquiler, Cliente]});
           
     
  /**   {capture: true},async (ctx, {provider}) => {
@@ -401,16 +445,33 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
                 {body: 'INFO. VENTA'},
                 {body: 'UNIFILAS LED'},
             ],
-         delay: 5000 }, async (ctx, {gotoFlow}) => {
-    
-    if (ctx.body == 'INFO. ALQUILER') {
-      return   gotoFlow(flowsAlquiler)
-      } else if (ctx.body == 'INFO. VENTA') {
-       return  gotoFlow(flowVenta)
-        } else if (ctx.body == '+ OPCIONES') {
-          return  gotoFlow(Menuflow2)
-    }}
+          }
 ) 
+.addAnswer("MENU", { 
+  capture: true,
+  buttons: [
+      {body: 'HABLAR CON ASESOR'},
+      {body: 'INFO DE LA EMPRESA'},
+      {body: 'PAGINA WEB'},
+  ],
+delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
+
+if (ctx.body == 'PAGINA WEB') {
+flowDynamic('https://www.espejoselfiemirror.com.ar')        
+    gotoFlow(Menuflow);
+} else if (ctx.body == 'HABLAR CON ASESOR') {
+nombre = "Cliente"
+return gotoFlow(Cliente)
+} else if (ctx.body == 'INFO DE LA EMPRESA') {
+await flowDynamic('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
+await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
+
+await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
+
+return  gotoFlow(Menuflow);
+}   [flowVenta, flowsAlquiler, Cliente]})
+
+
 
   const Menuflow2 = addKeyword(["me-?nu"], { sensitive: true })
 
