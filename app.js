@@ -42,11 +42,10 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
     .addAnswer('Showroom', {media: 'video.mp4'})
     .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
     .addAnswer('Captura 360', {media: 'video360.mp4'})
-    .addAnswer("*CONTINUAR*", { 
+    .addAnswer("*UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD*", { 
       capture: false},async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
         const mywhatsa = "+5491140054474@s.whatsapp.net"
      provider.sendtext(mywhatsa, `*Directo* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
-  await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
    await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
 return endFlow()
 }
@@ -289,7 +288,7 @@ return endFlow()
 )        
    })
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
-
+/** 
 .addAnswer("*INFO*", { 
   capture: true,
   buttons: [
@@ -320,7 +319,10 @@ await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
 
 return  gotoFlow(Menuflow);
 }});
-//////////////////////////////////////////////////////////////// EVENTO WELCOME
+*/
+ //////////////////////////////////////////////////////////////// EVENTO WELCOME
+
+
 
 
   const flowPrincipal = addKeyword(EVENTS.WELCOME)
@@ -473,7 +475,7 @@ return  gotoFlow(Menuflow);
                    delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
               
               if (ctx.body == 'PAGINA WEB') {
-                flowDynamic('https://www.espejoselfiemirror.com.ar')        
+               await flowDynamic('https://www.espejoselfiemirror.com.ar')        
                         gotoFlow(Menuflow);
       } else if (ctx.body == 'HABLAR CON ASESOR') {
          nombre = "Cliente"
