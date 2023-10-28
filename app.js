@@ -283,8 +283,8 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
           {body: 'Informacion y Precios'},
           {body: 'Comprar un equipo'},
           {body: 'Contratar un servicio'}]
-        },
-        async (ctx, {provider}) => { 
+        })
+      .addAction(async (ctx, {provider}) => { 
 
           if(ctx.body=='Informacion y Precios'){
             const headerText = 'MENU'
