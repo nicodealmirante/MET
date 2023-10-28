@@ -276,30 +276,26 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
 '¡Es el momento de darle a tu negocio una ventaja competitiva!\n',
 '¡Haz que tu negocio brille con nuestros organizadores de fila Pixel LED! 💫✨ #TecnologíaLED #OrganizaciónEfectiva #AtraeClientes\n',
 '*VALORES*\n',
-'*FILA VIP LED AR$ 80.000 C/U*\n',
-'*CADENA 1.5 mts  AR$ 10.000*\n',
-'*SOGA 1.5 mts AR$ 15.000*\n',  
-'*PRODUCCION ACTUAL (7/10 DIAS)*\n',
-'*POR FAVOR COMUNIQUESE AL +5491140054474 PARA CONTINUAR*'])
+'https://filavip.ar'])
 .addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
 .addAnswer('FOTO FILA VIP', {media: '111.jpg'})
-.addAction(async (ctx, { gotoFlow, endFlow}) => {
+.addAction(async (ctx, { gotoFlow}) => {
  return gotoFlow(Menuflow)
-})
-
+}
+)
 
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
 
 
-  const flowPrincipal = addKeyword(EVENTS.WELCOME)  
+  const flowPrincipal = addKeyword(EVENTS.WELCOME)
   .addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás")
   .addAnswer("Presentamos los nuevos organizadores de fila *FILA VIP* - Completamente unicos y originales. Otro producto innovador de Selfie Mirror.", {capture: true,
   buttons: [
       {body: 'INFO ORDENADORES LED'},
-      {body: 'CONTINUAR AL MENU'}    ]}, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
+      {body: 'CONTINUAR AL MENU'}]}, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
 if(ctx.body=='INFO ORDENADORES LED'){return gotoFlow(organizadorflow)}else
                   {return gotoFlow(Menuflow)}
-       }       )
+       }       ),
 
 
 
