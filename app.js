@@ -55,7 +55,7 @@ if(ctx.body == 'CONTINUAR CON AGENTE')
   {      
         const mywhatsa = "+5491140054474@s.whatsapp.net"
 
-     provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+     provider.sendtext(mywhatsa, `*Directo* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
   await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
 return endFlow()
 
@@ -131,44 +131,37 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
           
        
 
-      .addAnswer([
-             '🚚El valor no incluye traslados',
-             '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'],{capture:false}, async (ctx, {gotoFlow,endFlow,flowDynamic}) => {
+      .addAnswer(['🚚El valor no incluye traslados',
+             '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'])
        ///      numero2(ctx.from)
-           motivo= "Alquiler";
-    await flowDynamic('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
-      await flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
-      await flowDynamic('Selfie Mirror', {media: 'video2.mp4'});
-      await flowDynamic('Captura 360', {media: 'video360.mp4',})
-      await flowDynamic('FIN AUTORESPUESTAS SI LO DESEA CONTINUE CON AGENNTE',{
-   
-            capture: true,
-            buttons: [
-                {body: 'CONTINUAR CON AGENTE'},
-                {body: 'VOLVER AL MENU'},
-                {body: 'FINALIZAR'},
-            ],}
-        , async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
-      if (ctx.body == 'CONTINUAR CON AGENTE') {
-       await flowDynamic('En que fecha y donde se realizara el evento?' ,{capture: true}),async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
-            const mywhatsa = "5491140054474@s.whatsapp.net";      
-            MetaProvider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+       .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
+    .addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
+    .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
+    .addAnswer('Captura 360', {media: 'video360.mp4'})
+    .addAnswer("*CONTINUAR*", { 
+      capture: true,
+      buttons: [
+          {body: 'CONTINUAR CON AGENTE'},
+          {body: 'VOLVER AL MENU'},
+          {body: 'FINALIZAR'},
+      ],
+  }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
 
-            flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD' );
-      return endFlow()}
-      } else if (ctx.body == 'VOLVER AL MENU') {
-      
-       return gotoFlow(Menuflow)
-      
-        } else if (ctx.body == 'FINALIZAR') {
-          await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
-      return endFlow()
-    }}
-      )        
-            }
-      )
+if(ctx.body == 'CONTINUAR CON AGENTE')
+  {      
+        const mywhatsa = "+5491140054474@s.whatsapp.net"
 
+     provider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+  await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
+return endFlow()
 
+} else{if(ctx.body == 'VOLVER AL MENU') {
+ return gotoFlow(Menuflow)} else {if (ctx.body == 'FINALIZAR') {
+   await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
+return endFlow()
+}
+}}}
+)        
 
 /////////////////////////////////////////////////////////////////////////////////////////// FLUJO VENTA
 
@@ -218,9 +211,7 @@ const flowsAlquiler = addKeyword(['//alqu-iler//'], {sensitive: true})
           await fetch('https://dolarapi.com/v1/dolares/blue')
     .then(response => response.json())
     .then(json => dolar = json.venta)
-                    motivo = "VENTA"       ;  
-                //   numero(ctx.from);
-            
+                       
  await flowDynamic(`*VALOR ESPEJO MAGICO* \n
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
@@ -245,9 +236,9 @@ await flowDynamic("*ESTE CHAT AUTOMATICO FINALIZO.*", {
   }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
 
 if (ctx.body == 'CONTINUAR CON AGENTE') {
-          const mywhatsa = "5491140054474@s.whatsapp.net";
+  const mywhatsa = "+5491140054474@s.whatsapp.net"
 
- provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+  provider.sendtext(mywhatsa, `*Directo* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
 await  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
 return endFlow()
 
