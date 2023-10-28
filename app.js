@@ -39,7 +39,7 @@ console.log('Numero Agendado de Alquiler');*/
 
 const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
 .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
-    .addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
+    .addAnswer('Showroom', {media: 'video.mp4'})
     .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
     .addAnswer('Captura 360', {media: 'video360.mp4'})
     .addAnswer("*CONTINUAR*", { 
@@ -121,7 +121,7 @@ const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
              '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'])
        ///      numero2(ctx.from)
        .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
-    .addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
+    .addAnswer('Showroom', {media: 'video.mp4'})
     .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
     .addAnswer('Captura 360', {media: 'video360.mp4'})
     .addAnswer("*CONTINUAR*", { 
@@ -130,7 +130,7 @@ const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
           {body: 'CONTINUAR CON AGENTE'},
           {body: 'VOLVER AL MENU'},
           {body: 'FINALIZAR'},
-      ],delay: 5000
+      ],delay: 3000
   }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
     console.log('ALQUILER')
 
@@ -257,7 +257,6 @@ const organizadorflow = addKeyword('UNIFILAS LED',{sensitive:true})
  AR$ 14.000 ◼️ 15.000 🥈 25.000 🥇\n
   PACK 4 PIXEL + 2 SOGAS (NEGRO)\n
  💲💲💲 AR$ 255.000 💲💲💲`])
- return gotoFlow(Menuflow)
 console.log('VENTA')
 await flowDynamic('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
 await flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
@@ -332,7 +331,7 @@ return  gotoFlow(Menuflow);
           {body: 'INFO. ALQUILER'},
           {body: 'INFO. VENTA'},
           {body: 'UNIFILA LED'},
-      ]}
+      ], delay: 2000 }
     ) 
     .addAnswer("*Contacto*", { 
       capture: true,
@@ -341,7 +340,7 @@ return  gotoFlow(Menuflow);
           {body: 'INFO DE LA EMPRESA'},
           {body: 'PAGINA WEB'},
       ],
-   delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
+   delay: 3000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
 
 if (ctx.body == 'PAGINA WEB') {
 flowDynamic('https://www.espejoselfiemirror.com.ar')        
