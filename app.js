@@ -295,7 +295,7 @@ const organizadorflow = addKeyword('FLOWO¿¿RGAN',{sensitive:true})
       {body: 'CONTINUAR AL MENU'}]}, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
 if(ctx.body=='INFO ORDENADORES LED'){return gotoFlow(organizadorflow)}else
                   {return gotoFlow(Menuflow)}
-       }       ),
+       }       )
 
 
 
