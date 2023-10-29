@@ -38,10 +38,6 @@ console.log('Numero Agendado de Alquiler');*/
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
-.addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
-    .addAnswer('Showroom', {media: 'video.mp4'})
-    .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
-    .addAnswer('Captura 360', {media: 'video360.mp4'})
     .addAnswer("*UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD*", { 
       capture: false},async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
         const mywhatsa = "+5491140054474@s.whatsapp.net"
@@ -255,12 +251,7 @@ const organizadorflow = addKeyword('UNIFILAS LED',{sensitive:true})
  AR$ 14.000 ◼️ 15.000 🥈 25.000 🥇\n
   PACK 4 PIXEL + 2 SOGAS (NEGRO)\n
  💲💲💲 AR$ 255.000 💲💲💲`])
- await flowDynamic([
-  {
-      body:'pdf',
-      media:"FichaTécnicaFULL.pdf"
-  }
-])
+
 console.log('VENTA')
 await flowDynamic('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
 await flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
