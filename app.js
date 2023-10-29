@@ -140,13 +140,12 @@ if(ctx.body == 'CONTINUAR CON AGENTE')
      provider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
   await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
 return endFlow()
-
-} else{if(ctx.body == 'VOLVER AL MENU') {
- return gotoFlow(Menuflow)} else {if (ctx.body == 'FINALIZAR') {
+} else if(ctx.body == 'VOLVER AL MENU') {
+ return gotoFlow(Menuflow)} else if (ctx.body == 'FINALIZAR') {
    await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
 return endFlow()
 }
-}}}
+}
 )        
 
 /////////////////////////////////////////////////////////////////////////////////////////// FLUJO VENTA
