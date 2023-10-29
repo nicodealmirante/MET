@@ -38,9 +38,10 @@ console.log('Numero Agendado de Alquiler');*/
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
-    .addAnswer("*UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD*", { 
+    .addAnswer("*UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD*", {
       capture: false},async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
         const mywhatsa = "+5491140054474@s.whatsapp.net"
+        console.log('Hablar')
      provider.sendtext(mywhatsa, `*Directo* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
    await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
 return endFlow()
@@ -230,7 +231,7 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
           await fetch('https://dolarapi.com/v1/dolares/blue')
     .then(response => response.json())
     .then(json => dolar = json.venta)
-
+    console.log('VENTA')
  await flowDynamic(`*VALOR ESPEJO MAGICO* \n
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
