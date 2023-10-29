@@ -145,7 +145,7 @@ return endFlow()
 )        
 
 /////////////////////////////////////////////////////////////////////////////////////////// FLUJO VENTA
-const organizadorflow = addKeyword('UNIFILAS LED',{sensitive:true})
+const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
 .addAnswer(['¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
 'En SELFIE MIRROR, entendemos la importancia de mantener tus espacios organizados y atractivos. Nuestros organizadores de fila no solo te ayudarán a mantener un flujo ordenado de clientes, sino que también añadirán un toque de modernidad y estilo a tu negocio.\n',
 '¿Qué hace que nuestros organizadores de fila con tecnología Pixel LED sean especiales?\n',
@@ -428,7 +428,7 @@ return  gotoFlow(Menuflow);
             buttons: [
                 {body: 'INFO. ALQUILER'},
                 {body: 'INFO. VENTA'},
-                {body: 'UNIFILAS LED'},
+                {body: 'UNIFILA LED'},
             ],
           }
 ) 
