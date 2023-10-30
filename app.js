@@ -42,7 +42,7 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
       capture: false},async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
         const mywhatsa = "+5491140054474@s.whatsapp.net"
         console.log('Hablar')
-     provider.sendtext(mywhatsa, `*Directo* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+await     provider.sendtext(mywhatsa, `*Directo* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
    await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
 return endFlow()
 }
