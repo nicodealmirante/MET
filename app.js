@@ -131,12 +131,14 @@ const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
     console.log('ALQUILER')
 
 if(ctx.body == 'CONTINUAR CON AGENTE')
-  {      
+  {await flowDynamic('En que fecha y en donde seria el evento?', {capture: true}, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
+
+
         const mywhatsa = "+5491140054474@s.whatsapp.net"
 
      provider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
   await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
-return endFlow()
+return endFlow()})
 } else if(ctx.body == 'VOLVER AL MENU') {
  return gotoFlow(Menuflow)} else if (ctx.body == 'FINALIZAR') {
    await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
@@ -232,17 +234,17 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
     .then(response => response.json())
     .then(json => dolar = json.venta)
     console.log('VENTA')
- await flowDynamic(`*VALOR ESPEJO MAGICO* \n
+ await addAnswer(`*VALOR ESPEJO MAGICO* \n
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓 `);
 
-    await  flowDynamic(`*VALOR PLATAFORMA 360*\n     
+    await  addAnswer(`*VALOR PLATAFORMA 360*\n     
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`);
 
- await flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
+ await addAnswer(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
  await  flowDynamic([`*VALOR FILA VIP*\n
  ORGANIZADORES DE FILA PIXEL\n
    🚧 NEGRO  ◼️  PLATA 🥈  ORO  🥇 \n
@@ -254,17 +256,17 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
  💲💲💲 AR$ 255.000 💲💲💲`])
 
 console.log('VENTA')
-await flowDynamic('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
-await flowDynamic('Showroom', {media: 'video.mp4', delay: 4000});
-await flowDynamic('Selfie Mirror', {media: 'video2.mp4'});
-await flowDynamic('Captura 360', {media: 'video360.mp4'});
-await flowDynamic("*CONTINUAR*", { 
+await addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
+await addAnswer('Showroom', {media: 'video.mp4', delay: 4000});
+await addAnswer('Selfie Mirror', {media: 'video2.mp4'});
+await addAnswer('Captura 360', {media: 'video360.mp4'});
+await addAnswer("*CONTINUAR*", { 
       capture: true,
       buttons: [
           {body: 'CONTINUAR CON AGENTE'},
           {body: 'VOLVER AL MENU'},
           {body: 'FINALIZAR'},
-      ],delay: 5000
+      ]
   }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
 
 if (ctx.body == 'CONTINUAR CON AGENTE') {
