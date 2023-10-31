@@ -157,7 +157,7 @@ console.log(config)
     res1 = response.data["destination_addresses"][0]
     asd2 = response.data["rows"][0]["elements"][0]["duration"].text
     asd = Math.round(response.data["rows"][0]["elements"][0]["distance"].value/1000)
-total=((asd*250)/3000)*3000}
+total=(((asd*250)/3000)*3000)}
 
 
 const alquila22 = addKeyword('alquilawer',{sensitive:true})  
@@ -166,9 +166,9 @@ const alquila22 = addKeyword('alquilawer',{sensitive:true})
 })
 .addAnswer('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', {capture:true}, async (ctx, { endFlow, provider, flowDynamic}) => {
 await getTicket(ctx.body)
-var traslados = `*TRASLADOS*\nDISTANCIA: *${Math.round(asd/1000)}* KM \nTIEMPO: *${asd2}*\nLUGAR: *${res1}*\nVALOR: *$ ${total}*.-\n*`
+var traslados = `*TRASLADOS*\nDISTANCIA: *${Math.round(asd)}* KM \nTIEMPO: *${asd2}*\nLUGAR: *${res1}*\nVALOR: *$ ${total}*.-\n*`
 
-if((asd)>=200000){
+if((asd)>=200){
   await flowDynamic(traslados)
 }
 
