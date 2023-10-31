@@ -150,7 +150,7 @@ var total;
 
     var config = {
       method: "get",
-      url: `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${donde}%20Argentina&origins=Ramos%20Mejia%20Buenos%20Aires%20Argentina&key=AIzaSyB-o-yLjNarKluwNV8z8IZTDhosOlM1NOw`,
+      url: `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${donde.replace(' ','%20')}Argentina&origins=Ramos%20Mejia%20Buenos%20Aires%20Argentina&key=AIzaSyB-o-yLjNarKluwNV8z8IZTDhosOlM1NOw`,
     };
 console.log(config)
     const response = await axios(config)
@@ -166,16 +166,13 @@ const alquila22 = addKeyword('alquilawer',{sensitive:true})
 })
 .addAnswer('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', {capture:true}, async (ctx, { endFlow, provider, flowDynamic}) => {
 await getTicket(ctx.body)
- console.log(res1)
- console.log(asd2)
-console.log(total)
+var traslados = `*TRASLADOS*\nDISTANCIA *${asd/1000}* KM \nTIEMPO ${asd2}\nLUGAR *${res1}*\nVALOR: *${total}*\n*`
 
-console.log(asd)
+if(asd/1000>=200){await flowDynamic(traslados)}
 
-  
   const mywhatsa = "+5491140054474@s.whatsapp.net"
 
-  provider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body} \nfecha ${fecha}*`)
+  provider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body} \nFecha ${fecha}* \n\n ${traslados}`)
 await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
 return endFlow(Menuflow)})
 /////////////////////////////////////////////////////////////////////////////////////////// FLUJO VENTA
