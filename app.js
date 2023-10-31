@@ -44,7 +44,7 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
         console.log('Hablar')
    provider.sendtext(mywhatsa, `*Directo* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
    await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
-return endFlow()
+return endFlow(Menuflow)
 }
 
 )        
@@ -130,15 +130,8 @@ const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
   }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
     console.log('ALQUILER')
 
-if(ctx.body == 'CONTINUAR CON AGENTE')
-  {await flowDynamic('En que fecha y en donde seria el evento?', {capture: true}, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
-
-
-        const mywhatsa = "+5491140054474@s.whatsapp.net"
-
-     provider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
-  await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
-return endFlow()})
+if(ctx.body == 'CONTINUAR CON AGENTE'){
+return gotoFlow(alquila22)
 } else if(ctx.body == 'VOLVER AL MENU') {
  return gotoFlow(Menuflow)} else if (ctx.body == 'FINALIZAR') {
    await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
@@ -146,7 +139,15 @@ return endFlow()
 }
 }
 )        
+const alquila22 = addKeyword('alquilawer',{sensitive:true})
+.addAnswer('En que fecha y donde sería el evento?', {capture:true}, async (ctx, { endFlow, provider, flowDynamic}) => {
 
+
+  const mywhatsa = "+5491140054474@s.whatsapp.net"
+
+  provider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
+return endFlow(Menuflow)})
 /////////////////////////////////////////////////////////////////////////////////////////// FLUJO VENTA
 const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
 .addAnswer(['¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
@@ -234,18 +235,18 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
     .then(response => response.json())
     .then(json => dolar = json.venta)
     console.log('VENTA')
- await addAnswer(`*VALOR ESPEJO MAGICO* \n
+.addAnswer(`*VALOR ESPEJO MAGICO* \n
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
-📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓 `);
+📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓 `)
 
-    await  addAnswer(`*VALOR PLATAFORMA 360*\n     
+.addAnswer(`*VALOR PLATAFORMA 360*\n     
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
-📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`);
+📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`)
 
- await addAnswer(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`);
- await  flowDynamic([`*VALOR FILA VIP*\n
+.addAnswer(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`)
+.addAnswer([`*VALOR FILA VIP*\n
  ORGANIZADORES DE FILA PIXEL\n
    🚧 NEGRO  ◼️  PLATA 🥈  ORO  🥇 \n
   AR$ 60.000 ◼️ 85.000 🥈 95.000 🥇\n
@@ -256,11 +257,11 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
  💲💲💲 AR$ 255.000 💲💲💲`])
 
 console.log('VENTA')
-await addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
-await addAnswer('Showroom', {media: 'video.mp4', delay: 4000});
-await addAnswer('Selfie Mirror', {media: 'video2.mp4'});
-await addAnswer('Captura 360', {media: 'video360.mp4'});
-await addAnswer("*CONTINUAR*", { 
+.addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
+.addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
+.addAnswer('Selfie Mirror', {media: 'video2.mp4'})
+.addAnswer('Captura 360', {media: 'video360.mp4'})
+.addAnswer("*CONTINUAR*", { 
       capture: true,
       buttons: [
           {body: 'CONTINUAR CON AGENTE'},
@@ -274,7 +275,7 @@ if (ctx.body == 'CONTINUAR CON AGENTE') {
 
   provider.sendtext(mywhatsa, `*VENTA* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
 await  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
-return endFlow()
+return endFlow(Menuflow)
 
 } else if (ctx.body == 'VOLVER AL MENU') {
 
@@ -496,7 +497,7 @@ return  gotoFlow(Menuflow);
 
 
     const adapterDB = new JsonFileAdapter()
-    const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono,Menuflow2,organizadorflow])
+    const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, alquila22, audiono,Menuflow2,organizadorflow])
     const adapterProvider = createProvider(MetaProvider, {
         jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
         numberId: '133862353148114',
