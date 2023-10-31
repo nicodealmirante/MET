@@ -141,8 +141,8 @@ return endFlow()
   
 )    
     let fecha
-    var asd2;
-var asd;
+    let asd2;
+let asd;
 var res1;
 var res2;
 var total;
@@ -152,12 +152,12 @@ var total;
       method: "get",
       url: `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${donde}%20Argentina&origins=Ramos%20Mejia%20Buenos%20Aires%20Argentina&key=AIzaSyB-o-yLjNarKluwNV8z8IZTDhosOlM1NOw`,
     };
-
+console.log(config)
     const response = await axios(config)
     res1 = response.data["destination_addresses"][0]
     asd2 = response.data["rows"][0]["elements"][0]["duration"].text
     asd = response.data["rows"][0]["elements"][0]["distance"].value
-total=(Math.round([(asd/1000)*250]/3000)*3000);}
+total=(Math.round([(asd/1000)*250]/3000)*3000)}
 
 
 const alquila22 = addKeyword('alquilawer',{sensitive:true})  
@@ -165,9 +165,9 @@ const alquila22 = addKeyword('alquilawer',{sensitive:true})
 .addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)', {capture: true}, async(ctx) => {fecha=ctx.body
 })
 .addAnswer('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', {capture:true}, async (ctx, { endFlow, provider, flowDynamic}) => {
-getTicket(ctx.body)
-console.log(res1)
-console.log(asd2)
+await getTicket(ctx.body)
+ console.log(res1)
+ console.log(asd2)
 console.log(total)
 
 console.log(asd)
