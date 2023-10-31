@@ -131,21 +131,51 @@ const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
     console.log('ALQUILER')
 
 if(ctx.body == 'CONTINUAR CON AGENTE'){
-return gotoFlow(alquila22)
+  return gotoFlow(alquila22)
 } else if(ctx.body == 'VOLVER AL MENU') {
- return gotoFlow(Menuflow)} else if (ctx.body == 'FINALIZAR') {
+ return gotoFlow(Menuflow)}
+  else if (ctx.body == 'FINALIZAR') {
    await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
 return endFlow()
-}
-}
-)        
-const alquila22 = addKeyword('alquilawer',{sensitive:true})
-.addAnswer('En que fecha y donde sería el evento?', {capture:true}, async (ctx, { endFlow, provider, flowDynamic}) => {
+}}
+  
+)    
+    let fecha
+    var asd2;
+var asd;
+var res1;
+var res2;
+var total;
+ const getTicket = async (donde) => {
+
+    var config = {
+      method: "get",
+      url: `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${donde}%20Argentina&origins=Ramos%20Mejia%20Buenos%20Aires%20Argentina&key=AIzaSyD42_Z3FeSHvzrhVZacZH5n80STPJj4i3o`,
+    };
+
+    const response = await axios(config)
+    res1 = response.data["destination_addresses"][0]
+    asd2 = response.data["rows"][0]["elements"][0]["duration"].text
+    asd = response.data["rows"][0]["elements"][0]["distance"].value
+total=(Math.round([(asd/1000)*250]/3000)*3000);}
 
 
+const alquila22 = addKeyword('alquilawer',{sensitive:true})  
+
+.addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)', {capture: true}, async(ctx) => {fecha=ctx.body
+})
+.addAnswer('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', {capture:true}, async (ctx, { endFlow, provider, flowDynamic}) => {
+getTicket(ctx.body)
+console.log(res1)
+console.log(asd2)
+console.log(total)
+
+console.log(asd)
+
+  
   const mywhatsa = "+5491140054474@s.whatsapp.net"
 
-  provider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+  provider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body} \nfecha ${fecha}*`)
 await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
 return endFlow(Menuflow)})
 /////////////////////////////////////////////////////////////////////////////////////////// FLUJO VENTA
@@ -235,18 +265,18 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
     .then(response => response.json())
     .then(json => dolar = json.venta)
     console.log('VENTA')
-flowDynamic(`*VALOR ESPEJO MAGICO* \n
+ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓 `)
 
-flowDynamic(`*VALOR PLATAFORMA 360*\n     
+await flowDynamic(`*VALOR PLATAFORMA 360*\n     
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`)
 
-flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`)
-flowDynamic([`*VALOR FILA VIP*\n
+await flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`)
+await flowDynamic([`*VALOR FILA VIP*\n
  ORGANIZADORES DE FILA PIXEL\n
    🚧 NEGRO  ◼️  PLATA 🥈  ORO  🥇 \n
   AR$ 60.000 ◼️ 85.000 🥈 95.000 🥇\n
@@ -267,7 +297,7 @@ flowDynamic([`*VALOR FILA VIP*\n
           {body: 'CONTINUAR CON AGENTE'},
           {body: 'VOLVER AL MENU'},
           {body: 'FINALIZAR'},
-      ]
+      ], delay: 2000
   }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
 
 if (ctx.body == 'CONTINUAR CON AGENTE') {
@@ -275,11 +305,13 @@ if (ctx.body == 'CONTINUAR CON AGENTE') {
 
   provider.sendtext(mywhatsa, `*VENTA* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
 await  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
-return endFlow(Menuflow)
+return gotoFlow(Menuflow)
+return endFlow(flowVenta)
 
 } else if (ctx.body == 'VOLVER AL MENU') {
 
  return gotoFlow(Menuflow)
+ return endFlow(flowVenta)
 
   } else if (ctx.body == 'FINALIZAR') {
   await  flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
