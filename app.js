@@ -235,18 +235,18 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
     .then(response => response.json())
     .then(json => dolar = json.venta)
     console.log('VENTA')
-.addAnswer(`*VALOR ESPEJO MAGICO* \n
+flowDynamic(`*VALOR ESPEJO MAGICO* \n
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓 `)
 
-.addAnswer(`*VALOR PLATAFORMA 360*\n     
+flowDynamic(`*VALOR PLATAFORMA 360*\n     
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`)
 
-.addAnswer(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`)
-.addAnswer([`*VALOR FILA VIP*\n
+flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`)
+flowDynamic([`*VALOR FILA VIP*\n
  ORGANIZADORES DE FILA PIXEL\n
    🚧 NEGRO  ◼️  PLATA 🥈  ORO  🥇 \n
   AR$ 60.000 ◼️ 85.000 🥈 95.000 🥇\n
@@ -255,8 +255,8 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
  AR$ 14.000 ◼️ 15.000 🥈 25.000 🥇\n
   PACK 4 PIXEL + 2 SOGAS (NEGRO)\n
  💲💲💲 AR$ 255.000 💲💲💲`])
+})
 
-console.log('VENTA')
 .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
 .addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
 .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
@@ -286,7 +286,7 @@ return endFlow(Menuflow)
 return endFlow()
 }}
 )        
-   })
+   
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
 /** 
 .addAnswer("*INFO*", { 
