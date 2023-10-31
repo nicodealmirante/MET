@@ -257,6 +257,10 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
         'https://filavip.ar'])
         .addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
         .addAnswer('FOTO FILA VIP', {media: '111.jpg'})
+        .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
+.addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
+.addAnswer('Selfie Mirror', {media: 'video2.mp4'})
+.addAnswer('Captura 360', {media: 'video360.mp4'})
         .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
           let dolar
           await fetch('https://dolarapi.com/v1/dolares/blue')
@@ -285,10 +289,7 @@ await flowDynamic([`*VALOR FILA VIP*\n
  💲💲💲 AR$ 255.000 💲💲💲`])
 })
 
-.addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
-.addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
-.addAnswer('Selfie Mirror', {media: 'video2.mp4'})
-.addAnswer('Captura 360', {media: 'video360.mp4'})
+
 .addAnswer("*CONTINUAR*", { 
       capture: true,
       buttons: [
@@ -375,7 +376,10 @@ return  gotoFlow(Menuflow);
    delay: 3000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
 
 if (ctx.body == 'PAGINA WEB') {
-await flowDynamic('https://www.espejoselfiemirror.com.ar')        
+await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
+
+await flowDynamic('FILA VIP \nhttps://filavip.ar')  
+
        return gotoFlow(Menuflow);
 } else if (ctx.body == 'HABLAR CON ASESOR') {
 nombre = "Cliente"
