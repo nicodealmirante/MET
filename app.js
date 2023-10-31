@@ -480,7 +480,9 @@ return  gotoFlow(Menuflow);
 delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
 
 if (ctx.body == 'PAGINA WEB') {
-await flowDynamic('https://www.espejoselfiemirror.com.ar')        
+  await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
+
+  await flowDynamic('FILA VIP \nhttps://filavip.ar')  
   return  gotoFlow(Menuflow);
 } else if (ctx.body == 'HABLAR CON ASESOR') {
 nombre = "Cliente"
@@ -509,7 +511,9 @@ return  gotoFlow(Menuflow);
                    delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
               
               if (ctx.body == 'PAGINA WEB') {
-               await flowDynamic('https://www.espejoselfiemirror.com.ar')        
+                await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
+
+                await flowDynamic('FILA VIP \nhttps://filavip.ar')  
                       return  gotoFlow(Menuflow);
       } else if (ctx.body == 'HABLAR CON ASESOR') {
          nombre = "Cliente"
