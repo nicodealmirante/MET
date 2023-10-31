@@ -152,7 +152,6 @@ var total;
       method: "get",
       url: `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${donde.replace(' ','%20')}Argentina&origins=Ramos%20Mejia%20Buenos%20Aires%20Argentina&key=AIzaSyB-o-yLjNarKluwNV8z8IZTDhosOlM1NOw`,
     };
-console.log(config)
     const response = await axios(config)
     res1 = response.data["destination_addresses"][0]
     asd2 = response.data["rows"][0]["elements"][0]["duration"].text
@@ -168,7 +167,7 @@ const alquila22 = addKeyword('alquilawer',{sensitive:true})
 await getTicket(ctx.body)
 var traslados = `*TRASLADOS*\nDISTANCIA: *${Math.round(asd)}* KM \nTIEMPO: *${asd2}*\nLUGAR: *${res1}*\nVALOR: *$ ${total}*.-\n*`
 
-if((asd)>=200){
+if((asd)<=200){
   await flowDynamic(traslados)
 }
 
