@@ -6,7 +6,6 @@ const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 const fs = require("fs")
 const axios = require("axios");
 const BotWrapper = require("./Services/class/botWrapper");
-const { createDashboard } = require("../src");
 let motivo;  
 
 
