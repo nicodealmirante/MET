@@ -589,7 +589,6 @@ return  gotoFlow(Menuflow);
   app.listen(PORT, () => {
     console.log(`Server running at https://localhost:${PORT}/`);
   });
-  app()
 }
   main(  ); 
  
