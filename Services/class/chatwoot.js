@@ -31,6 +31,7 @@ class ChatwootClient {
           ...options.headers,
         },
       });
+      console.log(response.data)
       return response.data;
     } catch (error) {
       throw new Error(error.message);
