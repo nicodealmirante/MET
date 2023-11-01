@@ -1,5 +1,5 @@
 const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
-
+const JsonFileAdapter = require('@bot-whatsapp/database/json')
 const MetaProvider = require('@bot-whatsapp/provider/meta')
 const { readFileSync } = require("fs");
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
