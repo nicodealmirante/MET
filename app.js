@@ -1,5 +1,5 @@
 const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
-const JsonFileAdapter = require('@bot-whatsapp/database/json')
+const MockAdapter = require("@bot-whatsapp/database/mock");
 const MetaProvider = require('@bot-whatsapp/provider/meta')
 const { readFileSync } = require("fs");
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
@@ -538,7 +538,7 @@ return  gotoFlow(Menuflow);
 
 
 
-    const adapterDB = new JsonFileAdapter()
+    const adapterDB = new MockAdapter()
     const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, alquila22, audiono,Menuflow2,organizadorflow])
     const adapterProvider = createProvider(MetaProvider, {
         jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
@@ -554,15 +554,15 @@ return  gotoFlow(Menuflow);
     database: adapterDB,
   }) 
 
-  BotWrapper.initialize({
+  BotWrapper.initialize(BotCreate, {
    
       CHATWOOT_URL: 'https://chatwoot-production-0566.up.railway.app',
       CHATWOOT_ID: '1',
       CHATWOOT_INBOX_ID: '1',
       CHATWOOT_API_ACCESS_TOKEN: 'mS5dKUsvKEYVn2zBUx6y6C32'
-  }, BotCreate)
-
+    });
+  };
   
-}
-  main(  ); 
+  main();
+  
  
