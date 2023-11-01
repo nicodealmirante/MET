@@ -24,7 +24,7 @@ class ChatwootClient {
     try {
       const response = await axios({
         ...options,
-        url: `https://chatwoot-production-0566.up.railway.app/app/accounts/1/inbox/1`,
+        url: `https://chatwoot-production-0566.up.railway.app/api/v1/accounts/1/inbox/1`,
         headers: {
           api_access_token: this.apiAccessToken,
           "Content-Type": "application/json",
