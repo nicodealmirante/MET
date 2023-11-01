@@ -549,16 +549,16 @@ return  gotoFlow(Menuflow);
     database: adapterDB,
   }) 
 
-  
-
-  BotWrapper.initialize(BotCreate, {
-      CHATWOOT_URL: 'https://chatwoot-production-0566.up.railway.app/api/v1/accounts',
+  createDashboard({
+   
+      CHATWOOT_URL: 'https://chatwoot-production-0566.up.railway.app',
       CHATWOOT_ID: '1',
       CHATWOOT_INBOX_ID: '1',
       CHATWOOT_API_ACCESS_TOKEN: 'mS5dKUsvKEYVn2zBUx6y6C32'
-  })
+  }, BotCreate)
 
-}
+  }
+
 
   main(
   ); 
