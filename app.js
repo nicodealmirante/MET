@@ -8,6 +8,20 @@ const axios = require("axios");
 const BotWrapper = require("./Services/class/botWrapper");
 const { createDashboard } = require("../src");
 let motivo;  
+
+
+const express = require("express");
+const bot = require('@bot-whatsapp/bot');
+
+const app = express();
+const PORT = 3000;
+
+app.use(express.json());
+app.use(express.urlencoded());
+
+
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////     FUNCIONES
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -376,7 +390,6 @@ return  gotoFlow(Menuflow);
 
 if (ctx.body == 'PAGINA WEB') {
 await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
-
 await flowDynamic('FILA VIP \nhttps://filavip.ar')  
 
        return gotoFlow(Menuflow);
@@ -388,6 +401,7 @@ await flowDynamic('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
 await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
 
 await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
+app(ctx.body)
 
 return  gotoFlow(Menuflow);
 }});
@@ -549,7 +563,7 @@ return  gotoFlow(Menuflow);
     database: adapterDB,
   }) 
 
-  createDashboard({
+  BotWrapper.initialize({
    
       CHATWOOT_URL: 'https://chatwoot-production-0566.up.railway.app',
       CHATWOOT_ID: '1',
@@ -557,9 +571,26 @@ return  gotoFlow(Menuflow);
       CHATWOOT_API_ACCESS_TOKEN: 'mS5dKUsvKEYVn2zBUx6y6C32'
   }, BotCreate)
 
-  }
-
-
-  main(
-  ); 
+  
+  app.get("/", function(req, res) {
+    console.log(req.body);
+    res.send("Welcome to the Webhook Server!");
+  });
+  
+  app.post("/webhook-1", function(req, res) {
+    console.log(req.body);
+    res.send("Webhook 1 successfully received.");
+  });
+  
+  app.post("/webhook-2", function(req, res) {
+    console.log(req.body);
+    res.send("Webhook 2 successfully received.");
+  });
+  
+  app.listen(PORT, () => {
+    console.log(`Server running at https://localhost:${PORT}/`);
+  });
+  app()
+}
+  main(  ); 
  
