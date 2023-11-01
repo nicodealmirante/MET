@@ -1,7 +1,6 @@
 const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
 
 const MetaProvider = require('@bot-whatsapp/provider/meta')
-const JsonFileAdapter = require('@bot-whatsapp/database/json')
 const { readFileSync } = require("fs");
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 const fs = require("fs")
@@ -550,15 +549,15 @@ return  gotoFlow(Menuflow);
     database: adapterDB,
   }) 
 
-  /**
+  
 
   BotWrapper.initialize(BotCreate, {
-      CHATWOOT_URL: 'https://chatwoot-production-0566.up.railway.app',
+      CHATWOOT_URL: 'https://chatwoot-production-0566.up.railway.app/api/v1',
       CHATWOOT_ID: '1',
       CHATWOOT_INBOX_ID: '1',
       CHATWOOT_API_ACCESS_TOKEN: 'mS5dKUsvKEYVn2zBUx6y6C32'
   })
-  */
+
 }
 
   main(
