@@ -480,7 +480,11 @@ const PRUEBA = addKeyword(["123123"])
   const abc = new ChatWood()
 const PRU = await abc.createMessage(dataIn)
 console.log(PRU)
-await flowDynamic("HOLA")
+const msje= "hola"
+await flowDynamic(msje)
+const dataIn= {msg: msje, mode: "outgoing"}
+const PRU = await abc.createMessage(dataIn)
+
 })
 
 
