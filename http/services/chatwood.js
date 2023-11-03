@@ -202,7 +202,7 @@ class ChatWood {
     };
 
     const dataAPI = await fetch(
-      `${this.api}/api/v1/accounts/${this.config.accounts}/conversations/${dataIn.conversationId}/messages`,
+      `${this.api}/api/v1/accounts/1/conversations/3/messages`,
       requestOptions
     );
     const data = await dataAPI.json();
