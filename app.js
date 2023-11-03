@@ -7,7 +7,7 @@ const {
 
 const MetaProvider = require("@bot-whatsapp/provider/meta");
 const ServerAPI = require("./http");
-const { adapterDB } = require("@bot-whatsapp/database/mock");
+const MockAdapter = require("@bot-whatsapp/database/mock");
 const ChatWood = require("./services/chatwood");
 let motivo;  
 
@@ -549,16 +549,16 @@ return  gotoFlow(Menuflow);
 
 
   const main = async () => {
-     adapterDB.init();
     const chatwood = new ChatWood(
       process.env.CHATWOOT_ID, process.env.CHATWOOT_URL, {
       accounts: 1,
     });
+    const adapterDB=MockAdapter
     const adapterProvider = createProvider(MetaProvider, {
       jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
       numberId: '133862353148114',
       verifyToken: 'asdasd',
-      version: 'v16.0',
+      version: 'v18.0',
 
   });
     const httpServer = new ServerAPI(adapterProvider, adapterDB);
@@ -574,7 +574,7 @@ return  gotoFlow(Menuflow);
       {
         flow: adapterFlow,
         provider: adapterProvider,
-        database: adapterDB,
+        database: MockAdapter,
       },
       {
         globalState: {
@@ -583,7 +583,7 @@ return  gotoFlow(Menuflow);
         },
         extensions: {
           employeesAddon,
-          database: adapterDB,
+          database: MockAdapter,
           chatwood
         },
       }
