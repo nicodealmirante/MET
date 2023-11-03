@@ -22,7 +22,8 @@ module.exports = addKeyword(EVENTS.WELCOME)
           {body: 'PAGINA WEB'},
       ],    delay: 3000 }
     )    
-   const dataIn= {msg: ctx.body, mode: "incoming"}
+   
+    dataIn= {msg: ctx.body, mode: "incoming"}
       await abc.createMessage(dataIn)
 if (ctx.body == 'PAGINA WEB') {
  await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
