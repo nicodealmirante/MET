@@ -11,7 +11,7 @@ module.exports = addKeyword(EVENTS.WELCOME)
       const opc="Opciones \n INFO. ALQUILER\nINFO. VENTA\n UNIFILA LED"    
 
       const dataINI = {msg: opc, mode: "outgoing"}
-      const opc="Opciones \n HABLAR CON ASESOR\nINFO DE LA EMPRESA\n PAGINA WEB"    
+    opc="Opciones \n HABLAR CON ASESOR\nINFO DE LA EMPRESA\n PAGINA WEB"    
 
       const dataINI = {msg: opc, mode: "outgoing"}
 
