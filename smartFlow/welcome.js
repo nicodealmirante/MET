@@ -26,7 +26,7 @@ module.exports = addKeyword(EVENTS.WELCOME)
        )
     , async(ctx,{flowDynamic}) => {
    
-      await abc.createMessage({msg: ctx.body, mode: "incoming"})
+        await abc.createMessage({msg: ctx.body, mode: "incoming"}
 if (ctx.body == 'PAGINA WEB') {
  await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
  await flowDynamic('FILA VIP \nhttps://filavip.ar')  
@@ -43,12 +43,13 @@ await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 1
 return  gotoFlow(Menuflow)}
 if (ctx.body == 'PAGINA WEB') {
      
-      const msj = ('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar\n FILA VIP \nhttps://filavip.ar')      
+      const msj = ('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar\n FILA VIP \nhttps://filavip.ar') 
+      await abc.createMessage({msg: msj, mode: "outgoing"})      
     } else if (ctx.body == 'INFO DE LA EMPRESA') {
       const msj = ('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires\n Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
-  } 
-
-    await abc.createMessage({msg: msj, mode: "outgoing"})  }
+ await abc.createMessage({msg: msj, mode: "outgoing"})   } 
+)
+    }
 
 
    
