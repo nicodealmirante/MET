@@ -372,7 +372,7 @@ return  gotoFlow(Menuflow);
 */
  
 
-const welcome = require("./smartFlow/welcome");
+const flowPrincipal = require("./smartFlow/welcome");
 
 /**
   const flowPrincipal = addKeyword(EVENTS.WELCOME)
