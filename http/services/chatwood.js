@@ -188,6 +188,9 @@ class ChatWood {
    * @returns
    */
   createMessage = async (dataIn) => {
+try{
+
+
 
     const raw = JSON.stringify({
       content: dataIn.msg,
@@ -207,7 +210,12 @@ class ChatWood {
     );
     const data = await dataAPI.json();
     return data;
+    
+  }catch(e){
+  console.log(e)
+}
   };
+
 }
 
 module.exports = ChatWood
