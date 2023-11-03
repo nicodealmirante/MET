@@ -1,7 +1,7 @@
 class ChatWood {
     token = "mS5dKUsvKEYVn2zBUx6y6C32";
     config = { accounts: 1 };
-    api = `https://chatwoot-production-0566.up.railway.app/`;
+    api = `https://chatwoot-production-0566.up.railway.app`;
   
     constructor(_token = "", _api = "", _config = {}) {
       this.token = _token;
