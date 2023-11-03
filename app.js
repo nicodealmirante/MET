@@ -402,22 +402,6 @@ await flowDynamic('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
 await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
 
 await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
-.addAction(chatwootMiddleware)
-.addAction(async (ctx, ctxFn) => {
-    const chatwood = ctxFn.extensions.chatwood;
-    const currentState = ctxFn.state.getMyState();
-    const body = ctx.body;
-
-    console.log(`[Flow Smart Welcome]:${ctx.body}`)
-
-    await chatwood.createMessage({
-        msg: body,
-        mode: "incoming",
-        conversationId: currentState.conversation_id,
-      });
-  
-});
-
 return  gotoFlow(Menuflow);
 }});
           
