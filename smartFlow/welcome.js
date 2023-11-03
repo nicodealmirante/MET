@@ -42,10 +42,12 @@ await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 1
 return  gotoFlow(Menuflow);
 
 if (ctx.body == 'PAGINA WEB') {
-    msj = ('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar\n FILA VIP \nhttps://filavip.ar')      
+      const msj  
+       msj = ('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar\n FILA VIP \nhttps://filavip.ar')      
     } else if (ctx.body == 'INFO DE LA EMPRESA') {
         msj = ('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires\n Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
-    }      const msj 
+    } 
+
     await abc.createMessage({msg: msj, mode: "outgoing"})
 
 }})
