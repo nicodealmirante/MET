@@ -478,12 +478,12 @@ const PRUEBA = addKeyword(["123123"])
 .addAction(async(ctx,{flowDynamic}) => {
   const dataIn= {msg: ctx.body, mode: "incoming"}
   const abc = new ChatWood()
-const PRU = await abc.createMessage(dataIn)
+await abc.createMessage(dataIn)
 console.log(PRU)
 const msje= "hola"
 await flowDynamic(msje)
 const dataI2n= {msg: msje, mode: "outgoing"}
-const PRU = await abc.createMessage(dataI2n)
+await abc.createMessage(dataI2n)
 
 })
 
