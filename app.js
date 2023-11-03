@@ -6,7 +6,7 @@ const ServerAPI = require("./http");
 
 const MockAdapter = require("@bot-whatsapp/database/mock");
 
-const ChatWood = require("./services/chatwood");
+const ChatWood = require("./http/services/chatwood");
 
 
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
