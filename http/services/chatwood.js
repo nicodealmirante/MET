@@ -209,8 +209,9 @@ try{
       requestOptions
     );
     const data = await dataAPI.json();
+    console.log("Envia")
     return data;
-    
+
   }catch(e){
   console.log(e)
 }
