@@ -1,6 +1,6 @@
 const Queue = require("bull");
 
-const processQueue = new Queue("message_process", "redis://redis:6380");
+const processQueue = new Queue("message_process", "redis://redis:6680");
 
 class QueueWS {
   constructor() {
