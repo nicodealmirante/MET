@@ -17,8 +17,7 @@ module.exports = addKeyword(EVENTS.WELCOME)
           {body: 'INFO. ALQUILER'},
           {body: 'INFO. VENTA'},
           {body: 'UNIFILA LED'},
-      ], delay: 2000 })
-
+      ], delay: 2000 }
     await flowDynamic(
         "*Contacto*", {  capture: true,
               buttons: [
@@ -26,7 +25,7 @@ module.exports = addKeyword(EVENTS.WELCOME)
           {body: 'INFO DE LA EMPRESA'},
           {body: 'PAGINA WEB'},
       ],    delay: 3000 
-    }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
+    }, async (ctx, {flowDynamic}) => {
         const dataIn= {msg: ctx.body, mode: "incoming"}
         const abc = new ChatWood()
       await abc.createMessage(dataIn)
@@ -49,5 +48,5 @@ if (ctx.body == 'PAGINA WEB') {
     msj = ('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar\n FILA VIP \nhttps://filavip.ar')      
     } else if (ctx.body == 'INFO DE LA EMPRESA') {
         msj = ('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires\n Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
-    }}})
+    }}}))
    
