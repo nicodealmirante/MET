@@ -17,7 +17,7 @@ module.exports = addKeyword(EVENTS.WELCOME)
           {body: 'INFO. ALQUILER'},
           {body: 'INFO. VENTA'},
           {body: 'UNIFILA LED'},
-      ], delay: 2000 }
+      ], delay: 2000 },
     await flowDynamic(
         "*Contacto*", {  capture: true,
               buttons: [
