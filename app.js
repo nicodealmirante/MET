@@ -549,7 +549,7 @@ return  gotoFlow(Menuflow);
 
 
   const main = async () => {
-    await adapterDB.init();
+     adapterDB.init();
     const chatwood = new ChatWood(
       process.env.CHATWOOT_ID, process.env.CHATWOOT_URL, {
       accounts: 1,
