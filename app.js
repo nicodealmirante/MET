@@ -1,14 +1,27 @@
-const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
+const {
+  createBot,
+  createProvider,
+  createFlow,
+  addKeyword,
+} = require("@bot-whatsapp/bot");
+const MetaProvider = require("@bot-whatsapp/provider/meta");
+const ServerAPI = require("./http");
 const MockAdapter = require("@bot-whatsapp/database/mock");
-const MetaProvider = require('@bot-whatsapp/provider/meta')
-const { readFileSync } = require("fs");
-const delay = (ms) => new Promise((res) => setTimeout(res, ms));
-const fs = require("fs")
-const axios = require("axios");
-const chatwoot = require("./chat.js");
+const BotWrapper = require("./Services/class/botWrapper");
+const ChatWood = require("./services/chatwood");
 let motivo;  
 
 
+/** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
+ *
+ *          Menu Principal
+ *           - SubMenu 1
+ *             - Submenu 1.1
+ *           - Submenu 2
+ *             - Submenu 2.1
+ *
+ * Primero declaras los submenus 1.1 y 2.1, luego el 1 y 2 y al final el principal.
+ */
 
 
 
@@ -535,26 +548,54 @@ return  gotoFlow(Menuflow);
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
-  const main = async () => {
 
+const main = async () => {
+  await adapterDB.init();
+  const adapterFlow = createFlow([flowPrincipal]);
 
-
-    const adapterDB = new MockAdapter()
-    const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, alquila22, audiono,Menuflow2,organizadorflow])
+    const chatwood = new ChatWood(
+      process.env.CHATWOOT_ID, process.env.CHATWOOT_URL, {
+      accounts: 1,
+    });
     const adapterProvider = createProvider(MetaProvider, {
-        jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
-        numberId: '133862353148114',
-        verifyToken: 'asdasd',
-        version: 'v16.0',
-    })
+      jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
+      numberId: '133862353148114',
+      verifyToken: 'asdasd',
+      version: 'v16.0',
 
-   
-  const BotCreate = createBot({
+  });
+    const httpServer = new ServerAPI(adapterProvider, adapterDB);
+
+
+
+
+
+
+
+
+createBot(
+  {
     flow: adapterFlow,
     provider: adapterProvider,
     database: adapterDB,
-  }) 
-}
-  main();
-  
- 
+  },
+{
+    extensions: {
+      employeesAddon,
+      database: adapterDB,
+      chatwood,
+      
+    },
+  }
+);
+
+httpServer.start();
+};
+
+main();
+
+
+
+
+
+

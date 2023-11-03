@@ -20,11 +20,9 @@ class ServerAPI {
       req.db = this.providerDB
       next()
     }
+    app.use(express.json())
     app.use("/api", middleware, require("./routes"));
-    app.listen(PORT, () => {
-      console.log(`http://localhost:${PORT}/api/qr`)
-      console.log(`http://localhost:${PORT}/api/callback`)
-    });
+    app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
   }
 }
 
