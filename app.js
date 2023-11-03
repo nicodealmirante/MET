@@ -1,12 +1,10 @@
 const {  createBot,  createProvider,  createFlow,  addKeyword, EVENTS} = require("@bot-whatsapp/bot");
 const MetaProvider = require("@bot-whatsapp/provider/meta");
-
-
-const ServerAPI = require("./http");
-
 const MockAdapter = require("@bot-whatsapp/database/mock");
 
-const ChatWood = require("./http/services/chatwood");
+//----------------- CHATWOOT
+const ServerAPI = require("./http");
+const ChatWood = require("./http/services/chatwood.js");
 
 
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
@@ -23,10 +21,8 @@ const ChatWood = require("./http/services/chatwood");
 
 
 
-////////////////////////////////////////////////////////////////////////////////////////////
-////     FUNCIONES
-/////////////////////////////////////////////////////////////////////////////////////////
-/**
+/**    FUNCIONES
+
  function numero(nnum){
 let nuevoContenido = `\n${nnum}`;
   fs.appendFile('numeros.txt', nuevoContenido, (err) => {
@@ -42,26 +38,22 @@ fs.appendFile('numerosalquiler.txt', nuevoContenido, (err) => {
   console.log('The "data to append" was appended to file!');
 });
 console.log('Numero Agendado de Alquiler');*/ 
-////////////////////////////////////////////////////////////////////////////////////////
-//////////// FLUJO SPAM //////////
-////////////////////////////////////////////////////////////////////////////////////////////
 
-
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////// FLUJO CLIENTE
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////                FLUJO CLIENTE
 
 const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
     .addAnswer("*UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD*", {
+
       capture: false},async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
+        console.log('FLOW CLIENTE')
+        
         const mywhatsa = "+5491140054474@s.whatsapp.net"
-        console.log('Hablar')
    provider.sendtext(mywhatsa, `*Directo* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+  
    await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
 return endFlow(Menuflow)
-}
 
-)        
+})        
 /** 
 })
          
@@ -75,7 +67,7 @@ return endFlow(Menuflow)
   }) 
 */
 
-//////////////////////////////zx</////////////////////////////////// EVENTO VOICE
+/////////////////////            ENVIAN AUDIO
 
 const audiono = addKeyword(EVENTS.VOICE_NOTE)
   .addAnswer('Disculpe, no puedo escuchar audios. Por favor utilice solo texto.')
@@ -120,105 +112,106 @@ const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
                 'Incluye accesorios (pistola lanza burbujas, lanza billetes.)',
                'El valor del servicio de 2 horas (2023) es de $ 100.000 .-',
                'El valor del servicio de 2 horas (2024) es de U$s 100 .-',
-               'El valor de la Hora adicional (2023) es de $ 50.000 .-'      ])  
-                     
-            
+               'El valor de la Hora adicional (2023) es de $ 50.000 .-'])  
 
-               .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
-          
+       .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
        
-
-      .addAnswer(['🚚El valor no incluye traslados',
+       .addAnswer(['🚚El valor no incluye traslados',
              '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'])
-       ///      numero2(ctx.from)
-       .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
-    .addAnswer('Showroom', {media: 'video.mp4'})
-    .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
-    .addAnswer('Captura 360', {media: 'video360.mp4'})
-    .addAnswer("*CONTINUAR*", { 
-      capture: true,
-      buttons: [
+
+             .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
+
+             .addAnswer('Showroom', {media: 'video.mp4'})
+
+             .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
+   
+             .addAnswer('Captura 360', {media: 'video360.mp4'})
+   
+             .addAnswer("*CONTINUAR*", {capture: true, buttons: [
           {body: 'CONTINUAR CON AGENTE'},
           {body: 'VOLVER AL MENU'},
           {body: 'FINALIZAR'},
-      ],delay: 3000
-  }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
-    console.log('ALQUILER')
+               ],delay: 3000 }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
+                            console.log('ALQUILER')
 
 if(ctx.body == 'CONTINUAR CON AGENTE'){
   return gotoFlow(alquila22)
-} else if(ctx.body == 'VOLVER AL MENU') {
- return gotoFlow(Menuflow)}
-  else if (ctx.body == 'FINALIZAR') {
-   await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
-return endFlow()
-}}
-  
-)    
-    let fecha
-    let asd2;
-let asd;
-var res1;
-var res2;
-var total;
- const getTicket = async (donde) => {
 
-    var config = {
-      method: "get",
-      url: `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${donde.replace(' ','%20')}Argentina&origins=Ramos%20Mejia%20Buenos%20Aires%20Argentina&key=AIzaSyB-o-yLjNarKluwNV8z8IZTDhosOlM1NOw`,
-    };
-    const response = await axios(config)
-    res1 = response.data["destination_addresses"][0]
-    asd2 = response.data["rows"][0]["elements"][0]["duration"].text
-    asd = Math.round(response.data["rows"][0]["elements"][0]["distance"].value/1000)
-total=(((asd*250)/3000)*3000)}
+  } else if(ctx.body == 'VOLVER AL MENU') {
+        return gotoFlow(Menuflow)
+  } else if (ctx.body == 'FINALIZAR') {
+       await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
+        return endFlow()
+}
+              }               )    
+
+/////////// GOOGLE MAPS ___ CALCULO TRASLADOS
+                 let fecha
+                  let asd2;
+                  let asd;
+                 var res1;
+                  var res2;
+                  var total;
+  const getTicket = async (donde) => {
+      var config = { 
+        method: "get",
+          url: `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${donde.replace(' ','%20')}Argentina&origins=Ramos%20Mejia%20Buenos%20Aires%20Argentina&key=AIzaSyB-o-yLjNarKluwNV8z8IZTDhosOlM1NOw` };
+       const response = await axios(config)
+        res1 = response.data["destination_addresses"][0]
+             asd2 = response.data["rows"][0]["elements"][0]["duration"].text
+               asd = Math.round(response.data["rows"][0]["elements"][0]["distance"].value/1000)
+       total=(((asd*250)/3000)*3000)}
 
 
 const alquila22 = addKeyword('alquilawer',{sensitive:true})  
+        .addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)',
+                     {capture: true}, async(ctx) => {fecha=ctx.body})
 
-.addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)', {capture: true}, async(ctx) => {fecha=ctx.body
-})
-.addAnswer('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', {capture:true}, async (ctx, { endFlow, provider, flowDynamic}) => {
-await getTicket(ctx.body)
-var traslados = `*TRASLADOS*\nDISTANCIA: *${Math.round(asd)}* KM \nTIEMPO: *${asd2}*\nLUGAR: *${res1}*\nVALOR: *$ ${total}*.-\n*`
+        .addAnswer('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', 
+                    {capture:true}, async (ctx, { endFlow, provider, flowDynamic}) => {
 
-if((asd)<=200){
-  await flowDynamic(traslados)
-}
+          await getTicket(ctx.body)
 
-  const mywhatsa = "+5491140054474@s.whatsapp.net"
+          var traslados = `*TRASLADOS*\nDISTANCIA: *${Math.round(asd)}* KM \nTIEMPO: *${asd2}*\nLUGAR: *${res1}*\nVALOR: *$ ${total}*.-\n*`
 
-  provider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body} \nFecha ${fecha}* \n\n ${traslados}`)
-await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
-return endFlow(Menuflow)})
-/////////////////////////////////////////////////////////////////////////////////////////// FLUJO VENTA
+if((asd)<=200){ await flowDynamic(traslados)}
+
+         const mywhatsa = "+5491140054474@s.whatsapp.net"
+                provider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body} \nFecha ${fecha}* \n\n ${traslados}`)
+      await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
+          return endFlow(Menuflow)})
+
+
+/////////////////////////////////// FLUJO VENTA
+
 const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
-.addAnswer(['¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
-'En SELFIE MIRROR, entendemos la importancia de mantener tus espacios organizados y atractivos. Nuestros organizadores de fila no solo te ayudarán a mantener un flujo ordenado de clientes, sino que también añadirán un toque de modernidad y estilo a tu negocio.\n',
-'¿Qué hace que nuestros organizadores de fila con tecnología Pixel LED sean especiales?\n',
-'✨ Iluminación espectacular: Nuestra tecnología Pixel LED ofrece una iluminación vibrante y personalizable que destacará tu marca y creará una experiencia memorable para tus clientes.\n',
-'🧹 Organización efectiva: Mantén tus filas en orden y evita la confusión con nuestros organizadores de alta calidad. ¡El caos será cosa del pasado!\n',
-'🎨 Personalización total: Personaliza la apariencia de tus organizadores para que se adapten a tu imagen corporativa o al tema de tu negocio.\n',
-'🌟 Destaca entre la multitud: Con nuestros organizadores de fila Pixel LED, tu negocio destacará en cualquier entorno, desde eventos, ferias comerciales hasta tiendas minoristas y restaurantes.\n',
-'¡Es el momento de darle a tu negocio una ventaja competitiva!\n',
-'¡Haz que tu negocio brille con nuestros organizadores de fila Pixel LED! 💫✨ #TecnologíaLED #OrganizaciónEfectiva #AtraeClientes\n',
-'*VALORES*\n',
-'https://filavip.ar'])
-.addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
-.addAnswer('FOTO FILA VIP', {media: '111.jpg'})
-.addAction(async (ctx, { gotoFlow,flowDynamic}) => {
-  await  flowDynamic([`*VALOR FILA VIP*\n
-  ORGANIZADORES DE FILA PIXEL\n
-    🚧 NEGRO  ◼️  PLATA 🥈  ORO  🥇 \n
-   AR$ 60.000 ◼️ 85.000 🥈 95.000 🥇\n
-  SOGAS TRENZADA. CAPUCHON\n
-   ⛓️  NEGRO ◼️  PLATA  🥈  ORO  🥇\n
-  AR$ 14.000 ◼️ 15.000 🥈 25.000 🥇\n
-   PACK 4 PIXEL + 2 SOGAS (NEGRO)\n
-  💲💲💲 AR$ 255.000 💲💲💲`])
- return gotoFlow(Menuflow)
-}
-)
+        .addAnswer(['¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
+           'En SELFIE MIRROR, entendemos la importancia de mantener tus espacios organizados y atractivos. Nuestros organizadores de fila no solo te ayudarán a mantener un flujo ordenado de clientes, sino que también añadirán un toque de modernidad y estilo a tu negocio.\n',
+          '¿Qué hace que nuestros organizadores de fila con tecnología Pixel LED sean especiales?\n',
+         '✨ Iluminación espectacular: Nuestra tecnología Pixel LED ofrece una iluminación vibrante y personalizable que destacará tu marca y creará una experiencia memorable para tus clientes.\n',
+        '🧹 Organización efectiva: Mantén tus filas en orden y evita la confusión con nuestros organizadores de alta calidad. ¡El caos será cosa del pasado!\n',               '🎨 Personalización total: Personaliza la apariencia de tus organizadores para que se adapten a tu imagen corporativa o al tema de tu negocio.\n',
+        '🌟 Destaca entre la multitud: Con nuestros organizadores de fila Pixel LED, tu negocio destacará en cualquier entorno, desde eventos, ferias comerciales hasta tiendas minoristas y restaurantes.\n',
+      '¡Es el momento de darle a tu negocio una ventaja competitiva!\n',
+    '¡Haz que tu negocio brille con nuestros organizadores de fila Pixel LED! 💫✨ #TecnologíaLED #OrganizaciónEfectiva #AtraeClientes\n',
+  '*VALORES*\n',
+  'https://filavip.ar'])
+        .addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
+          .addAnswer('FOTO FILA VIP', {media: '111.jpg'})
+              .addAction(async (ctx, { gotoFlow,flowDynamic}) => {
+                await  flowDynamic(
+                  [`*VALOR FILA VIP*\n
+                    ORGANIZADORES DE FILA PIXEL\n
+                  🚧 NEGRO  ◼️  PLATA 🥈  ORO  🥇 \n
+                   AR$ 60.000 ◼️ 85.000 🥈 95.000 🥇\n
+                   SOGAS TRENZADA. CAPUCHON\n
+                    ⛓️  NEGRO ◼️  PLATA  🥈  ORO  🥇\n
+                   AR$ 14.000 ◼️ 15.000 🥈 25.000 🥇\n
+                   PACK 4 PIXEL + 2 SOGAS (NEGRO)\n
+                   💲💲💲 AR$ 255.000 💲💲💲`])
+                    return gotoFlow(Menuflow)
+                  }
+                  )
+
 
   const flowVenta = addKeyword(['INFO. VENTA'], { sensitive: true })
           .addAnswer('👌 Te envío la info de Venta.',{delay: 2000})
@@ -253,12 +246,14 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
                  '\n*Equipo listo para trabajar*.',
                 'El valor del equipo es de 1500 U$S.' ,
                 '▶ REQUERIDO:Necesita contar con un Apple Iphone 13 o suoperior (dispositivo de grabacion)',
-      'y un TV LED de 32 o mas (monitoreo)'])
+              'y un TV LED de 32 o mas (monitoreo)'])
+
         .addAnswer('Selfie Mirror', {media: 'video3.mp4'})
 
         .addAnswer('Formas de pago: efectivo, transferencia/depósito')
 
         .addAnswer('Selfie Mirror', {media: 'banner22.jpg'})
+
        .addAnswer(['*UNIFILA LED*\n¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
         'En SELFIE MIRROR, entendemos la importancia de mantener tus espacios organizados y atractivos. Nuestros organizadores de fila no solo te ayudarán a mantener un flujo ordenado de clientes, sino que también añadirán un toque de modernidad y estilo a tu negocio.\n',
         '¿Qué hace que nuestros organizadores de fila con tecnología Pixel LED sean especiales?\n',
@@ -270,21 +265,28 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
         '¡Haz que tu negocio brille con nuestros organizadores de fila Pixel LED! 💫✨ #TecnologíaLED #OrganizaciónEfectiva #AtraeClientes\n',
         '*VALORES*\n',
         'https://filavip.ar'])
+       
         .addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
+        
         .addAnswer('FOTO FILA VIP', {media: '111.jpg'})
+        
         .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
-.addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
-.addAnswer('Selfie Mirror', {media: 'video2.mp4'})
-.addAnswer('Captura 360', {media: 'video360.mp4'})
-        .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
-          let dolar
-          await fetch('https://dolarapi.com/v1/dolares/blue')
-    .then(response => response.json())
-    .then(json => dolar = json.venta)
-    console.log('VENTA')
- await flowDynamic(`*VALOR ESPEJO MAGICO* \n
+        
+        .addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
+        
+        .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
+       
+        .addAnswer('Captura 360', {media: 'video360.mp4'})
+       
+        .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false },
+         async (ctx, { flowDynamic,gotoFlow, endFlow }) => {let dolar
+                    await fetch('https://dolarapi.com/v1/dolares/blue')
+           .then(response => response.json())
+             .then(json => dolar = json.venta)
+                console.log('VENTA')
+await flowDynamic(`*VALOR ESPEJO MAGICO* \n
 💵   *U$D 1,500 .-*   🔒
-💱 > U$D = AR$ > 💱
+> U$D = AR$ > 💱
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓 `)
 
 await flowDynamic(`*VALOR PLATAFORMA 360*\n     
@@ -293,6 +295,7 @@ await flowDynamic(`*VALOR PLATAFORMA 360*\n
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`)
 
 await flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`)
+
 await flowDynamic([`*VALOR FILA VIP*\n
  ORGANIZADORES DE FILA PIXEL\n
    🚧 NEGRO  ◼️  PLATA 🥈  ORO  🥇 \n
@@ -315,17 +318,19 @@ await flowDynamic([`*VALOR FILA VIP*\n
   }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
 
 if (ctx.body == 'CONTINUAR CON AGENTE') {
-  const mywhatsa = "+5491140054474@s.whatsapp.net"
 
-  provider.sendtext(mywhatsa, `*VENTA* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+
+  /// ENVIA MENSAJE A MI WHATSAPP
+const mywhatsa = "+5491140054474@s.whatsapp.net"
+provider.sendtext(mywhatsa, `*VENTA* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+
 await  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
 return gotoFlow(Menuflow)
-return endFlow(flowVenta)
+return endFlow()
 
 } else if (ctx.body == 'VOLVER AL MENU') {
-
  return gotoFlow(Menuflow)
- return endFlow(flowVenta)
+ return endFlow()
 
   } else if (ctx.body == 'FINALIZAR') {
   await  flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
@@ -333,8 +338,7 @@ return endFlow()
 }}
 )        
    
-//////////////////////////////////////////////////////////////// EVENTO WELCOME
-/** 
+/** EVENTO WELCOME
 .addAnswer("*INFO*", { 
   capture: true,
   buttons: [
@@ -366,41 +370,39 @@ await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
 return  gotoFlow(Menuflow);
 }});
 */
- //////////////////////////////////////////////////////////////// EVENTO WELCOME
+ 
 
 
-
-
+//////// EVENTO WELCOME
   const flowPrincipal = addKeyword(EVENTS.WELCOME)
-
-.addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás")
-.addAnswer("Opciones", {capture: false, 
-      buttons: [
+      .addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás")
+        .addAnswer("Opciones", {capture: false, 
+              buttons: [
           {body: 'INFO. ALQUILER'},
           {body: 'INFO. VENTA'},
           {body: 'UNIFILA LED'},
       ], delay: 2000 }
     ) 
-    .addAnswer("*Contacto*", { 
-      capture: true,
-      buttons: [
+    .addAnswer("*Contacto*", {  capture: true,
+              buttons: [
           {body: 'HABLAR CON ASESOR'},
           {body: 'INFO DE LA EMPRESA'},
           {body: 'PAGINA WEB'},
-      ],
-   delay: 3000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
+      ],    delay: 3000 
+    }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
 
 if (ctx.body == 'PAGINA WEB') {
 await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
 await flowDynamic('FILA VIP \nhttps://filavip.ar')  
        return gotoFlow(Menuflow);
+
 } else if (ctx.body == 'HABLAR CON ASESOR') {
 nombre = "Cliente"
 return gotoFlow(Cliente)
+
 } else if (ctx.body == 'INFO DE LA EMPRESA') {
 await flowDynamic('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
 await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
-
 await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
 return  gotoFlow(Menuflow);
 }});
@@ -469,10 +471,16 @@ return  gotoFlow(Menuflow);
 
 */
 
-  /////////////////////////////////////////////////////////////////////////  FLUJO MENU
+  ////////////////////  FLUJO MENU
   
-  const Menuflow = addKeyword(["me-nu"], { sensitive: true })
+  
+const PRUEBA = addKeyword(["123123"])
+.addAction(async(ctx,{flowDynamic}) => {
+  const dataIn= {msg: ctx.body, mode: "incoming"}
+const PRU = await ChatWood.createMessage(dataIn)
 
+})
+  const Menuflow = addKeyword(["me-nu"], { sensitive: true })
   .addAnswer("*Info*", { 
             capture: false,
             buttons: [
@@ -483,8 +491,8 @@ return  gotoFlow(Menuflow);
           }
 ) 
 .addAnswer("*CONTACTO*", { 
-  capture: true,
-  buttons: [
+     capture: true,
+         buttons: [
       {body: 'HABLAR CON ASESOR'},
       {body: 'INFO DE LA EMPRESA'},
       {body: 'PAGINA WEB'},
@@ -492,30 +500,28 @@ return  gotoFlow(Menuflow);
 delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
 
 if (ctx.body == 'PAGINA WEB') {
-  await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
 
+  await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
   await flowDynamic('FILA VIP \nhttps://filavip.ar')  
   return  gotoFlow(Menuflow);
+
 } else if (ctx.body == 'HABLAR CON ASESOR') {
 nombre = "Cliente"
 return gotoFlow(Cliente)
+
 } else if (ctx.body == 'INFO DE LA EMPRESA') {
 await flowDynamic('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
-await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
-
+await flowDynamic('  Nuestros horarios de atención son: de Lunes a Virnes de 10hs a 17hs' )
 await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
-
 return  gotoFlow(Menuflow);
 }   [flowVenta, flowsAlquiler, Cliente]})
 
 
 
   const Menuflow2 = addKeyword(["me-?nu"], { sensitive: true })
-
-  
      .addAnswer("Menu", { 
                       capture: true,
-                      buttons: [
+                                buttons: [
                           {body: 'HABLAR CON ASESOR'},
                           {body: 'INFO DE LA EMPRESA'},
                           {body: 'PAGINA WEB'},
@@ -523,19 +529,18 @@ return  gotoFlow(Menuflow);
                    delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
               
               if (ctx.body == 'PAGINA WEB') {
-                await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
-
-                await flowDynamic('FILA VIP \nhttps://filavip.ar')  
+       await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
+       await flowDynamic('FILA VIP \nhttps://filavip.ar')  
                       return  gotoFlow(Menuflow);
+
       } else if (ctx.body == 'HABLAR CON ASESOR') {
          nombre = "Cliente"
          return gotoFlow(Cliente)
+
       } else if (ctx.body == 'INFO DE LA EMPRESA') {
        await flowDynamic('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
        await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
-   
-       await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
-      
+      await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
       return  gotoFlow(Menuflow);
          }   [flowVenta, flowsAlquiler, Cliente]});
         
