@@ -24,7 +24,7 @@ module.exports = addKeyword(EVENTS.WELCOME)
           {body: 'PAGINA WEB'},
       ],    delay: 3000 }
        )
-       .addAction(async(ctx,{flowDynamic}) => {
+    , async(ctx,{flowDynamic}) => {
    
     dataIn= {msg: ctx.body, mode: "incoming"}
       await abc.createMessage(dataIn)
@@ -50,6 +50,6 @@ if (ctx.body == 'PAGINA WEB') {
   } 
 
     await abc.createMessage({msg: msj, mode: "outgoing"})  }
-) 
+
 
    
