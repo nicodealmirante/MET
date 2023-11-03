@@ -482,8 +482,8 @@ const PRU = await abc.createMessage(dataIn)
 console.log(PRU)
 const msje= "hola"
 await flowDynamic(msje)
-const dataIn= {msg: msje, mode: "outgoing"}
-const PRU = await abc.createMessage(dataIn)
+const dataI2n= {msg: msje, mode: "outgoing"}
+const PRU = await abc.createMessage(dataI2n)
 
 })
 
