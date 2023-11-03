@@ -13,7 +13,7 @@ module.exports = addKeyword(EVENTS.WELCOME)
       const dataINI = {msg: opc, mode: "outgoing"}
     opc="Opciones \n HABLAR CON ASESOR\nINFO DE LA EMPRESA\n PAGINA WEB"    
 
-      const dataINI = {msg: opc, mode: "outgoing"}
+     dataINI()
 
       await abc.createMessage(dataINI)
 
