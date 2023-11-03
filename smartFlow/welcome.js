@@ -12,12 +12,12 @@ module.exports = addKeyword(EVENTS.WELCOME)
       const dataINI = {msg: "Opciones \n HABLAR CON ASESOR\nINFO DE LA EMPRESA\n PAGINA WEB", mode: "outgoing"}
       await abc.createMessage({msg: opc, mode: "outgoing"})})
 
-         await       flowDynamic("Opciones", {capture: false, 
+         await flowDynamic("Opciones", {capture: false, 
               buttons: [
           {body: 'INFO. ALQUILER'},
           {body: 'INFO. VENTA'},
           {body: 'UNIFILA LED'},
-      ], delay: 2000 },
+      ], delay: 2000 }),
     await flowDynamic(
         "*Contacto*", {  capture: true,
               buttons: [
@@ -48,5 +48,5 @@ if (ctx.body == 'PAGINA WEB') {
     msj = ('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar\n FILA VIP \nhttps://filavip.ar')      
     } else if (ctx.body == 'INFO DE LA EMPRESA') {
         msj = ('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires\n Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
-    }}}))
+    }}})
    
