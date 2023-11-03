@@ -479,7 +479,7 @@ const PRUEBA = addKeyword(["123123"])
   const dataIn= {msg: ctx.body, mode: "incoming"}
   const abc = new ChatWood()
 const PRU = await abc.createMessage(dataIn)
-
+console.log(PRU)
 })
   const Menuflow = addKeyword(["me-nu"], { sensitive: true })
   .addAnswer("*Info*", { 
