@@ -2,7 +2,10 @@ const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
 const ChatWood = require("./http/services/chatwood.js");
 
 module.exports = addKeyword(EVENTS.WELCOME)
-    .addAction(async(ctx,{flowDynamic}) => {
+    .addAnswer('Bienvenido',{capture: true}
+        
+        
+        ,async(ctx,{flowDynamic}) => {
         const dataIn= {msg: ctx.body, mode: "incoming"}
         const abc = new ChatWood()
       await abc.createMessage(dataIn)
