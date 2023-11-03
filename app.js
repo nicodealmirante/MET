@@ -583,7 +583,6 @@ return  gotoFlow(Menuflow);
           inbox_id: 11, //id inbox Leifer-Ventas
         },
         extensions: {
-          employeesAddon,
           database: MockAdapter,
           chatwood
         },
