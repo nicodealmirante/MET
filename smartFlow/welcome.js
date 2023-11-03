@@ -26,7 +26,6 @@ await     flowDynamic(
     )    
     dataIn= {msg: ctx.body, mode: "incoming"}
       await abc.createMessage(dataIn)
-      const msj 
 if (ctx.body == 'PAGINA WEB') {
  await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
  await flowDynamic('FILA VIP \nhttps://filavip.ar')  
@@ -41,9 +40,13 @@ await flowDynamic('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
 await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
  await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
 return  gotoFlow(Menuflow);
+
 if (ctx.body == 'PAGINA WEB') {
     msj = ('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar\n FILA VIP \nhttps://filavip.ar')      
     } else if (ctx.body == 'INFO DE LA EMPRESA') {
         msj = ('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires\n Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
-    }}})
+    }      const msj 
+    await abc.createMessage({msg: msj, mode: "outgoing"})
+
+}})
    
