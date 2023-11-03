@@ -7,7 +7,6 @@ const {
 const MetaProvider = require("@bot-whatsapp/provider/meta");
 const ServerAPI = require("./http");
 const MockAdapter = require("@bot-whatsapp/database/mock");
-const BotWrapper = require("./Services/class/botWrapper");
 const ChatWood = require("./services/chatwood");
 let motivo;  
 
