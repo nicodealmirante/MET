@@ -1,26 +1,21 @@
-const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
+const { addKeyword, EVENTS,addAnswer} = require("@bot-whatsapp/bot");
 const ChatWood = require("./http/services/chatwood.js");
 
 module.exports = addKeyword(EVENTS.WELCOME)
-    .addAnswer('Bienvenido',{capture: true}
-        
-        
-        ,async(ctx,{flowDynamic}) => {
+    .addAction(async(ctx,{flowDynamic}) => {
         const dataIn= {msg: ctx.body, mode: "incoming"}
         const abc = new ChatWood()
       await abc.createMessage(dataIn)
    await   flowDynamic("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás")
     await abc.createMessage({msg: "Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás ", mode: "outgoing"})
       await abc.createMessage({msg: "Opciones \n INFO. ALQUILER\nINFO. VENTA\n UNIFILA LED", mode: "outgoing"})
-        await  flowDynamic("Opciones", {capture: false, 
+      .addAnswer("Opciones", {capture: false, 
               buttons: [
           {body: 'INFO. ALQUILER'},
           {body: 'INFO. VENTA'},
           {body: 'UNIFILA LED'}, 
       ], delay: 2000 })
-
-await     flowDynamic(
-        "*Contacto*", { capture: true,
+.addAnswer("*Contacto*", { capture: true,
               buttons: [
           {body: 'HABLAR CON ASESOR'},
           {body: 'INFO DE LA EMPRESA'},
