@@ -24,7 +24,7 @@ await     flowDynamic(
           {body: 'PAGINA WEB'},
       ],    delay: 3000 }
     )    
-        const dataIn= {msg: ctx.body, mode: "incoming"}
+    dataIn= {msg: ctx.body, mode: "incoming"}
         const abc = new ChatWood()
       await abc.createMessage(dataIn)
       const msj 
