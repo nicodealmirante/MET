@@ -1,5 +1,5 @@
 const { addKeyword, EVENTS,addAnswer} = require("@bot-whatsapp/bot");
-const ChatWood = require("./http/services/chatwood.js");
+const ChatWood = require("../http/services/chatwood.js");
 
 module.exports = addKeyword(EVENTS.WELCOME)
     .addAction(async(ctx,{flowDynamic}) => {
