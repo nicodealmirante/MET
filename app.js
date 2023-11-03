@@ -1,15 +1,12 @@
-const {
-  createBot,
-  createProvider,
-  createFlow,
-  addKeyword,EVENTS
-} = require("@bot-whatsapp/bot");
-
+const {  createBot,  createProvider,  createFlow,  addKeyword, EVENTS} = require("@bot-whatsapp/bot");
 const MetaProvider = require("@bot-whatsapp/provider/meta");
+
+
 const ServerAPI = require("./http");
-const adapterDB = require("@bot-whatsapp/database/mock");
+
+const {adapterDB} = require("@bot-whatsapp/database");
+
 const ChatWood = require("./services/chatwood");
-let motivo;  
 
 
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
@@ -562,24 +559,17 @@ return  gotoFlow(Menuflow);
 ////////////////////////////////////////////////////////////////////////////////////////
 
 
-  const main = async () => {
-    const chatwood = new ChatWood(
-      process.env.CHATWOOT_ID, process.env.CHATWOOT_URL, {
-      accounts: 1,
-    });
-
-    const adapterProvider = createProvider(MetaProvider, {
-      jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
-      numberId: '133862353148114',
-      verifyToken: 'asdasd',
-      version: 'v18.0',
-
+const main = async () => {
+  await adapterDB.init();
+  const chatwood = new ChatWood(
+    process.env.CHATWOOT_ID, process.env.CHATWOOT_URL, {
+    accounts: 1,
   });
-    const httpServer = new ServerAPI(adapterProvider, adapterDB);
+  const adapterProvider = createProvider(BaileysProvider);
+  const httpServer = new ServerAPI(adapterProvider, adapterDB);
 
 
     const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono, alquila22])
-
 
 
 
@@ -595,7 +585,7 @@ return  gotoFlow(Menuflow);
       {
         globalState: {
           status: true,
-          inbox_id: 11, //id inbox Leifer-Ventas
+          inbox_id: 1, //id inbox Leifer-Ventas
         },
         extensions: {
           database: adapterDB,
@@ -609,7 +599,5 @@ return  gotoFlow(Menuflow);
   
   main();
   
-
-
 
 
