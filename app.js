@@ -547,7 +547,7 @@ return  gotoFlow(Menuflow);
     const adapterDB = new MockAdapter();
 
     const chatwood = new ChatWood(
-      process.env.CHATWOOT_ID, process.env.CHATWOOT_URL, {
+      'mS5dKUsvKEYVn2zBUx6y6C32', 'https://chatwoot-production-0566.up.railway.app', {
       accounts: 1,
     });
 
