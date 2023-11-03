@@ -480,7 +480,12 @@ const PRUEBA = addKeyword(["123123"])
   const abc = new ChatWood()
 const PRU = await abc.createMessage(dataIn)
 console.log(PRU)
+await flowDynamic("HOLA")
 })
+
+
+
+
   const Menuflow = addKeyword(["me-nu"], { sensitive: true })
   .addAnswer("*Info*", { 
             capture: false,
@@ -567,7 +572,7 @@ return  gotoFlow(Menuflow);
     const httpServer = new ServerAPI(adapterProvider, adapterDB);
 
 
-    const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono, alquila22,PRUEBA])
+    const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono, alquila22, PRUEBA])
 
 
 
