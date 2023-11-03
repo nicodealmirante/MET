@@ -23,7 +23,8 @@ class BotWrapper {
     // Verifica si las opciones están vacías.
     if (Object.keys(_options).length === 0) {
       console.warn("\nLas opciones para ChatwootClient están vacías.");
-      return;
+      console.log&
+   
     }
 
     this.botInstance = bot;

@@ -5,7 +5,7 @@ const { readFileSync } = require("fs");
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 const fs = require("fs")
 const axios = require("axios");
-const BotWrapper = require("./Services/class/botWrapper");
+const chatwoot = require("./chat.js");
 let motivo;  
 
 
@@ -70,7 +70,9 @@ return endFlow(Menuflow)
 const audiono = addKeyword(EVENTS.VOICE_NOTE)
   .addAnswer('Disculpe, no puedo escuchar audios. Por favor utilice solo texto.')
   .addAction(async(ctx, {gotoFlow,endFlow}) => { 
-return endFlow(Menuflow)})
+return endFlow(Menuflow)},
+chatwoot()
+)
 
 ///////////////////////////////////////////////////////////////// FLUJO ALQUILER
 
@@ -382,7 +384,7 @@ return  gotoFlow(Menuflow);
 if (ctx.body == 'PAGINA WEB') {
 await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
 await flowDynamic('FILA VIP \nhttps://filavip.ar')  
-
+Chatwooot.client
        return gotoFlow(Menuflow);
 } else if (ctx.body == 'HABLAR CON ASESOR') {
 nombre = "Cliente"
@@ -552,16 +554,7 @@ return  gotoFlow(Menuflow);
     provider: adapterProvider,
     database: adapterDB,
   }) 
-
-  BotWrapper.initialize(BotCreate, {
-   
-      CHATWOOT_URL: 'https://chatwoot-production-0566.up.railway.app',
-      CHATWOOT_ID: '1',
-      CHATWOOT_INBOX_ID: '1',
-      CHATWOOT_API_ACCESS_TOKEN: 'mS5dKUsvKEYVn2zBUx6y6C32'
-    });
-  };
-  
+}
   main();
   
  
