@@ -7,7 +7,7 @@ const {
 
 const MetaProvider = require("@bot-whatsapp/provider/meta");
 const ServerAPI = require("./http");
-const MockAdapter = require("@bot-whatsapp/database/mock");
+const adapterDB = require("@bot-whatsapp/database/mock");
 const ChatWood = require("./services/chatwood");
 let motivo;  
 
@@ -405,6 +405,21 @@ await flowDynamic('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
 await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
 
 await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
+.addAction(chatwootMiddleware)
+.addAction(async (ctx, ctxFn) => {
+    const chatwood = ctxFn.extensions.chatwood;
+    const currentState = ctxFn.state.getMyState();
+    const body = ctx.body;
+
+    console.log(`[Flow Smart Welcome]:${ctx.body}`)
+
+    await chatwood.createMessage({
+        msg: body,
+        mode: "incoming",
+        conversationId: currentState.conversation_id,
+      });
+  
+});
 
 return  gotoFlow(Menuflow);
 }});
@@ -552,7 +567,7 @@ return  gotoFlow(Menuflow);
       process.env.CHATWOOT_ID, process.env.CHATWOOT_URL, {
       accounts: 1,
     });
-    const adapterDB =new  MockAdapter()
+
     const adapterProvider = createProvider(MetaProvider, {
       jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
       numberId: '133862353148114',
@@ -575,7 +590,7 @@ return  gotoFlow(Menuflow);
       {
         flow: adapterFlow,
         provider: adapterProvider,
-        database: MockAdapter,
+        database: adapterDB,
       },
       {
         globalState: {
@@ -583,7 +598,7 @@ return  gotoFlow(Menuflow);
           inbox_id: 11, //id inbox Leifer-Ventas
         },
         extensions: {
-          database: MockAdapter,
+          database: adapterDB,
           chatwood
         },
       }
