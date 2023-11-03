@@ -553,7 +553,7 @@ return  gotoFlow(Menuflow);
       process.env.CHATWOOT_ID, process.env.CHATWOOT_URL, {
       accounts: 1,
     });
-    const adapterDB=MockAdapter
+    const adapterDB =new  MockAdapter()
     const adapterProvider = createProvider(MetaProvider, {
       jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
       numberId: '133862353148114',
