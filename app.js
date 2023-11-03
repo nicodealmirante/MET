@@ -372,10 +372,12 @@ return  gotoFlow(Menuflow);
 */
  
 
+const welcome = require("./smartFlow/welcome");
 
-//////// EVENTO WELCOME
+/**
   const flowPrincipal = addKeyword(EVENTS.WELCOME)
       .addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás")
+   //   .addAnswer('', {media: 'sticker.webp'})
         .addAnswer("Opciones", {capture: false, 
               buttons: [
           {body: 'INFO. ALQUILER'},
@@ -408,69 +410,7 @@ return  gotoFlow(Menuflow);
 }});
           
     
- /**   {capture: true},async (ctx, {provider}) => {
-
-            const headerText = 'MENU'
-            const bodyText = 'Informacion y Precios'
-            const footerText = 'Seleccione'
-            const buttonList = 'Lista'
-            const listParams = [
-                {
-                    title: 'COMPRAR',
-                    rows: [
-                        {
-                            id: 'ID_1',
-                            title: 'Selfie Mirror',
-                            description: 'Espejo Magico'
-                        },
-                        {
-                            id: 'ID_2',
-                            title: 'FilaVip',
-                            description: 'Organizadores de fila LED'
-                        },
-                        {
-                            id: 'ID_3',
-                            title: 'Plataforma 360 Super Slow',
-                            description: 'Plataforma con camara giratoraia'
-                        }
-                    ]
-                },
-                {
-                    title: 'ALQUILER',
-                    rows: [
-                        {
-                            id: 'ID_1',
-                            title: 'Selfie Mirror',
-                            description: 'Espejo Magico'
-                        },
-                        {
-                            id: 'ID_2',
-                            title: 'Plataforma 360 Super Slow',
-                            description: 'Plataforma con camara giratoraia'
-         } ] },
-                        {
-                          title: 'Empresa',
-                          rows: [
-                              {
-                                  id: 'ID_1',
-                                  title: 'Ubicacion',
-                                  description: 'Ubicacion y Horarios'
-                              },
-                              {
-                                  id: 'ID_2',
-                                  title: 'Sitio Web',
-                                  description: 'Paginas de productos'
-                              }
-                  
-                    ]
-                }
-            ]
-            await provider.sendList(ctx.from, headerText, bodyText, footerText, buttonList ,listParams)
-        }
-        
-
-*/
-
+ */
   ////////////////////  FLUJO MENU
   
   
@@ -487,7 +427,7 @@ await abc.createMessage(dataOUT)
 })
 
 
-
+//////////////////////////  FLUJO MENU
 
   const Menuflow = addKeyword(["me-nu"], { sensitive: true })
   .addAnswer("*Info*", { 
@@ -524,7 +464,6 @@ await flowDynamic('  Nuestros horarios de atención son: de Lunes a Virnes de 10
 await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
 return  gotoFlow(Menuflow);
 }   [flowVenta, flowsAlquiler, Cliente]})
-
 
 
   const Menuflow2 = addKeyword(["me-?nu"], { sensitive: true })
