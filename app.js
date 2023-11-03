@@ -481,8 +481,8 @@ const PRUEBA = addKeyword(["123123"])
 await abc.createMessage(dataIn)
 const msje= "hola"
 await flowDynamic(msje)
-const dataI2n= {msg: msje, mode: "outgoing"}
-await abc.createMessage(dataI2n)
+const dataOUT = {msg: msje, mode: "outgoing"}
+await abc.createMessage(dataOUT)
 
 })
 
