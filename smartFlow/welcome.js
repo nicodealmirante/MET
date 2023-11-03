@@ -6,19 +6,19 @@ module.exports = addKeyword(EVENTS.WELCOME)
         const dataIn= {msg: ctx.body, mode: "incoming"}
         const abc = new ChatWood()
       await abc.createMessage(dataIn)
-    await  flowDynamic("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás")
+      flowDynamic("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás")
     await abc.createMessage({msg: "Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás ", mode: "outgoing"})
       await abc.createMessage({msg: "Opciones \n INFO. ALQUILER\nINFO. VENTA\n UNIFILA LED", mode: "outgoing"})
       const dataINI = {msg: "Opciones \n HABLAR CON ASESOR\nINFO DE LA EMPRESA\n PAGINA WEB", mode: "outgoing"}
       await abc.createMessage({msg: opc, mode: "outgoing"})})
 
-         await flowDynamic("Opciones", {capture: false, 
+          flowDynamic("Opciones", {capture: false, 
               buttons: [
           {body: 'INFO. ALQUILER'},
           {body: 'INFO. VENTA'},
           {body: 'UNIFILA LED'},
       ], delay: 2000 }),
-    await flowDynamic(
+     flowDynamic(
         "*Contacto*", {  capture: true,
               buttons: [
           {body: 'HABLAR CON ASESOR'},
@@ -31,8 +31,8 @@ module.exports = addKeyword(EVENTS.WELCOME)
       await abc.createMessage(dataIn)
       const msj 
 if (ctx.body == 'PAGINA WEB') {
-await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
-await flowDynamic('FILA VIP \nhttps://filavip.ar')  
+ flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
+ flowDynamic('FILA VIP \nhttps://filavip.ar')  
        return gotoFlow(Menuflow);
 
 } else if (ctx.body == 'HABLAR CON ASESOR') {
@@ -40,9 +40,9 @@ nombre = "Cliente"
 return gotoFlow(Cliente)
 
 } else if (ctx.body == 'INFO DE LA EMPRESA') {
-await flowDynamic('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
-await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
-await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
+ flowDynamic('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
+ flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
+ flowDynamic('Selfie Mirror', {media: 'video.mp4'})
 return  gotoFlow(Menuflow);
 if (ctx.body == 'PAGINA WEB') {
     msj = ('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar\n FILA VIP \nhttps://filavip.ar')      
