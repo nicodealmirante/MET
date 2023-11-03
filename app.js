@@ -4,8 +4,10 @@ const {
   createFlow,
   addKeyword,EVENTS
 } = require("@bot-whatsapp/bot");
+
 const MetaProvider = require("@bot-whatsapp/provider/meta");
 const ServerAPI = require("./http");
+const { adapterDB } = require("./provider/database");
 const MockAdapter = require("@bot-whatsapp/database/mock");
 const ChatWood = require("./services/chatwood");
 let motivo;  
@@ -547,10 +549,8 @@ return  gotoFlow(Menuflow);
 ////////////////////////////////////////////////////////////////////////////////////////
 
 
-const main = async () => {
-  await adapterDB.init();
-  const adapterFlow = createFlow([flowPrincipal]);
-
+  const main = async () => {
+    await adapterDB.init();
     const chatwood = new ChatWood(
       process.env.CHATWOOT_ID, process.env.CHATWOOT_URL, {
       accounts: 1,
@@ -571,28 +571,30 @@ const main = async () => {
 
 
 
-createBot(
-  {
-    flow: adapterFlow,
-    provider: adapterProvider,
-    database: adapterDB,
-  },
-{
-    extensions: {
-      employeesAddon,
-      database: adapterDB,
-      chatwood,
-      
-    },
-  }
-);
-
-httpServer.start();
-};
-
-main();
-
-
+    createBot(
+      {
+        flow: adapterFlow,
+        provider: adapterProvider,
+        database: adapterDB,
+      },
+      {
+        globalState: {
+          status: true,
+          inbox_id: 11, //id inbox Leifer-Ventas
+        },
+        extensions: {
+          employeesAddon,
+          database: adapterDB,
+          chatwood
+        },
+      }
+    );
+  
+    httpServer.start();
+  };
+  
+  main();
+  
 
 
 
