@@ -477,7 +477,8 @@ return  gotoFlow(Menuflow);
 const PRUEBA = addKeyword(["123123"])
 .addAction(async(ctx,{flowDynamic}) => {
   const dataIn= {msg: ctx.body, mode: "incoming"}
-const PRU = await ChatWood.createMessage(dataIn)
+  const abc = new ChatWood()
+const PRU = await abc.createMessage(dataIn)
 
 })
   const Menuflow = addKeyword(["me-nu"], { sensitive: true })
