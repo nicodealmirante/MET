@@ -396,7 +396,6 @@ return  gotoFlow(Menuflow);
 if (ctx.body == 'PAGINA WEB') {
 await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
 await flowDynamic('FILA VIP \nhttps://filavip.ar')  
-Chatwooot.client
        return gotoFlow(Menuflow);
 } else if (ctx.body == 'HABLAR CON ASESOR') {
 nombre = "Cliente"
