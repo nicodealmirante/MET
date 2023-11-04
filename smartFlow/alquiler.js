@@ -1,11 +1,11 @@
 const { addKeyword, EVENTS,addAnswer} = require("@bot-whatsapp/bot");
 const ChatWood = require("../http/services/chatwood.js");
-
+const axios = require("")
 module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
 .addAnswer('👌Te envio la info de alquiler.')
           
 .addAnswer('Selfie Mirror',{
-     media: 'banner22.jpg'})
+     media: '../banner22.jpg'})
 
 .addAnswer(['*Espejo Mágico Selfie Mirror*',
            '\nDiseño elegante: Nuestro espejo mágico tiene un diseño moderno y elegante que se adapta a cualquier tipo de evento.',
@@ -28,7 +28,7 @@ module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
         ])
 
 .addAnswer('Espejo Mágico Selfie Mirror', {
-  media: 'banner3.jpg'})
+  media: '../banner3.jpg'})
 
 .addAnswer(['*360 Super Slow.*',
        '\nEl servicio dura 2 horas. Durante ese tiempo no existe límite de capturas.',
@@ -38,18 +38,18 @@ module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
      'El valor del servicio de 2 horas (2024) es de U$s 100 .-',
      'El valor de la Hora adicional (2023) es de $ 50.000 .-'])  
 
-.addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
+.addAnswer('Plataforma 360 Super Slow', {media: '../banner.jpg'})
 
 .addAnswer(['🚚El valor no incluye traslados',
    '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'])
 
-   .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
+   .addAnswer('Selfie Mirror 360 + Selfie',{media: '../dibu.jpg'})
 
-   .addAnswer('Showroom', {media: 'video.mp4'})
+   .addAnswer('Showroom', {media: '../video.mp4'})
 
-   .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
+   .addAnswer('Selfie Mirror', {media: '../video2.mp4'})
 
-   .addAnswer('Captura 360', {media: 'video360.mp4'})
+   .addAnswer('Captura 360', {media: '../video360.mp4'})
 
    .addAnswer("*CONTINUAR*", {capture: true, buttons: [
 {body: 'CONTINUAR CON AGENTE'},

@@ -24,7 +24,7 @@ module.exports = addKeyword(EVENTS.WELCOME)
           {body: 'PAGINA WEB'},
       ],    delay: 3000 }
        )
-    , async(ctx,{flowDynamic}) => {
+    , async(ctx,{flowDynamic, gotoFlow, }) => {
    
         await abc.createMessage({msg: ctx.body, mode: "incoming"})
 if (ctx.body == 'PAGINA WEB') {
