@@ -503,7 +503,7 @@ return  gotoFlow(Menuflow);
     const httpServer = new ServerAPI(adapterProvider, adapterDB);
 
 
-    const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono, PRUEBA])
+    const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono])
 
 
 
