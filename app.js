@@ -1,4 +1,3 @@
-require("dotenv").config();
 const {  createBot,  createProvider,  createFlow,  addKeyword, EVENTS} = require("@bot-whatsapp/bot");
 const MetaProvider = require("@bot-whatsapp/provider/meta");
 const MockAdapter = require("@bot-whatsapp/database/mock");
@@ -8,8 +7,7 @@ const ServerAPI = require("./http");
 const ChatWood = require("./http/services/chatwood.js");
 const flowPrincipal = require("./smartFlow/welcome.js");
 const flowsAlquiler = require("./smartFlow/alquiler.js");
-const {ctrlSend} = require("./http/controllers/send.js");
-const { adapterDB } = require("./provider/database");
+
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
  *
  *          Menu Principal
@@ -21,7 +19,7 @@ const { adapterDB } = require("./provider/database");
  * Primero declaras los submenus 1.1 y 2.1, luego el 1 y 2 y al final el principal.
  */
 
-const ch = ctrlSend
+
 
 
 /**    FUNCIONES
@@ -491,15 +489,15 @@ return  gotoFlow(Menuflow);
     const adapterDB = new MockAdapter();
 
     const chatwood = new ChatWood(
-      process.env.token , process.env.api, {
-      accounts: process.env.accounts,
+      'mS5dKUsvKEYVn2zBUx6y6C32', 'https://chatwoot-production-0566.up.railway.app', {
+      accounts: 1,
     });
 
     const adapterProvider = createProvider(MetaProvider, {
-      jwtToken: process.env.jwtTokenw,
-      numberId: process.env.numberId,
-      verifyToken: process.env.verifyToken,
-      version: process.env.version,
+      jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
+      numberId: '133862353148114',
+      verifyToken: 'asdasd',
+      version: 'v18.0',
 
   });
     const httpServer = new ServerAPI(adapterProvider, adapterDB);

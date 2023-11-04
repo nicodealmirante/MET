@@ -1,10 +1,9 @@
 const { addKeyword, EVENTS,addAnswer} = require("@bot-whatsapp/bot")
 const ChatWood = require("../http/services/chatwood.js");
-
+const axios = require("axios")
 module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
-.addAnswer('👌Te envio la info de alquiler.')
-.addAnswer('Selfie Mirror',{
-     media: './banner22.jpg'})
+.addAnswer('👌Te envio la info de alquiler.', async (ctx, { flowDynamic,provider}) => {
+await flowDynamic([{body: 'imagen', media: 'http://gs.invitarme.com.ar/banner22.jpg'}])})
 .addAnswer(['*Espejo Mágico Selfie Mirror*',
            '\nDiseño elegante: Nuestro espejo mágico tiene un diseño moderno y elegante que se adapta a cualquier tipo de evento.',
           'Su apariencia sofisticada agrega un toque especial al ambiente.',
@@ -25,7 +24,7 @@ module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
          'El valor de la Hora adicional es de $ 50.000'
         ])
 
-.addAnswer('Espejo Mágico Selfie Mirror', {media: './banner3.jpg'})
+.addAnswer('Espejo Mágico Selfie Mirror', {media: 'http://gs.invitarme.com.ar/banner3.jpg'})
 
 
 .addAnswer(['*360 Super Slow.*',
@@ -36,16 +35,16 @@ module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
      'El valor del servicio de 2 horas (2024) es de U$s 100 .-',
      'El valor de la Hora adicional (2023) es de $ 50.000 .-'])  
 
-.addAnswer('Plataforma 360 Super Slow', {media: './banner.jpg'})
+.addAnswer('Plataforma 360 Super Slow', {media: '../banner.jpg'})
 
 .addAnswer(['🚚El valor no incluye traslados',
    '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'])
 
-   .addAnswer('Selfie Mirror 360 + Selfie',{media: 'https://github.com/nicodealmirante/MET/blob/queonda/dibu.jpg?raw=true'})
+   .addAnswer('Selfie Mirror 360 + Selfie',{media: 'http://gs.invitarme.com.ar/dibu.jpg'})
 
-   .addAnswer('Showroom', {media: 'https://github.com/nicodealmirante/MET/blob/queonda/video.mp4?raw=true'})
-   .addAnswer('Selfie Mirror', {media: 'https://github.com/nicodealmirante/MET/blob/queonda/video2.mp4?raw=true'})
-   .addAnswer('Captura 360', {media: 'https://github.com/nicodealmirante/MET/blob/queonda/video360.mp4?raw=true'})
+   .addAnswer('Showroom', {media: 'http://gs.invitarme.com.ar/video.mp4'})
+   .addAnswer('Selfie Mirror', {media: 'http://gs.invitarme.com.ar/video2.mp4'})
+   .addAnswer('Captura 360', {media: 'http://gs.invitarme.com.ar/video360.mp4'})
    .addAnswer("*CONTINUAR*", {capture: true, buttons: [
 {body: 'CONTINUAR CON AGENTE'},
 {body: 'VOLVER AL MENU'},
@@ -96,16 +95,17 @@ return gotoFlow(Menuflow)
 await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
 return endFlow()
 
-    }              
+    }      })        
 
 /////////// GOOGLE MAPS ___ CALCULO TRASLADOS
        let fecha
-        let asd2;
+        let asd20;
         let asd;
        var res1;
         var res2;
         var total;
-const getTicket = async (donde) => {
+
+const getTicket = (async (donde) => {
 var config = { 
 method: "get",
 url: `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${donde.replace(' ','%20')}Argentina&origins=Ramos%20Mejia%20Buenos%20Aires%20Argentina&key=AIzaSyB-o-yLjNarKluwNV8z8IZTDhosOlM1NOw` };
@@ -113,7 +113,8 @@ const response = await axios(config)
 res1 = response.data["destination_addresses"][0]
    asd2 = response.data["rows"][0]["elements"][0]["duration"].text
      asd = Math.round(response.data["rows"][0]["elements"][0]["distance"].value/1000)
-total=(((asd*250)/3000)*3000)}})
+total=(((asd*250)/3000)*3000)})
+
 
 .addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)',
            {capture: true}, async(ctx) => {fecha=ctx.body})
