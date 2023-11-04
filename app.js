@@ -1,3 +1,4 @@
+require("dotenv").config();
 const {  createBot,  createProvider,  createFlow,  addKeyword, EVENTS} = require("@bot-whatsapp/bot");
 const MetaProvider = require("@bot-whatsapp/provider/meta");
 const MockAdapter = require("@bot-whatsapp/database/mock");
@@ -490,15 +491,15 @@ return  gotoFlow(Menuflow);
     const adapterDB = new MockAdapter();
 
     const chatwood = new ChatWood(
-      'mS5dKUsvKEYVn2zBUx6y6C32', 'https://chatwoot-production-0566.up.railway.app', {
-      accounts: 1,
+      process.env.token , process.env.api, {
+      accounts: process.env.accounts,
     });
 
     const adapterProvider = createProvider(MetaProvider, {
-      jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
-      numberId: '133862353148114',
-      verifyToken: 'asdasd',
-      version: 'v18.0',
+      jwtToken: process.env.jwtTokenw,
+      numberId: process.env.numberId,
+      verifyToken: process.env.verifyToken,
+      version: process.env.version,
 
   });
     const httpServer = new ServerAPI(adapterProvider, adapterDB);

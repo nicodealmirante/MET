@@ -1,8 +1,7 @@
 class ChatWood {
-  token = "mS5dKUsvKEYVn2zBUx6y6C32";
-  config = { accounts: 1 };
-  api = `https://chatwoot-production-0566.up.railway.app`;
-
+  token = process.env.token
+   api= process.env.api
+   config={accounts: process.env.accounts}
   constructor(_token = "", _api = "", _config = {}) {
     this.token = _token;
     this.api = _api;
