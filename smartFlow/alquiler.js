@@ -2,9 +2,8 @@ const { addKeyword, EVENTS,addAnswer} = require("@bot-whatsapp/bot");
 const ChatWood = require("../http/services/chatwood.js");
 module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
 .addAnswer('👌Te envio la info de alquiler.')
-          
- await flowDynamic('Selfie Mirror',{
-     media: '../banner22.jpg'})
+.addAnswer('Selfie Mirror',{
+     media: 'https://github.com/nicodealmirante/MET/blob/queonda/banner22.jpg?raw=true'})
 
 .addAnswer(['*Espejo Mágico Selfie Mirror*',
            '\nDiseño elegante: Nuestro espejo mágico tiene un diseño moderno y elegante que se adapta a cualquier tipo de evento.',
@@ -26,7 +25,7 @@ module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
          'El valor de la Hora adicional es de $ 50.000'
         ])
 
-await flowDynamic('Espejo Mágico Selfie Mirror', {media: '../banner3.jpg'})
+.addAnswer('Espejo Mágico Selfie Mirror', {media: 'https://github.com/nicodealmirante/MET/blob/queonda/banner3.jpg?raw=true'})
 
 
 .addAnswer(['*360 Super Slow.*',
@@ -37,19 +36,16 @@ await flowDynamic('Espejo Mágico Selfie Mirror', {media: '../banner3.jpg'})
      'El valor del servicio de 2 horas (2024) es de U$s 100 .-',
      'El valor de la Hora adicional (2023) es de $ 50.000 .-'])  
 
-.addAnswer('Plataforma 360 Super Slow', {media: '../banner.jpg'})
+.addAnswer('Plataforma 360 Super Slow', {media: 'https://github.com/nicodealmirante/MET/blob/queonda/banner.jpg?raw=true'})
 
 .addAnswer(['🚚El valor no incluye traslados',
    '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'])
 
-   .addAnswer('Selfie Mirror 360 + Selfie',{media: '../dibu.jpg'})
+   .addAnswer('Selfie Mirror 360 + Selfie',{media: 'https://github.com/nicodealmirante/MET/blob/queonda/dibu.jpg?raw=true'})
 
-   .addAnswer('Showroom', {media: '../video.mp4'})
-
-   .addAnswer('Selfie Mirror', {media: '../video2.mp4'})
-
-   .addAnswer('Captura 360', {media: '../video360.mp4'})
-
+   .addAnswer('Showroom', {media: 'https://github.com/nicodealmirante/MET/blob/queonda/video.mp4?raw=true'})
+   .addAnswer('Selfie Mirror', {media: 'https://github.com/nicodealmirante/MET/blob/queonda/video2.mp4?raw=true'})
+   .addAnswer('Captura 360', {media: 'https://github.com/nicodealmirante/MET/blob/queonda/video360.mp4?raw=true'})
    .addAnswer("*CONTINUAR*", {capture: true, buttons: [
 {body: 'CONTINUAR CON AGENTE'},
 {body: 'VOLVER AL MENU'},
