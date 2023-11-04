@@ -21,8 +21,7 @@ await flowDynamic([{body: 'imagen', media: 'http://gs.invitarme.com.ar/banner22.
          '\nRecuerda que nuestros servicios incluyen el montaje, desmontaje y la asistencia de personal capacitado durante todo' ,
          'el evento. Estamos comprometidos en asegurar que tus invitados disfruten al máximo de la experiencia con el espejo mágico.',
          'Valor Servicio por 2 Horas $ 100.000 (base)',
-         'El valor de la Hora adicional es de $ 50.000'
-        ])
+         'El valor de la Hora adicional es de $ 50.000'])
 
 .addAnswer('Espejo Mágico Selfie Mirror', {media: 'http://gs.invitarme.com.ar/banner3.jpg'})
 
@@ -116,10 +115,10 @@ res1 = response.data["destination_addresses"][0]
 total=(((asd*250)/3000)*3000)})
 
 
-.addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)',
+flowDynamic('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)',
            {capture: true}, async(ctx) => {fecha=ctx.body})
 
-.addAnswer('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', 
+flowDynamic('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', 
           {capture:true}, async (ctx, { endFlow, provider, flowDynamic}) => {
 
 await getTicket(ctx.body)
