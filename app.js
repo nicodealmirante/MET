@@ -546,44 +546,49 @@ return  gotoFlow(Menuflow);
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
-
 const main = async () => {
-  const adapterDB = new MockAdapter()
-  const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono,Menuflow2])
-  const MockAdapter = require("@bot-whatsapp/database/mock");
-//    const chatwood = new ChatWood(
-//process.env.CHATWOOT_ID, process.env.CHATWOOT_URL, {
-  //    accounts: 1,
-  //  });
-    const adapterProvider = createProvider(MetaProvider, {
-      jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
-      numberId: '133862353148114',
-      verifyToken: 'asdasd',
-      version: 'v16.0',
-
-  });
-    ////const httpServer = new ServerAPI(adapterProvider, adapterDB);
+  const adapterDB = new MockAdapter();
 
 
-createBot(
-  {
-    flow: adapterFlow,
-    provider: adapterProvider,
-    database: adapterDB,
-  },
-{
-    extensions: {
+  const adapterProvider = createProvider(MetaProvider, {
+    jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
+    numberId: '133862353148114',
+    verifyToken: 'asdasd',
+    version: 'v18.0',
+
+});
+
+
+  const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono, Menuflow2])
+
+
+
+
+
+
+
+  createBot(
+    {
+      flow: adapterFlow,
+      provider: adapterProvider,
       database: adapterDB,
-      chatwood,
-      
     },
-  }
-);
+    {
+      globalState: {
+        status: true,
+        inbox_id: 1, //id inbox Leifer-Ventas
+      },
+      extensions: {
+        database: adapterDB,
+      },
+    }
+  );
 
-/////////httpServer.start();
 };
 
 main();
+
+
 
 
 
