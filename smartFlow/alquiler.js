@@ -3,7 +3,7 @@ const ChatWood = require("../http/services/chatwood.js");
 module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
 .addAnswer('👌Te envio la info de alquiler.')
 .addAnswer('Selfie Mirror',{
-     media: '../banner22.jpg'})
+     media: 'banner22.jpg'})
 .addAnswer(['*Espejo Mágico Selfie Mirror*',
            '\nDiseño elegante: Nuestro espejo mágico tiene un diseño moderno y elegante que se adapta a cualquier tipo de evento.',
           'Su apariencia sofisticada agrega un toque especial al ambiente.',
@@ -24,7 +24,7 @@ module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
          'El valor de la Hora adicional es de $ 50.000'
         ])
 
-.addAnswer('Espejo Mágico Selfie Mirror', {media: 'https://github.com/nicodealmirante/MET/blob/queonda/banner3.jpg?raw=true'})
+.addAnswer('Espejo Mágico Selfie Mirror', {media: 'banner3.jpg'})
 
 
 .addAnswer(['*360 Super Slow.*',
@@ -35,7 +35,7 @@ module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
      'El valor del servicio de 2 horas (2024) es de U$s 100 .-',
      'El valor de la Hora adicional (2023) es de $ 50.000 .-'])  
 
-.addAnswer('Plataforma 360 Super Slow', {media: 'https://github.com/nicodealmirante/MET/blob/queonda/banner.jpg?raw=true'})
+.addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
 
 .addAnswer(['🚚El valor no incluye traslados',
    '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'])
