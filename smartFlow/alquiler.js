@@ -3,28 +3,11 @@ const ChatWood = require("../http/services/chatwood.js");
 
 module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
          
-
 .addAction(async(ctx,{flowDynamic}) => {
   const dataIn= {msg: ctx.body, mode: "incoming"}
   const abc = new ChatWood()
 await abc.createMessage(dataIn)
-await abc.createMessage({msg: '👌Te envio la info de alquiler.\n*Espejo Mágico Selfie Mirror*\nDiseño elegante Nuestro espejo mágico tiene un diseño moderno y elegante que se adapta a cualquier tipo de evento\n'+ '\nAccesorios y decoración Contamos con una variedad de accesorios y elementos decorativos para personalizar aún '+                
-                    'Su apariencia sofisticada agrega un toque especial al ambiente.'+
-                    '\nAccesorios y decoración: Contamos con una variedad de accesorios y elementos decorativos para personalizar aún '+
-                     'más la experiencia. Puedes elegir entre diferentes marcos, sombreros, anteojos, pizarras con mensajes divertidos' +
-                      'y más. Estos elementos permiten que los invitados se diviertan y creen fotos únicas.'+
-                    '\nTamaño y portabilidad: El espejo mágico tiene dimensiones compactas que facilitan su transporte e instalación en '+
-                    'diferentes espacios. Es lo suficientemente versátil como para adaptarse a salones de eventos, fiestas en exteriores '+
-                   'y otros lugares.'+
-                   '\nOpciones de software: Nuestro espejo mágico viene con un software propio que ofrece una amplia gama de funciones '+
-                   'y personalización. Puedes elegir entre diferentes plantillas de diseño, agregar efectos especiales a las fotos y configurar '+
-                   'opciones de impresión según tus preferencias.'+
-                   '\nTiempo de alquiler: El tiempo de alquiler del espejo mágico es flexible y se adapta a las necesidades de tu evento.'+
-                   ' Puedes contratarlo por horas o por el tiempo que consideres necesario para brindar una experiencia completa a tus invitados.'+
-                   '\nRecuerda que nuestros servicios incluyen el montaje, desmontaje y la asistencia de personal capacitado durante todo' +
-                   'el evento. Estamos comprometidos en asegurar que tus invitados disfruten al máximo de la experiencia con el espejo mágico.'+
-                   'Valor Servicio por 2 Horas $ 100.000 (base)'+
-                   'El valor de la Hora adicional es de $ 50.000', mode: "outgoing"})        
+await abc.createMessage({msg: '👌Te envio la info de alquiler.\n*Espejo Mágico Selfie Mirror*\nDiseño elegante Nuestro espejo mágico tiene un diseño moderno y elegante que se adapta a cualquier tipo de evento\n'+ '\nAccesorios y decoración Contamos con una variedad de accesorios y elementos decorativos para personalizar aún \n Su apariencia sofisticada agrega un toque especial al ambiente.\n                    \nAccesorios y decoración: Contamos con una variedad de accesorios y elementos decorativos para personalizar aún más la experiencia. Puedes elegir entre diferentes marcos, sombreros, anteojos, pizarras con mensajes divertidos\n  y más. Estos elementos permiten que los invitados se diviertan y creen fotos únicas.\nTamaño y portabilidad: El espejo mágico tiene dimensiones compactas que facilitan su transporte e instalación en diferentes espacios. Es lo suficientemente versátil como para adaptarse a salones de eventos, fiestas en exteriores y otros lugares.\nOpciones de software: Nuestro espejo mágico viene con un software propio que ofrece una amplia gama de funciones \n y personalización. Puedes elegir entre diferentes plantillas de diseño, agregar efectos especiales a las fotos y configurar \n opciones de impresión según tus preferencias.\n  \nTiempo de alquiler: El tiempo de alquiler del espejo mágico es flexible y se adapta a las necesidades de tu evento.\n    Puedes contratarlo por horas o por el tiempo que consideres necesario para brindar una experiencia completa a tus invitados. \n   \nRecuerda que nuestros servicios incluyen el montaje, desmontaje y la asistencia de personal capacitado durante todo\n    el evento. Estamos comprometidos en asegurar que tus invitados disfruten al máximo de la experiencia con el espejo mágico.\n   Valor Servicio por 2 Horas $ 100.000 (base)\n     El valor de la Hora adicional es de $ 50.000', mode: "outgoing"})        
 
                    await abc.createMessage({msg: '*360 Super Slow.*'+
                  '\nEl servicio dura 2 horas. Durante ese tiempo no existe límite de capturas.'+
