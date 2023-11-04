@@ -144,10 +144,9 @@ if(ctx.body == 'CONTINUAR CON AGENTE'){
        await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
         return endFlow()
 }
-              }               )    */ 
+              }               )    
 
-/////////// GOOGLE MAPS ___ CALCULO TRASLADOS
-
+const contactoalquiler = addKeyword('contactoalqui1212',  {sensitive: true})
 
 let fecha
                   let asd2;
@@ -155,7 +154,7 @@ let fecha
                  var res1;
                   var res2;
                   var total;
-  const getTicket = (async (donde) => {
+  const getTicket = async (donde) => {
       var config = { 
         method: "get",
           url: `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${donde.replace(' ','%20')}Argentina&origins=Ramos%20Mejia%20Buenos%20Aires%20Argentina&key=AIzaSyB-o-yLjNarKluwNV8z8IZTDhosOlM1NOw` };
@@ -163,10 +162,11 @@ let fecha
         res1 = response.data["destination_addresses"][0]
              asd2 = response.data["rows"][0]["elements"][0]["duration"].text
                asd = Math.round(response.data["rows"][0]["elements"][0]["distance"].value/1000)
-       total=(((asd*250)/3000)*3000)
-})
-const contactoalquiler = addKeyword('contactoalqui1212', {sensitive: true})
-       .addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)',{capture: true}, async(ctx,{})=> {fecha=ctx.body})
+       total=(((asd*250)/3000)*3000)}
+
+
+       .addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)',
+       {capture: true}, async(ctx) => {fecha=ctx.body})
 
 .addAnswer('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', 
       {capture:true}, async (ctx, { endFlow, provider, flowDynamic}) => {
@@ -185,7 +185,7 @@ return endFlow(Menuflow)})
 
 
 
-
+*/
 
 
 

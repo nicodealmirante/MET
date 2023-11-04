@@ -1,7 +1,6 @@
 const { addKeyword, EVENTS,addAnswer} = require("@bot-whatsapp/bot")
 const ChatWood = require("../http/services/chatwood.js");
 const axios = require("axios");
-const { addAction } = require("./alquiler.js");
 
 module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
 .addAnswer('👌Te envio la info de alquiler.')
@@ -88,7 +87,6 @@ module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
 ////////////////
 if(ctx.body == 'CONTINUAR CON AGENTE'){
   await abc.createMessage({msg: "Continuar con Agente", mode: "incoming"})
-  return gotoFlow(contactoalquiler)
 } else if(ctx.body == 'VOLVER AL MENU') {
   await abc.createMessage({msg: "Volver al MENU", mode: "incoming"})
 return gotoFlow(Menuflow)

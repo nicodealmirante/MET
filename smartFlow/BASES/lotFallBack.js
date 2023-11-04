@@ -1,4 +1,4 @@
-const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
+ const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
 
 module.exports = addKeyword(EVENTS.ACTION)
     .addAction((_, { endFlow, state, globalState }) => {
