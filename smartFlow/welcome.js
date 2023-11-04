@@ -1,6 +1,5 @@
 const { addKeyword, EVENTS,addAnswer} = require("@bot-whatsapp/bot");
 const ChatWood = require("../http/services/chatwood.js");
-const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
 const chatwootMiddleware = require("../middleware/chatwoot.middleware");
 
 
