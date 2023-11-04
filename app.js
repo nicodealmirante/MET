@@ -149,7 +149,7 @@ const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
     console.log('ALQUILER')
 
 if(ctx.body == 'CONTINUAR CON AGENTE'){
-  return gotoFlow(alquila22)
+  return gotoFlow(Cliente)
 } else if(ctx.body == 'VOLVER AL MENU') {
  return gotoFlow(Menuflow)}
   else if (ctx.body == 'FINALIZAR') {
@@ -179,8 +179,7 @@ total=(((asd*250)/3000)*3000)}
 
 const alquila22 = addKeyword('alquilawer',{sensitive:true})  
 
-.addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)', {capture: true}, async(ctx) => {fecha=ctx.body
-})
+.addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)', {capture: true}, async(ctx,{}) => {fecha=ctx.body})
 .addAnswer('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', {capture:true}, async (ctx, { endFlow, provider, flowDynamic}) => {
 await getTicket(ctx.body)
 var traslados = `*TRASLADOS*\nDISTANCIA: *${Math.round(asd)}* KM \nTIEMPO: *${asd2}*\nLUGAR: *${res1}*\nVALOR: *$ ${total}*.-\n*`
@@ -524,7 +523,7 @@ return  gotoFlow(Menuflow);
                           {body: 'INFO DE LA EMPRESA'},
                           {body: 'PAGINA WEB'},
                       ],
-                   delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
+                   delay: 2000 }, async (ctx, { gotoFlow, provider, flowDynamic}) => {
               
               if (ctx.body == 'PAGINA WEB') {
                 await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
@@ -559,7 +558,7 @@ const main = async () => {
 });
 
 
-  const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono, Menuflow2])
+  const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono, Menuflow2, alquila22])
 
 
 
