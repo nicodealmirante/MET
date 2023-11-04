@@ -2,28 +2,10 @@ const { addKeyword, EVENTS,addAnswer} = require("@bot-whatsapp/bot")
 const ChatWood = require("../http/services/chatwood.js");
 const axios = require("axios");
 const { addAction } = require("./alquiler.js");
-const contactoalquiler = require('../app.js')
-
-let fecha
-let asd20;
-let asd;
-var res1;
-var res2;
-var total;
-
-const getTicket = async (donde) => {
-var config = { 
-method: "get",
-url: `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${donde.replace(' ','%20')}Argentina&origins=Ramos%20Mejia%20Buenos%20Aires%20Argentina&key=AIzaSyB-o-yLjNarKluwNV8z8IZTDhosOlM1NOw` };
-const response = await axios(config)
-res1 = response.data["destination_addresses"][0]
-asd2 = response.data["rows"][0]["elements"][0]["duration"].text
-asd = Math.round(response.data["rows"][0]["elements"][0]["distance"].value/1000)
-total=(((asd*250)/3000)*3000)}
 
 module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
 .addAnswer('👌Te envio la info de alquiler.')
-.addAnswer([{body:'imagen',  media: 'http://gs.invitarme.com.ar/banner22.jpg'}])
+.addAnswer( 'imagen',  {media: 'http://gs.invitarme.com.ar/banner22.jpg'})
 .addAnswer(['*Espejo Mágico Selfie Mirror*',
            '\nDiseño elegante: Nuestro espejo mágico tiene un diseño moderno y elegante que se adapta a cualquier tipo de evento.',
           'Su apariencia sofisticada agrega un toque especial al ambiente.',
@@ -69,9 +51,7 @@ module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
 {body: 'CONTINUAR CON AGENTE'},
 {body: 'VOLVER AL MENU'},
 {body: 'FINALIZAR'},
-     ],delay: 3000 })
-     
-     .addAction(async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
+     ],delay: 3000 }),async (ctx, { endFlow, gotoFlow, flowDynamic}) => {
           const dataIn= {msg: ctx.body, mode: "incoming"}
         await abc.createMessage(dataIn)
         await abc.createMessage({msg: '👌Te envio la info de alquiler.\n*Espejo Mágico Selfie Mirror*\nDiseño elegante Nuestro espejo mágico tiene un diseño moderno y elegante que se adapta a cualquier tipo de evento\n'+
@@ -117,7 +97,7 @@ return gotoFlow(Menuflow)
 await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
 return endFlow()
 
-    }      })        
+    }}        
 
 /////////// GOOGLE MAPS ___ CALCULO TRASLADOS
     

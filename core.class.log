@@ -2,12 +2,12 @@
   type: 'text',
   from: '5491140054474',
   to: '5491166704322',
-  body: 'De',
+  body: 'S',
   pushName: 'Nicolas 🤳 Selfie Mirror'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_e114f01a-01f2-4aac-b6dc-b98e0c0e0da9',
-  keyword: 'key_c0bfe0d1-8cdc-483a-97e0-05bb2bb9975b',
+  ref: 'ans_165bf752-cb5a-4fde-9505-d82e8c114222',
+  keyword: 'key_393aad5b-bb8b-47aa-871d-479fc9b2d118',
   answer: 'Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n' +
     ' +5491140054474 - Nicolás',
   options: {
@@ -20,11 +20,11 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '0187abfff81f9566fc81170b5f7c9fb0'
+  refSerialize: '29b1e2cd092296769865da512e93d09a'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_624bfc31-667c-4eca-acc3-5b7ef955d3cc',
-  keyword: 'ans_e114f01a-01f2-4aac-b6dc-b98e0c0e0da9',
+  ref: 'ans_c63f2deb-8e10-4993-9e4a-5c1f9d3510a9',
+  keyword: 'ans_165bf752-cb5a-4fde-9505-d82e8c114222',
   answer: 'Opciones',
   options: {
     media: null,
@@ -36,11 +36,11 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '7b3b5de7282b7565a2c3ae0962107364'
+  refSerialize: '36241ac1f9fa4937ff1b2f6c295221bd'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_f72a8f5e-2da1-4409-ab4e-c6ec9951460d',
-  keyword: 'ans_624bfc31-667c-4eca-acc3-5b7ef955d3cc',
+  ref: 'ans_33c758f4-b055-454f-8a42-389dec2e5016',
+  keyword: 'ans_c63f2deb-8e10-4993-9e4a-5c1f9d3510a9',
   answer: '*Contacto*',
   options: {
     media: null,
@@ -52,7 +52,7 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '8b57065abb2efaa5488883029775a334'
+  refSerialize: '1463dd823779e32eed8601a0dc9b0fae'
 }
 [handleMsg]:  {
   type: 'interactive',
@@ -64,8 +64,8 @@
   pushName: 'Nicolas 🤳 Selfie Mirror'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_d67e6dcc-2be3-4f90-b920-ed98abc2a762',
-  keyword: 'ans_f72a8f5e-2da1-4409-ab4e-c6ec9951460d',
+  ref: 'ans_4059dd4c-2f48-4711-894d-c7537c0b7d6c',
+  keyword: 'ans_33c758f4-b055-454f-8a42-389dec2e5016',
   answer: '__call_action__',
   options: {
     media: null,
@@ -77,12 +77,12 @@
     keyword: {},
     callback: true
   },
-  refSerialize: '14ff5c7b4f866d70f5829a2be8d4da0f'
+  refSerialize: '742f3148e598c09487c0f72b06f78d65'
 }
 Error al encolar: abc is not defined
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_ea3adf5c-5589-438b-9300-4b95addd3b3b',
-  keyword: 'key_6a6aaebb-0ce3-41bb-bade-954f538b573e',
+  ref: 'ans_55e9a1ee-c25c-4e08-8fd9-c57fbb60c955',
+  keyword: 'key_fe574e94-9107-48a6-9d28-62921bb45147',
   answer: '👌Te envio la info de alquiler.',
   options: {
     media: null,
@@ -94,5 +94,23 @@ Error al encolar: abc is not defined
     keyword: {},
     callback: false
   },
-  refSerialize: 'c35742b170520940f687a8d86ed696f0'
+  refSerialize: 'ee8ba9c3cdfd22d8c8019418127f1e14'
 }
+Error al encolar: undefined
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_4059dd4c-2f48-4711-894d-c7537c0b7d6c',
+  keyword: 'ans_33c758f4-b055-454f-8a42-389dec2e5016',
+  answer: '__call_action__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '742f3148e598c09487c0f72b06f78d65'
+}
+Error al encolar: abc is not defined
