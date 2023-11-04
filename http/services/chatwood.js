@@ -173,7 +173,7 @@ class ChatWood {
     };
 
     const dataAPI = await fetch(
-      `${this.api}/api/v1/accounts/${this.config.accounts}/conversations/filter`,
+      `${this.api}/api/v1/accounts/1/conversations/filter`,
       requestOptions
     );
     const data = await dataAPI.json();
