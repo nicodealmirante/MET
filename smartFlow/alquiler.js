@@ -2,6 +2,7 @@ const { addKeyword, EVENTS,addAnswer} = require("@bot-whatsapp/bot")
 const ChatWood = require("../http/services/chatwood.js");
 const axios = require("axios");
 const { addAction } = require("./alquiler.js");
+const contactoalquiler = require('../app.js')
 
 let fecha
 let asd20;
@@ -22,7 +23,7 @@ total=(((asd*250)/3000)*3000)}
 
 module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
 .addAnswer('👌Te envio la info de alquiler.')
-.addAnswer('imagen',  {media: 'http://gs.invitarme.com.ar/banner22.jpg'})
+.addAnswer([{body:'imagen',  media: 'http://gs.invitarme.com.ar/banner22.jpg'}])
 .addAnswer(['*Espejo Mágico Selfie Mirror*',
            '\nDiseño elegante: Nuestro espejo mágico tiene un diseño moderno y elegante que se adapta a cualquier tipo de evento.',
           'Su apariencia sofisticada agrega un toque especial al ambiente.',

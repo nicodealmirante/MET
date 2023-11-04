@@ -147,7 +147,7 @@ if(ctx.body == 'CONTINUAR CON AGENTE'){
               }               )    */ 
 
 /////////// GOOGLE MAPS ___ CALCULO TRASLADOS
-const contactoalquiler = addKeyword('contactoalqui1212',  {sensitive: true})
+
 
 let fecha
                   let asd2;
@@ -165,9 +165,8 @@ let fecha
                asd = Math.round(response.data["rows"][0]["elements"][0]["distance"].value/1000)
        total=(((asd*250)/3000)*3000)
 })
-
-       .addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)',
-       {capture: true}, async(ctx) => {fecha=ctx.body})
+const contactoalquiler = addKeyword('contactoalqui1212', {sensitive: true})
+       .addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)',{capture: true}, async(ctx,{})=> {fecha=ctx.body})
 
 .addAnswer('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', 
       {capture:true}, async (ctx, { endFlow, provider, flowDynamic}) => {

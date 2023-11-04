@@ -1,13 +1,13 @@
 [handleMsg]:  {
   type: 'text',
-  from: '5491159132301',
+  from: '5491140054474',
   to: '5491166704322',
-  body: 'Dndnd',
-  pushName: 'N/N'
+  body: 'He',
+  pushName: 'Nicolas 🤳 Selfie Mirror'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_10691845-0793-4f07-8007-393693400e04',
-  keyword: 'key_dba4d2fc-ee13-4842-9a8d-eed2dbae2b6c',
+  ref: 'ans_6ce6638b-b85e-4aa6-9994-4e3b3d5f8128',
+  keyword: 'key_8e434a76-e76b-445e-b43c-63d5f996c0d8',
   answer: 'Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n' +
     ' +5491140054474 - Nicolás',
   options: {
@@ -20,11 +20,11 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '608d2b97e37f2cd4fb81b74f966ac680'
+  refSerialize: '731d66205890e5f4fed3f0daadd71ecd'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_ad02b8a4-feb2-4c0f-b6b5-503dcd7ee0ab',
-  keyword: 'ans_10691845-0793-4f07-8007-393693400e04',
+  ref: 'ans_0d1b8825-1c0d-4df6-8d9f-7ed0fb327226',
+  keyword: 'ans_6ce6638b-b85e-4aa6-9994-4e3b3d5f8128',
   answer: 'Opciones',
   options: {
     media: null,
@@ -36,11 +36,20 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '4777c046bdd0b94d54c267e73fc6a8dd'
+  refSerialize: '79ddcae23af5ccdfc1d2dbecdc42d850'
+}
+[handleMsg]:  {
+  type: 'interactive',
+  from: '5491140054474',
+  to: '5491166704322',
+  body: 'INFO. ALQUILER',
+  title_button_reply: 'INFO. ALQUILER',
+  title_list_reply: undefined,
+  pushName: 'Nicolas 🤳 Selfie Mirror'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_1d5a62e8-bc51-4fe3-bef4-d685ba56b310',
-  keyword: 'ans_ad02b8a4-feb2-4c0f-b6b5-503dcd7ee0ab',
+  ref: 'ans_7d4b09de-7fb4-42c3-a0ca-511a5b984e26',
+  keyword: 'ans_0d1b8825-1c0d-4df6-8d9f-7ed0fb327226',
   answer: '*Contacto*',
   options: {
     media: null,
@@ -52,18 +61,11 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '19f51359559c03f1e91cd93676f41fc4'
-}
-[handleMsg]:  {
-  type: 'text',
-  from: '5491159132301',
-  to: '5491166704322',
-  body: 'Jjj',
-  pushName: 'N/N'
+  refSerialize: 'd66fa875ac10595828967021ee94e149'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_807cbb7c-c231-453e-b9c7-0ece44dc1910',
-  keyword: 'ans_1d5a62e8-bc51-4fe3-bef4-d685ba56b310',
+  ref: 'ans_76bacda9-66c2-45ca-97ed-e9c909d1ffd6',
+  keyword: 'ans_7d4b09de-7fb4-42c3-a0ca-511a5b984e26',
   answer: '__call_action__',
   options: {
     media: null,
@@ -75,19 +77,53 @@
     keyword: {},
     callback: true
   },
-  refSerialize: 'cce8b0b07099d51bc78f9df0bd490bc3'
+  refSerialize: '17f71a255f38d1952e2d04a6c417eb54'
+}
+Error al encolar: abc is not defined
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_eee46be7-0bc5-485a-b830-a284c67a12a4',
+  keyword: 'key_828879c0-97fb-411d-af87-0a32085f5f9f',
+  answer: '👌Te envio la info de alquiler.',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '9f9660b7e428354837158d53bdd15410'
+}
+Error al encolar: undefined
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_76bacda9-66c2-45ca-97ed-e9c909d1ffd6',
+  keyword: 'ans_7d4b09de-7fb4-42c3-a0ca-511a5b984e26',
+  answer: '__call_action__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '17f71a255f38d1952e2d04a6c417eb54'
 }
 Error al encolar: abc is not defined
 [handleMsg]:  {
   type: 'text',
-  from: '5491159132301',
+  from: '5491140054474',
   to: '5491166704322',
-  body: 'G',
-  pushName: 'N/N'
+  body: 'S',
+  pushName: 'Nicolas 🤳 Selfie Mirror'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_10691845-0793-4f07-8007-393693400e04',
-  keyword: 'key_dba4d2fc-ee13-4842-9a8d-eed2dbae2b6c',
+  ref: 'ans_6ce6638b-b85e-4aa6-9994-4e3b3d5f8128',
+  keyword: 'key_8e434a76-e76b-445e-b43c-63d5f996c0d8',
   answer: 'Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n' +
     ' +5491140054474 - Nicolás',
   options: {
@@ -100,11 +136,36 @@ Error al encolar: abc is not defined
     keyword: {},
     callback: false
   },
-  refSerialize: '608d2b97e37f2cd4fb81b74f966ac680'
+  refSerialize: '731d66205890e5f4fed3f0daadd71ecd'
+}
+[handleMsg]:  {
+  type: 'text',
+  from: '5491140054474',
+  to: '5491166704322',
+  body: 'Y',
+  pushName: 'Nicolas 🤳 Selfie Mirror'
+}
+Error al encolar: undefined
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_6ce6638b-b85e-4aa6-9994-4e3b3d5f8128',
+  keyword: 'key_8e434a76-e76b-445e-b43c-63d5f996c0d8',
+  answer: 'Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n' +
+    ' +5491140054474 - Nicolás',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '731d66205890e5f4fed3f0daadd71ecd'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_ad02b8a4-feb2-4c0f-b6b5-503dcd7ee0ab',
-  keyword: 'ans_10691845-0793-4f07-8007-393693400e04',
+  ref: 'ans_0d1b8825-1c0d-4df6-8d9f-7ed0fb327226',
+  keyword: 'ans_6ce6638b-b85e-4aa6-9994-4e3b3d5f8128',
   answer: 'Opciones',
   options: {
     media: null,
@@ -116,68 +177,27 @@ Error al encolar: abc is not defined
     keyword: {},
     callback: false
   },
-  refSerialize: '4777c046bdd0b94d54c267e73fc6a8dd'
-}
-[handleMsg]:  {
-  type: 'interactive',
-  from: '5491159132301',
-  to: '5491166704322',
-  body: 'INFO. ALQUILER',
-  title_button_reply: 'INFO. ALQUILER',
-  title_list_reply: undefined,
-  pushName: 'N/N'
+  refSerialize: '79ddcae23af5ccdfc1d2dbecdc42d850'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_0424047f-4855-4120-8285-d84164a5269a',
-  keyword: 'key_0b7ebf76-3bb9-49b2-9493-c0a6596c3a26',
-  answer: '👌Te envio la info de alquiler.',
+  ref: 'ans_0d1b8825-1c0d-4df6-8d9f-7ed0fb327226',
+  keyword: 'ans_6ce6638b-b85e-4aa6-9994-4e3b3d5f8128',
+  answer: 'Opciones',
   options: {
     media: null,
-    buttons: [],
+    buttons: [ [Object], [Object], [Object] ],
     capture: false,
     child: null,
-    delay: 0,
+    delay: 2000,
     nested: [],
     keyword: {},
     callback: false
   },
-  refSerialize: '0b98ad2f12cff38e7f428c704619f59a'
+  refSerialize: '79ddcae23af5ccdfc1d2dbecdc42d850'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_1d5a62e8-bc51-4fe3-bef4-d685ba56b310',
-  keyword: 'ans_ad02b8a4-feb2-4c0f-b6b5-503dcd7ee0ab',
-  answer: '*Contacto*',
-  options: {
-    media: null,
-    buttons: [ [Object], [Object], [Object] ],
-    capture: true,
-    child: null,
-    delay: 3000,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '19f51359559c03f1e91cd93676f41fc4'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_1d5a62e8-bc51-4fe3-bef4-d685ba56b310',
-  keyword: 'ans_ad02b8a4-feb2-4c0f-b6b5-503dcd7ee0ab',
-  answer: '*Contacto*',
-  options: {
-    media: null,
-    buttons: [ [Object], [Object], [Object] ],
-    capture: true,
-    child: null,
-    delay: 3000,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '19f51359559c03f1e91cd93676f41fc4'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_9555e1a4-2b81-4e3a-8c1e-dc8d6b38282e',
-  keyword: 'ans_0424047f-4855-4120-8285-d84164a5269a',
+  ref: 'ans_8b38bece-810b-4957-9cf5-1669fcbb6341',
+  keyword: 'ans_eee46be7-0bc5-485a-b830-a284c67a12a4',
   answer: 'imagen',
   options: {
     media: 'http://gs.invitarme.com.ar/banner22.jpg',
@@ -189,27 +209,54 @@ Error al encolar: abc is not defined
     keyword: {},
     callback: false
   },
-  refSerialize: '18b52746f4497463995beed1fc6c6263'
+  refSerialize: '456d825f3361997f07ad082993a8da15'
 }
+[handleMsg]:  {
+  type: 'interactive',
+  from: '5491140054474',
+  to: '5491166704322',
+  body: 'INFO. ALQUILER',
+  title_button_reply: 'INFO. ALQUILER',
+  title_list_reply: undefined,
+  pushName: 'Nicolas 🤳 Selfie Mirror'
+}
+Error al encolar: undefined
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_1d5a62e8-bc51-4fe3-bef4-d685ba56b310',
-  keyword: 'ans_ad02b8a4-feb2-4c0f-b6b5-503dcd7ee0ab',
-  answer: '*Contacto*',
+  ref: 'ans_8b38bece-810b-4957-9cf5-1669fcbb6341',
+  keyword: 'ans_eee46be7-0bc5-485a-b830-a284c67a12a4',
+  answer: 'imagen',
   options: {
-    media: null,
-    buttons: [ [Object], [Object], [Object] ],
-    capture: true,
+    media: 'http://gs.invitarme.com.ar/banner22.jpg',
+    buttons: [],
+    capture: false,
     child: null,
-    delay: 3000,
+    delay: 0,
     nested: [],
     keyword: {},
     callback: false
   },
-  refSerialize: '19f51359559c03f1e91cd93676f41fc4'
+  refSerialize: '456d825f3361997f07ad082993a8da15'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_a0cb2cab-2556-4160-8be0-d39042d3184d',
-  keyword: 'ans_9555e1a4-2b81-4e3a-8c1e-dc8d6b38282e',
+  ref: 'ans_eee46be7-0bc5-485a-b830-a284c67a12a4',
+  keyword: 'key_828879c0-97fb-411d-af87-0a32085f5f9f',
+  answer: '👌Te envio la info de alquiler.',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '9f9660b7e428354837158d53bdd15410'
+}
+Error al encolar: undefined
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_5ec4e774-c6f7-4c56-ab6b-16fa84b2a2c0',
+  keyword: 'ans_8b38bece-810b-4957-9cf5-1669fcbb6341',
   answer: '*Espejo Mágico Selfie Mirror*\n' +
     '\n' +
     'Diseño elegante: Nuestro espejo mágico tiene un diseño moderno y elegante que se adapta a cualquier tipo de evento.\n' +
@@ -244,11 +291,11 @@ Error al encolar: abc is not defined
     keyword: {},
     callback: false
   },
-  refSerialize: '01148b2551d23b088d1713a57752d1ce'
+  refSerialize: 'cd0d71ca84a1411cea86b7b90ae3de34'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_1d5a62e8-bc51-4fe3-bef4-d685ba56b310',
-  keyword: 'ans_ad02b8a4-feb2-4c0f-b6b5-503dcd7ee0ab',
+  ref: 'ans_7d4b09de-7fb4-42c3-a0ca-511a5b984e26',
+  keyword: 'ans_0d1b8825-1c0d-4df6-8d9f-7ed0fb327226',
   answer: '*Contacto*',
   options: {
     media: null,
@@ -260,11 +307,50 @@ Error al encolar: abc is not defined
     keyword: {},
     callback: false
   },
-  refSerialize: '19f51359559c03f1e91cd93676f41fc4'
+  refSerialize: 'd66fa875ac10595828967021ee94e149'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_c1ea9a44-ca42-46f0-bc71-30f62066c116',
-  keyword: 'ans_a0cb2cab-2556-4160-8be0-d39042d3184d',
+  ref: 'ans_5ec4e774-c6f7-4c56-ab6b-16fa84b2a2c0',
+  keyword: 'ans_8b38bece-810b-4957-9cf5-1669fcbb6341',
+  answer: '*Espejo Mágico Selfie Mirror*\n' +
+    '\n' +
+    'Diseño elegante: Nuestro espejo mágico tiene un diseño moderno y elegante que se adapta a cualquier tipo de evento.\n' +
+    'Su apariencia sofisticada agrega un toque especial al ambiente.\n' +
+    '\n' +
+    'Accesorios y decoración: Contamos con una variedad de accesorios y elementos decorativos para personalizar aún \n' +
+    'más la experiencia. Puedes elegir entre diferentes marcos, sombreros, anteojos, pizarras con mensajes divertidos\n' +
+    'y más. Estos elementos permiten que los invitados se diviertan y creen fotos únicas.\n' +
+    '\n' +
+    'Tamaño y portabilidad: El espejo mágico tiene dimensiones compactas que facilitan su transporte e instalación en \n' +
+    'diferentes espacios. Es lo suficientemente versátil como para adaptarse a salones de eventos, fiestas en exteriores \n' +
+    'y otros lugares.\n' +
+    '\n' +
+    'Opciones de software: Nuestro espejo mágico viene con un software propio que ofrece una amplia gama de funciones \n' +
+    'y personalización. Puedes elegir entre diferentes plantillas de diseño, agregar efectos especiales a las fotos y configurar \n' +
+    'opciones de impresión según tus preferencias.\n' +
+    '\n' +
+    'Tiempo de alquiler: El tiempo de alquiler del espejo mágico es flexible y se adapta a las necesidades de tu evento.\n' +
+    ' Puedes contratarlo por horas o por el tiempo que consideres necesario para brindar una experiencia completa a tus invitados.\n' +
+    '\n' +
+    'Recuerda que nuestros servicios incluyen el montaje, desmontaje y la asistencia de personal capacitado durante todo\n' +
+    'el evento. Estamos comprometidos en asegurar que tus invitados disfruten al máximo de la experiencia con el espejo mágico.\n' +
+    'Valor Servicio por 2 Horas $ 100.000 (base)\n' +
+    'El valor de la Hora adicional es de $ 50.000',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: 'cd0d71ca84a1411cea86b7b90ae3de34'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_d01a9391-5fdd-47d9-9af6-41b896e2a8a8',
+  keyword: 'ans_5ec4e774-c6f7-4c56-ab6b-16fa84b2a2c0',
   answer: 'Espejo Mágico Selfie Mirror',
   options: {
     media: 'http://gs.invitarme.com.ar/banner3.jpg',
@@ -276,27 +362,11 @@ Error al encolar: abc is not defined
     keyword: {},
     callback: false
   },
-  refSerialize: '71a0fa687cb75e9f86729136a5d200f4'
+  refSerialize: '58581bcfa7273e5526f68deeeaedb5d7'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_1d5a62e8-bc51-4fe3-bef4-d685ba56b310',
-  keyword: 'ans_ad02b8a4-feb2-4c0f-b6b5-503dcd7ee0ab',
-  answer: '*Contacto*',
-  options: {
-    media: null,
-    buttons: [ [Object], [Object], [Object] ],
-    capture: true,
-    child: null,
-    delay: 3000,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '19f51359559c03f1e91cd93676f41fc4'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_4e17253d-12ee-4a85-8916-518d4e0b8af2',
-  keyword: 'ans_c1ea9a44-ca42-46f0-bc71-30f62066c116',
+  ref: 'ans_cc7eb6ec-34c9-4213-af81-cbf32a219956',
+  keyword: 'ans_d01a9391-5fdd-47d9-9af6-41b896e2a8a8',
   answer: '*360 Super Slow.*\n' +
     '\n' +
     'El servicio dura 2 horas. Durante ese tiempo no existe límite de capturas.\n' +
@@ -315,11 +385,11 @@ Error al encolar: abc is not defined
     keyword: {},
     callback: false
   },
-  refSerialize: 'e65a5765d993cc711ffe99a093f057b4'
+  refSerialize: '2202f56bfbf3e263ea3a29f59cea957a'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_1d5a62e8-bc51-4fe3-bef4-d685ba56b310',
-  keyword: 'ans_ad02b8a4-feb2-4c0f-b6b5-503dcd7ee0ab',
+  ref: 'ans_7d4b09de-7fb4-42c3-a0ca-511a5b984e26',
+  keyword: 'ans_0d1b8825-1c0d-4df6-8d9f-7ed0fb327226',
   answer: '*Contacto*',
   options: {
     media: null,
@@ -331,11 +401,11 @@ Error al encolar: abc is not defined
     keyword: {},
     callback: false
   },
-  refSerialize: '19f51359559c03f1e91cd93676f41fc4'
+  refSerialize: 'd66fa875ac10595828967021ee94e149'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_2bb0757b-6a9a-439f-b3d9-793d45fc1255',
-  keyword: 'ans_4e17253d-12ee-4a85-8916-518d4e0b8af2',
+  ref: 'ans_ac2db11a-1aaf-47ba-a7e4-7f5839f10465',
+  keyword: 'ans_cc7eb6ec-34c9-4213-af81-cbf32a219956',
   answer: 'Plataforma 360 Super Slow',
   options: {
     media: 'http://gs.invitarme.com.ar/banner.jpg',
@@ -347,27 +417,11 @@ Error al encolar: abc is not defined
     keyword: {},
     callback: false
   },
-  refSerialize: '48531a367c86f1e8ab12950a64461f85'
+  refSerialize: 'b48870a72bae0fb1b36cd125c430eaaf'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_1d5a62e8-bc51-4fe3-bef4-d685ba56b310',
-  keyword: 'ans_ad02b8a4-feb2-4c0f-b6b5-503dcd7ee0ab',
-  answer: '*Contacto*',
-  options: {
-    media: null,
-    buttons: [ [Object], [Object], [Object] ],
-    capture: true,
-    child: null,
-    delay: 3000,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '19f51359559c03f1e91cd93676f41fc4'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_f05af800-37c6-4450-8459-91e8b9ba2f90',
-  keyword: 'ans_2bb0757b-6a9a-439f-b3d9-793d45fc1255',
+  ref: 'ans_07ca1188-23fb-40f5-9aa6-71ee07aa243a',
+  keyword: 'ans_ac2db11a-1aaf-47ba-a7e4-7f5839f10465',
   answer: '🚚El valor no incluye traslados\n' +
     '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias',
   options: {
@@ -380,27 +434,11 @@ Error al encolar: abc is not defined
     keyword: {},
     callback: false
   },
-  refSerialize: 'cde1b100eb6333af2c1ffe7f6a086efc'
+  refSerialize: '187f90484c13f2d1b629f57a72f0a644'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_1d5a62e8-bc51-4fe3-bef4-d685ba56b310',
-  keyword: 'ans_ad02b8a4-feb2-4c0f-b6b5-503dcd7ee0ab',
-  answer: '*Contacto*',
-  options: {
-    media: null,
-    buttons: [ [Object], [Object], [Object] ],
-    capture: true,
-    child: null,
-    delay: 3000,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '19f51359559c03f1e91cd93676f41fc4'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_4aaaa13b-4eae-4d21-b335-00d795e4b53e',
-  keyword: 'ans_f05af800-37c6-4450-8459-91e8b9ba2f90',
+  ref: 'ans_5b6e4580-a8a3-4e73-a9af-c660caa6dff2',
+  keyword: 'ans_07ca1188-23fb-40f5-9aa6-71ee07aa243a',
   answer: 'Selfie Mirror 360 + Selfie',
   options: {
     media: 'http://gs.invitarme.com.ar/dibu.jpg',
@@ -412,27 +450,11 @@ Error al encolar: abc is not defined
     keyword: {},
     callback: false
   },
-  refSerialize: '9205a0b2551a8133aeef61d83ba90e34'
+  refSerialize: '48e869c814bef3808871d18220b3563a'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_1d5a62e8-bc51-4fe3-bef4-d685ba56b310',
-  keyword: 'ans_ad02b8a4-feb2-4c0f-b6b5-503dcd7ee0ab',
-  answer: '*Contacto*',
-  options: {
-    media: null,
-    buttons: [ [Object], [Object], [Object] ],
-    capture: true,
-    child: null,
-    delay: 3000,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '19f51359559c03f1e91cd93676f41fc4'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_48fb23a7-5ee8-426c-95d2-fef0425bec25',
-  keyword: 'ans_4aaaa13b-4eae-4d21-b335-00d795e4b53e',
+  ref: 'ans_f6f50f78-d610-4456-b7e4-cf493fd18ca9',
+  keyword: 'ans_5b6e4580-a8a3-4e73-a9af-c660caa6dff2',
   answer: 'Showroom',
   options: {
     media: 'http://gs.invitarme.com.ar/video.mp4',
@@ -444,27 +466,11 @@ Error al encolar: abc is not defined
     keyword: {},
     callback: false
   },
-  refSerialize: 'af7a18e1a1b56145f3fd506ccb81b2b8'
+  refSerialize: '375c1fd596a39833d230410282165722'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_1d5a62e8-bc51-4fe3-bef4-d685ba56b310',
-  keyword: 'ans_ad02b8a4-feb2-4c0f-b6b5-503dcd7ee0ab',
-  answer: '*Contacto*',
-  options: {
-    media: null,
-    buttons: [ [Object], [Object], [Object] ],
-    capture: true,
-    child: null,
-    delay: 3000,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '19f51359559c03f1e91cd93676f41fc4'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_df77f908-93f3-4bd9-8317-df0b9d390239',
-  keyword: 'ans_48fb23a7-5ee8-426c-95d2-fef0425bec25',
+  ref: 'ans_e2669599-ff70-46a0-879d-7238f50ea362',
+  keyword: 'ans_f6f50f78-d610-4456-b7e4-cf493fd18ca9',
   answer: 'Selfie Mirror',
   options: {
     media: 'http://gs.invitarme.com.ar/video2.mp4',
@@ -476,27 +482,11 @@ Error al encolar: abc is not defined
     keyword: {},
     callback: false
   },
-  refSerialize: '3eb27d2b07edf9f0bac1858ce923e6ca'
+  refSerialize: 'd22033cd8178dafbd065959cb26c9b7b'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_1d5a62e8-bc51-4fe3-bef4-d685ba56b310',
-  keyword: 'ans_ad02b8a4-feb2-4c0f-b6b5-503dcd7ee0ab',
-  answer: '*Contacto*',
-  options: {
-    media: null,
-    buttons: [ [Object], [Object], [Object] ],
-    capture: true,
-    child: null,
-    delay: 3000,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '19f51359559c03f1e91cd93676f41fc4'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_051d0a80-e76b-48f2-95a1-661ed21fa69f',
-  keyword: 'ans_df77f908-93f3-4bd9-8317-df0b9d390239',
+  ref: 'ans_eca1bdff-30cc-4e3c-aadf-c297fff71185',
+  keyword: 'ans_e2669599-ff70-46a0-879d-7238f50ea362',
   answer: 'Captura 360',
   options: {
     media: 'http://gs.invitarme.com.ar/video360.mp4',
@@ -508,27 +498,11 @@ Error al encolar: abc is not defined
     keyword: {},
     callback: false
   },
-  refSerialize: '716616a509ec8cb99a4a2e80a61e3f03'
+  refSerialize: '19c511271ccacc62621e187cba8b6977'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_1d5a62e8-bc51-4fe3-bef4-d685ba56b310',
-  keyword: 'ans_ad02b8a4-feb2-4c0f-b6b5-503dcd7ee0ab',
-  answer: '*Contacto*',
-  options: {
-    media: null,
-    buttons: [ [Object], [Object], [Object] ],
-    capture: true,
-    child: null,
-    delay: 3000,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '19f51359559c03f1e91cd93676f41fc4'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_d3054013-c305-4af0-80b7-f605ed4a80c0',
-  keyword: 'ans_051d0a80-e76b-48f2-95a1-661ed21fa69f',
+  ref: 'ans_f5885da0-7e48-45a5-9070-a9e2633b5d92',
+  keyword: 'ans_eca1bdff-30cc-4e3c-aadf-c297fff71185',
   answer: '*OPCIONES*',
   options: {
     media: null,
@@ -540,20 +514,20 @@ Error al encolar: abc is not defined
     keyword: {},
     callback: false
   },
-  refSerialize: '3f1836bcef47bf2d1968a7b415d4497e'
+  refSerialize: '13942689a0d633f9152263b3b41148f5'
 }
 [handleMsg]:  {
   type: 'interactive',
-  from: '5491159132301',
+  from: '5491140054474',
   to: '5491166704322',
   body: 'CONTINUAR CON AGENTE',
   title_button_reply: 'CONTINUAR CON AGENTE',
   title_list_reply: undefined,
-  pushName: 'N/N'
+  pushName: 'Nicolas 🤳 Selfie Mirror'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_d4f5a342-61ad-4541-a698-442088db8ef0',
-  keyword: 'ans_d3054013-c305-4af0-80b7-f605ed4a80c0',
+  ref: 'ans_f78e2733-ebea-4ed0-b794-269e9df53aec',
+  keyword: 'ans_f5885da0-7e48-45a5-9070-a9e2633b5d92',
   answer: '__call_action__',
   options: {
     media: null,
@@ -565,6 +539,6 @@ Error al encolar: abc is not defined
     keyword: {},
     callback: true
   },
-  refSerialize: '12c42c637a188b7ad854be3707d88a57'
+  refSerialize: '048f4096176413e6e5056c75e16c0f26'
 }
 Error al encolar: abc is not defined
