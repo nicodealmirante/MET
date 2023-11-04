@@ -1,5 +1,4 @@
 const { addKeyword, EVENTS,addAnswer} = require("@bot-whatsapp/bot")
-const provider = require("@bot-whatsapp/provider")
 const ChatWood = require("../http/services/chatwood.js");
 module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
 .addAnswer('👌Te envio la info de alquiler.')
