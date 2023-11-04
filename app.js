@@ -144,16 +144,18 @@ if(ctx.body == 'CONTINUAR CON AGENTE'){
        await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
         return endFlow()
 }
-              }               )    
+              }               )    */ 
 
 /////////// GOOGLE MAPS ___ CALCULO TRASLADOS
-                 let fecha
+const contactoalquiler = addKeyword('contactoalqui1212',  {sensitive: true})
+
+let fecha
                   let asd2;
                   let asd;
                  var res1;
                   var res2;
                   var total;
-  const getTicket = async (donde) => {
+  const getTicket = (async (donde) => {
       var config = { 
         method: "get",
           url: `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${donde.replace(' ','%20')}Argentina&origins=Ramos%20Mejia%20Buenos%20Aires%20Argentina&key=AIzaSyB-o-yLjNarKluwNV8z8IZTDhosOlM1NOw` };
@@ -161,10 +163,54 @@ if(ctx.body == 'CONTINUAR CON AGENTE'){
         res1 = response.data["destination_addresses"][0]
              asd2 = response.data["rows"][0]["elements"][0]["duration"].text
                asd = Math.round(response.data["rows"][0]["elements"][0]["distance"].value/1000)
-       total=(((asd*250)/3000)*3000)}
+       total=(((asd*250)/3000)*3000)
+})
+
+       .addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)',
+       {capture: true}, async(ctx) => {fecha=ctx.body})
+
+.addAnswer('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', 
+      {capture:true}, async (ctx, { endFlow, provider, flowDynamic}) => {
+
+await getTicket(ctx.body)
+
+var traslados = `*TRASLADOS*\nDISTANCIA: *${Math.round(asd)}* KM \nTIEMPO: *${asd2}*\nLUGAR: *${res1}*\nVALOR: *$ ${total}*.-\n*`
+
+await abc.createMessage({msg: traslados, mode: "outgoing"}) 
+if((asd)<=200){ await flowDynamic(traslados)}
+
+const mywhatsa = "+5491140054474@s.whatsapp.net"
+  provider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body} \nFecha ${fecha}* \n\n ${traslados}`)
+await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
+return endFlow(Menuflow)})
 
 
-const alquila22 = addKeyword('alquilawer',{sensitive:true})  
+
+
+
+
+
+
+
+.addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)',
+           {capture: true}, async(ctx) => {fecha=ctx.body})
+
+.addAnswer('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', 
+          {capture:true}, async (ctx, { endFlow, provider, flowDynamic}) => {
+
+await getTicket(ctx.body)
+
+var traslados = `*TRASLADOS*\nDISTANCIA: *${Math.round(asd)}* KM \nTIEMPO: *${asd2}*\nLUGAR: *${res1}*\nVALOR: *$ ${total}*.-\n*`
+
+await abc.createMessage({msg: traslados, mode: "outgoing"}) 
+if((asd)<=200){ await flowDynamic(traslados)}
+
+const mywhatsa = "+5491140054474@s.whatsapp.net"
+      provider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body} \nFecha ${fecha}* \n\n ${traslados}`)
+await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
+return endFlow(Menuflow)})
+
+        addKeyword('alquilawer', {sensitive:true})  
         .addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)',
                      {capture: true}, async(ctx) => {fecha=ctx.body})
 
@@ -181,7 +227,7 @@ if((asd)<=200){ await flowDynamic(traslados)}
                 provider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body} \nFecha ${fecha}* \n\n ${traslados}`)
       await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
           return endFlow(Menuflow)})
-*/ 
+
 
 /////////////////////////////////// FLUJO VENTA
 
@@ -503,7 +549,7 @@ return  gotoFlow(Menuflow);
     const httpServer = new ServerAPI(adapterProvider, adapterDB);
 
 
-    const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono])
+    const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono, contactoalquiler])
 
 
 

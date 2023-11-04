@@ -106,12 +106,13 @@ module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
 
 ////////////////
 if(ctx.body == 'CONTINUAR CON AGENTE'){
-
+  await abc.createMessage({msg: "Continuar con Agente", mode: "incoming"})
+  return gotoFlow(contactoalquiler)
 } else if(ctx.body == 'VOLVER AL MENU') {
-  await abc.createMessage({msg: "Volver al MENU", mode: "outgoing"})
+  await abc.createMessage({msg: "Volver al MENU", mode: "incoming"})
 return gotoFlow(Menuflow)
 } else if (ctx.body == 'FINALIZAR') {
-  await abc.createMessage({msg: "Finalizar", mode: "outgoing"})
+  await abc.createMessage({msg: "Finalizar", mode: "incoming"})
 await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
 return endFlow()
 
@@ -119,24 +120,6 @@ return endFlow()
 
 /////////// GOOGLE MAPS ___ CALCULO TRASLADOS
     
-
-.addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)',
-           {capture: true}, async(ctx) => {fecha=ctx.body})
-
-.addAnswer('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', 
-          {capture:true}, async (ctx, { endFlow, provider, flowDynamic}) => {
-
-await getTicket(ctx.body)
-
-var traslados = `*TRASLADOS*\nDISTANCIA: *${Math.round(asd)}* KM \nTIEMPO: *${asd2}*\nLUGAR: *${res1}*\nVALOR: *$ ${total}*.-\n*`
-
-await abc.createMessage({msg: traslados, mode: "outgoing"}) 
-if((asd)<=200){ await flowDynamic(traslados)}
-
-const mywhatsa = "+5491140054474@s.whatsapp.net"
-      provider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body} \nFecha ${fecha}* \n\n ${traslados}`)
-await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
-return endFlow(Menuflow)})
 
 
 
