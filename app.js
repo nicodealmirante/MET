@@ -7,7 +7,7 @@ const ServerAPI = require("./http");
 const ChatWood = require("./http/services/chatwood.js");
 const flowPrincipal = require("./smartFlow/welcome.js");
 const flowsAlquiler = require("./smartFlow/alquiler.js");
-const ctrlSend = require("../http/controllers/send.js");
+const {ctrlSend} = require("./http/controllers/send.js");
 const { adapterDB } = require("./provider/database");
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
  *
@@ -20,7 +20,7 @@ const { adapterDB } = require("./provider/database");
  * Primero declaras los submenus 1.1 y 2.1, luego el 1 y 2 y al final el principal.
  */
 
-ctrlSend(adapterDB, adapterProvider)
+const ch = ctrlSend
 
 
 /**    FUNCIONES
