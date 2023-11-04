@@ -12,17 +12,16 @@ await abc.createMessage({msg: '👌Te envio la info de alquiler.\n*Espejo Mágic
                    await abc.createMessage({msg: '*360 Super Slow.*\nEl servicio dura 2 horas. Durante ese tiempo no existe límite de capturas.Los videos son filmados y compartidos en el momento ya editados automáticamenteIncluye accesorios (pistola lanza burbujas, lanza billetes.)El valor del servicio de 2 horas (2023) es de $ 100.000 .-El valor del servicio de 2 horas (2024) es de U$s 100 .-El valor de la Hora adicional (2023) es de $ 50.000 .-', mode: "outgoing"})        
 
        
-               await abc.createMessage({msg: '🚚El valor no incluye traslados'+
-             '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias', mode: "outgoing"}) 
+               await abc.createMessage({msg: '🚚El valor no incluye traslados 🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias', mode: "outgoing"}) 
 
              await abc.createMessage({msg: 'CONTINUUAR CON AGENTE, VOLVER AL MENU, FINALIZAR\n', mode: "outgoing"}) 
+
+
              .addAnswer("*CONTINUAR*", {capture: true, buttons: [
           {body: 'CONTINUAR CON AGENTE'},
           {body: 'VOLVER AL MENU'},
           {body: 'FINALIZAR'},
-               ],delay: 3000 }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
-                            console.log('ALQUILER')
-
+               ],delay: 3000 }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {              
 if(ctx.body == 'CONTINUAR CON AGENTE'){
   await abc.createMessage({msg: 'CONTINUAR CON AGENTE', mode: "incoming"}) 
   return gotoFlow(alquila22)
