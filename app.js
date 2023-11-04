@@ -549,9 +549,9 @@ return  gotoFlow(Menuflow);
 
 
 const main = async () => {
-  const adapterDB = new JsonFileAdapter()
+  const adapterDB = new MockAdapter()
   const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono,Menuflow2])
-
+  const MockAdapter = require("@bot-whatsapp/database/mock");
 //    const chatwood = new ChatWood(
 //process.env.CHATWOOT_ID, process.env.CHATWOOT_URL, {
   //    accounts: 1,
