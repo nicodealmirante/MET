@@ -3,8 +3,7 @@ const ChatWood = require("../http/services/chatwood.js");
 module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
 .addAnswer('👌Te envio la info de alquiler.')
 .addAnswer('Selfie Mirror',{
-     media: 'https://github.com/nicodealmirante/MET/blob/queonda/banner22.jpg?raw=true'})
-
+     media: '../banner22.jpg'})
 .addAnswer(['*Espejo Mágico Selfie Mirror*',
            '\nDiseño elegante: Nuestro espejo mágico tiene un diseño moderno y elegante que se adapta a cualquier tipo de evento.',
           'Su apariencia sofisticada agrega un toque especial al ambiente.',
