@@ -5,7 +5,7 @@ const {
   addKeyword,
   EVENTS
 } = require("@bot-whatsapp/bot");
-const
+
 const MetaProvider = require("@bot-whatsapp/provider/meta");
 //const ServerAPI = require("./http");
 const MockAdapter = require("@bot-whatsapp/database/mock");
