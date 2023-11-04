@@ -417,8 +417,8 @@ return  gotoFlow(Menuflow);
   
 const PRUEBA = addKeyword(["123123"])
 .addAction(async(ctx,{flowDynamic}) => {
-searchByNumber(ctx.from)
-flowDynamic(searchByNumber.ServerAPI.body)})
+const ab = new searchByNumber(ctx.from)
+flowDynamic()})
 /** 
 .addAction(async(ctx,{flowDynamic}) => {
   const dataIn= {msg: ctx.body, mode: "incoming"}
