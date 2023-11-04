@@ -4,6 +4,28 @@ const chatwootMiddleware = require("../middleware/chatwoot.middleware");
 
 
 module.exports = addKeyword(EVENTS.WELCOME)
+
+.addAction((_, { endFlow, globalState }) => {
+
+    const currentGlobalState = globalState.getMyState();
+    if (!currentGlobalState.status) {
+        return endFlow();
+    }
+
+})
+.addAction(chatwootMiddleware)
+.addAction(async (ctx, {extensions, state, flowDynamic}) => {
+    const chatwood = extensions.chatwood;
+    const currentState = state.getMyState();
+    await state.update({ fallBack: currentState?.fallBack ?? 1 })
+    const msg =  ["Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás"].join('\n')
+    await flowDynamic(msg)
+    await chatwood.createMessage({
+        msg: msg,
+        mode: "outgoing",
+        conversationId: currentState.conversation_id,
+    });
+})
     .addAction(async(ctx,{flowDynamic}) => {
         const dataIn= {msg: ctx.body, mode: "incoming"}
         const abc = new ChatWood()
@@ -28,8 +50,8 @@ module.exports = addKeyword(EVENTS.WELCOME)
    
         await abc.createMessage({msg: ctx.body, mode: "incoming"})
 if (ctx.body == 'PAGINA WEB') {
- await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
- await flowDynamic('FILA VIP \nhttps://filavip.ar')  
+ await flowDynamic('SELFIE MIRROR'+'https://www.espejoselfiemirror.com.ar')  
+ await flowDynamic('FILA VIP https://filavip.ar')  
        return gotoFlow(Menuflow);
 
 } else if (ctx.body == 'HABLAR CON ASESOR') {
