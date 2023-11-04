@@ -77,7 +77,7 @@ if(ctx.body == 'CONTINUAR CON AGENTE'){
                asd = Math.round(response.data["rows"][0]["elements"][0]["distance"].value/1000)
        total=(((asd*250)/3000)*3000)})
     
-         await flowDynamic('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)',
+         .addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)',
                      {capture: true}, async(ctx) => {fecha=ctx.body})
 
         .addAnswer('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', 
@@ -87,12 +87,13 @@ if(ctx.body == 'CONTINUAR CON AGENTE'){
           await abc.createMessage({msg: traslados, mode: "outgoing"}) 
 
           var traslados = `*TRASLADOS*\nDISTANCIA: *${Math.round(asd)}* KM \nTIEMPO: *${asd2}*\nLUGAR: *${res1}*\nVALOR: *$ ${total}*.-\n*`
-if((asd)<=200){ await flowDynamic(traslados)}
+if((asd)<=200){ 
+  await flowDynamic(traslados)}
 
          const mywhatsa = "+5491140054474@s.whatsapp.net"
                 provider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body} \nFecha ${fecha}* \n\n ${traslados}`)
       await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
-          return endFlow(Menuflow)})}))
+          return endFlow(Menuflow)})})})
         
 
 
