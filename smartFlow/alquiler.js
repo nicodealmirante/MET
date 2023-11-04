@@ -3,7 +3,7 @@ const ChatWood = require("../http/services/chatwood.js");
 module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
 .addAnswer('👌Te envio la info de alquiler.')
           
-.addAnswer('Selfie Mirror',{
+ await flowDynamic('Selfie Mirror',{
      media: '../banner22.jpg'})
 
 .addAnswer(['*Espejo Mágico Selfie Mirror*',
@@ -26,8 +26,8 @@ module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
          'El valor de la Hora adicional es de $ 50.000'
         ])
 
-.addAnswer('Espejo Mágico Selfie Mirror', {
-  media: ".../banner3.jpg"})
+await flowDynamic('Espejo Mágico Selfie Mirror', {media: '../banner3.jpg'})
+
 
 .addAnswer(['*360 Super Slow.*',
        '\nEl servicio dura 2 horas. Durante ese tiempo no existe límite de capturas.',
