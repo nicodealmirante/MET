@@ -7,7 +7,7 @@ module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
 .addAction(async(ctx,{flowDynamic}) => {
   const dataIn= {msg: ctx.body, mode: "incoming"}
   const abc = new ChatWood()
-await abc.createMessage(dataIn)})
+await abc.createMessage(dataIn)
 await abc.createMessage({msg: '👌Te envio la info de alquiler.\n*Espejo Mágico Selfie Mirror*\nDiseño elegante Nuestro espejo mágico tiene un diseño moderno y elegante que se adapta a cualquier tipo de evento\n'+ '\nAccesorios y decoración Contamos con una variedad de accesorios y elementos decorativos para personalizar aún '+                
                     'Su apariencia sofisticada agrega un toque especial al ambiente.'+
                     '\nAccesorios y decoración: Contamos con una variedad de accesorios y elementos decorativos para personalizar aún '+
@@ -97,6 +97,8 @@ if((asd)<=200){ await flowDynamic(traslados)}
                 provider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body} \nFecha ${fecha}* \n\n ${traslados}`)
       await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
           return endFlow(Menuflow)})
+         
+                     } )
 
 
 /////////////////////////////////////////////////////////////////////////////////
