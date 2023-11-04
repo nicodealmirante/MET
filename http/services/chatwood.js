@@ -8,7 +8,6 @@ class ChatWood {
     this.api = _api;
     this.config = { ...this.config, ..._config };
   }
-
   buildHeader = () => {
     const header = new Headers();
     header.append("api_access_token", this.token);
@@ -205,7 +204,7 @@ try{
     };
 
     const dataAPI = await fetch(
-      `${this.api}/api/v1/accounts/1/conversations/3/messages`,
+      `${this.api}/api/v1/accounts/1/conversations/${dataIn.conversationId}/messages`,
       requestOptions
     );
     const data = await dataAPI.json();
