@@ -59,7 +59,8 @@ module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
                        await abc.createMessage({msg: '🚚El valor no incluye traslados'+
                      '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias', mode: "outgoing"}) 
         
-                     await abc.createMessage({msg: 'CONTINUUAR CON AGENTE, VOLVER AL MENU, FINALIZAR\n', mode: "outgoing"}) })
+                     await abc.createMessage({msg: 'CONTINUUAR CON AGENTE, VOLVER AL MENU, FINALIZAR\n', mode: "outgoing"})}
+                     ) 
 
 
 .addAnswer('Espejo Mágico Selfie Mirror', {
