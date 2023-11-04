@@ -84,7 +84,6 @@ const audiono = addKeyword(EVENTS.VOICE_NOTE)
   .addAnswer('Disculpe, no puedo escuchar audios. Por favor utilice solo texto.')
   .addAction(async(ctx, {gotoFlow,endFlow}) => { 
 return endFlow(Menuflow)},
-chatwoot()
 )
 
 ///////////////////////////////////////////////////////////////// FLUJO ALQUILER
