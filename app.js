@@ -6,6 +6,7 @@ const MockAdapter = require("@bot-whatsapp/database/mock");
 const ServerAPI = require("./http");
 const ChatWood = require("./http/services/chatwood.js");
 const flowPrincipal = require("./smartFlow/welcome.js");
+const flowsAlquiler = require("./smartFlow/alquiler.js");
 
 
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
@@ -78,7 +79,7 @@ return endFlow(Menuflow)},
 
 ///////////////////////////////////////////////////////////////// FLUJO ALQUILER
 
-
+/** 
 const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
           .addAnswer('👌Te envio la info de alquiler.')
           
@@ -181,7 +182,7 @@ if((asd)<=200){ await flowDynamic(traslados)}
                 provider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body} \nFecha ${fecha}* \n\n ${traslados}`)
       await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
           return endFlow(Menuflow)})
-
+*/ 
 
 /////////////////////////////////// FLUJO VENTA
 
