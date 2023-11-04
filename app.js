@@ -5,6 +5,7 @@ const {
   addKeyword,
   EVENTS
 } = require("@bot-whatsapp/bot");
+const
 const MetaProvider = require("@bot-whatsapp/provider/meta");
 //const ServerAPI = require("./http");
 const MockAdapter = require("@bot-whatsapp/database/mock");
@@ -548,7 +549,7 @@ return  gotoFlow(Menuflow);
 
 
 const main = async () => {
-  await adapterDB.init();
+  const adapterDB = new JsonFileAdapter()
   const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono,Menuflow2])
 
 //    const chatwood = new ChatWood(
