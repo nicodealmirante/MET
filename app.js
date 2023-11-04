@@ -7,7 +7,7 @@ const ServerAPI = require("./http");
 const ChatWood = require("./http/services/chatwood.js");
 const flowPrincipal = require("./smartFlow/welcome.js");
 const flowsAlquiler = require("./smartFlow/alquiler.js");
-
+const searchByNumber = new (ChatWood)
 
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
  *
@@ -417,6 +417,10 @@ return  gotoFlow(Menuflow);
   
 const PRUEBA = addKeyword(["123123"])
 .addAction(async(ctx,{flowDynamic}) => {
+searchByNumber(ctx.from)
+flowDynamic(searchByNumber.ServerAPI.body)})
+/** 
+.addAction(async(ctx,{flowDynamic}) => {
   const dataIn= {msg: ctx.body, mode: "incoming"}
   const abc = new ChatWood()
 await abc.createMessage(dataIn)
@@ -426,7 +430,7 @@ const dataOUT = {msg: msje, mode: "outgoing"}
 await abc.createMessage(dataOUT)
 
 })
-
+*/
 
 //////////////////////////  FLUJO MENU
 
@@ -462,7 +466,7 @@ return gotoFlow(Cliente)
 } else if (ctx.body == 'INFO DE LA EMPRESA') {
 await flowDynamic('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
 await flowDynamic('  Nuestros horarios de atención son: de Lunes a Virnes de 10hs a 17hs' )
-await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
+await flowDynamic('Selfie Mirror', {media: '../video.mp4'})
 return  gotoFlow(Menuflow);
 }   [flowVenta, flowsAlquiler, Cliente]})
 
@@ -532,7 +536,7 @@ return  gotoFlow(Menuflow);
       {
         globalState: {
           status: true,
-          inbox_id: 11, //id inbox Leifer-Ventas
+          inbox_id: 1, //id inbox Leifer-Ventas
         },
         extensions: {
           database: adapterDB,

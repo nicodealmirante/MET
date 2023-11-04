@@ -1,6 +1,5 @@
 const { addKeyword, EVENTS,addAnswer} = require("@bot-whatsapp/bot");
 const ChatWood = require("../http/services/chatwood.js");
-const axios = require("")
 module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
 .addAnswer('👌Te envio la info de alquiler.')
           
@@ -28,7 +27,7 @@ module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
         ])
 
 .addAnswer('Espejo Mágico Selfie Mirror', {
-  media: '../banner3.jpg'})
+  media: ".../banner3.jpg"})
 
 .addAnswer(['*360 Super Slow.*',
        '\nEl servicio dura 2 horas. Durante ese tiempo no existe límite de capturas.',
