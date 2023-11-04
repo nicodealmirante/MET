@@ -187,9 +187,6 @@ class ChatWood {
    * @returns
    */
   createMessage = async (dataIn) => {
-try{
-
-
 
     const raw = JSON.stringify({
       content: dataIn.msg,
@@ -204,18 +201,12 @@ try{
     };
 
     const dataAPI = await fetch(
-      `${this.api}/api/v1/accounts/1/conversations/${dataIn.conversationId}/messages`,
+      `${this.api}/api/v1/accounts/${this.config.accounts}/conversations/${dataIn.conversationId}/messages`,
       requestOptions
     );
     const data = await dataAPI.json();
-    console.log("Envia")
     return data;
-
-  }catch(e){
-  console.log(e)
-}
   };
-
 }
 
 module.exports = ChatWood
