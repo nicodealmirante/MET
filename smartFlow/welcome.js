@@ -1,6 +1,5 @@
 const { addKeyword, EVENTS,addAnswer} = require("@bot-whatsapp/bot");
 const ChatWood = require("../http/services/chatwood.js");
-const chatwootMiddleware = require("../middleware/chatwoot.middleware");
 
 
 module.exports = addKeyword(EVENTS.WELCOME)
@@ -25,7 +24,7 @@ module.exports = addKeyword(EVENTS.WELCOME)
           {body: 'PAGINA WEB'},
       ],    delay: 3000 }
        )
-    , async(ctx,{flowDynamic, gotoFlow, }) => {
+    .addAction(async(ctx,{flowDynamic, gotoFlow, }) => {
    
         await abc.createMessage({msg: ctx.body, mode: "incoming"})
 if (ctx.body == 'PAGINA WEB') {
@@ -48,9 +47,9 @@ if (ctx.body == 'PAGINA WEB') {
       await abc.createMessage({msg: msj, mode: "outgoing"})      
     } else if (ctx.body == 'INFO DE LA EMPRESA') {
       const msj = ('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires\n Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
- await abc.createMessage({msg: msj, mode: "outgoing"})   } 
+ await abc.createMessage({msg: msj, mode: "outgoing"})   } }
+    )
 
-    }
 
 
    
