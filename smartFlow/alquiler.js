@@ -22,7 +22,7 @@ total=(((asd*250)/3000)*3000)}
 
 module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
 .addAnswer('👌Te envio la info de alquiler.')
-.addAnswer(  {media: 'http://gs.invitarme.com.ar/banner22.jpg'})
+.addAnswer('imagen',  {media: 'http://gs.invitarme.com.ar/banner22.jpg'})
 .addAnswer(['*Espejo Mágico Selfie Mirror*',
            '\nDiseño elegante: Nuestro espejo mágico tiene un diseño moderno y elegante que se adapta a cualquier tipo de evento.',
           'Su apariencia sofisticada agrega un toque especial al ambiente.',
