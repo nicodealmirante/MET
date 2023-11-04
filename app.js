@@ -549,7 +549,7 @@ return  gotoFlow(Menuflow);
 
 const main = async () => {
   await adapterDB.init();
-  const adapterFlow = createFlow([flowPrincipal]);
+  const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono,Menuflow2])
 
 //    const chatwood = new ChatWood(
 //process.env.CHATWOOT_ID, process.env.CHATWOOT_URL, {
