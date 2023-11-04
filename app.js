@@ -3,11 +3,12 @@ const {
   createProvider,
   createFlow,
   addKeyword,
+  EVENTS
 } = require("@bot-whatsapp/bot");
 const MetaProvider = require("@bot-whatsapp/provider/meta");
-const ServerAPI = require("./http");
+//const ServerAPI = require("./http");
 const MockAdapter = require("@bot-whatsapp/database/mock");
-const ChatWood = require("./services/chatwood");
+///const ChatWood = require("./services/chatwood");
 let motivo;  
 
 
@@ -563,7 +564,7 @@ const main = async () => {
       version: 'v16.0',
 
   });
-    const httpServer = new ServerAPI(adapterProvider, adapterDB);
+    ////const httpServer = new ServerAPI(adapterProvider, adapterDB);
 
 
 
@@ -588,7 +589,7 @@ createBot(
   }
 );
 
-httpServer.start();
+/////////httpServer.start();
 };
 
 main();
