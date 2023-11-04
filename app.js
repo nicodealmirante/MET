@@ -7,7 +7,6 @@ const ServerAPI = require("./http");
 const ChatWood = require("./http/services/chatwood.js");
 const flowPrincipal = require("./smartFlow/welcome.js");
 const flowsAlquiler = require("./smartFlow/alquiler.js");
-const searchByNumber = new (ChatWood)
 
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
  *
@@ -415,22 +414,7 @@ return  gotoFlow(Menuflow);
   ////////////////////  FLUJO MENU
   
   
-const PRUEBA = addKeyword(["123123"])
-.addAction(async(ctx,{flowDynamic}) => {
-const ab = new searchByNumber(ctx.from)
-flowDynamic()})
-/** 
-.addAction(async(ctx,{flowDynamic}) => {
-  const dataIn= {msg: ctx.body, mode: "incoming"}
-  const abc = new ChatWood()
-await abc.createMessage(dataIn)
-const msje= "hola"
-await flowDynamic(msje)
-const dataOUT = {msg: msje, mode: "outgoing"}
-await abc.createMessage(dataOUT)
 
-})
-*/
 
 //////////////////////////  FLUJO MENU
 
