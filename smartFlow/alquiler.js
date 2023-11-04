@@ -59,7 +59,7 @@ module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
                        await abc.createMessage({msg: '🚚El valor no incluye traslados'+
                      '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias', mode: "outgoing"}) 
         
-                     await abc.createMessage({msg: 'CONTINUUAR CON AGENTE, VOLVER AL MENU, FINALIZAR\n', mode: "outgoing"}) 
+                     await abc.createMessage({msg: 'CONTINUUAR CON AGENTE, VOLVER AL MENU, FINALIZAR\n', mode: "outgoing"}) })
 
 
 .addAnswer('Espejo Mágico Selfie Mirror', {
@@ -103,8 +103,8 @@ return gotoFlow(Menuflow)
   await abc.createMessage({msg: "Finalizar", mode: "outgoing"})
 await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
 return endFlow()
-}
-    }               )    
+
+    }              
 
 /////////// GOOGLE MAPS ___ CALCULO TRASLADOS
        let fecha
@@ -121,8 +121,7 @@ const response = await axios(config)
 res1 = response.data["destination_addresses"][0]
    asd2 = response.data["rows"][0]["elements"][0]["duration"].text
      asd = Math.round(response.data["rows"][0]["elements"][0]["distance"].value/1000)
-total=(((asd*250)/3000)*3000)}
-})
+total=(((asd*250)/3000)*3000)}})
 
 .addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)',
            {capture: true}, async(ctx) => {fecha=ctx.body})
