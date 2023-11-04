@@ -2,12 +2,12 @@
   type: 'text',
   from: '5491140054474',
   to: '5491166704322',
-  body: 'Hola',
+  body: 'fds',
   pushName: 'Nicolas 🤳 Selfie Mirror'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_4a14be74-af7f-4d97-8883-9a5c03e17e2a',
-  keyword: 'key_abec6fb3-491e-4919-bcdf-5dfc5d4da742',
+  ref: 'ans_752c1f7c-8c73-4f2c-9003-1036ed351929',
+  keyword: 'key_88459433-fa63-491a-a523-27ca1c56d006',
   answer: 'Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n' +
     ' +5491140054474 - Nicolás',
   options: {
@@ -20,11 +20,11 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '2e6d0a37ea8571cc4f5bf845b7692324'
+  refSerialize: 'ef68836fada072480c43e5ecd069ed83'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_fcddb913-ee59-4b69-b726-5895fdd577d0',
-  keyword: 'ans_4a14be74-af7f-4d97-8883-9a5c03e17e2a',
+  ref: 'ans_d1e29af8-980b-475d-aee9-77a468aa346d',
+  keyword: 'ans_752c1f7c-8c73-4f2c-9003-1036ed351929',
   answer: 'Opciones',
   options: {
     media: null,
@@ -36,18 +36,94 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '602f8f00201100cb417d867e542fe48c'
+  refSerialize: '308278879e163d50591bd7627698e05e'
 }
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_5a71cbb4-f2e5-4949-a571-ed88035ce287',
+  keyword: 'ans_d1e29af8-980b-475d-aee9-77a468aa346d',
+  answer: '*Contacto*',
+  options: {
+    media: null,
+    buttons: [ [Object], [Object], [Object] ],
+    capture: true,
+    child: null,
+    delay: 3000,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '2b3416b1930e79aef4553aa8762e095a'
+}
+[handleMsg]:  {
+  type: 'interactive',
+  from: '5491140054474',
+  to: '5491166704322',
+  body: 'INFO. ALQUILER',
+  title_button_reply: 'INFO. ALQUILER',
+  title_list_reply: undefined,
+  pushName: 'Nicolas 🤳 Selfie Mirror'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_90af54cb-3737-4955-96f8-c70f03ee2683',
+  keyword: 'ans_5a71cbb4-f2e5-4949-a571-ed88035ce287',
+  answer: '__call_action__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '7b183fa9ac30137154495804d395a6b0'
+}
+Error al encolar: abc is not defined
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_aaf79427-1543-4543-8b1d-127658ba240b',
+  keyword: 'key_6d65abe3-749a-44b5-a19e-eb780c1aa78e',
+  answer: '👌Te envio la info de alquiler.',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '25dbed8372ed50bbad5fbd4c5b9a27b4'
+}
+Error al encolar: undefined
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_90af54cb-3737-4955-96f8-c70f03ee2683',
+  keyword: 'ans_5a71cbb4-f2e5-4949-a571-ed88035ce287',
+  answer: '__call_action__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '7b183fa9ac30137154495804d395a6b0'
+}
+Error al encolar: abc is not defined
 [handleMsg]:  {
   type: 'text',
   from: '5491140054474',
   to: '5491166704322',
-  body: 'Hol',
+  body: 'E',
   pushName: 'Nicolas 🤳 Selfie Mirror'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_4a14be74-af7f-4d97-8883-9a5c03e17e2a',
-  keyword: 'key_abec6fb3-491e-4919-bcdf-5dfc5d4da742',
+  ref: 'ans_752c1f7c-8c73-4f2c-9003-1036ed351929',
+  keyword: 'key_88459433-fa63-491a-a523-27ca1c56d006',
   answer: 'Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n' +
     ' +5491140054474 - Nicolás',
   options: {
@@ -60,752 +136,5 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '2e6d0a37ea8571cc4f5bf845b7692324'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_5c708878-f50c-4e56-8b62-03e29710eaa1',
-  keyword: 'ans_fcddb913-ee59-4b69-b726-5895fdd577d0',
-  answer: '*Contacto*',
-  options: {
-    media: null,
-    buttons: [ [Object], [Object], [Object] ],
-    capture: true,
-    child: null,
-    delay: 3000,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '9e248ccddd253102044507ee7c12fa92'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_5c708878-f50c-4e56-8b62-03e29710eaa1',
-  keyword: 'ans_fcddb913-ee59-4b69-b726-5895fdd577d0',
-  answer: '*Contacto*',
-  options: {
-    media: null,
-    buttons: [ [Object], [Object], [Object] ],
-    capture: true,
-    child: null,
-    delay: 3000,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '9e248ccddd253102044507ee7c12fa92'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_fcddb913-ee59-4b69-b726-5895fdd577d0',
-  keyword: 'ans_4a14be74-af7f-4d97-8883-9a5c03e17e2a',
-  answer: 'Opciones',
-  options: {
-    media: null,
-    buttons: [ [Object], [Object], [Object] ],
-    capture: false,
-    child: null,
-    delay: 2000,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '602f8f00201100cb417d867e542fe48c'
-}
-[handleMsg]:  {
-  type: 'interactive',
-  from: '5491140054474',
-  to: '5491166704322',
-  body: 'INFO. VENTA',
-  title_button_reply: 'INFO. VENTA',
-  title_list_reply: undefined,
-  pushName: 'Nicolas 🤳 Selfie Mirror'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_5c708878-f50c-4e56-8b62-03e29710eaa1',
-  keyword: 'ans_fcddb913-ee59-4b69-b726-5895fdd577d0',
-  answer: '*Contacto*',
-  options: {
-    media: null,
-    buttons: [ [Object], [Object], [Object] ],
-    capture: true,
-    child: null,
-    delay: 3000,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '9e248ccddd253102044507ee7c12fa92'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_1e1bb6fe-7b4c-4fbc-8c53-65bcb8d9c8ee',
-  keyword: 'key_4a5c55c3-fa96-4ae3-bf85-4805b5aef5a2',
-  answer: '👌 Te envío la info de Venta.',
-  options: {
-    media: null,
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 2000,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '2d48dd6e5a616270f6896232dc9df996'
-}
-[handleMsg]:  {
-  type: 'interactive',
-  from: '5491140054474',
-  to: '5491166704322',
-  body: 'INFO. ALQUILER',
-  title_button_reply: 'INFO. ALQUILER',
-  title_list_reply: undefined,
-  pushName: 'Nicolas 🤳 Selfie Mirror'
-}
-Error al encolar: undefined
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_4ea18b34-e49a-4d92-9573-c20c8727fc28',
-  keyword: 'key_ee7dbc71-30bc-470c-9937-6b2694ea2bbf',
-  answer: '👌Te envio la info de alquiler.',
-  options: {
-    media: null,
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '9bfcb4afc93c2ec2747f54759e6cc23e'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_5c708878-f50c-4e56-8b62-03e29710eaa1',
-  keyword: 'ans_fcddb913-ee59-4b69-b726-5895fdd577d0',
-  answer: '*Contacto*',
-  options: {
-    media: null,
-    buttons: [ [Object], [Object], [Object] ],
-    capture: true,
-    child: null,
-    delay: 3000,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '9e248ccddd253102044507ee7c12fa92'
-}
-Error al encolar: undefined
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_b95fd9c2-bb19-4ec4-9a9d-036c5ff24f30',
-  keyword: 'ans_1e1bb6fe-7b4c-4fbc-8c53-65bcb8d9c8ee',
-  answer: '*Espejo Mágico Selfie Mirror*\n' +
-    '\n' +
-    'El Espejo Mágico de Selfie Mirror cuenta con una cámara web de alta calidad, vidrio templado resistente, una Mini PC y un\n' +
-    'televisor LED de 32 pulgadas. Estas características garantizan una experiencia de alta definición para capturar momentos\n' +
-    'especiales.\n' +
-    '\n' +
-    'Su diseño compacto y portátil, con dimensiones de 126 cm de alto x 70 cm de ancho y 20 cm de profundidad en el modelo\n' +
-    'Slim, permite transportarlo fácilmente en cualquier vehículo. Esto brinda una gran versatilidad y conveniencia para eventos \n' +
-    'y fiestas.',
-  options: {
-    media: null,
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: 'a45a4355ed0c076135ea37242ca6247d'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_593df1a7-4557-4267-86e4-2b8c51be160c',
-  keyword: 'ans_b95fd9c2-bb19-4ec4-9a9d-036c5ff24f30',
-  answer: 'Plataforma 360 Super Slow',
-  options: {
-    media: 'banner.jpg',
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '1a4e4a6cb1da6fa1868fe5f8100afd75'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_d1c39ff5-a3fb-404c-a426-6d35de9de6b4',
-  keyword: 'ans_593df1a7-4557-4267-86e4-2b8c51be160c',
-  answer: 'La facilidad de uso es una de las ventajas clave del Espejo Mágico. Simplemente tienes que enchufarlo y presionar el \n' +
-    'botón de encendido para que empiece a funcionar. Esto agiliza la instalación y permite que los eventos comiencen rápidamente.\n' +
-    '\n' +
-    'Es importante mencionar que el Selfie Mirror no incluye una impresora, pero está preparado para funcionar con cualquier \n' +
-    'impresora que se adapte a las necesidades del cliente. Esto brinda flexibilidad para elegir la impresora que mejor se ajuste a\n' +
-    'los requerimientos de impresión.\n' +
-    '\n' +
-    'En cuanto al precio, el valor del equipo es de 1500 dólares o pesos al valor del dólar blue del día.',
-  options: {
-    media: null,
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: true
-  },
-  refSerialize: '266f89d89d30d1ed93a12accdb424959'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_732f58de-0d98-43db-9674-ae1414aed480',
-  keyword: 'ans_d1c39ff5-a3fb-404c-a426-6d35de9de6b4',
-  answer: 'Equipo Slim Selfie Mirror',
-  options: {
-    media: 'banner4.jpg',
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '1bbf885292d8807f730072b0c15b666a'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_cea7cc88-f4d2-4551-b193-6051e9d0abea',
-  keyword: 'ans_732f58de-0d98-43db-9674-ae1414aed480',
-  answer: '*Plataforma 360 Super Slow*\n' +
-    '\n' +
-    'Nuestra plataforma incluye todo lo necesario para poder brindar un servicio profesional. Incluye Monitor transmitiendo en vivo. Proceso de editado automatico.\n' +
-    ' (Una vez grabado se reproduce en el monitor automaticamente ya editado)\n' +
-    'Los invitados podran escanear un codigo QR UNICO para poder visualizar todos los videos del evento *EN EL MOMENTO*\n' +
-    '\n' +
-    'La plataforma controlada por mando a distancia incluye: variador de velocidad, arranque y parada suave, soporte reforzado, Aro de Led, 4 bastones led pixel de 1 mt, led rgb en plataforma, stand para TV (no incluida) y asesoramiento tecnico.\n' +
-    '\n' +
-    '*Equipo listo para trabajar*.\n' +
-    'El valor del equipo es de 1500 U$S.\n' +
-    '▶ REQUERIDO:Necesita contar con un Apple Iphone 13 o suoperior (dispositivo de grabacion)\n' +
-    'y un TV LED de 32 o mas (monitoreo)',
-  options: {
-    media: null,
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: 'c876c1bb05102563b891d12033d508f8'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_bd8e82ac-061c-40fd-80ba-94e1c0178bb2',
-  keyword: 'ans_cea7cc88-f4d2-4551-b193-6051e9d0abea',
-  answer: 'Selfie Mirror',
-  options: {
-    media: 'video3.mp4',
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: 'dcece2ff89c4e72bfd8cbd2b94f7351a'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_4b95545e-6c3f-486e-b4db-e8cf543f66e8',
-  keyword: 'ans_bd8e82ac-061c-40fd-80ba-94e1c0178bb2',
-  answer: 'Formas de pago: efectivo, transferencia/depósito',
-  options: {
-    media: null,
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '96a6c1b647a314e3f31813da0d325c0c'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_ed28725a-58a1-4605-893c-153261382217',
-  keyword: 'ans_4b95545e-6c3f-486e-b4db-e8cf543f66e8',
-  answer: 'Selfie Mirror',
-  options: {
-    media: 'banner22.jpg',
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '1036426bfa9fbbe73ec35838b5626064'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_cb507390-2ac6-4d1f-b738-30e2a87419a2',
-  keyword: 'ans_ed28725a-58a1-4605-893c-153261382217',
-  answer: '*UNIFILA LED*\n' +
-    '¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n' +
-    '\n' +
-    'En SELFIE MIRROR, entendemos la importancia de mantener tus espacios organizados y atractivos. Nuestros organizadores de fila no solo te ayudarán a mantener un flujo ordenado de clientes, sino que también añadirán un toque de modernidad y estilo a tu negocio.\n' +
-    '\n' +
-    '¿Qué hace que nuestros organizadores de fila con tecnología Pixel LED sean especiales?\n' +
-    '\n' +
-    '✨ Iluminación espectacular: Nuestra tecnología Pixel LED ofrece una iluminación vibrante y personalizable que destacará tu marca y creará una experiencia memorable para tus clientes.\n' +
-    '\n' +
-    '🧹 Organización efectiva: Mantén tus filas en orden y evita la confusión con nuestros organizadores de alta calidad. ¡El caos será cosa del pasado!\n' +
-    '\n' +
-    '🎨 Personalización total: Personaliza la apariencia de tus organizadores para que se adapten a tu imagen corporativa o al tema de tu negocio.\n' +
-    '\n' +
-    '🌟 Destaca entre la multitud: Con nuestros organizadores de fila Pixel LED, tu negocio destacará en cualquier entorno, desde eventos, ferias comerciales hasta tiendas minoristas y restaurantes.\n' +
-    '\n' +
-    '¡Es el momento de darle a tu negocio una ventaja competitiva!\n' +
-    '\n' +
-    '¡Haz que tu negocio brille con nuestros organizadores de fila Pixel LED! 💫✨ #TecnologíaLED #OrganizaciónEfectiva #AtraeClientes\n' +
-    '\n' +
-    '*VALORES*\n' +
-    '\n' +
-    'https://filavip.ar',
-  options: {
-    media: null,
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '5730d17b12e91fd088c68842a06d5397'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_bb288f24-d760-48c1-a6e6-fadd18ddea78',
-  keyword: 'ans_cb507390-2ac6-4d1f-b738-30e2a87419a2',
-  answer: 'FILA VIP',
-  options: {
-    media: 'ledselfie.mp4',
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: 'd79d457aae391093c3d92f8afeed3011'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_dc6750df-b6e3-413b-9d48-869a9dee0320',
-  keyword: 'ans_bb288f24-d760-48c1-a6e6-fadd18ddea78',
-  answer: 'FOTO FILA VIP',
-  options: {
-    media: '111.jpg',
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '88580913e06c5be14e5f0b0b1244584d'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_acf33cf4-7ecb-462a-9fe7-6bebf7b70927',
-  keyword: 'ans_dc6750df-b6e3-413b-9d48-869a9dee0320',
-  answer: 'Selfie Mirror 360 + Selfie',
-  options: {
-    media: 'dibu.jpg',
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '3a5e39d0fff7525f313935fcd20e43f5'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_dd4d2a8e-fcaa-4288-9a74-988850062d52',
-  keyword: 'ans_acf33cf4-7ecb-462a-9fe7-6bebf7b70927',
-  answer: 'Showroom',
-  options: {
-    media: 'video.mp4',
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 4000,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: 'f769346a9c92323e328d8d03f74adff1'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_24ab784a-d821-4659-932a-b84e11996d1e',
-  keyword: 'ans_dd4d2a8e-fcaa-4288-9a74-988850062d52',
-  answer: 'Selfie Mirror',
-  options: {
-    media: 'video2.mp4',
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '390beb883d711b15ba2111b6f5ca05fb'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_dd508945-87ee-4613-bfe9-524adcb06bbf',
-  keyword: 'ans_24ab784a-d821-4659-932a-b84e11996d1e',
-  answer: 'Captura 360',
-  options: {
-    media: 'video360.mp4',
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '58d68932851e6204c7946d37a95391dd'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_3055c841-ddb1-446a-9096-d2643ae18740',
-  keyword: 'ans_dd508945-87ee-4613-bfe9-524adcb06bbf',
-  answer: '✈️ *Enviamos a todo el País*.',
-  options: {
-    media: null,
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: true
-  },
-  refSerialize: 'a3dd23b2050e3fb016348f369aed8a73'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_14c85175-db25-4fd7-b8d6-4c175e4ff5e7',
-  keyword: 'ans_3055c841-ddb1-446a-9096-d2643ae18740',
-  answer: '*CONTINUAR*',
-  options: {
-    media: null,
-    buttons: [ [Object], [Object], [Object] ],
-    capture: true,
-    child: null,
-    delay: 2000,
-    nested: [],
-    keyword: {},
-    callback: true
-  },
-  refSerialize: '107c971735953d276f013a34fac1893e'
-}
-[handleMsg]:  {
-  type: 'interactive',
-  from: '5491140054474',
-  to: '5491166704322',
-  body: 'CONTINUAR CON AGENTE',
-  title_button_reply: 'CONTINUAR CON AGENTE',
-  title_list_reply: undefined,
-  pushName: 'Nicolas 🤳 Selfie Mirror'
-}
-[handleMsg]:  {
-  type: 'interactive',
-  from: '5491140054474',
-  to: '5491166704322',
-  body: 'INFO. ALQUILER',
-  title_button_reply: 'INFO. ALQUILER',
-  title_list_reply: undefined,
-  pushName: 'Nicolas 🤳 Selfie Mirror'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_4ea18b34-e49a-4d92-9573-c20c8727fc28',
-  keyword: 'key_ee7dbc71-30bc-470c-9937-6b2694ea2bbf',
-  answer: '👌Te envio la info de alquiler.',
-  options: {
-    media: null,
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '9bfcb4afc93c2ec2747f54759e6cc23e'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_56c00f3a-1825-4ec1-9cb2-a0f186272d60',
-  keyword: 'ans_4ea18b34-e49a-4d92-9573-c20c8727fc28',
-  answer: '*Espejo Mágico Selfie Mirror*\n' +
-    '\n' +
-    'Diseño elegante: Nuestro espejo mágico tiene un diseño moderno y elegante que se adapta a cualquier tipo de evento.\n' +
-    'Su apariencia sofisticada agrega un toque especial al ambiente.\n' +
-    '\n' +
-    'Accesorios y decoración: Contamos con una variedad de accesorios y elementos decorativos para personalizar aún \n' +
-    'más la experiencia. Puedes elegir entre diferentes marcos, sombreros, anteojos, pizarras con mensajes divertidos\n' +
-    'y más. Estos elementos permiten que los invitados se diviertan y creen fotos únicas.\n' +
-    '\n' +
-    'Tamaño y portabilidad: El espejo mágico tiene dimensiones compactas que facilitan su transporte e instalación en \n' +
-    'diferentes espacios. Es lo suficientemente versátil como para adaptarse a salones de eventos, fiestas en exteriores \n' +
-    'y otros lugares.\n' +
-    '\n' +
-    'Opciones de software: Nuestro espejo mágico viene con un software propio que ofrece una amplia gama de funciones \n' +
-    'y personalización. Puedes elegir entre diferentes plantillas de diseño, agregar efectos especiales a las fotos y configurar \n' +
-    'opciones de impresión según tus preferencias.\n' +
-    '\n' +
-    'Tiempo de alquiler: El tiempo de alquiler del espejo mágico es flexible y se adapta a las necesidades de tu evento.\n' +
-    ' Puedes contratarlo por horas o por el tiempo que consideres necesario para brindar una experiencia completa a tus invitados.\n' +
-    '\n' +
-    'Recuerda que nuestros servicios incluyen el montaje, desmontaje y la asistencia de personal capacitado durante todo\n' +
-    'el evento. Estamos comprometidos en asegurar que tus invitados disfruten al máximo de la experiencia con el espejo mágico.\n' +
-    'Valor Servicio por 2 Horas $ 100.000 (base)\n' +
-    'El valor de la Hora adicional es de $ 50.000',
-  options: {
-    media: null,
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '41f057a9192d33de64ef69405a27b6fb'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_8b915bc1-5016-42c9-b25b-0cf3a61976b5',
-  keyword: 'ans_56c00f3a-1825-4ec1-9cb2-a0f186272d60',
-  answer: 'Espejo Mágico Selfie Mirror',
-  options: {
-    media: 'http://gs.invitarme.com.ar/banner3.jpg',
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '4478a63f81ebb141c9a4891876791892'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_24136684-bf49-4359-8e18-7ed987a18c5a',
-  keyword: 'ans_8b915bc1-5016-42c9-b25b-0cf3a61976b5',
-  answer: '*360 Super Slow.*\n' +
-    '\n' +
-    'El servicio dura 2 horas. Durante ese tiempo no existe límite de capturas.\n' +
-    'Los videos son filmados y compartidos en el momento ya editados automáticamente\n' +
-    'Incluye accesorios (pistola lanza burbujas, lanza billetes.)\n' +
-    'El valor del servicio de 2 horas (2023) es de $ 100.000 .-\n' +
-    'El valor del servicio de 2 horas (2024) es de U$s 100 .-\n' +
-    'El valor de la Hora adicional (2023) es de $ 50.000 .-',
-  options: {
-    media: null,
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: 'd9e13b263b5870fb348583e696e6506a'
-}
-[ERROR.save]:  {
-  ref: 'ans_b850cc01-4d64-4606-b54f-92aeb0a759ec',
-  keyword: 'ans_24136684-bf49-4359-8e18-7ed987a18c5a',
-  answer: 'Plataforma 360 Super Slow',
-  options: {
-    media: '../banner.jpg',
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '30b90e5b31c97fb1adc3e77c9abe0578'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_b850cc01-4d64-4606-b54f-92aeb0a759ec',
-  keyword: 'ans_24136684-bf49-4359-8e18-7ed987a18c5a',
-  answer: 'Plataforma 360 Super Slow',
-  options: {
-    media: '../banner.jpg',
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '30b90e5b31c97fb1adc3e77c9abe0578'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_39a60fa3-d1c0-4507-9a7d-bc4568e962b3',
-  keyword: 'ans_b850cc01-4d64-4606-b54f-92aeb0a759ec',
-  answer: '🚚El valor no incluye traslados\n' +
-    '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias',
-  options: {
-    media: null,
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '20de5355818ced173f097532f8cebd75'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_d4a9beb3-36c1-4886-931f-9ba26faad172',
-  keyword: 'ans_39a60fa3-d1c0-4507-9a7d-bc4568e962b3',
-  answer: 'Selfie Mirror 360 + Selfie',
-  options: {
-    media: 'http://gs.invitarme.com.ar/dibu.jpg',
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: 'eed49b27550d590437bf68a22bceba85'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_ca9705c4-37ac-4204-a4a8-8cfec6a7d748',
-  keyword: 'ans_d4a9beb3-36c1-4886-931f-9ba26faad172',
-  answer: 'Showroom',
-  options: {
-    media: 'http://gs.invitarme.com.ar/video.mp4',
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '5305010db592f81476815eb333fb207c'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_f67a7b4c-6823-43fc-98ca-5c62e171e1f6',
-  keyword: 'ans_ca9705c4-37ac-4204-a4a8-8cfec6a7d748',
-  answer: 'Selfie Mirror',
-  options: {
-    media: 'http://gs.invitarme.com.ar/video2.mp4',
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: 'ef52e727116d3b51cda2e681ccbc5d74'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_8bf244ca-7243-424d-981e-b3cb8ded93c2',
-  keyword: 'ans_f67a7b4c-6823-43fc-98ca-5c62e171e1f6',
-  answer: 'Captura 360',
-  options: {
-    media: 'http://gs.invitarme.com.ar/video360.mp4',
-    buttons: [],
-    capture: false,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: false
-  },
-  refSerialize: '03bbfdc525f7ba0f7bcfcb71fe04c3f4'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_13ef6c89-4f22-4ca2-b36b-5f0929c367d5',
-  keyword: 'ans_8bf244ca-7243-424d-981e-b3cb8ded93c2',
-  answer: '*CONTINUAR*',
-  options: {
-    media: null,
-    buttons: [ [Object], [Object], [Object] ],
-    capture: true,
-    child: null,
-    delay: 3000,
-    nested: [],
-    keyword: {},
-    callback: true
-  },
-  refSerialize: 'fac87966254861d4f913dc6c036908f7'
-}
-[handleMsg]:  {
-  type: 'interactive',
-  from: '5491140054474',
-  to: '5491166704322',
-  body: 'CONTINUAR CON AGENTE',
-  title_button_reply: 'CONTINUAR CON AGENTE',
-  title_list_reply: undefined,
-  pushName: 'Nicolas 🤳 Selfie Mirror'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_5c4440a3-9a51-4a00-8104-e6471caf3fae',
-  keyword: 'ans_13ef6c89-4f22-4ca2-b36b-5f0929c367d5',
-  answer: 'Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)',
-  options: {
-    media: null,
-    buttons: [],
-    capture: true,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: true
-  },
-  refSerialize: '1cdcb79295297acc13eb1b34c957c42c'
-}
-[handleMsg]:  {
-  type: 'text',
-  from: '5491140054474',
-  to: '5491166704322',
-  body: '2222',
-  pushName: 'Nicolas 🤳 Selfie Mirror'
-}
-[QUEUE_SE_ENVIO]:  {
-  ref: 'ans_e6b1aaef-66a2-4947-8664-33c825704feb',
-  keyword: 'ans_5c4440a3-9a51-4a00-8104-e6471caf3fae',
-  answer: 'Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)',
-  options: {
-    media: null,
-    buttons: [],
-    capture: true,
-    child: null,
-    delay: 0,
-    nested: [],
-    keyword: {},
-    callback: true
-  },
-  refSerialize: '411088e79aea220ceec76af392a37501'
-}
-[handleMsg]:  {
-  type: 'text',
-  from: '5491140054474',
-  to: '5491166704322',
-  body: 'Moron',
-  pushName: 'Nicolas 🤳 Selfie Mirror'
+  refSerialize: 'ef68836fada072480c43e5ecd069ed83'
 }

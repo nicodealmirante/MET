@@ -1,9 +1,28 @@
 const { addKeyword, EVENTS,addAnswer} = require("@bot-whatsapp/bot")
 const ChatWood = require("../http/services/chatwood.js");
-const axios = require("axios")
+const axios = require("axios");
+const { addAction } = require("./alquiler.js");
+
+let fecha
+let asd20;
+let asd;
+var res1;
+var res2;
+var total;
+
+const getTicket = async (donde) => {
+var config = { 
+method: "get",
+url: `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${donde.replace(' ','%20')}Argentina&origins=Ramos%20Mejia%20Buenos%20Aires%20Argentina&key=AIzaSyB-o-yLjNarKluwNV8z8IZTDhosOlM1NOw` };
+const response = await axios(config)
+res1 = response.data["destination_addresses"][0]
+asd2 = response.data["rows"][0]["elements"][0]["duration"].text
+asd = Math.round(response.data["rows"][0]["elements"][0]["distance"].value/1000)
+total=(((asd*250)/3000)*3000)}
+
 module.exports =  addKeyword(['INFO. ALQUILER'], {sensitive: true})
-.addAnswer('👌Te envio la info de alquiler.', async (ctx, { flowDynamic,provider}) => {
-await flowDynamic([{body: 'imagen', media: 'http://gs.invitarme.com.ar/banner22.jpg'}])})
+.addAnswer('👌Te envio la info de alquiler.')
+.addAnswer(  {media: 'http://gs.invitarme.com.ar/banner22.jpg'})
 .addAnswer(['*Espejo Mágico Selfie Mirror*',
            '\nDiseño elegante: Nuestro espejo mágico tiene un diseño moderno y elegante que se adapta a cualquier tipo de evento.',
           'Su apariencia sofisticada agrega un toque especial al ambiente.',
@@ -21,7 +40,8 @@ await flowDynamic([{body: 'imagen', media: 'http://gs.invitarme.com.ar/banner22.
          '\nRecuerda que nuestros servicios incluyen el montaje, desmontaje y la asistencia de personal capacitado durante todo' ,
          'el evento. Estamos comprometidos en asegurar que tus invitados disfruten al máximo de la experiencia con el espejo mágico.',
          'Valor Servicio por 2 Horas $ 100.000 (base)',
-         'El valor de la Hora adicional es de $ 50.000'])
+         'El valor de la Hora adicional es de $ 50.000'
+        ])
 
 .addAnswer('Espejo Mágico Selfie Mirror', {media: 'http://gs.invitarme.com.ar/banner3.jpg'})
 
@@ -34,7 +54,7 @@ await flowDynamic([{body: 'imagen', media: 'http://gs.invitarme.com.ar/banner22.
      'El valor del servicio de 2 horas (2024) es de U$s 100 .-',
      'El valor de la Hora adicional (2023) es de $ 50.000 .-'])  
 
-.addAnswer('Plataforma 360 Super Slow', {media: '../banner.jpg'})
+.addAnswer('Plataforma 360 Super Slow', {media: 'http://gs.invitarme.com.ar/banner.jpg'})
 
 .addAnswer(['🚚El valor no incluye traslados',
    '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'])
@@ -44,13 +64,14 @@ await flowDynamic([{body: 'imagen', media: 'http://gs.invitarme.com.ar/banner22.
    .addAnswer('Showroom', {media: 'http://gs.invitarme.com.ar/video.mp4'})
    .addAnswer('Selfie Mirror', {media: 'http://gs.invitarme.com.ar/video2.mp4'})
    .addAnswer('Captura 360', {media: 'http://gs.invitarme.com.ar/video360.mp4'})
-   .addAnswer("*CONTINUAR*", {capture: true, buttons: [
+   .addAnswer("*OPCIONES*", {capture: true, buttons: [
 {body: 'CONTINUAR CON AGENTE'},
 {body: 'VOLVER AL MENU'},
 {body: 'FINALIZAR'},
-     ],delay: 3000 }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
+     ],delay: 3000 })
+     
+     .addAction(async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
           const dataIn= {msg: ctx.body, mode: "incoming"}
-          const abc = new ChatWood()
         await abc.createMessage(dataIn)
         await abc.createMessage({msg: '👌Te envio la info de alquiler.\n*Espejo Mágico Selfie Mirror*\nDiseño elegante Nuestro espejo mágico tiene un diseño moderno y elegante que se adapta a cualquier tipo de evento\n'+
         '\nAccesorios y decoración Contamos con una variedad de accesorios y elementos decorativos para personalizar aún '+                
@@ -97,28 +118,12 @@ return endFlow()
     }      })        
 
 /////////// GOOGLE MAPS ___ CALCULO TRASLADOS
-       let fecha
-        let asd20;
-        let asd;
-       var res1;
-        var res2;
-        var total;
+    
 
-const getTicket = (async (donde) => {
-var config = { 
-method: "get",
-url: `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${donde.replace(' ','%20')}Argentina&origins=Ramos%20Mejia%20Buenos%20Aires%20Argentina&key=AIzaSyB-o-yLjNarKluwNV8z8IZTDhosOlM1NOw` };
-const response = await axios(config)
-res1 = response.data["destination_addresses"][0]
-   asd2 = response.data["rows"][0]["elements"][0]["duration"].text
-     asd = Math.round(response.data["rows"][0]["elements"][0]["distance"].value/1000)
-total=(((asd*250)/3000)*3000)})
-
-
-flowDynamic('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)',
+.addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)',
            {capture: true}, async(ctx) => {fecha=ctx.body})
 
-flowDynamic('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', 
+.addAnswer('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', 
           {capture:true}, async (ctx, { endFlow, provider, flowDynamic}) => {
 
 await getTicket(ctx.body)
