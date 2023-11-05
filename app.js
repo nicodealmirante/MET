@@ -539,7 +539,7 @@ return  gotoFlow(Menuflow);
     });
 
     const adapterProvider = createProvider(MetaProvider, {
-      jwtToken: 'EAATmWFGKOTMBO1gaLGJo2vqh5RTSF8K3QeexAIS0z7NbGNl5IwzhAOnOAZBbyvr2ScnICnwhXgDkjOvPKm4OU22g9oyImDjeDwn3aT6B01cwZBa2qLukOL9ZB0y8YYMYZBYiolZBASTF72qniOB7We2WvzjpAZCjKT93byF5FcjgNlF4rcKG3SMe4lHKcvWhvoZCR9z8CMS7ffFdUndAvPM54ZBDIrD1CnhvOx4ZD',
+      jwtToken: 'EAATmWFGKOTMBO7MqaKu2D7N1eqI1FiKDr01BqqWuCLXl2eerTy6we77yB3S395Kt3Erh3oSngUndYVe3bKZAO7vb0GeRePYLbDaAF56p83F8lXddKrsPGdlzS6H0xNeGR2zRvqsM991H5TOMwxjhR8NnMBlqOXpLepwQK2WYCSdHezFA5kodwRAYm24SkloBKcgzUfG1HQCRwGeSu9qOKZBcDNaoiYHS4ZD',
       numberId: '103110496094657',
       verifyToken: 'asdasd',
       version: 'v18.0',
