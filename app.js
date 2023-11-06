@@ -548,8 +548,8 @@ return  gotoFlow(Menuflow);
 
     const chatwoot = new ChatwootClass({
         account: '1',
-        token: 'RzqiiFrYqQUrx5FPuuMXoM3e',
-        endpoint: 'https://chatwoot-production-9374.up.railway.app'
+        token: 'mS5dKUsvKEYVn2zBUx6y6C32',
+        endpoint: 'https://chatwoot-production-0566.up.railway.app'
     })
     
     const queue = new Queue({
@@ -572,7 +572,9 @@ return  gotoFlow(Menuflow);
             provider: adapterProvider,
             database: adapterDB,
         })
-        
+    
+        serverHttp.initialization(bot)
+    
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
          */
@@ -591,7 +593,7 @@ return  gotoFlow(Menuflow);
         /**
          * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
          */
-        bot.on('send_message', (payload) => {
+        bot.on('sendtext', (payload) => {
             queue.enqueue(async () => {
                 await handlerMessage({
                     phone:payload.numberOrId, 
