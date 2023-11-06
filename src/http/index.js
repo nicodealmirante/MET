@@ -12,7 +12,7 @@ class ServerHttp {
     app;
     port;
 
-    constructor(_port = 3003){
+    constructor(_port = 4000){
         this.port = _port
     }
 
@@ -74,8 +74,8 @@ class ServerHttp {
                 /**
                  * esto envia un mensaje de texto al ws
                  */
-                await bot.provider.sendtext(
-                    `+5491140054474@s.whatsapp.net`,
+                await bot.providerClass.sendMessage(
+                    `${phone}`,
                     content,
                     {}
                 );
@@ -109,10 +109,8 @@ class ServerHttp {
         })
 
         this.app.post(`/chatwoot`, this.chatwootCtrl)
+   
 
-
-    }
-
-}
+}}
 
 module.exports = ServerHttp
