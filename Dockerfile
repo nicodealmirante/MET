@@ -6,4 +6,6 @@ COPY . .
 ARG RAILWAY_STATIC_URL
 ARG PUBLIC_URL
 ARG PORT
+ARG ports:
+   - "192.168.10.4:PORT:PORT"
 CMD ["npm", "start"]
