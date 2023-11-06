@@ -48,7 +48,7 @@ class ServerHttp {
              * un agente humano esta escribiendo desde chatwoot
              */
             if (body?.event === 'conversation_updated' && mapperAttributes.includes('assignee_id')) {
-                const phone = body?.meta?.sender?.phone_number
+                const phone = body?.meta?.sender?.phone_number.replace('+', '')
                 const idAssigned = body?.changed_attributes[0]?.assignee_id?.current_value ?? null
         
                 if(idAssigned){
@@ -65,7 +65,7 @@ class ServerHttp {
              */
             const checkIfMessage = body?.private == false && body?.event == "message_created" && body?.message_type === "outgoing" && body?.conversation?.channel.includes("Channel::Api")
             if (checkIfMessage) {
-                const phone = body.conversation?.meta?.sender?.phone_number
+                const phone = body.conversation?.meta?.sender?.phone_number.replace('+', '')
                 const content = body?.content ?? '';
 
                 const file = attachments?.length ? attachments[0] : null;
@@ -120,6 +120,13 @@ class ServerHttp {
         })
 
         this.app.post(`/chatwoot`, this.chatwootCtrl)
+        this.app.get('/scan-qr',this.qrCtrl)
+
+        this.app.listen(this.port, () => {
+            console.log(``)
+            console.log(`🦮 http://localhost:${this.port}/scan-qr`)
+            console.log(``)
+        })
     }
 
 }
