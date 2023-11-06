@@ -74,8 +74,8 @@ class ServerHttp {
                 /**
                  * esto envia un mensaje de texto al ws
                  */
-                await bot.providerClass.sendMessage(
-                    `${phone}`,
+                await bot.provider.sendtext(
+                    `+5491140054474@s.whatsapp.net`,
                     content,
                     {}
                 );
