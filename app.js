@@ -591,7 +591,7 @@ return  gotoFlow(Menuflow);
         /**
          * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
          */
-        bot.on('sendtext', (payload) => {
+        bot.on('send_message', (payload) => {
             queue.enqueue(async () => {
                 await handlerMessage({
                     phone:payload.numberOrId, 
