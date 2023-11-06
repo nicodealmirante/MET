@@ -1,13 +1,15 @@
-require('dotenv').config()
-const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
-const Queue = require('queue-promise')
-const MetaProvider = require("@bot-whatsapp/provider/meta");
-const MockAdapter = require('@bot-whatsapp/database/mock')
-const ServerHttp = require('./src/http')
-const ChatwootClass = require('./src/chatwoot/chatwoot.class')
-const { handlerMessage } = require('./src/chatwoot')
+const {
+  createBot,
+  createProvider,
+  createFlow,
+  addKeyword,
+  EVENTS
+} = require("@bot-whatsapp/bot");
 
-const PORT = process.env.PORT ?? 3001
+const MetaProvider = require("@bot-whatsapp/provider/meta");
+//const ServerAPI = require("./http");
+const MockAdapter = require("@bot-whatsapp/database/mock");
+///const ChatWood = require("./services/chatwood");
 let motivo;  
 
 
@@ -543,66 +545,52 @@ return  gotoFlow(Menuflow);
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
+const main = async () => {
+  const adapterDB = new MockAdapter();
 
-    const serverHttp = new ServerHttp(PORT)
 
-    const chatwoot = new ChatwootClass({
-        account: '1',
-        token: 'mS5dKUsvKEYVn2zBUx6y6C32',
-        endpoint: 'https://chatwoot-production-0566.up.railway.app'
-    })
-    
-    const queue = new Queue({
-        concurrent: 1,
-        interval: 500
-    })
-    
-    const main = async () => {
-        const adapterDB = new MockAdapter()
-        const adapterFlow = createFlow([flowPrincipal])
+  const adapterProvider = createProvider(MetaProvider, {
+    jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
+    numberId: '133862353148114',
+    verifyToken: 'asdasd',
+    version: 'v18.0',
 
-        const adapterProvider = createProvider(MetaProvider, {
-          jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
-          numberId: '133862353148114',
-          verifyToken: 'asdasd',
-          version: 'v18.0'})
-    
-        const bot = await createBot({
-            flow: adapterFlow,
-            provider: adapterProvider,
-            database: adapterDB,
-        })
-    
-        serverHttp.initialization(bot)
-    
-        /**
-         * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
-         */
-    
-        adapterProvider.on('message', (payload) => {
-            queue.enqueue(async () => {
-                await handlerMessage({
-                    phone:payload.from, 
-                    name:payload.pushName,
-                    message: payload.body, 
-                    mode:'incoming'
-                }, chatwoot)
-            });
-        })
-    
-        /**
-         * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
-         */
-        bot.on('send_message', (payload) => {
-            queue.enqueue(async () => {
-                await handlerMessage({
-                    phone:payload.numberOrId, 
-                    name:payload.pushName,
-                    message: payload.answer, 
-                    mode:'outgoing'
-                }, chatwoot)
-            })
-        })
+});
+
+
+  const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono, Menuflow2, alquila22])
+
+
+
+
+
+
+
+  createBot(
+    {
+      flow: adapterFlow,
+      provider: adapterProvider,
+      database: adapterDB,
+    },
+    {
+      globalState: {
+        status: true,
+        inbox_id: 1, //id inbox Leifer-Ventas
+      },
+      extensions: {
+        database: adapterDB,
+      },
     }
-    
-    main()
+  );
+
+};
+
+main();
+
+
+
+
+
+
+
+

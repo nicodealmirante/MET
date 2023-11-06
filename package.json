@@ -9,10 +9,10 @@
   
 
   "dependencies": {
-    "@bot-whatsapp/bot": "0.0.197-alpha.0",
-    "@bot-whatsapp/cli": "latest",
-    "@bot-whatsapp/database": "latest",
-    "@bot-whatsapp/provider": "latest",
+    "@bot-whatsapp/bot": "dev",
+    "@bot-whatsapp/cli": "dev",
+    "@bot-whatsapp/database": "dev",
+        "@bot-whatsapp/provider": "dev",
     "axios": "^1.2.1",  
       "express": "^4.18.2",
     "body-parser": "^1.20.1",
