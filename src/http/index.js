@@ -111,6 +111,11 @@ class ServerHttp {
         this.app.post(`/chatwoot`, this.chatwootCtrl)
    
 
-}}
+        this.app.listen(this.port, () => {
+
+        })
+    }
+
+}
 
 module.exports = ServerHttp
