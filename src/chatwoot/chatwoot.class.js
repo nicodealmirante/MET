@@ -1,7 +1,7 @@
 class ChatwootClass {
 
     config = {
-        account: undefined,
+        account: '1',
         token: undefined,
         endpoint: undefined
     }
@@ -35,7 +35,7 @@ class ChatwootClass {
      */
     formatNumber = (number) => {
         if (!number.startsWith("+")) {
-            return `+${number}`
+            return `${number}`
         }
         return number
     }
