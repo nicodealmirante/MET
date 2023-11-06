@@ -12,7 +12,7 @@ class ServerHttp {
     app;
     port;
 
-    constructor(_port = 4000){
+    constructor(_port = 3003){
         this.port = _port
     }
 
@@ -75,7 +75,7 @@ class ServerHttp {
                  * esto envia un mensaje de texto al ws
                  */
                 await bot.providerClass.sendMessage(
-                    `${phone}`,
+                    `+${phone}`,
                     content,
                     {}
                 );
@@ -110,11 +110,7 @@ class ServerHttp {
 
         this.app.post(`/chatwoot`, this.chatwootCtrl)
 
-        this.app.listen(this.port, () => {
-            console.log(``)
-            console.log(`🦮 http://localhost:${this.port}/scan-qr`)
-            console.log(``)
-        })
+
     }
 
 }
