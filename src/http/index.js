@@ -12,7 +12,7 @@ class ServerHttp {
     app;
     port;
 
-    constructor(_port = 4000){
+    constructor(_port = 3001){
         this.port = _port
     }
 
@@ -122,7 +122,11 @@ class ServerHttp {
         this.app.post(`/chatwoot`, this.chatwootCtrl)
         this.app.get('/scan-qr',this.qrCtrl)
 
-  
+        this.app.listen(this.port, () => {
+            console.log(``)
+            console.log(`🦮 http://localhost:${this.port}/scan-qr`)
+            console.log(``)
+        })
     }
 
 }
