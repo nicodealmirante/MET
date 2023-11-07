@@ -603,7 +603,7 @@ return  gotoFlow(Menuflow);
             })
         })
 
-        chatwoot.on('message_created', (payload) => {
+        bot.on('message_created', (payload) => {
           queue.enqueue(async () => {
               await handlerMessage({
                   phone:payload.contact.id, 
