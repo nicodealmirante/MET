@@ -28,7 +28,7 @@ class ServerHttp {
             const body = req.body;
             const attachments = body?.attachments
             const bot = req.bot;
-          
+          console.log(body)
                 const phone = body.conversation?.meta?.sender?.phone_number.replace('+', '')
                 const content = body?.content ?? '';
 
