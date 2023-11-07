@@ -36,13 +36,17 @@ class ServerHttp {
                 if (file) {
                     console.log(`Este es el archivo adjunto...`, file.data_url)
                     await bot.providerClass.sendMedia(
-                        `${phone}@c.us`,
+                        `+${phone}@c.us`,
                         file.data_url,
                         content,
                         {})
                     };
 
-                await bot.providerClass.sendMessage(
+            await bot.privider.sendtext(   `+${phone}@c.us`,
+            content,
+            {}
+        );
+                    await bot.providerClass.sendMessage(
                     `${phone}`,
                     content,
                     {}
@@ -56,11 +60,11 @@ class ServerHttp {
             req.bot = bot;
             next()
         })
-
+        
         this.app.post(`/chatwoot`, this.chatwootCtrl)
 
-     
     }
+    
 
 }
 
