@@ -63,7 +63,7 @@ class ServerHttp {
                 if (file) {
                     console.log(`Este es el archivo adjunto...`, file.data_url)
                     await bot.providerClass.sendMedia(
-                        `${phone}@c.us`,
+                        `+${phone}@c.us`,
                         file.data_url,
                         content,
                     );
@@ -77,7 +77,7 @@ class ServerHttp {
                  * esto envia un mensaje de texto al ws
                  */
                 await bot.providerClass.sendText(
-                    `${phone}@c.us`,
+                    `+${phone}@c.us`,
                     content,
                     {}
                 );
