@@ -111,7 +111,6 @@ class ServerHttp {
         this.app.post(`/chatwoot`, this.chatwootCtrl)
    
 
-        this.app.listen(9999)
     }
 
 }
