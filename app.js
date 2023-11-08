@@ -7,7 +7,6 @@ const ServerHttp = require('./src/http')
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
 
-const PORT = process.env.PORT ?? 3001
 let motivo;  
 
 
@@ -507,7 +506,7 @@ await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 1
 await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
 
 return  gotoFlow(Menuflow);
-}   [flowVenta, flowsAlquiler, Cliente]})
+}   })
 
 
 
@@ -538,13 +537,14 @@ return  gotoFlow(Menuflow);
        await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
       
       return  gotoFlow(Menuflow);
-         }   [flowVenta, flowsAlquiler, Cliente]});
+         } 
+        });
         
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
 
-    const serverHttp = new ServerHttp(PORT)
+    const serverHttp = new ServerHttp()
 
     const chatwoot = new ChatwootClass({
         account: '1',
@@ -566,14 +566,15 @@ return  gotoFlow(Menuflow);
           numberId: '133862353148114',
           verifyToken: 'asdasd',
           version: 'v18.0'})
-    
+        
+          
         const bot = await createBot({
             flow: adapterFlow,
             provider: adapterProvider,
             database: adapterDB,
         })
     
-    
+        serverHttp.initialization(bot)
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
          */
