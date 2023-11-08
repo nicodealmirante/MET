@@ -83,7 +83,7 @@ const ordenadores = organizadores("./flow/ordenadores");
  /////////////////  FLUJO MENU
   
  if (ctx.body == 'CONTINUAR CON ASESOR') {
-  await adapterProvider.sendMessage(mywhatsa, `*VENTA* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+   adapterProvider.sendMessage(mywhatsa, `*VENTA* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
 
 await  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
 
