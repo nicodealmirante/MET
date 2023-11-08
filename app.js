@@ -123,7 +123,7 @@ return  gotoFlow(Menuflow);})
     
     const main = async () => {
         const adapterDB = new MockAdapter()
-        const adapterFlow = createFlow([alquiler, venta, ordenadores, Menuflow,])
+        const adapterFlow = createFlow([alquiler, venta, ordenadores, Menuflow, audiono])
 
         const adapterProvider = createProvider(MetaProvider, {
           
@@ -169,8 +169,6 @@ return  gotoFlow(Menuflow);})
                 }, chatwoot)
             })
         })
-
-    
 
     }
     
