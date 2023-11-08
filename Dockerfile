@@ -1,5 +1,5 @@
 FROM node:18-bullseye as bot
-WORKDIR /app
+WORKDIR /app/workspace
 COPY package*.json ./
 RUN npm i
 COPY . .
