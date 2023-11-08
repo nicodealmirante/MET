@@ -325,7 +325,13 @@ return gotoFlow(Menuflow)
 return endFlow()
 }}
 )        
-   
+
+
+       const flowWEB = addKeyword('INFO DE LA EMPRESA')
+       .addAnswer('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
+       .addAnswer('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
+       .addAnswer('Selfie Mirror', {media: 'video.mp4'})
+       .addAction(async (ctx, {gotoFlow}) => {gotoFlow(MENU)})
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
 
   const flowPrincipal = addKeyword(EVENTS.WELCOME) 
@@ -335,6 +341,7 @@ return endFlow()
  .addAction(gotoFlow(MENU))
 
  const MENU = addKeyword('MENU')
+
   .addAnswer("*INFORMACION AUTOMATICA*", {capture: false, 
             buttons: [
                 {body: '📙 INFO. ALQUILER 📙'},
@@ -349,17 +356,14 @@ return endFlow()
           {body: 'INFO DE LA EMPRESA'},
           {body: 'PAGINA WEB'},
       ], delay: 3000 })
+      const MENU = addKeyword('MENU')
    
       const flowWEB = addKeyword('PAGINA WEB', {sensitive: true})
    .addAnswer('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
    .addAnswer('FILA VIP \nhttps://filavip.ar')  
    .addAction(async (ctx, {gotoFlow}) => {gotoFlow(MENU)})
 
-       const flowWEB = addKeyword('INFO DE LA EMPRESA')
-       .addAnswer('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
-       .addAnswer('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
-       .addAnswer('Selfie Mirror', {media: 'video.mp4'})
-       .addAction(async (ctx, {gotoFlow}) => {gotoFlow(MENU)})
+   
           
  /////////////////  FLUJO MENU
   
