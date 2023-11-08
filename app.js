@@ -530,7 +530,7 @@ curl 'https://graph.facebook.com/v18.0/106540352242922/messages' \
   buttons: [
       {body: 'HABLAR CON ASESOR'},
       {body: 'INFO DE LA EMPRESA'},
-      {body: 'adadsdd', url: "wa.me/+541166704322"},
+      {body: 'adadsdd', url: "https://wa.me/+541166704322"},
   ],
 delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
   await provider.vendor.sendMessage(id,{text:'HABLAR CON ASESOR https://www.youtube.com/watch?v=eDSI30SQbZA'});
