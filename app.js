@@ -84,36 +84,16 @@ const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
 
           .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
 
-           .addAnswer('Captura 360', {media: 'video360.mp4'})
-
-          .addAnswer("*CONTINUAR*", { 
-                     capture: true,
-                              buttons: [
-                {body: 'CONTINUAR CON AGENTE'},{body: 'VOLVER AL MENU'},
-                 {body: 'FINALIZAR'},
-                          ],delay: 3000}, async (ctx, 
-                               { endFlow, gotoFlow, flowDynamic}) => { 
-            if(ctx.body == 'CONTINUAR CON AGENTE'){
-                    return gotoFlow(Cliente)}
-           else   if(ctx.body == 'VOLVER AL MENU') {
-                      return gotoFlow(Menuflow)}
-          else   if (ctx.body == 'FINALIZAR') {
-               await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
-                  return endFlow()
-                }
-          }
-    )                  
-            
-
-.addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)', {capture: true}, async(ctx,{}) => {fecha=ctx.body})
-         
-
-
+         .addAnswer('Captura 360', {media: 'video360.mp4'})
+.addaction ( async (ctx, 
+  { endFlow, gotoFlow, flowDynamic}) => { 
+                      return gotoFlow(floTRAS)   }   )          
 
 
 ////XXXXXXXXXXXXX     TRASLADOS    XXXXXXXXXXXXXXXXXXX  
 //////////////////////////////////////////////////////
-
+const floTRAS = addKeyword('TRASLETI')
+.addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)', {capture: true}, async(ctx,{}) => {fecha=ctx.body})
 
 .addAnswer('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', {capture:true}, async (ctx, { endFlow, provider, flowDynamic}) => {
 
@@ -422,7 +402,7 @@ return  gotoFlow(Menuflow);
     
     const main = async () => {
         const adapterDB = new MockAdapter()
-        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente,  audiono,  flowWEB, flowINFO, bbMENU, xxMENU])
+        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente,floTRAS,  audiono,  flowWEB, flowINFO, bbMENU, xxMENU])
 
         const adapterProvider = createProvider(MetaProvider, {
           
