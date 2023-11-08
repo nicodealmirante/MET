@@ -344,7 +344,6 @@ if((asd)<=200){
 
 
 
-awprovider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body} \nFecha ${fecha}* \n\n ${traslados}`)
 await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
 return endFlow(Menuflow)})
 /////////////////////////////////////////////////////////////////////////////////////////// FLUJO VENTA
@@ -376,7 +375,7 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
 
  return gotoFlow(Menuflow)
 }
-)
+)*/ 
 
   const flowVenta = addKeyword(['INFO. VENTA'], { sensitive: true })
           .addAnswer('👌 Te envío la info de Venta.',{delay: 2000})
@@ -538,7 +537,7 @@ return  gotoFlow(Menuflow);
           {body: 'INFO. VENTA'},
           {body: 'UNIFILA LED'},
       ], delay: 2000 }
-    ) 
+    ) /*
     .addAnswer("*Contacto*", { 
       capture: true,
       buttons: [
@@ -709,7 +708,7 @@ await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
 return  gotoFlow(Menuflow);
 }   })
 
-
+/*
 
   const Menuflow2 = addKeyword(["me-?nu"], { sensitive: true })
 
@@ -741,7 +740,7 @@ return  gotoFlow(Menuflow);
          } 
         });
         
-
+ */
 ////////////////////////////////////////////////////////////////////////////////////////
 
 
