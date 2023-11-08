@@ -1,4 +1,4 @@
-equire('dotenv').config()
+require('dotenv').config()
 const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
 const Queue = require('queue-promise')
 const MetaProvider = require('@bot-whatsapp/provider/meta')
