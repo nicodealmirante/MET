@@ -296,15 +296,15 @@ const KEYGOOGLE = process.env.google;
            )
 
 
-.addAnswer("*CONTINUAR*", { 
-      capture: true,
-      buttons: [
-          {body: 'CONTINUAR CON AGENTE'},
-          {body: 'VOLVER AL MENU'},
-          {body: 'FINALIZAR'},
-      ], delay: 2000
+                                  .addAnswer("*CONTINUAR*", { 
+                                        capture: true,
+                                        buttons: [
+                                            {body: 'CALCULAR VIATICOS'},
+                                            {body: 'CONTINUAR CON ASESOR'},
+                                            {body: 'VOLVER AL MENU'},
+                                        ], delay: 2000
 
-  }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
+                                    }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
 
 if (ctx.body == 'CONTINUAR CON AGENTE') {
 
@@ -340,7 +340,7 @@ return endFlow()
  .addAnswer("Tambien puede dejarnos su telefono o comunicarse con un asesor al *+5491140054474 - NICOLAS*")
  .addAction(gotoFlow(MENU))
 
- const MENU = addKeyword('MENU')
+ const xxMENU = addKeyword('MENU')
 
   .addAnswer("*INFORMACION AUTOMATICA*", {capture: false, 
             buttons: [
@@ -423,7 +423,7 @@ return  gotoFlow(Menuflow);
     
     const main = async () => {
         const adapterDB = new MockAdapter()
-        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente,  audiono,  flowWEB, flowINFO, bbMENU, MENU])
+        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente,  audiono,  flowWEB, flowINFO, bbMENU, xxMENU])
 
         const adapterProvider = createProvider(MetaProvider, {
           
