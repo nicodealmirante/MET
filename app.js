@@ -76,7 +76,7 @@ const ordenadores = organizadores("./flow/ordenadores");
    
    .addAnswer('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
    .addAnswer('FILA VIP \nhttps://filavip.ar')  
-   .addAction(async (ctx, {gotoFlow}) => {gotoFlow(Menuflow)})
+   .addAction(async (ctx, {gotoFlow}) => {gotoFlow(Menuflow)
 
    
           
@@ -98,10 +98,10 @@ if (ctx.body == 'PAGINA WEB') {
 await flowDynamic('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
 await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
 
-await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
+await flowDynamic('Selfie Mirror', {media: 'video.mp4'})}
 
-return  gotoFlow(Menuflow);
-} 
+return  gotoFlow(Menuflow);})
+
 
         
 
