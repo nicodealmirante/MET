@@ -165,7 +165,7 @@ const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
 const  PORTS = 3004
 let motivo;  
-const mywhatsa = "+5491140054474@s.whatsapp.net";
+const mywhatsa = "5491140054474@s.whatsapp.net";
 
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
  *
