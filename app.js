@@ -70,16 +70,10 @@ const Menuflow = addKeyword('MENU')
       { body: 'INFO DE LA EMPRESA' },
       { body: 'PAGINA WEB' },
     ],
-    delay: 3000
-  })
-  .addAnswer('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')
-  .addAnswer('FILA VIP \nhttps://filavip.ar')
-  .addAction(async (ctx, { gotoFlow }) => {
-    gotoFlow(Menuflow)
-  })
+    delay: 3000})
 
 // Lógica para procesar opciones en el menú
-if (ctx.body == 'CONTINUAR CON ASESOR') {
+if (ctx.body == 'HABLAR CON ASESOR') {
   adapterProvider.sendMessage(mywhatsa, `*VENTA* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`, {})
   flowDynamic('UN AGENTE SE COMUNICARÁ CON USTED A LA BREVEDAD')
   gotoFlow(Menuflow)
