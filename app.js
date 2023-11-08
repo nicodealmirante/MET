@@ -12,9 +12,9 @@ let motivo;
 const mywhatsa = "+5491140054474@s.whatsapp.net";
 
 
-const venta = require("./flow/venta");
-const alquiler = require("./flow/alquiler");
-const ordenadores = organizadores("./flow/ordenadores");
+const venta = require("./flows/venta");
+const alquiler = require("./flows/alquiler");
+const ordenadores = organizadores("./flows/ordenadores");
 
 
 ///////////////////////////////////// XXXXXXXXXXXXXXXXXXXXX ////////////////////////////
