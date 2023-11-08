@@ -1,10 +1,18 @@
 const express = require( 'express' );
-const app = express();
-app.use( express.json() );
+
+
+        const app = express();
+
+     app.use( express.json() );
 
 app.post( '/', ( req, res ) => {
     console.log( 'received webhook', req.body );
     res.sendStatus( 200 )})
+
+
+    class ServerHttp {
+
+
 
     /**
      * Este el controlador del los enventos del Chatwoot
@@ -88,5 +96,5 @@ app.listen( 9000, () => console.log( 'Node.js server started on port 9000.' ) );
 
 }
 
-
+    }
 module.exports = ServerHttp
