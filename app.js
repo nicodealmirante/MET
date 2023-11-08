@@ -1,15 +1,13 @@
-const {
-  createBot,
-  createProvider,
-  createFlow,
-  addKeyword,
-  EVENTS
-} = require("@bot-whatsapp/bot");
+require('dotenv').config()
+const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
+const Queue = require('queue-promise')
+const MetaProvider = require("@bot-whatsapp/provider/meta")
+const MockAdapter = require('@bot-whatsapp/database/mock')
+const ServerHttp = require('./src/http')
 
-const MetaProvider = require("@bot-whatsapp/provider/meta");
-//const ServerAPI = require("./http");
-const MockAdapter = require("@bot-whatsapp/database/mock");
-///const ChatWood = require("./services/chatwood");
+const ChatwootClass = require('./src/chatwoot/chatwoot.class')
+const { handlerMessage } = require('./src/chatwoot')
+
 let motivo;  
 
 
@@ -57,10 +55,10 @@ console.log('Numero Agendado de Alquiler');*/
 
 const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
     .addAnswer("*UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD*", {
-      capture: false},async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
+      capture: false},async (ctx, { endFlow, gotoFlow, adapterProvider, flowDynamic}) => {
         const mywhatsa = "+5491140054474@s.whatsapp.net"
         console.log('Hablar')
-   provider.sendtext(mywhatsa, `*Directo* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+ await provider.sendtext(mywhatsa, `*Directo* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
    await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
 return endFlow(Menuflow)
 }
@@ -509,7 +507,7 @@ await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 1
 await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
 
 return  gotoFlow(Menuflow);
-}   [flowVenta, flowsAlquiler, Cliente]})
+}   })
 
 
 
@@ -540,57 +538,76 @@ return  gotoFlow(Menuflow);
        await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
       
       return  gotoFlow(Menuflow);
-         }   [flowVenta, flowsAlquiler, Cliente]});
+         } 
+        });
         
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
-const main = async () => {
-  const adapterDB = new MockAdapter();
 
+const serverHttp = new ServerHttp(PORT)
 
-  const adapterProvider = createProvider(MetaProvider, {
-    jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
-    numberId: '133862353148114',
-    verifyToken: 'asdasd',
-    version: 'v18.0',
+    const chatwoot = new ChatwootClass({
+        account: '1',
+        token: '95dcabeabb05a74ac8b2ef110b002dc6',
+        endpoint: 'https://chatwoot-production-9374.up.railway.app/webhooks/whatsapp/+5491166704322'
+        
+    })
+    
+    const queue = new Queue({
+        concurrent: 1,
+        interval: 500
+    })
+    
+    const main = async () => {
+        const adapterDB = new MockAdapter()
+        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono, Menuflow2, alquila22])
 
-});
+        const adapterProvider = createProvider(MetaProvider, {
+          jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
+          numberId: '133862353148114',
+          verifyToken: 'asdasd',
+          version: 'v18.0'})
+        
+          
+        const bot = await createBot({
+            flow: adapterFlow,
+            provider: adapterProvider,
+            database: adapterDB,
+        })
+    
+        serverHttp.initialization(bot)
+        /**
+         * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
+         */
+    
+        adapterProvider.on('message', (payload) => {
+            queue.enqueue(async () => {
+                await handlerMessage({
+                    phone:payload.from, 
+                    name:payload.pushName,
+                    message: payload.body, 
+                    mode:'incoming'
+                }, chatwoot)
+            });
+        })
+    
+        /**
+         * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
+         */
+        bot.on('send_message', (payload) => {
+            queue.enqueue(async () => {
+                await handlerMessage({
+                    phone:payload.numberOrId, 
+                    name:payload.pushName,
+                    message: payload.answer, 
+                    mode:'outgoing'
+                }, chatwoot)
+            })
+        })
 
+    
 
-  const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono, Menuflow2, alquila22])
-
-
-
-
-
-
-
-  createBot(
-    {
-      flow: adapterFlow,
-      provider: adapterProvider,
-      database: adapterDB,
-    },
-    {
-      globalState: {
-        status: true,
-        inbox_id: 1, //id inbox Leifer-Ventas
-      },
-      extensions: {
-        database: adapterDB,
-      },
     }
-  );
-
-};
-
-main();
-
-
-
-
-
-
-
-
+    
+    main()
