@@ -10,6 +10,8 @@ const { handlerMessage } = require('./src/chatwoot')
 const  PORTS = 3004
 let motivo;  
 const mywhatsa = "+5491140054474@s.whatsapp.net";
+
+
 const venta = require("./flow/venta");
 const alquiler = require("./flow/alquiler");
 const ordenadores = organizadores("./flow/ordenadores");
@@ -66,9 +68,7 @@ const ordenadores = organizadores("./flow/ordenadores");
           {body: 'INFO DE LA EMPRESA'},
           {body: 'PAGINA WEB'},
       ], delay: 3000 })
-      const bbMENU = addKeyword('MENU')
    
-      const flowWEB = addKeyword('PAGINA WEB', {sensitive: true})
    .addAnswer('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
    .addAnswer('FILA VIP \nhttps://filavip.ar')  
    .addAction(async (ctx, {gotoFlow}) => {gotoFlow(xxMENU)})
@@ -82,7 +82,7 @@ const ordenadores = organizadores("./flow/ordenadores");
 
 await  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
 
-return gotoFlow(MENU)
+return gotoFlow(Menuflow)
  } else 
 if (ctx.body == 'PAGINA WEB') {
   await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
@@ -118,7 +118,7 @@ return  gotoFlow(Menuflow);
     
     const main = async () => {
         const adapterDB = new MockAdapter()
-        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente,floTRAS,  audiono,  flowWEB, flowINFO, bbMENU, xxMENU])
+        const adapterFlow = createFlow([alquiler, venta, ordenadores, Menuflow,])
 
         const adapterProvider = createProvider(MetaProvider, {
           
