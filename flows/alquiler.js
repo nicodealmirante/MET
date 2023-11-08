@@ -59,7 +59,7 @@ const alquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
 if (ctx.body == 'CONTINUAR CON ASESOR') {
 flowDynamic('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)', {capture: true}, async(ctx,{}) => {fecha=ctx.body})
 
-flowDynamic('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', {capture:true}, async (ctx, { endFlow, provider, flowDynamic}) => {
+flowDynamic('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', {capture:true}, async (ctx, { endFlow, adapterProvider, flowDynamic}) => {
 
 const KEYGOOGLE = process.env.google;         
 
@@ -89,10 +89,7 @@ const KEYGOOGLE = process.env.google;
                    asd = Math.round(response.data["rows"][0]["elements"][0]["distance"].value/1000)
 
                    ///////////////////// KM X 250 = MULTIPLOS DE 3000 REDONDO //////////////////
-                  total=(((asd*250)/3000)*3000)}})
-
-                    .addAction(async (ctx, { adapterProvider, gotoFlow, flowDynamic}) => { 
-                 
+                  total=(((asd*250)/3000)*3000)}})                 
                  
                       await getTicket(ctx.body)
 
@@ -101,7 +98,7 @@ const KEYGOOGLE = process.env.google;
 
                  await flowDynamic(traslados)
                     await adapterProvider(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body} \nFecha ${fecha}* \n\n ${traslados}`,{})
-                     await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')})
+                     await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
            
 
 return gotoFlow(Menuflow)
