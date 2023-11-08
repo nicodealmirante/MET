@@ -111,4 +111,4 @@ await fetch('https://dolarapi.com/v1/dolares/blue')
                         }
                                    
                         )})
-                        module.exports= { ordenadores} 
+                        module.exports= { venta} 
