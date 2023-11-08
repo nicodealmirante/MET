@@ -530,10 +530,10 @@ curl 'https://graph.facebook.com/v18.0/106540352242922/messages' \
   buttons: [
       {body: 'HABLAR CON ASESOR'},
       {body: 'INFO DE LA EMPRESA'},
-      {body: 'adadsdd', url: "https://wa.me/+541166704322"},
+      {body: 'adadsdd', url: "https://wa.me/541166704322"},
   ],
 delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
-  await provider.vendor.sendMessage(id,{text:'HABLAR CON ASESOR https://www.youtube.com/watch?v=eDSI30SQbZA'});
+  await provider.vendor.sendMessage(id,{text:'HABLAR CON ASESOR',url: 'https://wa.me/541166704322'});
 if (ctx.body == 'PAGINA WEB') {
   await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
   await flowDynamic('FILA VIP \nhttps://filavip.ar')  
@@ -616,7 +616,7 @@ return  gotoFlow(Menuflow);
             database: adapterDB,
         })
     
-        serverHttp.initialization(bot)
+        ServerHttp.initialization(bot)
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
          */
