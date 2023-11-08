@@ -21,7 +21,7 @@ this.app.listen(this.port, () => console.log(`LISTO POR HTTP://LOCALHOST:${this.
 }
 
 start()
-this.buildApp() 
+this.buildApp(this.app) 
   }
 
 }
