@@ -70,7 +70,7 @@ const Menuflow = addKeyword('MENU')
       { body: 'INFO DE LA EMPRESA' },
       { body: 'PAGINA WEB' },
     ],
-    delay: 3000})
+    delay: 3000}, async (ctx, { gotoFlow }) => {
 
 // Lógica para procesar opciones en el menú
 if (ctx.body == 'HABLAR CON ASESOR') {
@@ -87,8 +87,8 @@ if (ctx.body == 'HABLAR CON ASESOR') {
   flowDynamic('Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs')
   flowDynamic('Selfie Mirror', { media: 'video.mp4' })
   gotoFlow(Menuflow)
-}
-
+}})
+    
 const chatwoot = new ChatwootClass({
   account: process.env.account,
   token: process.env.token,
