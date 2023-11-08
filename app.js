@@ -125,7 +125,7 @@ const main = async () => {
     database: adapterDB,
   })
 
-  // ServerHttp.initialization(bot) - Esto debe ser descomentado si deseas habilitar un servidor HTTP
+ ServerHttp.initialization(bot) 
 
   // Los mensajes entrantes al bot (cuando el cliente nos escribe)
   adapterProvider.on('message', (payload) => {
