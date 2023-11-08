@@ -212,8 +212,7 @@ console.log('Numero Agendado de Alquiler');*/
 const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
     .addAnswer("*UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD*", {
       capture: false},async (ctx, { endFlow, gotoFlow, adapterProvider, flowDynamic}) => {
-        console.log('Hablar')
-        adapterProvider.sendMessage(mywhatsa, `*Directo* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+      await  adapterProvider.sendMessage(mywhatsa, `*Directo* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
    await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
 return endFlow(Menuflow)
 }
