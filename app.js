@@ -9,7 +9,7 @@ const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
 const  PORTS = 3004
 let motivo;  
-
+const mywhatsa = "+5491140054474@s.whatsapp.net";
 
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
  *
@@ -56,7 +56,6 @@ console.log('Numero Agendado de Alquiler');*/
 const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
     .addAnswer("*UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD*", {
       capture: false},async (ctx, { endFlow, gotoFlow, adapterProvider, flowDynamic}) => {
-        const mywhatsa = "+5491140054474@s.whatsapp.net"
         console.log('Hablar')
  await provider.sendtext(mywhatsa, `*Directo* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
    await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
@@ -186,7 +185,7 @@ if((asd)<=200){
   await flowDynamic(traslados)
 }
 
-  const mywhatsa = "+5491140054474@s.whatsapp.net"
+
 
   provider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body} \nFecha ${fecha}* \n\n ${traslados}`)
 await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
@@ -315,9 +314,8 @@ await flowDynamic([`*VALOR FILA VIP*\n
   }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
 
 if (ctx.body == 'CONTINUAR CON AGENTE') {
-  const mywhatsa = "+5491140054474@s.whatsapp.net"
 
-  provider.sendtext(mywhatsa, `*VENTA* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+  await adapterProvider.sendMessage(mywhatsa, `*VENTA* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`,{})
 await  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
 return gotoFlow(Menuflow)
 return endFlow(flowVenta)
@@ -388,7 +386,7 @@ return  gotoFlow(Menuflow);
           {body: 'INFO DE LA EMPRESA'},
           {body: 'PAGINA WEB'},
       ],
-   delay: 3000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
+   delay: 3000 }, async (ctx, { fallBack, gotoFlow, adapterProvider, flowDynamic}) => {
 
 if (ctx.body == 'PAGINA WEB') {
 await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
@@ -532,14 +530,14 @@ curl 'https://graph.facebook.com/v18.0/106540352242922/messages' \
   buttons: [
       {body: 'HABLAR CON ASESOR'},
       {body: 'INFO DE LA EMPRESA'},
-      {body: 'PAGINA WEB'},
+      {body: 'adadsdd', url: "wa.me/+541166704322"},
   ],
 delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
+  await provider.vendor.sendMessage(id,{text:'HABLAR CON ASESOR https://www.youtube.com/watch?v=eDSI30SQbZA'});
 if (ctx.body == 'PAGINA WEB') {
   await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
-
   await flowDynamic('FILA VIP \nhttps://filavip.ar')  
-  return  gotoFlow(Menuflow);
+    gotoFlow(Menuflow);
 } else if (ctx.body == 'HABLAR CON ASESOR') {
 nombre = "Cliente"
 return gotoFlow(Cliente)
@@ -556,7 +554,7 @@ return  gotoFlow(Menuflow);
 
   const Menuflow2 = addKeyword(["me-?nu"], { sensitive: true })
 
-
+  
      .addAnswer("Menu", { 
                       capture: true,
                       buttons: [
@@ -565,22 +563,7 @@ return  gotoFlow(Menuflow);
                           {body: 'PAGINA WEB'},
                       ],
                    delay: 2000 }, async (ctx, { gotoFlow, provider, flowDynamic}) => {
-                    const headerText = 'MENU'
-                    const bodyText = 'Informacion y Precios'
-                    const footerText = 'Seleccione'
-                    const buttonList = 'Lista'
-                    const listParams = [
-                        {
-                           "action": {
-                    "name": "cta_url",
-                    "parameters": {
-                        "display_text": "See Dates",
-                        "url": "https://www.luckyshrub.com?clickID=kqDGWd24Q5TRwoEQTICY7W1JKoXvaZOXWAS7h1P76s0R7Paec4"
-                    }
-                   }
-                  }
-                   ]
-                    await provider.sendList(ctx.from, headerText, bodyText, footerText, buttonList ,listParams)
+              
               if (ctx.body == 'PAGINA WEB') {
                 await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
 
@@ -603,7 +586,6 @@ return  gotoFlow(Menuflow);
 ////////////////////////////////////////////////////////////////////////////////////////
 
 
-const serverHttp = new ServerHttp(PORT)
 
     const chatwoot = new ChatwootClass({
         account: '1',
