@@ -51,7 +51,7 @@ const ordenadores = organizadores("./flow/ordenadores");
   
   .addAnswer("Hola, Gracias por comunicarse. Mi nombre es Luna, Soy una recepcionista virtual. Estoy configurada para brindarle informacion completa e inmediata. En el siguiente menu puede obtener informacion detallada sobre nuestros productos.")
  .addAnswer("Tambien puede dejarnos su telefono o comunicarse con un asesor al *+5491140054474 - NICOLAS*")
- .addAction(async (ctx, {gotoFlow}) => {gotoFlow(xxMENU)})
+ .addAction(async (ctx, {gotoFlow}) => {gotoFlow(Menuflow)})
 
  const MENU = addKeyword('MENU')
 
@@ -71,7 +71,7 @@ const ordenadores = organizadores("./flow/ordenadores");
    
    .addAnswer('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
    .addAnswer('FILA VIP \nhttps://filavip.ar')  
-   .addAction(async (ctx, {gotoFlow}) => {gotoFlow(xxMENU)})
+   .addAction(async (ctx, {gotoFlow}) => {gotoFlow(Menuflow)})
 
    
           
