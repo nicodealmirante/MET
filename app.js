@@ -3,7 +3,7 @@ const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@
 const Queue = require('queue-promise')
 const MetaProvider = require("@bot-whatsapp/provider/meta")
 const MockAdapter = require('@bot-whatsapp/database/mock')
-const ServerHttp = require('./src/http')
+const ServerHttp = require('express')
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
 
@@ -536,15 +536,16 @@ return  gotoFlow(Menuflow);
    
        await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
       
-      return  gotoFlow(Menuflow);
-         } 
+      return  gotoFlow(Menuflow);}
+      
         });
-        
+    
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
 
-const serverHttp = new ServerHttp()
+
+
 
     const chatwoot = new ChatwootClass({
         account: '1',
@@ -574,7 +575,14 @@ const serverHttp = new ServerHttp()
             database: adapterDB,
         })
     
-        serverHttp.initialization(bot)
+      app.post('/send-message-bot', async (req, res) => {
+        await adapterProvider.sendText('5491159132301@c.us', 'Mensaje desde API')
+        res.send({ data: 'enviado!' })
+    })
+    const PORT = 4000
+    app.listen(PORT, () => console.log(`http://localhost:${PORT}`))
+}
+
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
          */
@@ -604,8 +612,5 @@ const serverHttp = new ServerHttp()
             })
         })
 
-    
-
-    }
     
     main()
