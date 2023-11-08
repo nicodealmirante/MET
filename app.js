@@ -342,7 +342,7 @@ if((asd)<=200){
 
 
 
-  adapterProvider.sendMessage(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body} \nFecha ${fecha}* \n\n ${traslados}`)
+  provider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body} \nFecha ${fecha}* \n\n ${traslados}`)
 await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
 return endFlow(Menuflow)})
 /////////////////////////////////////////////////////////////////////////////////////////// FLUJO VENTA
@@ -466,11 +466,11 @@ await flowDynamic([`*VALOR FILA VIP*\n
           {body: 'VOLVER AL MENU'},
           {body: 'FINALIZAR'},
       ], delay: 2000
-  }, async (ctx, { endFlow, gotoFlow, adapterProvider, flowDynamic}) => {
+  }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
 
 if (ctx.body == 'CONTINUAR CON AGENTE') {
 
-  await adapterProvider.sendMessage(mywhatsa, `*VENTA* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+  await provider.sendtext(mywhatsa, `*VENTA* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
 await  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
 return gotoFlow(Menuflow)
 return endFlow(flowVenta)
