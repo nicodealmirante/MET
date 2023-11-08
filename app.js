@@ -356,7 +356,7 @@ return endFlow()
           {body: 'INFO DE LA EMPRESA'},
           {body: 'PAGINA WEB'},
       ], delay: 3000 })
-      const MENU = addKeyword('MENU')
+      const bbMENU = addKeyword('MENU')
    
       const flowWEB = addKeyword('PAGINA WEB', {sensitive: true})
    .addAnswer('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
@@ -423,7 +423,7 @@ return  gotoFlow(Menuflow);
     
     const main = async () => {
         const adapterDB = new MockAdapter()
-        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente,  audiono,  flowWEB, flowINFO, MENU])
+        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente,  audiono,  flowWEB, flowINFO, bbMENU, MENU])
 
         const adapterProvider = createProvider(MetaProvider, {
           
