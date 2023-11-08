@@ -409,19 +409,50 @@ return  gotoFlow(Menuflow);
     
  /**   {capture: true},async (ctx, {provider}) => {
 
+curl 'https://graph.facebook.com/v18.0/106540352242922/messages' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer EAAJB...' \
+-d '{
+    "messaging_product": "whatsapp",
+    "recipient_type": "individual",
+    "to": "+16505555555",
+    "type": "interactive",
+    "interactive": {
+        "type": "cta_url",
+        "header": {
+            "text": "Available Dates"
+        },
+        "body": {
+            "text": "Tap the button below to see available dates."
+        },
+        "footer": {
+            "text": "Dates subject to change."
+        },
+        "action": {
+            "name": "cta_url",
+            "parameters": {
+                "display_text": "See Dates",
+                "url": "https://www.luckyshrub.com?clickID=kqDGWd24Q5TRwoEQTICY7W1JKoXvaZOXWAS7h1P76s0R7Paec4"
+            }
+        }
+    }
+}'
+
+
+
+  
             const headerText = 'MENU'
             const bodyText = 'Informacion y Precios'
             const footerText = 'Seleccione'
             const buttonList = 'Lista'
             const listParams = [
                 {
-                    title: 'COMPRAR',
-                    rows: [
-                        {
-                            id: 'ID_1',
-                            title: 'Selfie Mirror',
-                            description: 'Espejo Magico'
-                        },
+                   "action": {
+            "name": "cta_url",
+            "parameters": {
+                "display_text": "See Dates",
+                "url": "https://www.luckyshrub.com?clickID=kqDGWd24Q5TRwoEQTICY7W1JKoXvaZOXWAS7h1P76s0R7Paec4"
+            }
                         {
                             id: 'ID_2',
                             title: 'FilaVip',
@@ -463,6 +494,19 @@ return  gotoFlow(Menuflow);
                   
                     ]
                 }
+  
+            const headerText = 'MENU'
+            const bodyText = 'Informacion y Precios'
+            const footerText = 'Seleccione'
+            const buttonList = 'Lista'
+            const listParams = [
+                {
+                   "action": {
+            "name": "cta_url",
+            "parameters": {
+                "display_text": "See Dates",
+                "url": "https://www.luckyshrub.com?clickID=kqDGWd24Q5TRwoEQTICY7W1JKoXvaZOXWAS7h1P76s0R7Paec4"
+            }
             ]
             await provider.sendList(ctx.from, headerText, bodyText, footerText, buttonList ,listParams)
         }
@@ -491,7 +535,6 @@ return  gotoFlow(Menuflow);
       {body: 'PAGINA WEB'},
   ],
 delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
-
 if (ctx.body == 'PAGINA WEB') {
   await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
 
@@ -513,7 +556,7 @@ return  gotoFlow(Menuflow);
 
   const Menuflow2 = addKeyword(["me-?nu"], { sensitive: true })
 
-  
+
      .addAnswer("Menu", { 
                       capture: true,
                       buttons: [
@@ -522,7 +565,22 @@ return  gotoFlow(Menuflow);
                           {body: 'PAGINA WEB'},
                       ],
                    delay: 2000 }, async (ctx, { gotoFlow, provider, flowDynamic}) => {
-              
+                    const headerText = 'MENU'
+                    const bodyText = 'Informacion y Precios'
+                    const footerText = 'Seleccione'
+                    const buttonList = 'Lista'
+                    const listParams = [
+                        {
+                           "action": {
+                    "name": "cta_url",
+                    "parameters": {
+                        "display_text": "See Dates",
+                        "url": "https://www.luckyshrub.com?clickID=kqDGWd24Q5TRwoEQTICY7W1JKoXvaZOXWAS7h1P76s0R7Paec4"
+                    }
+                   }
+                  }
+                   ]
+                    await provider.sendList(ctx.from, headerText, bodyText, footerText, buttonList ,listParams)
               if (ctx.body == 'PAGINA WEB') {
                 await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
 
@@ -545,7 +603,7 @@ return  gotoFlow(Menuflow);
 ////////////////////////////////////////////////////////////////////////////////////////
 
 
-const serverHttp = new ServerHttp(PORTS)
+const serverHttp = new ServerHttp(PORT)
 
     const chatwoot = new ChatwootClass({
         account: '1',
