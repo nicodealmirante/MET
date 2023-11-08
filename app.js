@@ -4,12 +4,12 @@ const Queue = require('queue-promise')
 const MetaProvider = require("@bot-whatsapp/provider/meta")
 const MockAdapter = require('@bot-whatsapp/database/mock')
 const ServerHttp = require('./src/http')
-const axios = require('axios');
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
 const  PORTS = 3004
 let motivo;  
 const mywhatsa = "+5491140054474@s.whatsapp.net";
+const axios = require('axios')
 
 
 const Cliente = addKeyword(["ASESOR"],{sensitive:true})
@@ -87,13 +87,19 @@ const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
          .addAnswer('Captura 360', {media: 'video360.mp4'})
 .addaction ( async (ctx, 
   { endFlow, gotoFlow, flowDynamic}) => { 
-                      return gotoFlow(floTRAS)   }   )          
+                      return gotoFlow(Menuflow)}
+    )                  
+            
+
+.addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)', {capture: true}, async(ctx,{}) => {fecha=ctx.body})
+         
+
+
 
 
 ////XXXXXXXXXXXXX     TRASLADOS    XXXXXXXXXXXXXXXXXXX  
 //////////////////////////////////////////////////////
-const floTRAS = addKeyword('TRASLETI')
-.addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)', {capture: true}, async(ctx,{}) => {fecha=ctx.body})
+
 
 .addAnswer('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', {capture:true}, async (ctx, { endFlow, provider, flowDynamic}) => {
 
@@ -125,19 +131,18 @@ const KEYGOOGLE = process.env.google;
                    asd = Math.round(response.data["rows"][0]["elements"][0]["distance"].value/1000)
 
                    ///////////////////// KM X 250 = MULTIPLOS DE 3000 REDONDO //////////////////
-                  total=(((asd*250)/3000)*3000)}})
-                    .addAction(async (ctx, { adapterProvider, gotoFlow, flowDynamic}) => { 
-                 
-                 
-                      await getTicket(ctx.body)
+                  total=(((asd*250)/3000)*3000)
+                       }
+
+                await getTicket(ctx.body);
 
                   var traslados = `*TRASLADOS*\nDISTANCIA: *${Math.round(asd)}* KM \nTIEMPO: *${asd2}*\nLUGAR: *${res1}*\nVALOR: *$ ${total}*.-\n*`
 
 
                  await flowDynamic(traslados)
                     await adapterProvider(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body} \nFecha ${fecha}* \n\n ${traslados}`,{})
-                     await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')})
-           
+                     await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
+                           return endFlow(Menuflow)})
 
 ///////////////////////////////////// XXXXXXXXXXXXXXXXXXXXX ////////////////////////////
                          /////////     FLUJO VENTA UNIFILA     ///////////////////
@@ -245,7 +250,6 @@ const KEYGOOGLE = process.env.google;
                   
            .addAnswer('✈️ *Enviamos a todo el País*.', 
            { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => { let dolar
-
             //>>>>>>>>>>>>>>>>>>>>>>>>>> CAMBIO DOLAR <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
           await fetch('https://dolarapi.com/v1/dolares/blue')
@@ -275,8 +279,17 @@ const KEYGOOGLE = process.env.google;
                                         💲💲💲 AR$ 255.000 💲💲💲`])
                           }
            )
-                                 
 
+
+                                  .addAnswer("*CONTINUAR*", { 
+                                        capture: true,
+                                        buttons: [
+                                            {body: 'CALCULAR VIATICOS'},
+                                            {body: 'CONTINUAR CON ASESOR'},
+                                            {body: 'VOLVER AL MENU'},
+                                        ], delay: 2000
+
+                                    }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
 
 if (ctx.body == 'CONTINUAR CON AGENTE') {
 
@@ -295,8 +308,8 @@ return gotoFlow(Menuflow)
   await  flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
 
 return endFlow()
-}
-       
+}}
+)        
 
 
        const flowINFO = addKeyword('INFO DE LA EMPRESA')
@@ -395,7 +408,7 @@ return  gotoFlow(Menuflow);
     
     const main = async () => {
         const adapterDB = new MockAdapter()
-        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente,floTRAS,  audiono,  flowWEB, flowINFO, bbMENU, xxMENU])
+        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente,  audiono,  flowWEB, flowINFO, bbMENU, xxMENU])
 
         const adapterProvider = createProvider(MetaProvider, {
           
