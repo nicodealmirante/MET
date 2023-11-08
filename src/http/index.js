@@ -78,11 +78,7 @@ class ServerHttp {
                     content,
                     {}
                 );
-                await bot.providerClass.sendMessage(
-                    `${phone}`,
-                    content,
-                    {}
-                );
+
                 res.send('ok');
                 return;
                

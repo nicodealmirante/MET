@@ -7,7 +7,7 @@ const ServerHttp = require('./src/http')
 
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
-const PORT=3001
+const PORTS=3002
 let motivo;  
 
 
