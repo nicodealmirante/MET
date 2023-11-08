@@ -126,7 +126,7 @@ const KEYGOOGLE = process.env.google;
 
                    ///////////////////// KM X 250 = MULTIPLOS DE 3000 REDONDO //////////////////
                   total=(((asd*250)/3000)*3000)}})
-                    .addAction(async (ctx, { endFlow, gotoFlow, flowDynamic}) => { 
+                    .addAction(async (ctx, { adapterProvider, gotoFlow, flowDynamic}) => { 
                  
                  
                       await getTicket(ctx.body)
