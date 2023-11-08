@@ -8,7 +8,7 @@ providerWs;
 constructor(_providerWs){
 this.providerWs=_providerWs
 
-buildApp= () => {
+buildApp=(app) => {
 return this.app=express()
 .use(express.json())
 .use((req, _, next)=>{
