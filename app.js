@@ -14,7 +14,7 @@ const mywhatsa = "+5491140054474@s.whatsapp.net";
 
 const venta = require("./flows/venta");
 const alquiler = require("./flows/alquiler");
-const ordenadores = organizadores("./flows/ordenadores");
+const ordenadores = require("./flows/ordenadores");
 
 
 ///////////////////////////////////// XXXXXXXXXXXXXXXXXXXXX ////////////////////////////
