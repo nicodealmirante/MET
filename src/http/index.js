@@ -1,18 +1,32 @@
-const express = require( 'express' );
+const express = require('express')
+const cors = require('cors')
+const {join} = require('path')
+const {createReadStream} = require('fs')
 
+/**
+ * Esta clase esta relacionada con todo lo que tiene que ver
+ * con un endpoint o rutas de express para tener un punto de entrada
+ * externo y flexible
+ */
+class ServerHttp {
+    app;
+    port;
 
-        const app = express();
+    constructor(_port = 4000){
+        this.port = _port
+    }
 
-     app.use( express.json() );
-
-app.post( '/', ( req, res ) => {
-    console.log( 'received webhook', req.body );
-    res.sendStatus( 200 )})
-
-
-    class ServerHttp {
-
-
+    /**
+     * este es el controlador para mostar el qr code
+     * @param {*} _ 
+     * @param {*} res 
+     */
+    qrCtrl = (_, res) => {
+        const pathQrImage = join(process.cwd(), `bot.qr.png`);
+        const fileStream = createReadStream(pathQrImage);
+        res.writeHead(200, { "Content-Type": "image/png" });
+        fileStream.pipe(res);
+    }
 
     /**
      * Este el controlador del los enventos del Chatwoot
@@ -87,14 +101,34 @@ app.post( '/', ( req, res ) => {
             console.log(error)
             return res.status(405).send('Error')
         }
-    
+    }
 
+    /**
+     * Incia tu server http sera encargador de injectar el instanciamiento del bot
+     */
+    initialization = (bot = undefined) => {
+        if(!bot){
+            throw new Error('DEBES_DE_PASAR_BOT')
+        }
+        this.app = express()
+        this.app.use(cors())
+        this.app.use(express.json())
 
-app.listen( 9000, () => console.log( 'Node.js server started on port 9000.' ) );
+        this.app.use((req, _, next) => {
+            req.bot = bot;
+            next()
+        })
 
+        this.app.post(`/chatwoot`, this.chatwootCtrl)
+        this.app.get('/scan-qr',this.qrCtrl)
 
+        this.app.listen(this.port, () => {
+            console.log(``)
+            console.log(`🦮 http://localhost:${this.port}/scan-qr`)
+            console.log(``)
+        })
+    }
 
 }
 
-    }
 module.exports = ServerHttp
