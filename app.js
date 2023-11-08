@@ -211,8 +211,8 @@ console.log('Numero Agendado de Alquiler');*/
 
 const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
     .addAnswer("*UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD*", {
-      capture: false},async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
-        await provider.sendtext(mywhatsa, `*Directo* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+      capture: false},async (ctx, { endFlow, gotoFlow, MetaProvider, flowDynamic}) => {
+        await MetaProvider.sendtext(mywhatsa, `*Directo* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
    await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
 return endFlow(Menuflow)
 }
@@ -342,7 +342,7 @@ if((asd)<=200){
 
 
 
-await provider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body} \nFecha ${fecha}* \n\n ${traslados}`)
+awprovider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body} \nFecha ${fecha}* \n\n ${traslados}`)
 await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
 return endFlow(Menuflow)})
 /////////////////////////////////////////////////////////////////////////////////////////// FLUJO VENTA
@@ -688,7 +688,7 @@ curl 'https://graph.facebook.com/v18.0/106540352242922/messages' \
       {body: 'adadsdd', url: "https://wa.me/541166704322"},
   ],
 delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
-  await provider.sendtext(mywhatsa, ' CON ASESOR https://wa.me/541166704322')});
+  await provider.vendor.sendMessage(id,{text:'HABLAR CON ASESOR',url: 'https://wa.me/541166704322'});
 if (ctx.body == 'PAGINA WEB') {
   await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
   await flowDynamic('FILA VIP \nhttps://filavip.ar')  
@@ -703,7 +703,7 @@ await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 1
 await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
 
 return  gotoFlow(Menuflow);
-}  
+}   })
 
 
 
