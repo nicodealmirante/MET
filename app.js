@@ -360,150 +360,40 @@ return  gotoFlow(Menuflow);
 
 
 
-  const flowPrincipal = addKeyword(EVENTS.WELCOME)
+  const flowPrincipal = addKeyword(EVENTS.WELCOME) 
+  
+  .addAnswer("Hola, Gracias por comunicarse. Mi nombre es Luna, Soy una recepcionista virtual. Estoy configurada para brindarle informacion completa e inmediata. En el siguiente menu puede obtener informacion detallada sobre nuestros productos.")
+ .addAnswer("Tambien puede dejarnos su telefono o comunicarse con un asesor al *+5491140054474 - NICOLAS*")
+ .addAction(gotoFlow(MENU))
 
-.addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás")
-.addAnswer("Opciones", {capture: false, 
-      buttons: [
-          {body: 'INFO. ALQUILER'},
-          {body: 'INFO. VENTA'},
-          {body: 'UNIFILA LED'},
-      ], delay: 2000 }
-    ) 
-    .addAnswer("*Contacto*", { 
-      capture: true,
-      buttons: [
+ const MENU = addKeyword('MENU')
+  .addAnswer("*INFORMACION AUTOMATICA*", {capture: false, 
+            buttons: [
+                {body: '📙 INFO. ALQUILER 📙'},
+                {body: '📎 INFO. VENTA 📎'},
+                {body: 'PRECIOS'},
+            ], delay: 2000 }) 
+.addAction(async (ctx, {gotoFlow}) => {gotoFlow(MENU)})
+                   
+     .addAnswer("*Contacto*", {capture: true,
+        buttons: [
           {body: 'HABLAR CON ASESOR'},
           {body: 'INFO DE LA EMPRESA'},
           {body: 'PAGINA WEB'},
-      ],
-   delay: 3000 }, async (ctx, { fallBack, gotoFlow, adapterProvider, flowDynamic}) => {
+      ], delay: 3000 })
+   
+      const flowWEB = addKeyword('PAGINA WEB', {sensitive: true})
+   .addAnswer('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
+   .addAnswer('FILA VIP \nhttps://filavip.ar')  
+   .addAction(async (ctx, {gotoFlow}) => {gotoFlow(MENU)})
 
-if (ctx.body == 'PAGINA WEB') {
-await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
-await flowDynamic('FILA VIP \nhttps://filavip.ar')  
-       return gotoFlow(Menuflow);
-} else if (ctx.body == 'HABLAR CON ASESOR') {
-nombre = "Cliente"
-return gotoFlow(Cliente)
-} else if (ctx.body == 'INFO DE LA EMPRESA') {
-await flowDynamic('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
-await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
-
-await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
-
-return  gotoFlow(Menuflow);
-}});
+       const flowWEB = addKeyword('INFO DE LA EMPRESA')
+       .addAnswer('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
+       .addAnswer('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
+       .addAnswer('Selfie Mirror', {media: 'video.mp4'})
+       .addAction(async (ctx, {gotoFlow}) => {gotoFlow(MENU)})
           
-    
- /**   {capture: true},async (ctx, {provider}) => {
-
-curl 'https://graph.facebook.com/v18.0/106540352242922/messages' \
--H 'Content-Type: application/json' \
--H 'Authorization: Bearer EAAJB...' \
--d '{
-    "messaging_product": "whatsapp",
-    "recipient_type": "individual",
-    "to": "+16505555555",
-    "type": "interactive",
-    "interactive": {
-        "type": "cta_url",
-        "header": {
-            "text": "Available Dates"
-        },
-        "body": {
-            "text": "Tap the button below to see available dates."
-        },
-        "footer": {
-            "text": "Dates subject to change."
-        },
-        "action": {
-            "name": "cta_url",
-            "parameters": {
-                "display_text": "See Dates",
-                "url": "https://www.luckyshrub.com?clickID=kqDGWd24Q5TRwoEQTICY7W1JKoXvaZOXWAS7h1P76s0R7Paec4"
-            }
-        }
-    }
-}'
-
-
-
-  
-            const headerText = 'MENU'
-            const bodyText = 'Informacion y Precios'
-            const footerText = 'Seleccione'
-            const buttonList = 'Lista'
-            const listParams = [
-                {
-                   "action": {
-            "name": "cta_url",
-            "parameters": {
-                "display_text": "See Dates",
-                "url": "https://www.luckyshrub.com?clickID=kqDGWd24Q5TRwoEQTICY7W1JKoXvaZOXWAS7h1P76s0R7Paec4"
-            }
-                        {
-                            id: 'ID_2',
-                            title: 'FilaVip',
-                            description: 'Organizadores de fila LED'
-                        },
-                        {
-                            id: 'ID_3',
-                            title: 'Plataforma 360 Super Slow',
-                            description: 'Plataforma con camara giratoraia'
-                        }
-                    ]
-                },
-                {
-                    title: 'ALQUILER',
-                    rows: [
-                        {
-                            id: 'ID_1',
-                            title: 'Selfie Mirror',
-                            description: 'Espejo Magico'
-                        },
-                        {
-                            id: 'ID_2',
-                            title: 'Plataforma 360 Super Slow',
-                            description: 'Plataforma con camara giratoraia'
-         } ] },
-                        {
-                          title: 'Empresa',
-                          rows: [
-                              {
-                                  id: 'ID_1',
-                                  title: 'Ubicacion',
-                                  description: 'Ubicacion y Horarios'
-                              },
-                              {
-                                  id: 'ID_2',
-                                  title: 'Sitio Web',
-                                  description: 'Paginas de productos'
-                              }
-                  
-                    ]
-                }
-  
-            const headerText = 'MENU'
-            const bodyText = 'Informacion y Precios'
-            const footerText = 'Seleccione'
-            const buttonList = 'Lista'
-            const listParams = [
-                {
-                   "action": {
-            "name": "cta_url",
-            "parameters": {
-                "display_text": "See Dates",
-                "url": "https://www.luckyshrub.com?clickID=kqDGWd24Q5TRwoEQTICY7W1JKoXvaZOXWAS7h1P76s0R7Paec4"
-            }
-            ]
-            await provider.sendList(ctx.from, headerText, bodyText, footerText, buttonList ,listParams)
-        }
-        
-
-*/
-
-  /////////////////////////////////////////////////////////////////////////  FLUJO MENU
+ /////////////////  FLUJO MENU
   
   const Menuflow = addKeyword(["me-nu"], { sensitive: true })
 
@@ -541,37 +431,6 @@ await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
 return  gotoFlow(Menuflow);
 }   })
 
-
-
-  const Menuflow2 = addKeyword(["me-?nu"], { sensitive: true })
-
-  
-     .addAnswer("Menu", { 
-                      capture: true,
-                      buttons: [
-                          {body: 'HABLAR CON ASESOR'},
-                          {body: 'INFO DE LA EMPRESA'},
-                          {body: 'PAGINA WEB'},
-                      ],
-                   delay: 2000 }, async (ctx, { gotoFlow, provider, flowDynamic}) => {
-              
-              if (ctx.body == 'PAGINA WEB') {
-                await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
-
-                await flowDynamic('FILA VIP \nhttps://filavip.ar')  
-                      return  gotoFlow(Menuflow);
-      } else if (ctx.body == 'HABLAR CON ASESOR') {
-         nombre = "Cliente"
-         return gotoFlow(Cliente)
-      } else if (ctx.body == 'INFO DE LA EMPRESA') {
-       await flowDynamic('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
-       await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
-   
-       await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
-      
-      return  gotoFlow(Menuflow);
-         } 
-        });
         
 
 ////////////////////////////////////////////////////////////////////////////////////////
