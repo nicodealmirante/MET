@@ -549,8 +549,8 @@ const serverHttp = new ServerHttp(PORT)
 
     const chatwoot = new ChatwootClass({
         account: '1',
-        token: '95dcabeabb05a74ac8b2ef110b002dc6',
-        endpoint: 'https://chatwoot-production-9374.up.railway.app/webhooks/whatsapp/+5491166704322'
+        token: 'RzqiiFrYqQUrx5FPuuMXoM3e',
+        endpoint: 'https://chatwoot-production-9374.up.railway.app'
         
     })
     
