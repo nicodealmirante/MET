@@ -26,7 +26,7 @@ await  flowDynamic([`*VALOR FILA VIP*\n
                 ⛓️  NEGRO ◼️  PLATA  🥈  ORO  🥇\n
                 AR$ 14.000 ◼️ 15.000 🥈 25.000 🥇\n
                 PACK 4 PIXEL + 2 SOGAS (NEGRO)\n
-                💲💲💲 AR$ 255.000 💲💲💲`])
+                💲💲💲 AR$ 255.000 💲💲💲`])})
 
    .addAnswer("*MENU*", {capture: false, 
     buttons: [
@@ -34,7 +34,7 @@ await  flowDynamic([`*VALOR FILA VIP*\n
         {body: 'VOLVER AL MENU'}], delay: 2000}, async(ctx,{gotoFlow,flowDynamic,adapterProvider}) => {
 
 if (ctx.body == 'CONTINUAR CON ASESOR') {
-await adapterProvider.sendMessage(mywhatsa, `*UNIFILA* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`,{})
+await adapterProvider.sendMessage(mywhatsa, `*UNIFILA* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
 
 await  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
 
@@ -46,6 +46,6 @@ return gotoFlow(Menuflow)
 }
 }
      
-)})
+)
 
 module.exports= { ordenadores} 
