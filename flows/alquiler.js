@@ -1,5 +1,5 @@
 const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
-const axios = require (axios)
+const axios = require ('axios')
 
 const alquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
     .addAnswer('👌Te envio la info de alquiler.')
