@@ -3,21 +3,21 @@ const routes = require('./routes/chaty')
 
 class ServerHTTP {
 app;
-port=process.env.PORT ?? 3003
+port=3003
 providerWs;
 constructor(_providerWs){
 this.providerWs=_providerWs
 
-buildApp=(app) => {
+buildApp=() => {
 return this.app=express()
-.use(express.json())
-.use((req, _, next)=>{
+this.app.use(express.json())
+this.app.use((req, _, next)=>{
 req.providerWs=this.providerWs
-next()
+this.appnext()
 
 })
-.use(routes)
-.listen(this.port, () => console.log(`LISTO POR HTTP://LOCALHOST:${this.port}`))
+this.app.use(routes)
+this.app.listen(this.port, () => console.log(`LISTO POR HTTP://LOCALHOST:${this.port}`))
 }
 
 start()
