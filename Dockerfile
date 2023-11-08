@@ -7,4 +7,4 @@ ARG RAILWAY_STATIC_URL
 ARG PUBLIC_URL
 ARG PORT
 
-CMD ["npm", "start"]
+CMD ["npm", "RUN"]
