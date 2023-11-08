@@ -111,7 +111,9 @@ class ServerHttp {
         this.app.post(`/chatwoot`, this.chatwootCtrl)
    
         this.app.listen(this.port, () => {
-
+            console.log(``)
+            console.log(`🦮 http://localhost:${this.port}/chatwoot`)
+            console.log(``)
         })
     }
 
