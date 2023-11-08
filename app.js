@@ -26,6 +26,8 @@ const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
 ///////////////////////////////////// XXXXXXXXXXXXXXXXXXXXX ////////////////////////////
                          /////////         EVENTO VOICE    ///////////////////
 /////////////////////////////////////  XXXXXXXXXXXXXXXXXXX   /////////////////////////////////////
+
+
   const audiono = addKeyword(EVENTS.VOICE_NOTE)
               addAnswer('Disculpe, no puedo escuchar audios. Por favor utilice solo texto.')
                .addAction(async(ctx, {gotoFlow,endFlow}) => { 
@@ -88,8 +90,7 @@ const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
           .addAnswer("*CONTINUAR*", { 
                      capture: true,
                               buttons: [
-                {body: 'CONTINUAR CON AGENTE'},
-                {body: 'VOLVER AL MENU'},
+                {body: 'CONTINUAR CON AGENTE'},{body: 'VOLVER AL MENU'},
                  {body: 'FINALIZAR'},
                           ],delay: 3000}, async (ctx, 
                                { endFlow, gotoFlow, flowDynamic}) => { 
@@ -302,63 +303,30 @@ const KEYGOOGLE = process.env.google;
           {body: 'VOLVER AL MENU'},
           {body: 'FINALIZAR'},
       ], delay: 2000
+
   }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
 
 if (ctx.body == 'CONTINUAR CON AGENTE') {
 
   await adapterProvider.sendMessage(mywhatsa, `*VENTA* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`,{})
+
 await  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
+
 return gotoFlow(Menuflow)
-return endFlow(flowVenta)
 
 } else if (ctx.body == 'VOLVER AL MENU') {
 
  return gotoFlow(Menuflow)
- return endFlow(flowVenta)
 
   } else if (ctx.body == 'FINALIZAR') {
+
   await  flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
+
 return endFlow()
 }}
 )        
    
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
-/** 
-.addAnswer("*INFO*", { 
-  capture: true,
-  buttons: [
-      {body: 'INFO. ALQUILER'},
-      {body: 'INFO. VENTA'},
-      {body: 'UNIFILA LED'},
-  ], delay: 5000}
-) .addAnswer("Contacto", { 
-  capture: true,
-  buttons: [
-      {body: 'HABLAR CON ASESOR'},
-      {body: 'INFO DE LA EMPRESA'},
-      {body: 'PAGINA WEB'},
-  ],
-delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
-
-if (ctx.body == 'PAGINA WEB') {
-flowDynamic('https://www.espejoselfiemirror.com.ar')        
-    gotoFlow(Menuflow);
-} else if (ctx.body == 'HABLAR CON ASESOR') {
-nombre = "Cliente"
-return gotoFlow(Cliente)
-} else if (ctx.body == 'INFO DE LA EMPRESA') {
-await flowDynamic('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
-await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
-
-await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
-
-return  gotoFlow(Menuflow);
-}});
-*/
- //////////////////////////////////////////////////////////////// EVENTO WELCOME
-
-
-
 
   const flowPrincipal = addKeyword(EVENTS.WELCOME) 
   
@@ -451,7 +419,7 @@ return  gotoFlow(Menuflow);
     
     const main = async () => {
         const adapterDB = new MockAdapter()
-        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono, Menuflow2, alquila22])
+        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente,  audiono,  flowWEB, MENU])
 
         const adapterProvider = createProvider(MetaProvider, {
           
