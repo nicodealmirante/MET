@@ -7,7 +7,7 @@ const ServerHttp = require('./src/http')
 
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
-const PORTS=3002
+const  PORTS = 3004
 let motivo;  
 
 
@@ -545,7 +545,7 @@ return  gotoFlow(Menuflow);
 ////////////////////////////////////////////////////////////////////////////////////////
 
 
-const serverHttp = new ServerHttp(PORT)
+const serverHttp = new ServerHttp(PORTS)
 
     const chatwoot = new ChatwootClass({
         account: '1',
