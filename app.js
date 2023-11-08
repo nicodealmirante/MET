@@ -10,7 +10,6 @@ const { handlerMessage } = require('./src/chatwoot')
 const  PORTS = 3004
 let motivo;  
 const mywhatsa = "+5491140054474@s.whatsapp.net";
-          const KEYGOOGLE = process.env.google;
 
 
 
