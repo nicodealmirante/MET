@@ -17,7 +17,7 @@ const app = express();
 // Middleware para analizar el cuerpo de las solicitudes en formato JSON
 app.use(bodyParser.json());
 
-const PORT = 3000; // Puerto en el que se ejecutará el servidor Express
+const PORT = 3003; // Puerto en el que se ejecutará el servidor Express
 
 // Ruta para manejar los mensajes entrantes del webhook
 app.post('/webhook', (req, res) => {
