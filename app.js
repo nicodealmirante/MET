@@ -58,7 +58,7 @@ const ordenadores = require("./flows/ordenadores");
 
 
 
- const MENU = addKeyword('MENU')
+ const Menuflow = addKeyword('MENU')
 
   .addAnswer("*INFORMACION AUTOMATICA*", {capture: false, 
             buttons: [
