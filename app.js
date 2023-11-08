@@ -165,7 +165,7 @@ const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
 const  PORTS = 3004
 let motivo;  
-const mywhatsa = "5491140054474@s.whatsapp.net";
+const mywhatsa = "+5491140054474@s.whatsapp.net";
 
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
  *
@@ -212,8 +212,8 @@ console.log('Numero Agendado de Alquiler');*/
 const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
     .addAnswer("*UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD*", {
       capture: false},async (ctx, { endFlow, gotoFlow, MetaProvider, flowDynamic}) => {
-        await MetaProvider.sendtext(mywhatsa, `*Directo* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
-   await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
+  //      await MetaProvider.sendtext(mywhatsa, `*Directo* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+   await flowDynamic('COMUNIQUESE A ESTE NUMERO PARA HABLAR CON ASESOR +5491140054474')
 return endFlow(Menuflow)
 }
 
@@ -290,7 +290,9 @@ const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
     .addAnswer('Showroom', {media: 'video.mp4'})
     .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
     .addAnswer('Captura 360', {media: 'video360.mp4'})
-    .addAnswer("*CONTINUAR*", { 
+   .addAnswer('COMUNIQUESE A ESTE NUMERO PARA HABLAR CON ASESOR +5491140054474')
+        
+   /* .addAnswer("*CONTINUAR*", { 
       capture: true,
       buttons: [
           {body: 'CONTINUAR CON AGENTE'},
@@ -308,8 +310,8 @@ if(ctx.body == 'CONTINUAR CON AGENTE'){
    await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
 return endFlow()
 }}
-  
-)    
+ 
+)   */  
     let fecha
     let asd2;
 let asd;
@@ -370,6 +372,8 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
   AR$ 14.000 ◼️ 15.000 🥈 25.000 🥇\n
    PACK 4 PIXEL + 2 SOGAS (NEGRO)\n
   💲💲💲 AR$ 255.000 💲💲💲`])
+  .addAnswer('COMUNIQUESE A ESTE NUMERO PARA HABLAR CON ASESOR +5491140054474')
+
  return gotoFlow(Menuflow)
 }
 )
@@ -458,8 +462,10 @@ await flowDynamic([`*VALOR FILA VIP*\n
  💲💲💲 AR$ 255.000 💲💲💲`])
 })
 
+.addAnswer('COMUNIQUESE A ESTE NUMERO PARA HABLAR CON ASESOR +5491140054474')
 
-.addAnswer("*CONTINUAR*", { 
+//////////////////////////////////////////////////////////////// EVENTO WELCOME
+/** .addAnswer("*CONTINUAR*", { 
       capture: true,
       buttons: [
           {body: 'CONTINUAR CON AGENTE'},
@@ -486,8 +492,7 @@ return endFlow()
 }}
 )        
    
-//////////////////////////////////////////////////////////////// EVENTO WELCOME
-/** 
+
 .addAnswer("*INFO*", { 
   capture: true,
   buttons: [
@@ -548,8 +553,9 @@ await flowDynamic('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')
 await flowDynamic('FILA VIP \nhttps://filavip.ar')  
        return gotoFlow(Menuflow);
 } else if (ctx.body == 'HABLAR CON ASESOR') {
-nombre = "Cliente"
-return gotoFlow(Cliente)
+  await flowDynamic('COMUNIQUESE A ESTE NUMERO PARA HABLAR CON ASESOR +5491140054474')
+
+
 } else if (ctx.body == 'INFO DE LA EMPRESA') {
 await flowDynamic('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
 await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
