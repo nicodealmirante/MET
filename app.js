@@ -331,14 +331,14 @@ return endFlow()
        .addAnswer('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
        .addAnswer('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
        .addAnswer('Selfie Mirror', {media: 'video.mp4'})
-       .addAction(async (ctx, {gotoFlow}) => {gotoFlow(MENU)})
+       .addAction(async (ctx, {gotoFlow}) => {gotoFlow(xxMENU)})
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
 
   const flowPrincipal = addKeyword(EVENTS.WELCOME) 
   
   .addAnswer("Hola, Gracias por comunicarse. Mi nombre es Luna, Soy una recepcionista virtual. Estoy configurada para brindarle informacion completa e inmediata. En el siguiente menu puede obtener informacion detallada sobre nuestros productos.")
  .addAnswer("Tambien puede dejarnos su telefono o comunicarse con un asesor al *+5491140054474 - NICOLAS*")
- .addAction(async (ctx, {gotoFlow}) => {gotoFlow(MENU)})
+ .addAction(async (ctx, {gotoFlow}) => {gotoFlow(xxMENU)})
 
  const xxMENU = addKeyword('MENU')
 
@@ -348,7 +348,7 @@ return endFlow()
                 {body: '📎 INFO. VENTA 📎'},
                 {body: 'PRECIOS'},
             ], delay: 2000 }) 
-.addAction(async (ctx, {gotoFlow}) => {gotoFlow(MENU)})
+.addAction(async (ctx, {gotoFlow}) => {gotoFlow(xxMENU)})
                    
      .addAnswer("*Contacto*", {capture: true,
         buttons: [
@@ -361,7 +361,7 @@ return endFlow()
       const flowWEB = addKeyword('PAGINA WEB', {sensitive: true})
    .addAnswer('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
    .addAnswer('FILA VIP \nhttps://filavip.ar')  
-   .addAction(async (ctx, {gotoFlow}) => {gotoFlow(MENU)})
+   .addAction(async (ctx, {gotoFlow}) => {gotoFlow(xxMENU)})
 
    
           
