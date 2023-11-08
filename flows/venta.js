@@ -102,11 +102,11 @@ await fetch('https://dolarapi.com/v1/dolares/blue')
 
                         await  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
                         
-                        return gotoFlow(MENU)
+                        return gotoFlow(Menuflow)
                         
                         } else if (ctx.body == 'VOLVER AL MENU') {
                         
-                         return gotoFlow(MENU)
+                         return gotoFlow(Menuflow)
                           }
                         }
                                    

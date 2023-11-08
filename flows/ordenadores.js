@@ -38,11 +38,11 @@ await adapterProvider.sendMessage(mywhatsa, `*UNIFILA* \nNumero: +${ctx.from}\nN
 
 await  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
 
-return gotoFlow(MENU)
+return gotoFlow(Menuflow)
 
 } else if (ctx.body == 'VOLVER AL MENU') {
 
-return gotoFlow(MENU)
+return gotoFlow(Menuflow)
 }
 }
      
