@@ -311,7 +311,6 @@ if(ctx.body == 'CONTINUAR CON AGENTE'){
 return endFlow()
 }}
  
-)   */  
     let fecha
     let asd2;
 let asd;
@@ -330,7 +329,7 @@ var total;
     asd = Math.round(response.data["rows"][0]["elements"][0]["distance"].value/1000)
 total=(((asd*250)/3000)*3000)}
 
-await flowDynamic('COMUNIQUESE A ESTE NUMERO PARA HABLAR CON ASESOR +5491140054474')
+ 
 
 const alquila22 = addKeyword('alquilawer',{sensitive:true})  
 
