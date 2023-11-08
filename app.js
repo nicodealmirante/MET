@@ -4,7 +4,6 @@ const Queue = require('queue-promise')
 const MetaProvider = require("@bot-whatsapp/provider/meta")
 const MockAdapter = require('@bot-whatsapp/database/mock')
 const ServerHttp = require('./src/http')
-
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
 const  PORTS = 3004
@@ -76,58 +75,73 @@ const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
         .addAnswer('Espejo Mágico Selfie Mirror', {
             media: 'banner3.jpg'})
         
-        .addAnswer(['*360 Super Slow.*',
+         .addAnswer(['*360 Super Slow.*',
                  '\nEl servicio dura 2 horas. Durante ese tiempo no existe límite de capturas.',
                 'Los videos son filmados y compartidos en el momento ya editados automáticamente',
                 'Incluye accesorios (pistola lanza burbujas, lanza billetes.)',
                'El valor del servicio de 2 horas (2023) es de $ 100.000 .-',
                'El valor del servicio de 2 horas (2024) es de U$s 100 .-',
                'El valor de la Hora adicional (2023) es de $ 50.000 .-'      ])  
-                     
-            
-
-               .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
-          
-       
-
-    .addAnswer(['🚚El valor no incluye traslados',
+              
+         .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
+   
+         .addAnswer(['🚚El valor no incluye traslados',
           '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'])
-     .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
-    .addAnswer('Showroom', {media: 'video.mp4'})
-    .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
-    .addAnswer('Captura 360', {media: 'video360.mp4'})
-    .addAnswer("*CONTINUAR*", { 
-       capture: true,
-          buttons: [
-              {body: 'CONTINUAR CON AGENTE'},
-              {body: 'VOLVER AL MENU'},
-               {body: 'FINALIZAR'},
-                  ],delay: 3000 
-                       }, async (ctx, 
-                            { endFlow, gotoFlow, provider, flowDynamic}) => {
-                                  console.log('ALQUILER')
+   
+          .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
+ 
+            .addAnswer('Showroom', {media: 'video.mp4'})
 
-          if(ctx.body == 'CONTINUAR CON AGENTE'){
-                return gotoFlow(Cliente)}
-   else   if(ctx.body == 'VOLVER AL MENU') {
+          .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
+
+           .addAnswer('Captura 360', {media: 'video360.mp4'})
+
+          .addAnswer("*CONTINUAR*", { 
+                     capture: true,
+                              buttons: [
+                {body: 'CONTINUAR CON AGENTE'},
+                {body: 'VOLVER AL MENU'},
+                 {body: 'FINALIZAR'},
+                          ],delay: 3000}, async (ctx, 
+                               { endFlow, gotoFlow, flowDynamic}) => { 
+            if(ctx.body == 'CONTINUAR CON AGENTE'){
+                    return gotoFlow(Cliente)}
+           else   if(ctx.body == 'VOLVER AL MENU') {
                       return gotoFlow(Menuflow)}
-   else   if (ctx.body == 'FINALIZAR') {
-              await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
+          else   if (ctx.body == 'FINALIZAR') {
+               await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
                   return endFlow()
                 }
           }
-    )    
-                         ////XXXXXXXXXXXXX     TRASLADOS    XXXXXXXXXXXXXXXXXXX  
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  const KEYGOOGLE = process.env.google;         
+    )                  
+            
+
+.addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)', {capture: true}, async(ctx,{}) => {fecha=ctx.body})
+         
+
+
+
+
+////XXXXXXXXXXXXX     TRASLADOS    XXXXXXXXXXXXXXXXXXX  
+//////////////////////////////////////////////////////
+
+
+.addAnswer('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', {capture:true}, async (ctx, { endFlow, provider, flowDynamic}) => {
+
+const KEYGOOGLE = process.env.google;         
+
        let fecha; let asd2; let asd; var res1; var res2; var total;
+
            const getTicket = async (donde) => { var config = {
+
                 method: "get",
+
                      url: `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${donde.replace(' ','%20')}Argentina&origins=Ramos%20Mejia%20Buenos%20Aires%20Argentina&key=${KEYGOOGLE}`}
-         const response = await axios(config)
+
+                             const response = await axios(config)
 
                   
-         /////////////// DESTINO ENCONTRADO POR GOOGLE
+                   /////////////// DESTINO ENCONTRADO POR GOOGLE
                    res1 = response.data["destination_addresses"][0]
 
 
@@ -143,29 +157,20 @@ const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
 
                    ///////////////////// KM X 250 = MULTIPLOS DE 3000 REDONDO //////////////////
                   total=(((asd*250)/3000)*3000)
-                
-            continue;    
-     }
+                       }
+
+ await getTicket(ctx.body);
+
+         var traslados = `*TRASLADOS*\nDISTANCIA: *${Math.round(asd)}* KM \nTIEMPO: *${asd2}*\nLUGAR: *${res1}*\nVALOR: *$ ${total}*.-\n*`
 
 
-const alquila22 = addKeyword('alquilawer',{sensitive:true})  
-
-.addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)', {capture: true}, async(ctx,{}) => {fecha=ctx.body})
-.addAnswer('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', {capture:true}, async (ctx, { endFlow, provider, flowDynamic}) => {
-await getTicket(ctx.body)
-var traslados = `*TRASLADOS*\nDISTANCIA: *${Math.round(asd)}* KM \nTIEMPO: *${asd2}*\nLUGAR: *${res1}*\nVALOR: *$ ${total}*.-\n*`
-
-if((asd)<=200){
-  await flowDynamic(traslados)
-}
-
-
-
-  provider.sendtext(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body} \nFecha ${fecha}* \n\n ${traslados}`)
-await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
-return endFlow(Menuflow)})
+       await flowDynamic(traslados)
+             await adapterProvider(mywhatsa, `*Alquiler* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body} \nFecha ${fecha}* \n\n ${traslados}`,{})
+                     await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
+                           return endFlow(Menuflow)})
 /////////////////////////////////////////////////////////////////////////////////////////// FLUJO VENTA
-const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
+
+                const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
 .addAnswer(['¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
 'En SELFIE MIRROR, entendemos la importancia de mantener tus espacios organizados y atractivos. Nuestros organizadores de fila no solo te ayudarán a mantener un flujo ordenado de clientes, sino que también añadirán un toque de modernidad y estilo a tu negocio.\n',
 '¿Qué hace que nuestros organizadores de fila con tecnología Pixel LED sean especiales?\n',
