@@ -327,7 +327,7 @@ return endFlow()
 )        
 
 
-       const flowWEB = addKeyword('INFO DE LA EMPRESA')
+       const flowINFO = addKeyword('INFO DE LA EMPRESA')
        .addAnswer('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
        .addAnswer('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
        .addAnswer('Selfie Mirror', {media: 'video.mp4'})
@@ -423,7 +423,7 @@ return  gotoFlow(Menuflow);
     
     const main = async () => {
         const adapterDB = new MockAdapter()
-        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente,  audiono,  flowWEB, MENU])
+        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente,  audiono,  flowWEB, flowINFO, MENU])
 
         const adapterProvider = createProvider(MetaProvider, {
           
