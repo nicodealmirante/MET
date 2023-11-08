@@ -588,9 +588,9 @@ return  gotoFlow(Menuflow);
 
 
     const chatwoot = new ChatwootClass({
-        account: '1',
-        token: 'RzqiiFrYqQUrx5FPuuMXoM3e',
-        endpoint: 'https://chatwoot-production-9374.up.railway.app'
+        account: process.env.account,
+        token: process.env.token,
+        endpoint: process.env.endpoint,
         
     })
     
@@ -604,11 +604,13 @@ return  gotoFlow(Menuflow);
         const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono, Menuflow2, alquila22])
 
         const adapterProvider = createProvider(MetaProvider, {
-          jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
-          numberId: '133862353148114',
-          verifyToken: 'asdasd',
-          version: 'v18.0'})
-        
+          
+          
+          jwtToken: process.env.jwtToken,
+          numberId: process.env.numberId,
+          verifyToken: process.env.verifyToken,
+ version: 'v18.0'
+        })
           
         const bot = await createBot({
             flow: adapterFlow,
