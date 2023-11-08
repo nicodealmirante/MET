@@ -17,14 +17,23 @@ const app = express();
 // Middleware para analizar el cuerpo de las solicitudes en formato JSON
 app.use(bodyParser.json());
 
-const PORT = 3003; // Puerto en el que se ejecutará el servidor Express
+const PORT = 3000; // Puerto en el que se ejecutará el servidor Express
 
 // Ruta para manejar los mensajes entrantes del webhook
 app.post('/webhook', (req, res) => {
   const incomingMessage = req.body; // Mensaje entrante del webhook
 
-  // Envía el mensaje al bot a través de adapterProvider
-  adapterProvider.sendMessage(mywhatsa, incomingMessage.content, {}); // Asegúrate de ajustar esto según tus necesidades
+  // Verificar si el mensaje es de tipo "outgoing" y contenido de tipo "cards"
+  if (incomingMessage.message_type === 'outgoing' && incomingMessage.content_type === 'cards') {
+    // Extraer los datos relevantes del mensaje
+    const { name, category, language, processed_params } = incomingMessage.template_params;
+
+    // Realizar acciones basadas en los datos del mensaje, si es necesario
+    console.log(`Nombre: ${name}`);
+    console.log(`Categoría: ${category}`);
+    console.log(`Idioma: ${language}`);
+    console.log(`Parámetros procesados:`, processed_params);
+  }
 
   // Puedes realizar otras operaciones aquí, si es necesario
 
@@ -34,7 +43,6 @@ app.post('/webhook', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor Express en ejecución en el puerto ${PORT}`);
 });
-
 
 const venta = require("./flows/venta")
 const alquiler = require("./flows/alquiler")
