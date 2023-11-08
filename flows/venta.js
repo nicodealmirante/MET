@@ -1,6 +1,6 @@
 const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
 
-module.exports = addKeyword('INFO. VENTA',{sensitive: true})
+const venta = addKeyword('INFO. VENTA',{sensitive: true})
 
 .addAnswer('👌 Te envío la info de Venta.',{delay: 2000})
 
@@ -111,3 +111,4 @@ await fetch('https://dolarapi.com/v1/dolares/blue')
                         }
                                    
                         )})
+                        module.exports= { ordenadores} 

@@ -1,5 +1,6 @@
-
-module.exports = addKeyword(['INFO. ALQUILER'], {sensitive: true})
+const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
+const axios = require (axios)
+const alquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
     .addAnswer('👌Te envio la info de alquiler.')
           
     .addAnswer('Selfie Mirror',{
@@ -111,3 +112,4 @@ return gotoFlow(MENU)
 }
   
 )
+module.exports= { alquiler} 
