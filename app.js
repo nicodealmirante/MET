@@ -13,7 +13,7 @@ const mywhatsa = "+5491140054474@s.whatsapp.net";
 
 
 
-const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
+const Cliente = addKeyword(["ASESOR"],{sensitive:true})
     .addAnswer("*UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD*", {
       capture: false},async (ctx, { endFlow, gotoFlow, adapterProvider, flowDynamic}) => {
         console.log('Hablar')
