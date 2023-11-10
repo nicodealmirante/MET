@@ -137,16 +137,21 @@ const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
     .addAnswer('Captura 360', {media: 'video360.mp4'})
    .addAnswer('COMUNIQUESE A ESTE NUMERO PARA HABLAR CON ASESOR +5491140054474')
         
-   /* .addAnswer("*CONTINUAR*", { 
+   .addAnswer("*CONTINUAR*", { 
       capture: true,
       buttons: [
           {body: 'CONTINUAR CON AGENTE'},
           {body: 'VOLVER AL MENU'},
-          {body: 'FINALIZAR'},
       ],delay: 3000
   }, async (ctx, { endFlow, gotoFlow, adapterProvider, flowDynamic}) => {
-    console.log('ALQUILER')
+    if(ctx.body=='CONTINUAR CON AGENTE'){
+    await provider.sendtext(mywhatsa, `*ALQUILER* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+   }else{      gotoFlow()
 
+
+
+    } })
+/* 
 if(ctx.body == 'CONTINUAR CON AGENTE'){
   return gotoFlow(Cliente)
 } else if(ctx.body == 'VOLVER AL MENU') {
@@ -305,7 +310,21 @@ await flowDynamic([`*VALOR FILA VIP*\n
   PACK 4 PIXEL + 2 SOGAS (NEGRO)\n
  💲💲💲 AR$ 255.000 💲💲💲`])
 })
+     
+.addAnswer("*CONTINUAR*", { 
+  capture: true,
+  buttons: [
+      {body: 'CONTINUAR CON AGENTE'},
+      {body: 'VOLVER AL MENU'},
+  ],delay: 3000
+}, async (ctx, { endFlow, gotoFlow, adapterProvider, flowDynamic}) => {
+if(ctx.body=='CONTINUAR CON AGENTE'){
+await provider.sendtext(mywhatsa, `*VENTA* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+}else{      gotoFlow()
 
+
+
+} })
 .addAnswer('COMUNIQUESE A ESTE NUMERO PARA HABLAR CON ASESOR +5491140054474')
 
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
@@ -528,10 +547,11 @@ curl 'https://graph.facebook.com/v18.0/106540352242922/messages' \
             buttons: [
                 {body: 'INFO. ALQUILER'},
                 {body: 'INFO. VENTA'},
-                {body: 'UNIFILA LED'},
+       //         {body: 'UNIFILA LED'},
             ],
           }
 ) 
+/*
 .addAnswer("*CONTACTO*", { 
   capture: true,
   buttons: [
@@ -556,7 +576,6 @@ await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
 return  gotoFlow(Menuflow);
 }   })
 
-/*
 
   const Menuflow2 = addKeyword(["me-?nu"], { sensitive: true })
 
