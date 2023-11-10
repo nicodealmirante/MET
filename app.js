@@ -305,27 +305,10 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
   .then(response => response.json())
   .then(json => dolar = json.venta)
   console.log('VENTA')
-  await flowDynamic(`*VALORES*\n +ESPEJO MAGICO* \n
-  💵   *U$D 1,500 .-*   🔒
-  💱 > U$D = AR$ > 💱
-  📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓 `,
-  
-`\n\n*PLATAFORMA 360*\n     
-  💵   *U$D 1,500 .-*   🔒
-  💱 > U$D = AR$ > 💱
-  📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`,
-   `Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱` ,
-   `\n\n*FILA VIP*\n
-  ORGANIZADORES DE FILA PIXEL\n
-  🚧 NEGRO  ◼️  PLATA 🥈  ORO  🥇 \n
-  AR$ 60.000 ◼️ 85.000 🥈 95.000 🥇\n
-  SOGAS TRENZADA. CAPUCHON\n
-  ⛓️  NEGRO ◼️  PLATA  🥈  ORO  🥇\n
-  AR$ 14.000 ◼️ 15.000 🥈 25.000 🥇\n
-  PACK 4 PIXEL + 2 SOGAS (NEGRO)\n
-  
-  💲💲💲 AR$ 255.000 💲💲💲`)
-})
+  await flowDynamic(`*VALORES*\n   *ESPEJO MAGICO* \n  💵   *U$D 1,500 .-*   🔒 \n 💱 > U$D = AR$ > 💱 \n 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓 `,)
+  await flowDynamic(`\n\n*PLATAFORMA 360*\n  💵   *U$D 1,500 .-*   🔒 \n  💱 > U$D = AR$ > 💱\n  📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`,)
+  await flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱` ,)
+  await flowDynamic( `\n\n*FILA VIP*\n  ORGANIZADORES DE FILA PIXEL\n  🚧 NEGRO  ◼️  PLATA 🥈  ORO  🥇 \n  AR$ 60.000 ◼️ 85.000 🥈 95.000 🥇\n  SOGAS TRENZADA. CAPUCHON\n  ⛓️  NEGRO ◼️  PLATA  🥈  ORO  🥇\n  AR$ 14.000 ◼️ 15.000 🥈 25.000 🥇\n  PACK 4 PIXEL + 2 SOGAS (NEGRO)\n 💲💲💲 AR$ 255.000 💲💲💲`)})
 
 .addAnswer("Opciones", {capture: true, 
   buttons: [
