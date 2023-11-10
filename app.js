@@ -331,9 +331,6 @@ await flowDynamic([`*VALOR FILA VIP*\n
     )
 .addAnswer("PARA CONTINUAR CON LA OPERACION -> ASESOR NICOLAS *+5491140054474* ")
 
-const flujoFinal = addKeyword('HH').addAnswer('Sigue ahi? Quiere que me comunique despues? Le dejo mi telefono *+5491140054474 - NICOLAS*')
-
-
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
 /** .addAnswer("*CONTINUAR*", { 
       capture: true,
