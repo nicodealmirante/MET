@@ -61,9 +61,9 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
       {body: 'QUIERO ALQUILAR'},
       {body: 'QUIERO COMPRAR'},
      {body: 'OTROS'},
-    ], delay: 2000 , idle: 200000 }, // idle: 2000 = 2 segundos
+    ], idle: 200000 }, // idle: 2000 = 2 segundos
     async (ctx, { gotoFlow, provider }) => {
-      await   provider.sendtext(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: *${ctx.body}*`) 
+      await   provider.sendtext(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
         await flowDynamic('COMUNIQUESE A ESTE NUMERO PARA HABLAR CON ASESOR +5491140054474')
 return gotoFlow(Menuflow)
 }
