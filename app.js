@@ -315,8 +315,20 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
   ⛓️  NEGRO ◼️  PLATA  🥈  ORO  🥇\n
   AR$ 14.000 ◼️ 15.000 🥈 25.000 🥇\n
   PACK 4 PIXEL + 2 SOGAS (NEGRO)\n
+  
   💲💲💲 AR$ 255.000 💲💲💲`])
 })
+.addAnswer('Selfie Mirror',{
+  document: 'FichaTécnicaFULL.pdf'})
+  .addAnswer('Selfie Mirror',{
+    media: 'colum1.jpg'})
+    .addAnswer('Selfie Mirror',{
+      media: 'colum2.mp4'})
+      .addAnswer('Selfie Mirror',{
+        media: 'colum3.mp4'})
+        .addAnswer('Selfie Mirror',{
+          media: 'colum4.mp4'})
+
 .addAnswer("Opciones", {capture: true, 
   buttons: [
       {body: 'INFO. ALQUILER'},
