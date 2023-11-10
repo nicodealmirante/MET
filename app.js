@@ -294,8 +294,7 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
     media: 'colum1.jpg', delay: 3000})
     .addAnswer('UNIFILAS',{
       media: 'colum2.mp4', delay: 3000})
-      .addAnswer('UNIFILAS 2',{
-        media: 'colum3.mp4', delay: 3000})
+
         .addAnswer('Selfie Mirror',{
           media: 'colum4.mp4', delay: 3000})
   .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
@@ -413,6 +412,8 @@ return  gotoFlow(Menuflow);
   const flowPrincipal = addKeyword(EVENTS.WELCOME)
 
   .addAnswer("Hola. Soy Luna, una IA encargada de responder instantaneamente preguntas frecuentes. Para hablar con un asesor continua al\n +5491140054474 - Nicolás")
+  .addAnswer('UNIFILAS 2',{
+    media: 'colum3.mp4', delay: 3000})
   .addAnswer("Opciones", {capture: true, 
       buttons: [
           {body: 'INFO. ALQUILER'},
