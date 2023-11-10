@@ -305,18 +305,17 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
   .then(response => response.json())
   .then(json => dolar = json.venta)
   console.log('VENTA')
-  await flowDynamic(`*VALOR ESPEJO MAGICO* \n
+  await flowDynamic(`*VALORES*\n +ESPEJO MAGICO* \n
   💵   *U$D 1,500 .-*   🔒
   💱 > U$D = AR$ > 💱
-  📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓 `)
+  📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓 `,
   
-  await flowDynamic(`*VALOR PLATAFORMA 360*\n     
+`\n\n*PLATAFORMA 360*\n     
   💵   *U$D 1,500 .-*   🔒
   💱 > U$D = AR$ > 💱
-  📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`)
-  
-  await flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`)
-  await flowDynamic([`*VALOR FILA VIP*\n
+  📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`,
+   `Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱` ,
+   `\n\n*FILA VIP*\n
   ORGANIZADORES DE FILA PIXEL\n
   🚧 NEGRO  ◼️  PLATA 🥈  ORO  🥇 \n
   AR$ 60.000 ◼️ 85.000 🥈 95.000 🥇\n
@@ -344,8 +343,6 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
         }
     }
     )
-.addAnswer("PARA CONTINUAR CON LA OPERACION -> ASESOR NICOLAS *+5491140054474* ")
-
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
 /** .addAnswer("*CONTINUAR*", { 
       capture: true,
