@@ -87,54 +87,59 @@ return endFlow(Menuflow)})
 
 
 const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
-          .addAnswer('👌Te envio la info de alquiler.')
-          
-          .addAnswer('Selfie Mirror',{
-               media: 'banner22.jpg'})
-          
-         .addAnswer(['*Espejo Mágico Selfie Mirror*',
-                     '\nDiseño elegante: Nuestro espejo mágico tiene un diseño moderno y elegante que se adapta a cualquier tipo de evento.',
-                    'Su apariencia sofisticada agrega un toque especial al ambiente.',
-                    '\nAccesorios y decoración: Contamos con una variedad de accesorios y elementos decorativos para personalizar aún ',
-                     'más la experiencia. Puedes elegir entre diferentes marcos, sombreros, anteojos, pizarras con mensajes divertidos' ,
-                      'y más. Estos elementos permiten que los invitados se diviertan y creen fotos únicas.',
-                    '\nTamaño y portabilidad: El espejo mágico tiene dimensiones compactas que facilitan su transporte e instalación en ',
-                    'diferentes espacios. Es lo suficientemente versátil como para adaptarse a salones de eventos, fiestas en exteriores ',
-                   'y otros lugares.',
-                   '\nOpciones de software: Nuestro espejo mágico viene con un software propio que ofrece una amplia gama de funciones ',
-                   'y personalización. Puedes elegir entre diferentes plantillas de diseño, agregar efectos especiales a las fotos y configurar ',
-                   'opciones de impresión según tus preferencias.',
-                   '\nTiempo de alquiler: El tiempo de alquiler del espejo mágico es flexible y se adapta a las necesidades de tu evento.',
-                   ' Puedes contratarlo por horas o por el tiempo que consideres necesario para brindar una experiencia completa a tus invitados.',
-                   '\nRecuerda que nuestros servicios incluyen el montaje, desmontaje y la asistencia de personal capacitado durante todo' ,
-                   'el evento. Estamos comprometidos en asegurar que tus invitados disfruten al máximo de la experiencia con el espejo mágico.',
-                   'Valor Servicio por 2 Horas $ 100.000 (base)',
-                   'El valor de la Hora adicional es de $ 50.000'])
-        
-        .addAnswer('Espejo Mágico Selfie Mirror', {
-            media: 'banner3.jpg'})
-        
-        .addAnswer(['*360 Super Slow.*',
-                 '\nEl servicio dura 2 horas. Durante ese tiempo no existe límite de capturas.',
-                'Los videos son filmados y compartidos en el momento ya editados automáticamente',
-                'Incluye accesorios (pistola lanza burbujas, lanza billetes.)',
-               'El valor del servicio de 2 horas (2023) es de $ 100.000 .-',
-               'El valor del servicio de 2 horas (2024) es de U$s 100 .-',
-               'El valor de la Hora adicional (2023) es de $ 50.000 .-'      ])  
-                     
-            
+.addAnswer('👌Te envio la info de alquiler.')
 
-               .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
-          
-       
+.addAnswer('Selfie Mirror',{
+media: 'banner22.jpg'})
 
-      .addAnswer(['🚚El valor no incluye traslados',
-             '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'])
-       ///      numero2(ctx.from)
-       .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
-    .addAnswer('Showroom', {media: 'video.mp4'})
-    .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
-    .addAnswer('Captura 360', {media: 'video360.mp4'})
+
+//ESPEJO
+.addAnswer(['*El Espejo Mágico Selfie Mirror: Transforma tus Eventos en Experiencias Inolvidables*',
+'En Selfie Mirror, hemos fusionado tecnología y entretenimiento para brindarte una experiencia única en tus eventos. Con nuestro servicio de alquiler del Espejo Mágico Selfie Mirror, tu celebración se transforma en una ocasión inolvidable.',
+'Nuestro Espejo Mágico no es solo un dispositivo, es una obra de arte por derecho propio. Su diseño elegante y moderno añade una dosis de sofisticación a cualquier evento, desde bodas y cumpleaños hasta fiestas corporativas.',
+'Ofrecemos un software personalizado que te permite personalizar cada aspecto de las fotos. Desde plantillas de diseño exclusivas hasta efectos especiales y opciones de impresión a medida, puedes dar rienda suelta a tu creatividad.',
+'Nuestra colección de accesorios y elementos de decoración es diversa y emocionante. Desde sombreros y anteojos extravagantes hasta pizarras con mensajes ingeniosos, tus invitados pueden transformarse y crear recuerdos únicos.',
+'Sin restricciones en la cantidad de fotos que pueden tomarse durante el tiempo de alquiler, cada sonrisa, pose y momento especial se pueden capturar y recordar.',
+'El Espejo Mágico ofrece la emoción de las impresiones instantáneas. Tus invitados pueden llevarse recuerdos físicos que atesorarán durante años.',
+'Nuestro equipo se encarga del montaje y desmontaje del Espejo Mágico, lo que te permite relajarte y disfrutar del evento. Además, un técnico capacitado está presente durante todo el evento para garantizar que todo funcione sin problemas y para ayudar a los invitados.',
+'Todas las fotos se almacenan digitalmente y se proporciona acceso a una galería en línea. Tus invitados pueden descargar sus fotos en cualquier momento.',
+'El tiempo de alquiler se adapta a tus necesidades. El alquiler mínimo es de 2 horas, pero puedes extenderlo según tus preferencias.',
+'En Selfie Mirror, nuestra pasión es hacer que tu evento sea inolvidable. Ya sea una boda emocionante, un cumpleaños especial o una reunión corporativa, el Espejo Mágico Selfie Mirror agrega un toque mágico a cada ocasión. Contáctanos hoy para obtener más información, disponibilidad y precios. ¡Haz que tus momentos especiales brillen con el Espejo Mágico Selfie Mirror!'])
+
+
+.addAnswer('Espejo Mágico Selfie Mirror', {
+media: 'banner3.jpg'})
+/// 360  
+.addAnswer(['*Alquiler de Plataforma 360: Eleva la Experiencia de tus Eventos Sociales*',
+'En Selfie Mirror, te ofrecemos la oportunidad de llevar la diversión y la emoción de la fotografía y video a un nivel completamente nuevo con nuestra Plataforma 360. Ya no se trata solo de capturar momentos, se trata de crear experiencias memorables.',
+'Nuestra Plataforma 360 te brinda la oportunidad de sorprender a tus invitados con un servicio de alquiler único y emocionante. ¿Qué puedes esperar?',
+'1. **360 Grados de Diversión**:',
+'Imagina poder capturar todos los ángulos de diversión en tu evento. Nuestra plataforma 360 grados registra cada sonrisa, cada risa y cada gesto especial desde todos los ángulos. Tus invitados se convierten en estrellas en un set de grabación en 360 grados.',
+'2. **Edición Instantánea**:',
+'Lo que hace que nuestra plataforma 360 sea aún más especial es la edición en tiempo real. Los videos son filmados y compartidos en el momento, ya editados automáticamente. Esto significa que tus invitados pueden disfrutar de la emoción de ver sus momentos especiales de inmediato.',
+'3. **Accesorios Divertidos**:',
+'No hay diversión sin accesorios, ¿verdad? Ofrecemos una amplia variedad de accesorios, desde pelucas y anteojos extravagantes hasta pistolas lanzaburbujas y cotillón. Tus invitados pueden elegir sus accesorios y transformarse en personajes únicos.',
+'4. **Flexibilidad en el Tiempo**:',
+'El tiempo de alquiler de la Plataforma 360 es flexible y se adapta a las necesidades de tu evento. Puedes contratarla por un mínimo de 2 horas, asegurándote de que tus invitados tengan suficiente tiempo para divertirse y crear recuerdos inolvidables.',
+'En Selfie Mirror, nos apasiona llevar la diversión y la innovación a tus eventos sociales. Ya sea una fiesta de cumpleaños, una boda o cualquier ocasión especial, la Plataforma 360 agrega una dimensión emocionante que tus invitados recordarán. Contáctanos hoy para obtener más información, disponibilidad y precios. ¡Haz que tus eventos sociales sean inolvidables con la Plataforma 360 de Selfie Mirror!'])
+
+.addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
+.addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
+.addAnswer('Showroom', {media: 'video.mp4'})
+.addAnswer('Selfie Mirror', {media: 'video2.mp4'})
+.addAnswer('Captura 360', {media: 'video360.mp4'})
+.addAnswer(['  *VALORES* ',
+'\n360 Super Slow.*',
+'\nEl servicio dura 2 horas. Durante ese tiempo no existe límite de capturas.',
+'Los videos son filmados y compartidos en el momento ya editados escaneando un codigo QR',
+'Incluye accesorios (pistola lanza burbujas, lanza billetes.)',
+'El valor del servicio de 2 horas es de $ 100.000 .-'])
+.addAnswer(['\n*Espejo Magico*',
+'\nValor Servicio por 2 Horas $ 100.000',
+'\nValor ambos servicios por 2 Horas $ 180.000',
+'\nEl minimo de alquiler son 2 horas',
+'\nEl valor de la Hora adicional es de $ 50.000'])
+.addAnswer(['🚚El valor no incluye traslados'])
     .addAnswer("Opciones", {capture: false, 
       buttons: [
           {body: 'INFO. ALQUILER'},
@@ -231,87 +236,87 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
 )*/ 
 
   const flowVenta = addKeyword(['INFO. VENTA'], { sensitive: true })
-          .addAnswer('👌 Te envío la info de Venta.',{delay: 2000})
-
-          .addAnswer(['*Espejo Mágico Selfie Mirror*',
-                    '\nEl Espejo Mágico de Selfie Mirror cuenta con una cámara web de alta calidad, vidrio templado resistente, una Mini PC y un',
-                    'televisor LED de 32 pulgadas. Estas características garantizan una experiencia de alta definición para capturar momentos',
-                    'especiales.',
-                   '\nSu diseño compacto y portátil, con dimensiones de 126 cm de alto x 70 cm de ancho y 20 cm de profundidad en el modelo',
-                   'Slim, permite transportarlo fácilmente en cualquier vehículo. Esto brinda una gran versatilidad y conveniencia para eventos ',
-                    'y fiestas.'  ])
-
-        .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
-    
-
-        .addAnswer(['La facilidad de uso es una de las ventajas clave del Espejo Mágico. Simplemente tienes que enchufarlo y presionar el ',
-                      'botón de encendido para que empiece a funcionar. Esto agiliza la instalación y permite que los eventos comiencen rápidamente.',
-                    '\nEs importante mencionar que el Selfie Mirror no incluye una impresora, pero está preparado para funcionar con cualquier ',
-                    'impresora que se adapte a las necesidades del cliente. Esto brinda flexibilidad para elegir la impresora que mejor se ajuste a',
-                    'los requerimientos de impresión.',
-                   '\nEn cuanto al precio, el valor del equipo es de 1500 dólares o pesos al valor del dólar blue del día.'],{ capture: false }, async (ctx, { flowDynamic,axios}) => {
-                                            
-                           
-                    } )
-        .addAnswer('Equipo Slim Selfie Mirror', {media: 'banner4.jpg'})
-
-        .addAnswer(['*Plataforma 360 Super Slow*',
-        '\nNuestra plataforma incluye todo lo necesario para poder brindar un servicio profesional. Incluye Monitor transmitiendo en vivo. Proceso de editado automatico.',
-        ' (Una vez grabado se reproduce en el monitor automaticamente ya editado)',
-        'Los invitados podran escanear un codigo QR UNICO para poder visualizar todos los videos del evento *EN EL MOMENTO*',
-                  '\nLa plataforma controlada por mando a distancia incluye: variador de velocidad, arranque y parada suave, soporte reforzado, Aro de Led, 4 bastones led pixel de 1 mt, led rgb en plataforma, stand para TV (no incluida) y asesoramiento tecnico.',
-                 '\n*Equipo listo para trabajar*.',
-                'El valor del equipo es de 1500 U$S.' ,
-                '▶ REQUERIDO:Necesita contar con un Apple Iphone 13 o suoperior (dispositivo de grabacion)',
-      'y un TV LED de 32 o mas (monitoreo)'])
-        .addAnswer('Selfie Mirror', {media: 'video3.mp4'})
-
-        .addAnswer('Formas de pago: efectivo, transferencia/depósito')
-
-        .addAnswer('Selfie Mirror', {media: 'banner22.jpg'})
-       .addAnswer(['*UNIFILA LED*\n¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
-        'En SELFIE MIRROR, entendemos la importancia de mantener tus espacios organizados y atractivos. Nuestros organizadores de fila no solo te ayudarán a mantener un flujo ordenado de clientes, sino que también añadirán un toque de modernidad y estilo a tu negocio.\n',
-        '¿Qué hace que nuestros organizadores de fila con tecnología Pixel LED sean especiales?\n',
-        '✨ Iluminación espectacular: Nuestra tecnología Pixel LED ofrece una iluminación vibrante y personalizable que destacará tu marca y creará una experiencia memorable para tus clientes.\n',
-        '🧹 Organización efectiva: Mantén tus filas en orden y evita la confusión con nuestros organizadores de alta calidad. ¡El caos será cosa del pasado!\n',
-        '🎨 Personalización total: Personaliza la apariencia de tus organizadores para que se adapten a tu imagen corporativa o al tema de tu negocio.\n',
-        '🌟 Destaca entre la multitud: Con nuestros organizadores de fila Pixel LED, tu negocio destacará en cualquier entorno, desde eventos, ferias comerciales hasta tiendas minoristas y restaurantes.\n',
-        '¡Es el momento de darle a tu negocio una ventaja competitiva!\n',
-        '¡Haz que tu negocio brille con nuestros organizadores de fila Pixel LED! 💫✨ #TecnologíaLED #OrganizaciónEfectiva #AtraeClientes\n',
-        '*VALORES*\n',
-        'https://filavip.ar'])
-        .addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
-        .addAnswer('FOTO FILA VIP', {media: '111.jpg'})
-        .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
-.addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
-.addAnswer('Selfie Mirror', {media: 'video2.mp4'})
-.addAnswer('Captura 360', {media: 'video360.mp4'})
-        .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
-          let dolar
-          await fetch('https://dolarapi.com/v1/dolares/blue')
-    .then(response => response.json())
-    .then(json => dolar = json.venta)
-    console.log('VENTA')
- await flowDynamic(`*VALOR ESPEJO MAGICO* \n
-💵   *U$D 1,500 .-*   🔒
-💱 > U$D = AR$ > 💱
-📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓 `)
-
-await flowDynamic(`*VALOR PLATAFORMA 360*\n     
-💵   *U$D 1,500 .-*   🔒
-💱 > U$D = AR$ > 💱
-📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`)
-
-await flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`)
-await flowDynamic([`*VALOR FILA VIP*\n
- ORGANIZADORES DE FILA PIXEL\n
-   🚧 NEGRO  ◼️  PLATA 🥈  ORO  🥇 \n
+  .addAnswer('👌 Te envío la info de Venta.',{delay: 2000})
+ 
+  .addAnswer(['*Espejo Mágico Selfie Mirror*',
+            '\nEl Espejo Mágico de Selfie Mirror cuenta con una cámara web de alta calidad, vidrio templado resistente, una Mini PC y un',
+            'televisor LED de 32 pulgadas. Estas características garantizan una experiencia de alta definición para capturar momentos',
+            'especiales.',
+           '\nSu diseño compacto y portátil, con dimensiones de 126 cm de alto x 70 cm de ancho y 20 cm de profundidad en el modelo',
+           'Slim, permite transportarlo fácilmente en cualquier vehículo. Esto brinda una gran versatilidad y conveniencia para eventos ',
+            'y fiestas.'  ])
+  
+  .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
+  
+  
+  .addAnswer(['La facilidad de uso es una de las ventajas clave del Espejo Mágico. Simplemente tienes que enchufarlo y presionar el ',
+              'botón de encendido para que empiece a funcionar. Esto agiliza la instalación y permite que los eventos comiencen rápidamente.',
+            '\nEs importante mencionar que el Selfie Mirror no incluye una impresora, pero está preparado para funcionar con cualquier ',
+            'impresora que se adapte a las necesidades del cliente. Esto brinda flexibilidad para elegir la impresora que mejor se ajuste a',
+            'los requerimientos de impresión.',
+           '\nEn cuanto al precio, el valor del equipo es de 1500 dólares o pesos al valor del dólar blue del día.'],{ capture: false }, async (ctx, { flowDynamic,axios}) => {
+                                    
+                   
+            } )
+  .addAnswer('Equipo Slim Selfie Mirror', {media: 'banner4.jpg'})
+  
+  .addAnswer(['*Plataforma 360 Super Slow*',
+  '\nNuestra plataforma incluye todo lo necesario para poder brindar un servicio profesional. Incluye Monitor transmitiendo en vivo. Proceso de editado automatico.',
+  ' (Una vez grabado se reproduce en el monitor automaticamente ya editado)',
+  'Los invitados podran escanear un codigo QR UNICO para poder visualizar todos los videos del evento *EN EL MOMENTO*',
+          '\nLa plataforma controlada por mando a distancia incluye: variador de velocidad, arranque y parada suave, soporte reforzado, Aro de Led, 4 bastones led pixel de 1 mt, led rgb en plataforma, stand para TV (no incluida) y asesoramiento tecnico.',
+         '\n*Equipo listo para trabajar*.',
+        'El valor del equipo es de 1500 U$S.' ,
+        '▶ REQUERIDO:Necesita contar con un Apple Iphone 13 o suoperior (dispositivo de grabacion)',
+  'y un TV LED de 32 o mas (monitoreo)'])
+  .addAnswer('Selfie Mirror', {media: 'video3.mp4'})
+  
+  .addAnswer('Formas de pago: efectivo, transferencia/depósito')
+  
+  .addAnswer('Selfie Mirror', {media: 'banner22.jpg'})
+  .addAnswer(['*UNIFILA LED*\n¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
+  'En SELFIE MIRROR, entendemos la importancia de mantener tus espacios organizados y atractivos. Nuestros organizadores de fila no solo te ayudarán a mantener un flujo ordenado de clientes, sino que también añadirán un toque de modernidad y estilo a tu negocio.\n',
+  '¿Qué hace que nuestros organizadores de fila con tecnología Pixel LED sean especiales?\n',
+  '✨ Iluminación espectacular: Nuestra tecnología Pixel LED ofrece una iluminación vibrante y personalizable que destacará tu marca y creará una experiencia memorable para tus clientes.\n',
+  '🧹 Organización efectiva: Mantén tus filas en orden y evita la confusión con nuestros organizadores de alta calidad. ¡El caos será cosa del pasado!\n',
+  '🎨 Personalización total: Personaliza la apariencia de tus organizadores para que se adapten a tu imagen corporativa o al tema de tu negocio.\n',
+  '🌟 Destaca entre la multitud: Con nuestros organizadores de fila Pixel LED, tu negocio destacará en cualquier entorno, desde eventos, ferias comerciales hasta tiendas minoristas y restaurantes.\n',
+  '¡Es el momento de darle a tu negocio una ventaja competitiva!\n',
+  '¡Haz que tu negocio brille con nuestros organizadores de fila Pixel LED! 💫✨ #TecnologíaLED #OrganizaciónEfectiva #AtraeClientes\n',
+  '*VALORES*\n',
+  'https://filavip.ar'])
+  .addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
+  .addAnswer('FOTO FILA VIP', {media: '111.jpg'})
+  .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
+  .addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
+  .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
+  .addAnswer('Captura 360', {media: 'video360.mp4'})
+  .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
+  let dolar
+  await fetch('https://dolarapi.com/v1/dolares/blue')
+  .then(response => response.json())
+  .then(json => dolar = json.venta)
+  console.log('VENTA')
+  await flowDynamic(`*VALOR ESPEJO MAGICO* \n
+  💵   *U$D 1,500 .-*   🔒
+  💱 > U$D = AR$ > 💱
+  📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓 `)
+  
+  await flowDynamic(`*VALOR PLATAFORMA 360*\n     
+  💵   *U$D 1,500 .-*   🔒
+  💱 > U$D = AR$ > 💱
+  📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓`)
+  
+  await flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`)
+  await flowDynamic([`*VALOR FILA VIP*\n
+  ORGANIZADORES DE FILA PIXEL\n
+  🚧 NEGRO  ◼️  PLATA 🥈  ORO  🥇 \n
   AR$ 60.000 ◼️ 85.000 🥈 95.000 🥇\n
- SOGAS TRENZADA. CAPUCHON\n
+  SOGAS TRENZADA. CAPUCHON\n
   ⛓️  NEGRO ◼️  PLATA  🥈  ORO  🥇\n
- AR$ 14.000 ◼️ 15.000 🥈 25.000 🥇\n
+  AR$ 14.000 ◼️ 15.000 🥈 25.000 🥇\n
   PACK 4 PIXEL + 2 SOGAS (NEGRO)\n
- 💲💲💲 AR$ 255.000 💲💲💲`])
+  💲💲💲 AR$ 255.000 💲💲💲`])
 })
 .addAnswer("Opciones", {capture: false, 
   buttons: [
@@ -398,8 +403,8 @@ return  gotoFlow(Menuflow);
 
   const flowPrincipal = addKeyword(EVENTS.WELCOME)
 
-.addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás")
-.addAnswer("Opciones", {capture: true, 
+  .addAnswer("Hola. Soy Luna, una IA encargada de responder instantaneamente preguntas frecuentes. Para hablar con un asesor continua al\n +5491140054474 - Nicolás")
+  .addAnswer("Opciones", {capture: true, 
       buttons: [
           {body: 'INFO. ALQUILER'},
           {body: 'INFO. VENTA'},
