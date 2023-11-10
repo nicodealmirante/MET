@@ -290,6 +290,16 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
   .addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
   .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
   .addAnswer('Captura 360', {media: 'video360.mp4'})
+  .addAnswer('FICHA TECNICA ESPEJO',{
+  document: 'FichaTécnicaFULL.pdf'})
+  .addAnswer('UNIFILAS FOTO',{
+    media: 'colum1.jpg'})
+    .addAnswer('UNIFILAS',{
+      media: 'colum2.mp4'})
+      .addAnswer('UNIFILAS 2',{
+        media: 'UNIFILAS 3'})
+        .addAnswer('Selfie Mirror',{
+          media: 'colum4.mp4'})
   .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
   let dolar
   await fetch('https://dolarapi.com/v1/dolares/blue')
@@ -318,16 +328,6 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
   
   💲💲💲 AR$ 255.000 💲💲💲`])
 })
-.addAnswer('Selfie Mirror',{
-  document: 'FichaTécnicaFULL.pdf'})
-  .addAnswer('Selfie Mirror',{
-    media: 'colum1.jpg'})
-    .addAnswer('Selfie Mirror',{
-      media: 'colum2.mp4'})
-      .addAnswer('Selfie Mirror',{
-        media: 'colum3.mp4'})
-        .addAnswer('Selfie Mirror',{
-          media: 'colum4.mp4'})
 
 .addAnswer("Opciones", {capture: true, 
   buttons: [
