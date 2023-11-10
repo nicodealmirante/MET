@@ -23,7 +23,7 @@ const mywhatsa = "5491140054474@s.whatsapp.net";
  * Primero declaras los submenus 1.1 y 2.1, luego el 1 y 2 y al final el principal.
  */
 
-
+let causa
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -57,8 +57,8 @@ console.log('Numero Agendado de Alquiler');*/
 const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
     .addAnswer("*UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD*", {
       capture: false},async (ctx, { endFlow, gotoFlow, MetaProvider, flowDynamic}) => {
-  //      await MetaProvider.sendtext(mywhatsa, `*Directo* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
-   await flowDynamic('COMUNIQUESE A ESTE NUMERO PARA HABLAR CON ASESOR +5491140054474')
+         provider.sendtext(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: *${ctx.body}*`) 
+        await flowDynamic('COMUNIQUESE A ESTE NUMERO PARA HABLAR CON ASESOR +5491140054474')
 return endFlow(Menuflow)
 }
 
@@ -135,22 +135,25 @@ const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
     .addAnswer('Showroom', {media: 'video.mp4'})
     .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
     .addAnswer('Captura 360', {media: 'video360.mp4'})
-   .addAnswer('COMUNIQUESE A ESTE NUMERO PARA HABLAR CON ASESOR +5491140054474')
-        
-   .addAnswer("*CONTINUAR*", { 
-      capture: true,
+    .addAnswer("Opciones", {capture: false, 
       buttons: [
-          {body: 'CONTINUAR CON AGENTE'},
-          {body: 'VOLVER AL MENU'},
-      ],delay: 3000
-  }, async (ctx, { endFlow, gotoFlow, adapterProvider, flowDynamic}) => {
-    if(ctx.body=='CONTINUAR CON AGENTE'){
-    await provider.sendtext(mywhatsa, `*ALQUILER* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
-   }else{      gotoFlow()
+          {body: 'INFO. ALQUILER'},
+          {body: 'INFO. VENTA'},
+         {body: 'ASESOR VENTAS'},
+        ], delay: 2000 , idle: 200000 }, // idle: 2000 = 2 segundos
+        async (ctx, { gotoFlow, inRef }) => {
+          if(ctx.body=='ASESOR VENTAS') {
+            causa='ALQUILER'
+        }
+            if (ctx?.idleFallBack) {
+                return gotoFlow(flujoFinal)
+            }
+        }
+        )
+    .addAnswer("PARA CONTINUAR CON LA OPERACION -> ASESOR NICOLAS *+5491140054474* ")
 
+    const flujoFinal = addKeyword('HH').addAnswer('Sigue ahi? Quiere que me comunique despues? Le dejo mi telefono *+5491140054474 - NICOLAS*')
 
-
-    } })
 /* 
 if(ctx.body == 'CONTINUAR CON AGENTE'){
   return gotoFlow(Cliente)
@@ -310,22 +313,26 @@ await flowDynamic([`*VALOR FILA VIP*\n
   PACK 4 PIXEL + 2 SOGAS (NEGRO)\n
  💲💲💲 AR$ 255.000 💲💲💲`])
 })
-     
-.addAnswer("*CONTINUAR*", { 
-  capture: true,
+.addAnswer("Opciones", {capture: false, 
   buttons: [
-      {body: 'CONTINUAR CON AGENTE'},
-      {body: 'VOLVER AL MENU'},
-  ],delay: 3000
-}, async (ctx, { endFlow, gotoFlow, adapterProvider, flowDynamic}) => {
-if(ctx.body=='CONTINUAR CON AGENTE'){
-await provider.sendtext(mywhatsa, `*VENTA* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
-}else{      gotoFlow()
+      {body: 'INFO. ALQUILER'},
+      {body: 'INFO. VENTA'},
+     {body: 'ASESOR VENTAS'},
+    ], delay: 2000 , idle: 200000 }, // idle: 2000 = 2 segundos
+    async (ctx, { gotoFlow, inRef }) => {
+      if(ctx.body=='ASESOR VENTAS') {
 
+      causa='VENTA'
+            }
+                  if (ctx?.idleFallBack) {
+            return gotoFlow(flujoFinal)
+        }
+    }
+    )
+.addAnswer("PARA CONTINUAR CON LA OPERACION -> ASESOR NICOLAS *+5491140054474* ")
 
+const flujoFinal = addKeyword('HH').addAnswer('Sigue ahi? Quiere que me comunique despues? Le dejo mi telefono *+5491140054474 - NICOLAS*')
 
-} })
-.addAnswer('COMUNIQUESE A ESTE NUMERO PARA HABLAR CON ASESOR +5491140054474')
 
 //////////////////////////////////////////////////////////////// EVENTO WELCOME
 /** .addAnswer("*CONTINUAR*", { 
@@ -399,11 +406,22 @@ return  gotoFlow(Menuflow);
       buttons: [
           {body: 'INFO. ALQUILER'},
           {body: 'INFO. VENTA'},
-         // {body: 'UNIFILA LED'},
-      ], delay: 2000 }
-      
-    ) 
+         {body: 'ASESOR VENTAS'},
+        ], delay: 2000 , idle: 200000 }, // idle: 2000 = 2 segundos
+        async (ctx, { gotoFlow, inRef }) => {
+          if(ctx.body=='ASESOR VENTAS') {
+
+          causa='WELCOME'
+          }
+          if (ctx?.idleFallBack) {
+                return gotoFlow(flujoFinal)
+            }
+        }
+        )
     .addAnswer("PARA CONTINUAR CON LA OPERACION -> ASESOR NICOLAS *+5491140054474* ")
+
+    const flujoFinal = addKeyword('HH').addAnswer('Sigue ahi? Quiere que me comunique despues? Le dejo mi telefono *+5491140054474 - NICOLAS*')
+
     /*
     .addAnswer("*Contacto*", { 
       capture: true,
