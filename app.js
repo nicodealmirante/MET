@@ -236,7 +236,7 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
 )*/ 
 
   const flowVenta = addKeyword(['INFO. VENTA'], { sensitive: true })
-  .addAnswer('👌 Te envío la info de Venta.',{delay: 2000})
+  .addAnswer('👌 Te envío la info de Venta.')
  
   .addAnswer(['*Espejo Mágico Selfie Mirror*',
             '\nEl Espejo Mágico de Selfie Mirror cuenta con una cámara web de alta calidad, vidrio templado resistente, una Mini PC y un',
@@ -244,7 +244,7 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
             'especiales.',
            '\nSu diseño compacto y portátil, con dimensiones de 126 cm de alto x 70 cm de ancho y 20 cm de profundidad en el modelo',
            'Slim, permite transportarlo fácilmente en cualquier vehículo. Esto brinda una gran versatilidad y conveniencia para eventos ',
-            'y fiestas.'  ])
+            'y fiestas.'],{delay: 2000})
   
   .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
   
@@ -290,9 +290,8 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
   .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
   .addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
   .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
-  .addAnswer('Captura 360', {media: 'video360.mp4'})
-  .addAnswer('FICHA TECNICA ESPEJO',{
-  media: 'FichaTécnicaFULL.pdf', delay: 3000})
+  .addAnswer('Captura 360', {media: 'video360.mp4', delay: 2000})
+
   .addAnswer('UNIFILAS FOTO',{
     media: 'colum1.jpg', delay: 3000})
     .addAnswer('UNIFILAS',{
