@@ -55,8 +55,14 @@ console.log('Numero Agendado de Alquiler');*/
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
-    .addAnswer("*UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD*", {
-      capture: false},async (ctx, {        gotoFlow, provider, flowDynamic}) => {
+
+.addAnswer("Interes de la consulta?", {capture: true, 
+  buttons: [
+      {body: 'QUIERO ALQUILAR'},
+      {body: 'QUIERO COMPRAR'},
+     {body: 'OTROS'},
+    ], delay: 2000 , idle: 200000 }, // idle: 2000 = 2 segundos
+    async (ctx, { gotoFlow, provider }) => {
          provider.sendtext(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: *${ctx.body}*`) 
         await flowDynamic('COMUNIQUESE A ESTE NUMERO PARA HABLAR CON ASESOR +5491140054474')
 return gotoFlow(Menuflow)
@@ -88,10 +94,6 @@ return endFlow(Menuflow)})
 
 const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
 .addAnswer('👌Te envio la info de alquiler.')
-
-.addAnswer('Selfie Mirror',{
-media: 'banner22.jpg'})
-
 
 //ESPEJO
 .addAnswer(['*El Espejo Mágico Selfie Mirror: Transforma tus Eventos en Experiencias Inolvidables*',
@@ -272,7 +274,7 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
   
   .addAnswer('Formas de pago: efectivo, transferencia/depósito')
   
-  .addAnswer('Selfie Mirror', {media: 'banner22.jpg'})
+  .addAnswer('Selfie Mirror', {media: 'banner3.jpg'})
   .addAnswer(['*UNIFILA LED*\n¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
   'En SELFIE MIRROR, entendemos la importancia de mantener tus espacios organizados y atractivos. Nuestros organizadores de fila no solo te ayudarán a mantener un flujo ordenado de clientes, sino que también añadirán un toque de modernidad y estilo a tu negocio.\n',
   '¿Qué hace que nuestros organizadores de fila con tecnología Pixel LED sean especiales?\n',
@@ -412,7 +414,9 @@ return  gotoFlow(Menuflow);
   const flowPrincipal = addKeyword(EVENTS.WELCOME)
 
   .addAnswer("Hola. Soy Luna, una IA encargada de responder instantaneamente preguntas frecuentes. Para hablar con un asesor continua al\n +5491140054474 - Nicolás")
-  .addAnswer('UNIFILAS 2',{
+    
+  .addAnswer('Selfie Mirror', {media: 'banner22.jpg'})
+  .addAnswer('UNIFILAS',{
     media: 'colum3.mp4', delay: 3000})
   .addAnswer("Opciones", {capture: true, 
       buttons: [
