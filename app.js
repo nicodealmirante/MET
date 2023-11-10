@@ -140,7 +140,7 @@ media: 'banner3.jpg'})
 '\nEl minimo de alquiler son 2 horas',
 '\nEl valor de la Hora adicional es de $ 50.000'])
 .addAnswer(['🚚El valor no incluye traslados'])
-    .addAnswer("Opciones", {capture: false, 
+    .addAnswer("Opciones", {capture: true, 
       buttons: [
           {body: 'INFO. ALQUILER'},
           {body: 'INFO. VENTA'},
@@ -318,7 +318,7 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
   PACK 4 PIXEL + 2 SOGAS (NEGRO)\n
   💲💲💲 AR$ 255.000 💲💲💲`])
 })
-.addAnswer("Opciones", {capture: false, 
+.addAnswer("Opciones", {capture: true, 
   buttons: [
       {body: 'INFO. ALQUILER'},
       {body: 'INFO. VENTA'},
