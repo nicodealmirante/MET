@@ -155,7 +155,6 @@ media: 'banner3.jpg'})
             }
         }
         )
-    .addAnswer("PARA CONTINUAR CON LA OPERACION -> ASESOR NICOLAS *+5491140054474* ")
 
     const flujoFinal = addKeyword('HH').addAnswer('Sigue ahi? Quiere que me comunique despues? Le dejo mi telefono *+5491140054474 - NICOLAS*')
 
@@ -420,7 +419,6 @@ return  gotoFlow(Menuflow);
             }
         }
         )
-    .addAnswer("PARA CONTINUAR CON LA OPERACION -> ASESOR NICOLAS *+5491140054474* ")
  
 
     /*
