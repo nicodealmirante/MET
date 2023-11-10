@@ -402,7 +402,7 @@ return  gotoFlow(Menuflow);
   const flowPrincipal = addKeyword(EVENTS.WELCOME)
 
 .addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás")
-.addAnswer("Opciones", {capture: false, 
+.addAnswer("Opciones", {capture: true, 
       buttons: [
           {body: 'INFO. ALQUILER'},
           {body: 'INFO. VENTA'},
@@ -561,7 +561,7 @@ curl 'https://graph.facebook.com/v18.0/106540352242922/messages' \
   const Menuflow = addKeyword(["me-nu"], { sensitive: true })
 
   .addAnswer("*Info*", { 
-            capture: false,
+            capture: true,
             buttons: [
                 {body: 'INFO. ALQUILER'},
                 {body: 'INFO. VENTA'},
