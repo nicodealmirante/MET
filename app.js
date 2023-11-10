@@ -324,7 +324,7 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
   AR$ 14.000 ◼️ 15.000 🥈 25.000 🥇\n
   PACK 4 PIXEL + 2 SOGAS (NEGRO)\n
   
-  💲💲💲 AR$ 255.000 💲💲💲`])
+  💲💲💲 AR$ 255.000 💲💲💲`)
 })
 
 .addAnswer("Opciones", {capture: true, 
