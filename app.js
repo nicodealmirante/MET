@@ -8,6 +8,7 @@ const ServerHttp = require('./src/http')
 
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
+const { delay } = require('@whiskeysockets/baileys')
 const  PORTS = 3004 
 let motivo;  
 const mywhatsa = "5491140054474@s.whatsapp.net";
@@ -291,15 +292,15 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
   .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
   .addAnswer('Captura 360', {media: 'video360.mp4'})
   .addAnswer('FICHA TECNICA ESPEJO',{
-  media: 'FichaTécnicaFULL.pdf'})
+  media: 'FichaTécnicaFULL.pdf', delay: 3000})
   .addAnswer('UNIFILAS FOTO',{
-    media: 'colum1.jpg'})
+    media: 'colum1.jpg', delay: 3000})
     .addAnswer('UNIFILAS',{
-      media: 'colum2.mp4'})
+      media: 'colum2.mp4', delay: 3000})
       .addAnswer('UNIFILAS 2',{
-        media: 'UNIFILAS 3'})
+        media: 'UNIFILAS 3', delay: 3000})
         .addAnswer('Selfie Mirror',{
-          media: 'colum4.mp4'})
+          media: 'colum4.mp4', delay: 3000})
   .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
   let dolar
   await fetch('https://dolarapi.com/v1/dolares/blue')
