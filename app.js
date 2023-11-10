@@ -54,7 +54,7 @@ console.log('Numero Agendado de Alquiler');*/
 /////////////////////// FLUJO CLIENTE
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
+const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
     .addAnswer("*UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD*", {
       capture: false},async (ctx, { endFlow, gotoFlow, MetaProvider, flowDynamic}) => {
          provider.sendtext(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: *${ctx.body}*`) 
@@ -565,7 +565,7 @@ curl 'https://graph.facebook.com/v18.0/106540352242922/messages' \
             buttons: [
                 {body: 'INFO. ALQUILER'},
                 {body: 'INFO. VENTA'},
-       //         {body: 'UNIFILA LED'},
+             {body: 'ASESOR VENTAS'},
             ],
           }
 ) 
