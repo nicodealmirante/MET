@@ -56,10 +56,10 @@ console.log('Numero Agendado de Alquiler');*/
 
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
     .addAnswer("*UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD*", {
-      capture: false},async (ctx, { endFlow, gotoFlow, MetaProvider, flowDynamic}) => {
+      capture: false},async (ctx, {        gotoFlow, provider, flowDynamic}) => {
          provider.sendtext(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: *${ctx.body}*`) 
         await flowDynamic('COMUNIQUESE A ESTE NUMERO PARA HABLAR CON ASESOR +5491140054474')
-return endFlow(Menuflow)
+return gotoFlow(Menuflow)
 }
 
 )        
