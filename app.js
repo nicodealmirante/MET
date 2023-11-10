@@ -10,98 +10,190 @@ const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
 const  PORTS = 3004
 let motivo;  
-const mywhatsa = "5491140054474@s.whatsapp.net";
+const mywhatsa = "+5491140054474@s.whatsapp.net";
 
-const menuB = addKeyword('MENU')
-.addAnswer("MENU?",{capture: true, 
-  buttons: [
-      {body: 'INFO. ALQUILAR'},
-      {body: 'INFO. VENTA'},
-      {body: 'ASESOR DE VENTAS'},
-  ], delay: 2000 , idle: 200000 }, // idle: 2000 = 2 segundos
-  async (ctx, { gotoFlow, inRef }) => {
-return gotoFlow(menu8)
-      if (ctx?.idleFallBack) {
-          return gotoFlow(flujoFinal)
-      }
+/** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
+ *
+ *          Menu Principal
+ *           - SubMenu 1
+ *             - Submenu 1.1
+ *           - Submenu 2
+ *             - Submenu 2.1
+ *
+ * Primero declaras los submenus 1.1 y 2.1, luego el 1 y 2 y al final el principal.
+ */
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+////     FUNCIONES
+/////////////////////////////////////////////////////////////////////////////////////////
+/**
+ function numero(nnum){
+let nuevoContenido = `\n${nnum}`;
+  fs.appendFile('numeros.txt', nuevoContenido, (err) => {
+    if (err) throw err;
+    console.log('The "data to append" was appended to file!');
+  });
+          console.log('Numero Agendado de Venta');
   }
-  )
-
-  const flowmeme = addKeyword('INFO. EMPRESA', {sensitive: true})
-  .addAnswer('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
-  .addAnswer('FILA VIP \nhttps://filavip.ar')  
-  .addAnswer('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
-  .addAnswer('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
-  .addAnswer('Selfie Mirror', {media: 'video.mp4'})
-
-
-
-const flowEmpresa = addKeyword('ASESOR DE VENTAS', {sensitive: true})
-.addAnswer('SELFIE MIRROR \nhttps://www.espejoselfiemirror.com.ar')  
-.addAnswer('FILA VIP \nhttps://filavip.ar')  
-.addAnswer('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
-.addAnswer('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
-.addAnswer('Selfie Mirror', {media: 'video.mp4'})
-.addAction(async(ctx,{provider}) => {
-  
-  if(data1=='venta'){
-
-       provider.sendtext(mywhatsa, `*VENTA* \nNumero: +${ctx.from}\n Nombre: *${ctx.pushName}n\INFO: \n*${ctx.body}*`)
-
-  }else if(!data2==null ){
-
-  provider.sendtext(mywhatsa, `*DIRECTO* \nNumero: +${ctx.from}\n Nombre: *${ctx.pushName}n\INFO: \n*${ctx.body}*`)
-  }  
-  else if(data2==null){
-
-     provider.sendtext(mywhatsa, `*DIRECTO* \nNumero: +${ctx.from}\n Nombre: *${ctx.pushName}n\INFO: \n*${ctx.body}*`)
-  }
-  return  gotoFlow(MenuB);}
-)
-  // idle: 2000 = 2 segundos
+  function numero2(nnum){
+    let nuevoContenido = `\n${nnum}`;
+fs.appendFile('numerosalquiler.txt', nuevoContenido, (err) => {
+  if (err) throw err;
+  console.log('The "data to append" was appended to file!');
+});
+console.log('Numero Agendado de Alquiler');*/ 
+////////////////////////////////////////////////////////////////////////////////////////
+//////////// FLUJO SPAM //////////
+////////////////////////////////////////////////////////////////////////////////////////////
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////// FLUJO CLIENTE
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const flowVenta= addKeyword(['INFO. VENTA'], { sensitive: true })
-.addAnswer('👌 Te envío la info de Venta.',{delay: 2000})
+const Cliente = addKeyword(["AGEN-TE"],{sensitive:true})
+    .addAnswer("*UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD*", {
+      capture: false},async (ctx, { endFlow, gotoFlow, MetaProvider, flowDynamic}) => {
+  //      await MetaProvider.sendtext(mywhatsa, `*Directo* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+   await flowDynamic('COMUNIQUESE A ESTE NUMERO PARA HABLAR CON ASESOR +5491140054474')
+return endFlow(Menuflow)
+}
+
+)        
+/** 
+})
+         
+    .addAnswer("ESTE CHAT AUTOMATICO A FINALIZADO. NOS PONDREMOS EN CONTACTO CON USTED", {capture:true, delay:5000}, async (ctx ,{gotoFlow,endFlow,provider,fallBack}) => {
+          if(ctx.body == "SM" ||ctx.body == "Sm" || ctx.body == "sm"){
+               return gotoFlow(Menuflow),
+              endFlow()}
+    const mywhatsa = "5491140054474@s.whatsapp.net";
+    await provider.sendtext(mywhatsa, `SIG MSJ\nNumero: +${ctx.from}\nINFO: *${ctx.body}*`) 
+     return fallBack("Gracias por comunicarse con nosotros. Escriba *SM* para volver al menu inicial")
+  }) 
+*/
+
+//////////////////////////////zx</////////////////////////////////// EVENTO VOICE
+
+const audiono = addKeyword(EVENTS.VOICE_NOTE)
+  .addAnswer('Disculpe, no puedo escuchar audios. Por favor utilice solo texto.')
+  .addAction(async(ctx, {gotoFlow,endFlow}) => { 
+return endFlow(Menuflow)})
+
+///////////////////////////////////////////////////////////////// FLUJO ALQUILER
+
+
+const flowsAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
+          .addAnswer('👌Te envio la info de alquiler.')
+          
+          .addAnswer('Selfie Mirror',{
+               media: 'banner22.jpg'})
+          
+         .addAnswer(['*Espejo Mágico Selfie Mirror*',
+                     '\nDiseño elegante: Nuestro espejo mágico tiene un diseño moderno y elegante que se adapta a cualquier tipo de evento.',
+                    'Su apariencia sofisticada agrega un toque especial al ambiente.',
+                    '\nAccesorios y decoración: Contamos con una variedad de accesorios y elementos decorativos para personalizar aún ',
+                     'más la experiencia. Puedes elegir entre diferentes marcos, sombreros, anteojos, pizarras con mensajes divertidos' ,
+                      'y más. Estos elementos permiten que los invitados se diviertan y creen fotos únicas.',
+                    '\nTamaño y portabilidad: El espejo mágico tiene dimensiones compactas que facilitan su transporte e instalación en ',
+                    'diferentes espacios. Es lo suficientemente versátil como para adaptarse a salones de eventos, fiestas en exteriores ',
+                   'y otros lugares.',
+                   '\nOpciones de software: Nuestro espejo mágico viene con un software propio que ofrece una amplia gama de funciones ',
+                   'y personalización. Puedes elegir entre diferentes plantillas de diseño, agregar efectos especiales a las fotos y configurar ',
+                   'opciones de impresión según tus preferencias.',
+                   '\nTiempo de alquiler: El tiempo de alquiler del espejo mágico es flexible y se adapta a las necesidades de tu evento.',
+                   ' Puedes contratarlo por horas o por el tiempo que consideres necesario para brindar una experiencia completa a tus invitados.',
+                   '\nRecuerda que nuestros servicios incluyen el montaje, desmontaje y la asistencia de personal capacitado durante todo' ,
+                   'el evento. Estamos comprometidos en asegurar que tus invitados disfruten al máximo de la experiencia con el espejo mágico.',
+                   'Valor Servicio por 2 Horas $ 100.000 (base)',
+                   'El valor de la Hora adicional es de $ 50.000'])
+        
+        .addAnswer('Espejo Mágico Selfie Mirror', {
+            media: 'banner3.jpg'})
+        
+        .addAnswer(['*360 Super Slow.*',
+                 '\nEl servicio dura 2 horas. Durante ese tiempo no existe límite de capturas.',
+                'Los videos son filmados y compartidos en el momento ya editados automáticamente',
+                'Incluye accesorios (pistola lanza burbujas, lanza billetes.)',
+               'El valor del servicio de 2 horas (2023) es de $ 100.000 .-',
+               'El valor del servicio de 2 horas (2024) es de U$s 100 .-',
+               'El valor de la Hora adicional (2023) es de $ 50.000 .-'      ])  
+                     
+            
+
+               .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
+          
+       
+
+      .addAnswer(['🚚El valor no incluye traslados',
+             '🚩*Servicio disponible para todo el país.* Contamos con representantes en todas las provincias'])
+       ///      numero2(ctx.from)
+       .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
+    .addAnswer('Showroom', {media: 'video.mp4'})
+    .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
+    .addAnswer('Captura 360', {media: 'video360.mp4'})
+   .addAnswer('COMUNIQUESE A ESTE NUMERO PARA HABLAR CON ASESOR +5491140054474')
+        
+   /* .addAnswer("*CONTINUAR*", { 
+      capture: true,
+      buttons: [
+          {body: 'CONTINUAR CON AGENTE'},
+          {body: 'VOLVER AL MENU'},
+          {body: 'FINALIZAR'},
+      ],delay: 3000
+  }, async (ctx, { endFlow, gotoFlow, adapterProvider, flowDynamic}) => {
+    console.log('ALQUILER')
+
+if(ctx.body == 'CONTINUAR CON AGENTE'){
+  return gotoFlow(Cliente)
+} else if(ctx.body == 'VOLVER AL MENU') {
+ return gotoFlow(Menuflow)}
+  else if (ctx.body == 'FINALIZAR') {
+   await flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
+return endFlow()
+}}
  
-.addAnswer(['*Espejo Mágico Selfie Mirror*',
-          '\nEl Espejo Mágico de Selfie Mirror cuenta con una cámara web de alta calidad, vidrio templado resistente, una Mini PC y un',
-          'televisor LED de 32 pulgadas. Estas características garantizan una experiencia de alta definición para capturar momentos',
-          'especiales.',
-         '\nSu diseño compacto y portátil, con dimensiones de 126 cm de alto x 70 cm de ancho y 20 cm de profundidad en el modelo',
-         'Slim, permite transportarlo fácilmente en cualquier vehículo. Esto brinda una gran versatilidad y conveniencia para eventos ',
-          'y fiestas.'  ])
+    let fecha
+    let asd2;
+let asd;
+var res1;
+var res2;
+var total;
+ const getTicket = async (donde) => {
 
-.addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
+    var config = {
+      method: "get",
+      url: `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${donde.replace(' ','%20')}Argentina&origins=Ramos%20Mejia%20Buenos%20Aires%20Argentina&key=AIzaSyB-o-yLjNarKluwNV8z8IZTDhosOlM1NOw`,
+    };
+    const response = await axios(config)
+    res1 = response.data["destination_addresses"][0]
+    asd2 = response.data["rows"][0]["elements"][0]["duration"].text
+    asd = Math.round(response.data["rows"][0]["elements"][0]["distance"].value/1000)
+total=(((asd*250)/3000)*3000)}
+
+ 
+
+const alquila22 = addKeyword('alquilawer',{sensitive:true})  
+
+.addAnswer('Cual es la fecha del evento? Escriba en este formato (DD-MM-AAAA)', {capture: true}, async(ctx,{}) => {fecha=ctx.body})
+.addAnswer('Donde sería el evento? Escriba en este formato (LOCALIDAD - PROVINCIA)', {capture:true}, async (ctx, { endFlow, provider, flowDynamic}) => {
+await getTicket(ctx.body)
+var traslados = `*TRASLADOS*\nDISTANCIA: *${Math.round(asd)}* KM \nTIEMPO: *${asd2}*\nLUGAR: *${res1}*\nVALOR: *$ ${total}*.-\n*`
+
+if((asd)<=200){
+  await flowDynamic(traslados)
+}a
 
 
-.addAnswer(['La facilidad de uso es una de las ventajas clave del Espejo Mágico. Simplemente tienes que enchufarlo y presionar el ',
-            'botón de encendido para que empiece a funcionar. Esto agiliza la instalación y permite que los eventos comiencen rápidamente.',
-          '\nEs importante mencionar que el Selfie Mirror no incluye una impresora, pero está preparado para funcionar con cualquier ',
-          'impresora que se adapte a las necesidades del cliente. Esto brinda flexibilidad para elegir la impresora que mejor se ajuste a',
-          'los requerimientos de impresión.',
-         '\nEn cuanto al precio, el valor del equipo es de 1500 dólares o pesos al valor del dólar blue del día.'],{ capture: false }, async (ctx, { flowDynamic,axios}) => {
-                                  
-                 
-          } )
-.addAnswer('Equipo Slim Selfie Mirror', {media: 'banner4.jpg'})
 
-.addAnswer(['*Plataforma 360 Super Slow*',
-'\nNuestra plataforma incluye todo lo necesario para poder brindar un servicio profesional. Incluye Monitor transmitiendo en vivo. Proceso de editado automatico.',
-' (Una vez grabado se reproduce en el monitor automaticamente ya editado)',
-'Los invitados podran escanear un codigo QR UNICO para poder visualizar todos los videos del evento *EN EL MOMENTO*',
-        '\nLa plataforma controlada por mando a distancia incluye: variador de velocidad, arranque y parada suave, soporte reforzado, Aro de Led, 4 bastones led pixel de 1 mt, led rgb en plataforma, stand para TV (no incluida) y asesoramiento tecnico.',
-       '\n*Equipo listo para trabajar*.',
-      'El valor del equipo es de 1500 U$S.' ,
-      '▶ REQUERIDO:Necesita contar con un Apple Iphone 13 o suoperior (dispositivo de grabacion)',
-'y un TV LED de 32 o mas (monitoreo)'])
-.addAnswer('Selfie Mirror', {media: 'video3.mp4'})
-
-.addAnswer('Formas de pago: efectivo, transferencia/depósito')
-
-.addAnswer('Selfie Mirror', {media: 'banner22.jpg'})
-.addAnswer(['*UNIFILA LED*\n¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
+await flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
+return endFlow(Menuflow)})
+/////////////////////////////////////////////////////////////////////////////////////////// FLUJO VENTA
+const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
+.addAnswer(['¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
 'En SELFIE MIRROR, entendemos la importancia de mantener tus espacios organizados y atractivos. Nuestros organizadores de fila no solo te ayudarán a mantener un flujo ordenado de clientes, sino que también añadirán un toque de modernidad y estilo a tu negocio.\n',
 '¿Qué hace que nuestros organizadores de fila con tecnología Pixel LED sean especiales?\n',
 '✨ Iluminación espectacular: Nuestra tecnología Pixel LED ofrece una iluminación vibrante y personalizable que destacará tu marca y creará una experiencia memorable para tus clientes.\n',
@@ -114,17 +206,85 @@ const flowVenta= addKeyword(['INFO. VENTA'], { sensitive: true })
 'https://filavip.ar'])
 .addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
 .addAnswer('FOTO FILA VIP', {media: '111.jpg'})
-.addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
+.addAction(async (ctx, { gotoFlow,flowDynamic}) => {
+  await  flowDynamic([`*VALOR FILA VIP*\n
+  ORGANIZADORES DE FILA PIXEL\n
+    🚧 NEGRO  ◼️  PLATA 🥈  ORO  🥇 \n
+   AR$ 60.000 ◼️ 85.000 🥈 95.000 🥇\n
+  SOGAS TRENZADA. CAPUCHON\n
+   ⛓️  NEGRO ◼️  PLATA  🥈  ORO  🥇\n
+  AR$ 14.000 ◼️ 15.000 🥈 25.000 🥇\n
+   PACK 4 PIXEL + 2 SOGAS (NEGRO)\n
+  💲💲💲 AR$ 255.000 💲💲💲`])
+  .addAnswer('COMUNIQUESE A ESTE NUMERO PARA HABLAR CON ASESOR +5491140054474')
+
+ return gotoFlow(Menuflow)
+}
+)*/ 
+
+  const flowVenta = addKeyword(['INFO. VENTA'], { sensitive: true })
+          .addAnswer('👌 Te envío la info de Venta.',{delay: 2000})
+
+          .addAnswer(['*Espejo Mágico Selfie Mirror*',
+                    '\nEl Espejo Mágico de Selfie Mirror cuenta con una cámara web de alta calidad, vidrio templado resistente, una Mini PC y un',
+                    'televisor LED de 32 pulgadas. Estas características garantizan una experiencia de alta definición para capturar momentos',
+                    'especiales.',
+                   '\nSu diseño compacto y portátil, con dimensiones de 126 cm de alto x 70 cm de ancho y 20 cm de profundidad en el modelo',
+                   'Slim, permite transportarlo fácilmente en cualquier vehículo. Esto brinda una gran versatilidad y conveniencia para eventos ',
+                    'y fiestas.'  ])
+
+        .addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
+    
+
+        .addAnswer(['La facilidad de uso es una de las ventajas clave del Espejo Mágico. Simplemente tienes que enchufarlo y presionar el ',
+                      'botón de encendido para que empiece a funcionar. Esto agiliza la instalación y permite que los eventos comiencen rápidamente.',
+                    '\nEs importante mencionar que el Selfie Mirror no incluye una impresora, pero está preparado para funcionar con cualquier ',
+                    'impresora que se adapte a las necesidades del cliente. Esto brinda flexibilidad para elegir la impresora que mejor se ajuste a',
+                    'los requerimientos de impresión.',
+                   '\nEn cuanto al precio, el valor del equipo es de 1500 dólares o pesos al valor del dólar blue del día.'],{ capture: false }, async (ctx, { flowDynamic,axios}) => {
+                                            
+                           
+                    } )
+        .addAnswer('Equipo Slim Selfie Mirror', {media: 'banner4.jpg'})
+
+        .addAnswer(['*Plataforma 360 Super Slow*',
+        '\nNuestra plataforma incluye todo lo necesario para poder brindar un servicio profesional. Incluye Monitor transmitiendo en vivo. Proceso de editado automatico.',
+        ' (Una vez grabado se reproduce en el monitor automaticamente ya editado)',
+        'Los invitados podran escanear un codigo QR UNICO para poder visualizar todos los videos del evento *EN EL MOMENTO*',
+                  '\nLa plataforma controlada por mando a distancia incluye: variador de velocidad, arranque y parada suave, soporte reforzado, Aro de Led, 4 bastones led pixel de 1 mt, led rgb en plataforma, stand para TV (no incluida) y asesoramiento tecnico.',
+                 '\n*Equipo listo para trabajar*.',
+                'El valor del equipo es de 1500 U$S.' ,
+                '▶ REQUERIDO:Necesita contar con un Apple Iphone 13 o suoperior (dispositivo de grabacion)',
+      'y un TV LED de 32 o mas (monitoreo)'])
+        .addAnswer('Selfie Mirror', {media: 'video3.mp4'})
+
+        .addAnswer('Formas de pago: efectivo, transferencia/depósito')
+
+        .addAnswer('Selfie Mirror', {media: 'banner22.jpg'})
+       .addAnswer(['*UNIFILA LED*\n¡Optimiza tus espacios y atrae la atención de tus clientes con nuestros organizadores de fila con tecnología Pixel LED!\n',
+        'En SELFIE MIRROR, entendemos la importancia de mantener tus espacios organizados y atractivos. Nuestros organizadores de fila no solo te ayudarán a mantener un flujo ordenado de clientes, sino que también añadirán un toque de modernidad y estilo a tu negocio.\n',
+        '¿Qué hace que nuestros organizadores de fila con tecnología Pixel LED sean especiales?\n',
+        '✨ Iluminación espectacular: Nuestra tecnología Pixel LED ofrece una iluminación vibrante y personalizable que destacará tu marca y creará una experiencia memorable para tus clientes.\n',
+        '🧹 Organización efectiva: Mantén tus filas en orden y evita la confusión con nuestros organizadores de alta calidad. ¡El caos será cosa del pasado!\n',
+        '🎨 Personalización total: Personaliza la apariencia de tus organizadores para que se adapten a tu imagen corporativa o al tema de tu negocio.\n',
+        '🌟 Destaca entre la multitud: Con nuestros organizadores de fila Pixel LED, tu negocio destacará en cualquier entorno, desde eventos, ferias comerciales hasta tiendas minoristas y restaurantes.\n',
+        '¡Es el momento de darle a tu negocio una ventaja competitiva!\n',
+        '¡Haz que tu negocio brille con nuestros organizadores de fila Pixel LED! 💫✨ #TecnologíaLED #OrganizaciónEfectiva #AtraeClientes\n',
+        '*VALORES*\n',
+        'https://filavip.ar'])
+        .addAnswer('FILA VIP', {media: 'ledselfie.mp4'})
+        .addAnswer('FOTO FILA VIP', {media: '111.jpg'})
+        .addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
 .addAnswer('Showroom', {media: 'video.mp4', delay: 4000})
 .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
 .addAnswer('Captura 360', {media: 'video360.mp4'})
-.addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
-let dolar
-await fetch('https://dolarapi.com/v1/dolares/blue')
-.then(response => response.json())
-.then(json => dolar = json.venta)
-console.log('VENTA')
-await flowDynamic(`*VALOR ESPEJO MAGICO* \n
+        .addAnswer('✈️ *Enviamos a todo el País*.', { capture: false }, async (ctx, { flowDynamic,gotoFlow, endFlow }) => {
+          let dolar
+          await fetch('https://dolarapi.com/v1/dolares/blue')
+    .then(response => response.json())
+    .then(json => dolar = json.venta)
+    console.log('VENTA')
+ await flowDynamic(`*VALOR ESPEJO MAGICO* \n
 💵   *U$D 1,500 .-*   🔒
 💱 > U$D = AR$ > 💱
 📈 AR$ ${new Intl.NumberFormat('es-MX').format(dolar*1500)} .-🔓 `)
@@ -136,115 +296,86 @@ await flowDynamic(`*VALOR PLATAFORMA 360*\n
 
 await flowDynamic(`Cotizacion actual: \n💱[1 U$S = AR ${dolar}.-]💱`)
 await flowDynamic([`*VALOR FILA VIP*\n
-ORGANIZADORES DE FILA PIXEL\n
-🚧 NEGRO  ◼️  PLATA 🥈  ORO  🥇 \n
-AR$ 60.000 ◼️ 85.000 🥈 95.000 🥇\n
-SOGAS TRENZADA. CAPUCHON\n
-⛓️  NEGRO ◼️  PLATA  🥈  ORO  🥇\n
-AR$ 14.000 ◼️ 15.000 🥈 25.000 🥇\n
-PACK 4 PIXEL + 2 SOGAS (NEGRO)\n
-💲💲💲 AR$ 255.000 💲💲💲`])
+ ORGANIZADORES DE FILA PIXEL\n
+   🚧 NEGRO  ◼️  PLATA 🥈  ORO  🥇 \n
+  AR$ 60.000 ◼️ 85.000 🥈 95.000 🥇\n
+ SOGAS TRENZADA. CAPUCHON\n
+  ⛓️  NEGRO ◼️  PLATA  🥈  ORO  🥇\n
+ AR$ 14.000 ◼️ 15.000 🥈 25.000 🥇\n
+  PACK 4 PIXEL + 2 SOGAS (NEGRO)\n
+ 💲💲💲 AR$ 255.000 💲💲💲`])
+})
 
-gotoFlow(menu8)
-}
-)
-    
+.addAnswer('COMUNIQUESE A ESTE NUMERO PARA HABLAR CON ASESOR +5491140054474')
 
+//////////////////////////////////////////////////////////////// EVENTO WELCOME
+/** .addAnswer("*CONTINUAR*", { 
+      capture: true,
+      buttons: [
+          {body: 'CONTINUAR CON AGENTE'},
+          {body: 'VOLVER AL MENU'},
+          {body: 'FINALIZAR'},
+      ], delay: 2000
+  }, async (ctx, { endFlow, gotoFlow, provider, flowDynamic}) => {
 
+if (ctx.body == 'CONTINUAR CON AGENTE') {
 
-const flowAlquiler = addKeyword(['INFO. ALQUILER'], {sensitive: true})
-          
-//777777777777777777777777777777777777 ALQUILER
+  await provider.sendtext(mywhatsa, `*VENTA* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+await  flowDynamic('UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD')
+return gotoFlow(Menuflow)
+return endFlow(flowVenta)
 
+} else if (ctx.body == 'VOLVER AL MENU') {
 
+ return gotoFlow(Menuflow)
+ return endFlow(flowVenta)
 
-.addAnswer('👌Te envio la info de alquiler.')
+  } else if (ctx.body == 'FINALIZAR') {
+  await  flowDynamic('GRACIAS POR COMUNICARSE CON NOSOTROS. QUEDAMOS A SUS ORDENES.')
+return endFlow()
+}}
+)        
+   
 
-.addAnswer('Selfie Mirror',{
-media: 'banner22.jpg'})
+.addAnswer("*INFO*", { 
+  capture: true,
+  buttons: [
+      {body: 'INFO. ALQUILER'},
+      {body: 'INFO. VENTA'},
+      {body: 'UNIFILA LED'},
+  ], delay: 5000}
+) .addAnswer("Contacto", { 
+  capture: true,
+  buttons: [
+      {body: 'HABLAR CON ASESOR'},
+      {body: 'INFO DE LA EMPRESA'},
+      {body: 'PAGINA WEB'},
+  ],
+delay: 2000 }, async (ctx, { fallBack, gotoFlow, provider, flowDynamic}) => {
 
+if (ctx.body == 'PAGINA WEB') {
+flowDynamic('https://www.espejoselfiemirror.com.ar')        
+    gotoFlow(Menuflow);
+} else if (ctx.body == 'HABLAR CON ASESOR') {
+nombre = "Cliente"
+return gotoFlow(Cliente)
+} else if (ctx.body == 'INFO DE LA EMPRESA') {
+await flowDynamic('*Av de Mayo 1624  - RAMOS MEJÍA - Buenos Aires*' )
+await flowDynamic('  Nuestros horarios de atención son: de Lunes a Viernes de 10hs a 17hs' )
 
-//ESPEJO
-.addAnswer(['*El Espejo Mágico Selfie Mirror: Transforma tus Eventos en Experiencias Inolvidables*',
-'En Selfie Mirror, hemos fusionado tecnología y entretenimiento para brindarte una experiencia única en tus eventos. Con nuestro servicio de alquiler del Espejo Mágico Selfie Mirror, tu celebración se transforma en una ocasión inolvidable.',
-'Nuestro Espejo Mágico no es solo un dispositivo, es una obra de arte por derecho propio. Su diseño elegante y moderno añade una dosis de sofisticación a cualquier evento, desde bodas y cumpleaños hasta fiestas corporativas.',
-'Ofrecemos un software personalizado que te permite personalizar cada aspecto de las fotos. Desde plantillas de diseño exclusivas hasta efectos especiales y opciones de impresión a medida, puedes dar rienda suelta a tu creatividad.',
-'Nuestra colección de accesorios y elementos de decoración es diversa y emocionante. Desde sombreros y anteojos extravagantes hasta pizarras con mensajes ingeniosos, tus invitados pueden transformarse y crear recuerdos únicos.',
-'Sin restricciones en la cantidad de fotos que pueden tomarse durante el tiempo de alquiler, cada sonrisa, pose y momento especial se pueden capturar y recordar.',
-'El Espejo Mágico ofrece la emoción de las impresiones instantáneas. Tus invitados pueden llevarse recuerdos físicos que atesorarán durante años.',
-'Nuestro equipo se encarga del montaje y desmontaje del Espejo Mágico, lo que te permite relajarte y disfrutar del evento. Además, un técnico capacitado está presente durante todo el evento para garantizar que todo funcione sin problemas y para ayudar a los invitados.',
-'Todas las fotos se almacenan digitalmente y se proporciona acceso a una galería en línea. Tus invitados pueden descargar sus fotos en cualquier momento.',
-'El tiempo de alquiler se adapta a tus necesidades. El alquiler mínimo es de 2 horas, pero puedes extenderlo según tus preferencias.',
-'En Selfie Mirror, nuestra pasión es hacer que tu evento sea inolvidable. Ya sea una boda emocionante, un cumpleaños especial o una reunión corporativa, el Espejo Mágico Selfie Mirror agrega un toque mágico a cada ocasión. Contáctanos hoy para obtener más información, disponibilidad y precios. ¡Haz que tus momentos especiales brillen con el Espejo Mágico Selfie Mirror!'])
+await flowDynamic('Selfie Mirror', {media: 'video.mp4'})
 
-
-.addAnswer('Espejo Mágico Selfie Mirror', {
-media: 'banner3.jpg'})
-/// 360  
-.addAnswer(['*Alquiler de Plataforma 360: Eleva la Experiencia de tus Eventos Sociales*',
-'En Selfie Mirror, te ofrecemos la oportunidad de llevar la diversión y la emoción de la fotografía y video a un nivel completamente nuevo con nuestra Plataforma 360. Ya no se trata solo de capturar momentos, se trata de crear experiencias memorables.',
-'Nuestra Plataforma 360 te brinda la oportunidad de sorprender a tus invitados con un servicio de alquiler único y emocionante. ¿Qué puedes esperar?',
-'1. **360 Grados de Diversión**:',
-'Imagina poder capturar todos los ángulos de diversión en tu evento. Nuestra plataforma 360 grados registra cada sonrisa, cada risa y cada gesto especial desde todos los ángulos. Tus invitados se convierten en estrellas en un set de grabación en 360 grados.',
-'2. **Edición Instantánea**:',
-'Lo que hace que nuestra plataforma 360 sea aún más especial es la edición en tiempo real. Los videos son filmados y compartidos en el momento, ya editados automáticamente. Esto significa que tus invitados pueden disfrutar de la emoción de ver sus momentos especiales de inmediato.',
-'3. **Accesorios Divertidos**:',
-'No hay diversión sin accesorios, ¿verdad? Ofrecemos una amplia variedad de accesorios, desde pelucas y anteojos extravagantes hasta pistolas lanzaburbujas y cotillón. Tus invitados pueden elegir sus accesorios y transformarse en personajes únicos.',
-'4. **Flexibilidad en el Tiempo**:',
-'El tiempo de alquiler de la Plataforma 360 es flexible y se adapta a las necesidades de tu evento. Puedes contratarla por un mínimo de 2 horas, asegurándote de que tus invitados tengan suficiente tiempo para divertirse y crear recuerdos inolvidables.',
-'En Selfie Mirror, nos apasiona llevar la diversión y la innovación a tus eventos sociales. Ya sea una fiesta de cumpleaños, una boda o cualquier ocasión especial, la Plataforma 360 agrega una dimensión emocionante que tus invitados recordarán. Contáctanos hoy para obtener más información, disponibilidad y precios. ¡Haz que tus eventos sociales sean inolvidables con la Plataforma 360 de Selfie Mirror!'])
-
-.addAnswer('Plataforma 360 Super Slow', {media: 'banner.jpg'})
-.addAnswer('Selfie Mirror 360 + Selfie',{media: 'dibu.jpg'})
-.addAnswer('Showroom', {media: 'video.mp4'})
-.addAnswer('Selfie Mirror', {media: 'video2.mp4'})
-.addAnswer('Captura 360', {media: 'video360.mp4'})
-.addAnswer(['  *VALORES* ',
-'\n360 Super Slow.*',
-'\nEl servicio dura 2 horas. Durante ese tiempo no existe límite de capturas.',
-'Los videos son filmados y compartidos en el momento ya editados escaneando un codigo QR',
-'Incluye accesorios (pistola lanza burbujas, lanza billetes.)',
-'El valor del servicio de 2 horas es de $ 100.000 .-'])
-.addAnswer(['\n*Espejo Magico*',
-'\nValor Servicio por 2 Horas $ 100.000',
-'\nValor ambos servicios por 2 Horas $ 180.000',
-'\nEl minimo de alquiler son 2 horas',
-'\nEl valor de la Hora adicional es de $ 50.000'])
-.addAnswer(['🚚El valor no incluye traslados'])
+return  gotoFlow(Menuflow);
+}});
+*/
+ //////////////////////////////////////////////////////////////// EVENTO WELCOME
 
 
-
-.addAnswer("Localidad",{capture: true, 
-
-     delay: 2000 , idle: 200000 }, // idle: 2000 = 2 segundos
-    async (ctx, { gotoFlow, inRef }) => {
-          data1=ctx.body
-        if (ctx?.idleFallBack) {
-            return gotoFlow(flujoFinal)
-        }
-    }
-    )
-.addAnswer("FECHA?",{capture: true, 
-    buttons: [
-        {body: 'INFO. ALQUILAR'},
-        {body: 'INFO. VENTA'},
-        {body: 'ASESOR DE VENTAS'},
-    ], delay: 2000 , idle: 200000 }, // idle: 2000 = 2 segundos
-    async (ctx, { gotoFlow, inRef }) => {
-return gotoFlow(menu8)
-        if (ctx?.idleFallBack) {
-            return gotoFlow(flujoFinal)
-        }
-    }
-    )
-
-.addAnswer("UN AGENTE SE COMUNICARA CON USTED A LA BREVEDAD, O PUEDE COMUNICARSE DIRECTAMENTE AL *+5491140054474 - NICOLAS*", async (ctx, {gotoFlow}) => {     // idle: 2000 = 2 segundos
-
-return gotoFlow(menuB)})
 
 
   const flowPrincipal = addKeyword(EVENTS.WELCOME)
 
+.addAnswer("Hola, gracias por comunicarte con Selfie Mirror. Esta es una línea de respuestas automáticas. Responde con el número índice para continuar o continua al\n +5491140054474 - Nicolás")
 .addAnswer("Opciones", {capture: false, 
       buttons: [
           {body: 'INFO. ALQUILER'},
@@ -253,11 +384,7 @@ return gotoFlow(menuB)})
       ], delay: 2000 }
       
     ) 
-    .addAnswer("PARA CONTINUAR CON LA OPERACION -> ASESOR NICOLAS *+5491140054474* ", async(ctx,{gotoFlow})=>{return gotoFlow(menuB)})
-      
-    const flujoFinal = addKeyword('HH').addAnswer('Sigue ahi? Quiere que me comunique despues? Le dejo mi telefono *+5491140054474 - NICOLAS*')
-  
-
+    .addAnswer("PARA CONTINUAR CON LA OPERACION -> ASESOR NICOLAS *+5491140054474* ")
     /*
     .addAnswer("*Contacto*", { 
       capture: true,
