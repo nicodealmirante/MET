@@ -291,7 +291,7 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
   .addAnswer('Selfie Mirror', {media: 'video2.mp4'})
   .addAnswer('Captura 360', {media: 'video360.mp4'})
   .addAnswer('FICHA TECNICA ESPEJO',{
-  document: 'FichaTécnicaFULL.pdf'})
+  media: 'FichaTécnicaFULL.pdf'})
   .addAnswer('UNIFILAS FOTO',{
     media: 'colum1.jpg'})
     .addAnswer('UNIFILAS',{
