@@ -10,7 +10,7 @@ const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
 const  PORTS = 3004 
 let motivo;  
-const mywhatsa = "5491140054474@s.whatsapp.net";
+const mywhatsa = "549114005zzzz@s.whatsapp.net";
 
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
  *
@@ -24,6 +24,15 @@ const mywhatsa = "5491140054474@s.whatsapp.net";
  */
 
 let causa
+
+
+const fakeHTTP = async (fakeData = []) => {
+  await delay(50)
+  const data = fakeData.map((u) => ({ body: `${u}` }))
+  return Promise.resolve(data)
+
+}
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -63,12 +72,19 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
      {body: 'OTROS'},
     ]}, // idle: 2000 = 2 segundos
     async (ctx, { gotoFlow, provider }) => {
-      await   provider.sendtext(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
-        await flowDynamic('COMUNIQUESE A ESTE NUMERO PARA HABLAR CON ASESOR +5491140054474')
-return gotoFlow(Menuflow)
-}
+      const mywhatsa = "549114005@s.whatsapp.net";
 
-)        
+      app.post("/sendmessage", async (req, res) => {
+        const phone = req.body.phone;
+        const message = req.body.message;
+        const provider = await adapterProvider.getInstance();
+      
+        const response = await provider.sendMessage()
+
+
+     provider.getInstance.sendMessage(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
+})})
+
 /** 
 })
          
