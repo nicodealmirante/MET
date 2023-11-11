@@ -72,7 +72,7 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
      {body: 'OTROS'},
     ]}, // idle: 2000 = 2 segundos
     async (ctx, { gotoFlow, adapterProvider }) => {
-      const mywhatsa = "549114005@s.whatsapp.net";
+      const mywhatsa = "5491140054474@s.whatsapp.net";
 
       app.post("/sendmessage", async (req, res) => {
         const phone = req.body.phone;
