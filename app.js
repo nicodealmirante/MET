@@ -73,8 +73,7 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
     async (ctx, { gotoFlow, adapterProvider }) => {
       const mywhatsa = "5491140054474@s.whatsapp.net";
 
-     
-
+     console.log('LLEGO A CLIENTE')
       await bot.providerClass.sendMessage(mywhatsa,`prov`) 
       await bot.provider.sendMessage(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
       await bot.adapterProvider.sendMessage(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
