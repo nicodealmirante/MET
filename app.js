@@ -26,12 +26,6 @@ const mywhatsa = "5491140054474";
 let causa
 
 
-const fakeHTTP = async (fakeData = []) => {
-  await delay(50)
-  const data = fakeData.map((u) => ({ body: `${u}` }))
-  return Promise.resolve(data)
-
-}
 
 
 
