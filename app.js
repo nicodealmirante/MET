@@ -167,14 +167,14 @@ media: 'banner3.jpg'})
         ], delay: 2000 , idle: 200000 }, // idle: 2000 = 2 segundos
         async (ctx, { gotoFlow, inRef }) => {
           if(ctx.body=='ASESOR VENTAS') {
-            causa='ALQUILER'
-        }
+            causa='ALQUILER'       ;
+             return gotoFlow(Cliente)    }
+
+        
             if (ctx?.idleFallBack) {
                 return gotoFlow(flujoFinal)
-            }
-        }
-        )
-
+                }    }
+    )     
     const flujoFinal = addKeyword('HH').addAnswer('Sigue ahi? Quiere que me comunique despues? Le dejo mi telefono *+5491140054474 - NICOLAS*')
 
 /* 
@@ -337,7 +337,7 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
       if(ctx.body=='ASESOR VENTAS') {
 
       causa='VENTA'
-            }
+        return gotoFlow(Cliente)    }
                   if (ctx?.idleFallBack) {
             return gotoFlow(flujoFinal)
         }
