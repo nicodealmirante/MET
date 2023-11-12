@@ -10,7 +10,7 @@ const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
 const  PORTS = 3004 
 let motivo;  
-const mywhatsa = "5491140054474@s.whatsapp.net";
+const mywhatsa = "5491140054474";
 
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
  *
@@ -70,13 +70,13 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
       {body: 'QUIERO COMPRAR'},
      {body: 'OTROS'},
     ]}, // idle: 2000 = 2 segundos
-    async (ctx, { gotoFlow, MetaProvider,providerClas, adapterProvider ,providerClas}) => {
+    async (ctx, { gotoFlow, MetaProvider, adapterProvider ,provider}) => {
 
      console.log('LLEGO A CLIENTE')
       await bot.providerClass.sendMessage(mywhatsa,`prov`) 
       await bot.provider.sendMessage(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
       await bot.adapterProvider.sendMessage(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
-      await bot.MetaProvider.sendtext(mywhatsa,`prov`) 
+      await bot.MetaProvider.sendMessage(mywhatsa,`prov`) 
       await MetaProvider.sendtext(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
       await bot.MetaProvider.sendtext(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
 
