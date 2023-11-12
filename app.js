@@ -661,7 +661,7 @@ return  gotoFlow(Menuflow);
             database: adapterDB,
         })
     
-       ServerHttp.initialization(bot,3003)
+       ServerHttp.initialization(bot)
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
          */
@@ -691,7 +691,7 @@ return  gotoFlow(Menuflow);
             })
         })
 
-    
+    ServerHttp = new ServerHttp()
 
     }
     
