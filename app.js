@@ -64,7 +64,6 @@ console.log('Numero Agendado de Alquiler');*/
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
-
 .addAnswer("Interes de la consulta?", {capture: true, 
   buttons: [
       {body: 'QUIERO ALQUILAR'},
@@ -74,17 +73,20 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
     async (ctx, { gotoFlow, adapterProvider }) => {
       const mywhatsa = "5491140054474@s.whatsapp.net";
 
-      app.post("/sendmessage", async (req, res) => {
-        const phone = req.body.phone;
-        const message = req.body.message;
-        const provider = await adapterProvider.getInstance();
-      
-        const response = await provider.sendMessage()
+     
 
+<<<<<<< HEAD
+      await bot.providerClass.sendMessage(mywhatsa,`prov`) 
+      await bot.provider.sendMessage(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
+      await bot.adapterProvider.sendMessage(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
+      await bot.providerClass.sendtext(mywhatsa,`prov`) 
+      await bot.provider.sendtext(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
+      await bot.adapterProvider.sendtext(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
+=======
        bot.provider.sendtext(mywhatsa, `*VENTA* \nNumero: +${ctx.from}\n Nombre: *${ctx.pushName}n\INFO: \n*${ctx.body}*`)
+>>>>>>> 7bb2d04488ac72582a136fd92b12193ab4915a71
 
-     provider.getInstance.sendMessage(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
-})})
+})
 
 /** 
 })
