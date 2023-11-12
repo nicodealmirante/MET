@@ -81,6 +81,7 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
       
         const response = await provider.sendMessage()
 
+       bot.provider.sendtext(mywhatsa, `*VENTA* \nNumero: +${ctx.from}\n Nombre: *${ctx.pushName}n\INFO: \n*${ctx.body}*`)
 
      provider.getInstance.sendMessage(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
 })})
