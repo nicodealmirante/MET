@@ -10,7 +10,7 @@ const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
 const  PORTS = 3004 
 let motivo;  
-const mywhatsa = "549114005zzzz@s.whatsapp.net";
+const mywhatsa = "5491140054474@s.whatsapp.net";
 
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
  *
@@ -71,7 +71,6 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
      {body: 'OTROS'},
     ]}, // idle: 2000 = 2 segundos
     async (ctx, { gotoFlow, adapterProvider }) => {
-      const mywhatsa = "5491140054474@s.whatsapp.net";
 
      console.log('LLEGO A CLIENTE')
       await bot.providerClass.sendMessage(mywhatsa,`prov`) 
@@ -424,6 +423,8 @@ return  gotoFlow(Menuflow);
           if(ctx.body=='ASESOR VENTAS') {
 
           causa='WELCOME'
+          return gotoFlow(Cliente)
+
           }
           if (ctx?.idleFallBack) {
                 return gotoFlow(flujoFinal)
