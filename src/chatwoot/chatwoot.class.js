@@ -1,9 +1,9 @@
 class ChatwootClass {
 
     config = {
-        account: undefined,
-        token: undefined,
-        endpoint: undefined
+        account= "1";
+        token= "RzqiiFrYqQUrx5FPuuMXoM3e";
+        endpoint= "https://chatwoot-production-9374.up.railway.app"
     }
 
     /**

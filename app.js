@@ -73,12 +73,9 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
     async (ctx, { gotoFlow, MetaProvider, adapterProvider ,provider}) => {
 
      console.log('LLEGO A CLIENTE')
-      await bot.providerClass.sendMessage(mywhatsa,`prov`) 
-      await bot.provider.sendMessage(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
-      await bot.adapterProvider.sendMessage(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
-      await bot.MetaProvider.sendMessage(mywhatsa,`prov`) 
+      await bot.MetaProvider.sendtext(mywhatsa,`prov`) 
       await MetaProvider.sendtext(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
-      await bot.MetaProvider.sendtext(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
+      await bot.MetaProvider.message(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
 
  
 
