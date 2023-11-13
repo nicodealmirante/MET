@@ -646,9 +646,10 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
         concurrent: 1,
         interval: 500 
     })
-  
+    
     const main = async () => {
 
+      const PORT=3003
         const adapterDB = new MockAdapter()
         const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow, Cliente])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
 
@@ -665,12 +666,12 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
             database: adapterDB,
         })
     
-         /**
+      
     
    ///     ServerHttp.initialization(bot)
-       
+        /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
-       
+         */
     
         adapterProvider.on('message', (payload) => {
             queue.enqueue(async () => {
@@ -685,7 +686,7 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
     
         /**
          * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
-     
+         */
         bot.on('send_message', (payload) => {
             queue.enqueue(async () => {
                 await handlerMessage({
@@ -699,11 +700,12 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
 
     
 
-    }    */
-  }
+    }  
+    
 
 const mainb = async () => {
   const BOTNAME = 'botbai' 
+  const PORT= 3002
     const adapterDB = new MockAdapter()
     const adapterFlow = createFlow([flowPrincipal])
     const adapterProvider = createProvider(BaileysProvider,{name:BOTNAME, PORT: 3001})
@@ -743,8 +745,8 @@ const mainb = async () => {
                 mode:'outgoing'
             }, chatwoot)
         }) 
-    })
-}
+    }) 
+  }
 mainb();
     
-main()
+    main()
