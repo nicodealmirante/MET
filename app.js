@@ -628,7 +628,6 @@ return  gotoFlow(Menuflow);
     const main = async () => {
         const adapterDB = new MockAdapter()
         const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow, Cliente])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
-const httpServer = new ServerAPI(adapterProvider, adapterDB)
 
         const adapterProvider = createProvider(MetaProvider, {
           jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
@@ -636,7 +635,8 @@ const httpServer = new ServerAPI(adapterProvider, adapterDB)
           verifyToken: 'asdasd',
           version: 'v18.0'})
         
-   
+          const httpServer = new ServerAPI(adapterProvider, adapterDB)
+
 
 const configBot = {
             flow: adapterFlow,
