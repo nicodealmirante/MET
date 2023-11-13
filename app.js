@@ -8,7 +8,7 @@ const ServerHttp = require('./src/http')
 
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
-const  PORTS = 3004 
+const  PORT = 3004 
 let motivo;  
 const mywhatsa = "5491140054474";
 
