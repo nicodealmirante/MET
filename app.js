@@ -3,7 +3,7 @@ require('dotenv').config()
 const {
   createBot,
   createProvider,
-  createFlow,EVENTS
+  createFlow,EVENTS,addKeyword
 } = require("@bot-whatsapp/bot");
 
 const MetaProvider = require("@bot-whatsapp/provider/meta");
