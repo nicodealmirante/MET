@@ -11,6 +11,7 @@ const { handlerMessage } = require('./src/chatwoot')
 const  PORT = 3004 
 let motivo;  
 const mywhatsa = "5491140054474";
+const ServerHttp = new ServerHttp(PORT)
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
  *
  *          Menu Principal
@@ -691,6 +692,5 @@ return  gotoFlow(Menuflow);
 
 
     }
-    const ServerHttp = new ServerHttp()
-
+    
     main()
