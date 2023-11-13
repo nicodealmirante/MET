@@ -625,10 +625,7 @@ return  gotoFlow(Menuflow);
 
 
     
-    const queue = new Queue({
-        concurrent: 1,
-        interval: 500 
-    })
+
     
     const main = async () => {
         const adapterDB = new MockAdapter()
