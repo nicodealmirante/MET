@@ -10,6 +10,7 @@ const QRPortalWeb = require('@bot-whatsapp/portal')
 
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
+const  PORT = 3004 
 let motivo;  
 const mywhatsa = "549114005zzzz@s.whatsapp.net";
 
