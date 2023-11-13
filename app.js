@@ -646,7 +646,7 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
         concurrent: 1,
         interval: 500 
     })
-    
+     /**
     const main = async () => {
 
       const PORT=3003
@@ -669,9 +669,9 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
       
     
    ///     ServerHttp.initialization(bot)
-        /**
+       
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
-         */
+       
     
         adapterProvider.on('message', (payload) => {
             queue.enqueue(async () => {
@@ -686,7 +686,7 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
     
         /**
          * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
-         */
+     
         bot.on('send_message', (payload) => {
             queue.enqueue(async () => {
                 await handlerMessage({
@@ -700,7 +700,7 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
 
     
 
-    }  
+    }    */
     
 
 const mainb = async () => {
@@ -745,8 +745,7 @@ const mainb = async () => {
                 mode:'outgoing'
             }, chatwoot)
         }) 
-    }) 
-  }
+    })
+}
 mainb();
     
-    main()
