@@ -3,6 +3,7 @@ require('dotenv').config()
 const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
 const Queue = require('queue-promise')
 const MetaProvider = require("@bot-whatsapp/provider/meta")
+const BaileysProvider = require("@bot-whatsapp/provider/baileys")
 const MockAdapter = require('@bot-whatsapp/database/mock')
 const ServerHttp = require('./src/http')
 
@@ -626,8 +627,17 @@ return  gotoFlow(Menuflow);
         
  */
 ////////////////////////////////////////////////////////////////////////////////////////
+const mensaje = addKeyword(["mennnn"], { sensitive: true })
 
-
+  .addAnswer("*Info*", { 
+            capture: true,
+            buttons: [
+                {body: 'INFO. ALQUILER'},
+                {body: 'INFO. VENTA'},
+             {body: 'ASESOR VENTAS'},
+            ],
+          }
+) 
 
     const chatwoot = new ChatwootClass({
         account: '1',
@@ -642,6 +652,7 @@ return  gotoFlow(Menuflow);
     })
     
     const main = async () => {
+
         const adapterDB = new MockAdapter()
         const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow, Cliente])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
 
@@ -657,6 +668,8 @@ return  gotoFlow(Menuflow);
             provider: adapterProvider,
             database: adapterDB,
         })
+    
+      
     
    ///     ServerHttp.initialization(bot)
         /**
@@ -690,6 +703,29 @@ return  gotoFlow(Menuflow);
 
     
 
-    }
+    }  
+    
+
+const mainb = async () => {
+  const adapterDB = new MockAdapter();
+  const adapterFlow = createFlow([
+ mensaje
+  ]);
+  
+  const adapterProvider = createProvider(BaileysProvider);
+
+  const ServerHttp = new ServerAPI(adapterProvider, adapterDB)
+
+  const configBot = {
+    flow: adapterFlow,
+    provider: adapterProvider,
+    database: adapterDB,
+  }
+
+  await createBot(configBot);
+  ServerHttp.start()
+};
+
+mainb();
     
     main()
