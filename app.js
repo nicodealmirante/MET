@@ -646,10 +646,9 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
         concurrent: 1,
         interval: 500 
     })
-     /**
+  
     const main = async () => {
 
-      const PORT=3003
         const adapterDB = new MockAdapter()
         const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow, Cliente])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
 
@@ -666,7 +665,7 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
             database: adapterDB,
         })
     
-      
+         /**
     
    ///     ServerHttp.initialization(bot)
        
@@ -745,6 +744,7 @@ const mainb = async () => {
             }, chatwoot)
         }) 
     })
-}
+}}
 mainb();
     
+main()
