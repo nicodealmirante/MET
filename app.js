@@ -10,7 +10,6 @@ const QRPortalWeb = require('@bot-whatsapp/portal')
 
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
-const  PORT = 3004 
 let motivo;  
 const mywhatsa = "549114005zzzz@s.whatsapp.net";
 
@@ -649,6 +648,7 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
     
     const main = async () => {
 
+      const PORT=3003
         const adapterDB = new MockAdapter()
         const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow, Cliente])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
 
@@ -704,6 +704,7 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
 
 const mainb = async () => {
   const BOTNAME = 'botbai' 
+  const PORT= 3002
     const adapterDB = new MockAdapter()
     const adapterFlow = createFlow([flowPrincipal])
     const adapterProvider = createProvider(BaileysProvider,{name:BOTNAME, PORT: 3001})
