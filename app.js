@@ -746,7 +746,6 @@ const mainb = async () => {
             }, chatwoot)
         }) 
     }) 
-    QRPortalWeb({name: BOTNAME, PORT: 3005})
   }
 mainb();
     
