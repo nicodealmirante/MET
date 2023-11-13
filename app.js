@@ -1,18 +1,16 @@
-require('dotenv').config()
-const {
-  createBot,
-  createProvider,
-  createFlow,EVENTS
-} = require("@bot-whatsapp/bot");
 
-const MetaProvider = require("@bot-whatsapp/provider/meta");
-const MockAdapter = require("@bot-whatsapp/database/mock");
-const ServerAPI = require('./http');
-/**
- * Configuracion de Plugin
- */
+require('dotenv').config()
+const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
+const Queue = require('queue-promise')
+const MetaProvider = require("@bot-whatsapp/provider/meta")
+const MockAdapter = require('@bot-whatsapp/database/mock')
+const ServerHttp = require('./src/http')
+
+const ChatwootClass = require('./src/chatwoot/chatwoot.class')
+const { handlerMessage } = require('./src/chatwoot')
+const  PORT = 3004 
 let motivo;  
-const mywhatsa = "5491140054474@s.whatsapp.net";
+const mywhatsa = "549114005zzzz@s.whatsapp.net";
 
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
  *
@@ -64,9 +62,10 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
       {body: 'QUIERO COMPRAR'},
      {body: 'OTROS'},
     ]}, // idle: 2000 = 2 segundos
-    async (ctx, { gotoFlow, adapterProvider }) => {
-      await adapterProvider.sendText('5491140054474','jola')
-        return gotoFlow(Menuflow)
+    async (ctx, { gotoFlow, provider }) => {
+      const mywhatsa = "549114005zzzz@s.whatsapp.net";
+      await   provider.sendtext(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
+return gotoFlow(Menuflow)
 })
         
 /** 
@@ -639,7 +638,6 @@ return  gotoFlow(Menuflow);
     const main = async () => {
         const adapterDB = new MockAdapter()
         const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow, Cliente])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
-const httpServer = new ServerAPI(adapterProvider, adapterDB)
 
         const adapterProvider = createProvider(MetaProvider, {
           jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
@@ -647,19 +645,13 @@ const httpServer = new ServerAPI(adapterProvider, adapterDB)
           verifyToken: 'asdasd',
           version: 'v18.0'})
         
-          
+         ServerHttp.initialization(bot)
 
-main();
-const configBot = {
-  flow: adapterFlow,
-  provider: adapterProvider,
-  database: adapterDB,
-} 
-
-await createBot(configBot);
-httpServer.start()
-};
-
+        const bot = await createBot({
+            flow: adapterFlow,
+            provider: adapterProvider,
+            database: adapterDB,
+        })
     
    ///     ServerHttp.initialization(bot)
         /**
@@ -693,6 +685,6 @@ httpServer.start()
 
     
 
-    
+    }
     
     main()
