@@ -6,6 +6,7 @@ const MetaProvider = require("@bot-whatsapp/provider/meta")
 const BaileysProvider = require("@bot-whatsapp/provider/baileys")
 const MockAdapter = require('@bot-whatsapp/database/mock')
 const ServerHttp = require('./src/http')
+const QRPortalWeb = require('@bot-whatsapp/portal')
 
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
@@ -702,9 +703,10 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
     
 
 const mainb = async () => {
+  const BOTNAME = 'botbai' 
     const adapterDB = new MockAdapter()
     const adapterFlow = createFlow([flowPrincipal])
-    const adapterProvider = createProvider(BaileysProvider)
+    const adapterProvider = createProvider(BaileysProvider,{name:BOTNAME})
 
     const bot = await createBot({
         flow: adapterFlow,
@@ -741,7 +743,8 @@ const mainb = async () => {
                 mode:'outgoing'
             }, chatwoot)
         })
-    })
+    }) 
+    QRPortalWeb()
   }
 mainb();
     
