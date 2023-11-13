@@ -646,7 +646,7 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
         concurrent: 1,
         interval: 500 
     })
-     /**
+  
     const main = async () => {
 
       const PORT=3003
@@ -666,7 +666,7 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
             database: adapterDB,
         })
     
-      
+         /**
     
    ///     ServerHttp.initialization(bot)
        
@@ -745,6 +745,7 @@ const mainb = async () => {
             }, chatwoot)
         }) 
     })
-}
+}}
 mainb();
     
+main()
