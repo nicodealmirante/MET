@@ -706,7 +706,7 @@ const mainb = async () => {
   const BOTNAME = 'botbai' 
     const adapterDB = new MockAdapter()
     const adapterFlow = createFlow([flowPrincipal])
-    const adapterProvider = createProvider(BaileysProvider,{name:BOTNAME})
+    const adapterProvider = createProvider(BaileysProvider,{name:BOTNAME, PORT: 3001})
 
     const bot = await createBot({
         flow: adapterFlow,
@@ -742,7 +742,7 @@ const mainb = async () => {
                 message: payload.answer, 
                 mode:'outgoing'
             }, chatwoot)
-        })
+        }) 
     }) 
     QRPortalWeb()
   }
