@@ -2,10 +2,10 @@ require('dotenv').config()
 const {
   createBot,
   createProvider,
-  createFlow,
+  createFlow,EVENTS
 } = require("@bot-whatsapp/bot");
 
-const BaileysProvider = require("@bot-whatsapp/provider/baileys");
+const MetaProvider = require("@bot-whatsapp/provider/meta");
 const MockAdapter = require("@bot-whatsapp/database/mock");
 const ServerAPI = require('./http');
 /**
