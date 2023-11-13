@@ -1,19 +1,16 @@
 
 require('dotenv').config()
-const {
-  createBot,
-  createProvider,
-  createFlow,EVENTS,addKeyword
-} = require("@bot-whatsapp/bot");
+const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
+const Queue = require('queue-promise')
+const MetaProvider = require("@bot-whatsapp/provider/meta")
+const MockAdapter = require('@bot-whatsapp/database/mock')
+const ServerHttp = require('./src/http')
 
-const MetaProvider = require("@bot-whatsapp/provider/meta");
-const MockAdapter = require("@bot-whatsapp/database/mock");
-const ServerAPI = require('./http');
-/**
- * Configuracion de Plugin
- */
+const ChatwootClass = require('./src/chatwoot/chatwoot.class')
+const { handlerMessage } = require('./src/chatwoot')
+const  PORTS = 3004 
 let motivo;  
-const mywhatsa = "5491140054474@s.whatsapp.net";
+const mywhatsa = "549114005zzzz@s.whatsapp.net";
 
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
  *
@@ -28,6 +25,13 @@ const mywhatsa = "5491140054474@s.whatsapp.net";
 
 let causa
 
+
+const fakeHTTP = async (fakeData = []) => {
+  await delay(50)
+  const data = fakeData.map((u) => ({ body: `${u}` }))
+  return Promise.resolve(data)
+
+}
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////     FUNCIONES
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -64,8 +68,9 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
       {body: 'QUIERO COMPRAR'},
      {body: 'OTROS'},
     ]}, // idle: 2000 = 2 segundos
-    async (ctx, { gotoFlow, adapterProvider }) => {
-      await adapterProvider.sendText('5491140054474','jola')
+    async (ctx, { gotoFlow, provider }) => {
+      const mywhatsa = "549114005zzzz@s.whatsapp.net";
+      await   provider.sendtext(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
 return gotoFlow(Menuflow)
 })
         
@@ -624,10 +629,21 @@ return  gotoFlow(Menuflow);
 
 
 
+    const chatwoot = new ChatwootClass({
+        account: '1',
+        token: 'RzqiiFrYqQUrx5FPuuMXoM3e',
+        endpoint: 'https://chatwoot-production-9374.up.railway.app'
+        
+    })
+    
+    const queue = new Queue({
+        concurrent: 1,
+        interval: 500 
+    })
     
     const main = async () => {
         const adapterDB = new MockAdapter()
-        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow, Cliente])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
+        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
 
         const adapterProvider = createProvider(MetaProvider, {
           jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
@@ -635,24 +651,18 @@ return  gotoFlow(Menuflow);
           verifyToken: 'asdasd',
           version: 'v18.0'})
         
-          const httpServer = new ServerAPI(adapterProvider, adapterDB)
-
-
-const configBot = {
+          
+        const bot = await createBot({
             flow: adapterFlow,
             provider: adapterProvider,
             database: adapterDB,
-        } 
-
-await createBot(configBot);
-httpServer.start()
-
-
+        })
     
    ///     ServerHttp.initialization(bot)
-      
-         
-     /**
+        /**
+         * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
+         */
+    
         adapterProvider.on('message', (payload) => {
             queue.enqueue(async () => {
                 await handlerMessage({
@@ -661,25 +671,25 @@ httpServer.start()
                     message: payload.body, 
                     mode:'incoming'
                 }, chatwoot)
-             });
+            });
         })
     
         /**
          * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
-        
-        configBot.on('send_message', (payload) => {
+         */
+        bot.on('send_message', (payload) => {
             queue.enqueue(async () => {
                 await handlerMessage({
                     phone:payload.numberOrId, 
                     name:payload.pushName,
                     message: payload.answer, 
                     mode:'outgoing'
-                }, chatwoot
-          */   
-        }
+                }, chatwoot)
+            })
+        })
 
     
 
-      
+    }
     
     main()
