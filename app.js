@@ -645,14 +645,14 @@ return  gotoFlow(Menuflow);
           verifyToken: 'asdasd',
           version: 'v18.0'})
         
-         serverHttp.initialization(bot)
+   
 
         const bot = await createBot({
             flow: adapterFlow,
             provider: adapterProvider,
             database: adapterDB,
         })
-    
+          serverHttp.initialization(bot)
    ///     ServerHttp.initialization(bot)
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
