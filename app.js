@@ -703,7 +703,7 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
     }    */
     
 
-const mainb = async () => {
+const main = async () => {
   const BOTNAME = 'botbai' 
     const adapterDB = new MockAdapter()
     const adapterFlow = createFlow([flowPrincipal])
@@ -747,5 +747,5 @@ const mainb = async () => {
     })
 QRPortalWeb({name: BOTNAME, PORT: 3005})
 }
-mainb();
+main();
     
