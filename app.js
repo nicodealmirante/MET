@@ -624,8 +624,17 @@ return  gotoFlow(Menuflow);
 
 
 
+    const chatwoot = new ChatwootClass({
+        account: '1',
+        token: 'RzqiiFrYqQUrx5FPuuMXoM3e',
+        endpoint: 'https://chatwoot-production-9374.up.railway.app'
+        
+    })
     
-
+    const queue = new Queue({
+        concurrent: 1,
+        interval: 500 
+    })
     
     const main = async () => {
         const adapterDB = new MockAdapter()
@@ -648,7 +657,7 @@ const configBot = {
 
 await createBot(configBot);
 httpServer.start()
-};
+
 
     
    ///     ServerHttp.initialization(bot)
@@ -683,6 +692,6 @@ httpServer.start()
 
     
 
-    
+      }
     
     main()
