@@ -649,10 +649,6 @@ const httpServer = new ServerAPI(adapterProvider, adapterDB)
         
           
 
-  const configExtra = {
-    }
- 
-
 main();
 const configBot = {
   flow: adapterFlow,
@@ -660,7 +656,7 @@ const configBot = {
   database: adapterDB,
 } 
 
-await createBot(configBot,configExtra);
+await createBot(configBot);
 httpServer.start()
 };
 
