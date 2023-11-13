@@ -27,7 +27,6 @@ let causa
 
 
 
-const serverHttp = new ServerHttp(PORT)
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -690,7 +689,7 @@ return  gotoFlow(Menuflow);
             })
         })
 
-    ServerHttp = new ServerHttp()
+    const ServerHttp = new ServerHttp()
 
     }
     
