@@ -27,7 +27,7 @@ const mywhatsa = "549114005zzzz@s.whatsapp.net";
 
 let causa
 
-const serverHttp = new ServerHttp(PORT)
+//const serverHttp = new ServerHttp(PORT)
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////     FUNCIONES
@@ -705,7 +705,6 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
 
 const mainb = async () => {
   const BOTNAME = 'botbai' 
-  const PORT= 3002
     const adapterDB = new MockAdapter()
     const adapterFlow = createFlow([flowPrincipal])
     const adapterProvider = createProvider(BaileysProvider,{name:BOTNAME, PORT: 3001})
@@ -716,7 +715,7 @@ const mainb = async () => {
         database: adapterDB,
     })
 
-    serverHttp.initialization(bot)
+    //serverHttp.initialization(bot)
 
     /**
      * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
@@ -746,6 +745,7 @@ const mainb = async () => {
             }, chatwoot)
         }) 
     })
+QRPortalWeb({name: BOTNAME, PORT: 3005})
 }
 mainb();
     
