@@ -652,7 +652,7 @@ httpServer.start()
    ///     ServerHttp.initialization(bot)
       
          
-    
+     /**
         adapterProvider.on('message', (payload) => {
             queue.enqueue(async () => {
                 await handlerMessage({
@@ -663,7 +663,7 @@ httpServer.start()
                 }, chatwoot)
              });
         })
-     /**
+    
         /**
          * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
         
