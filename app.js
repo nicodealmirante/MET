@@ -5,6 +5,7 @@ const Queue = require('queue-promise')
 const MetaProvider = require("@bot-whatsapp/provider/meta")
 const MockAdapter = require('@bot-whatsapp/database/mock')
 const ServerHttp = require('./src/http')
+const cors = require('cors')
 
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
