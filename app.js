@@ -631,7 +631,7 @@ const Menuflow2 = addKeyword(["me-?nu"], { sensitive: true })
 
 const main = async () => {
   const adapterDB = new MockAdapter();
-  const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono, Menuflow2, alquila22])
+  const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Cliente, Menuflow, audiono])
 
 
   const adapterProvider = createProvider(MetaProvider, {
