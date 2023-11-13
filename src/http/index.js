@@ -12,8 +12,16 @@ class ServerHttp {
     app;
     port;
 
-    constructor(_port = 4000){
-        this.port = _port
+    /**
+     * este es el controlador para mostar el qr code
+     * @param {*} _ 
+     * @param {*} res 
+     */
+    qrCtrl = (_, res) => {
+        const pathQrImage = join(process.cwd(), `bot.qr.png`);
+        const fileStream = createReadStream(pathQrImage);
+        res.writeHead(200, { "Content-Type": "image/png" });
+        fileStream.pipe(res);
     }
 
     /**
@@ -69,6 +77,7 @@ class ServerHttp {
                 }
         
 
+
                 /**
                  * esto envia un mensaje de texto al ws
                  */
@@ -98,20 +107,11 @@ class ServerHttp {
             throw new Error('DEBES_DE_PASAR_BOT')
         }
         this.app = express()
-        this.app.use(cors())
         this.app.use(express.json())
 
-        this.app.use((req, _, next) => {
-            req.bot = bot;
-            next()
-        })
-
         this.app.post(`/chatwoot`, this.chatwootCtrl)
-        this.app.listen(this.port, () => {
             console.log(``)
-
             console.log(``)
-        })
     }
 
 }
