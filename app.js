@@ -714,7 +714,7 @@ const mainb = async () => {
   
   const adapterProvider = createProvider(BaileysProvider);
 
-  const ServerHttp = new ServerAPI(adapterProvider, adapterDB)
+  const serverHttp = new ServerHttp(adapterProvider, adapterDB)
 
   const configBot = {
     flow: adapterFlow,
@@ -723,7 +723,7 @@ const mainb = async () => {
   }
 
   await createBot(configBot);
-  ServerHttp.start()
+  serverHttp.start()
 };
 
 mainb();
