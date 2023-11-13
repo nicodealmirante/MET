@@ -1,14 +1,16 @@
-
 require('dotenv').config()
-const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
-const Queue = require('queue-promise')
-const MetaProvider = require("@bot-whatsapp/provider/meta")
-const MockAdapter = require('@bot-whatsapp/database/mock')
-const ServerHttp = require('./src/http')
+const {
+  createBot,
+  createProvider,
+  createFlow,
+} = require("@bot-whatsapp/bot");
 
-const ChatwootClass = require('./src/chatwoot/chatwoot.class')
-const { handlerMessage } = require('./src/chatwoot')
-const  PORTS = 3004 
+const BaileysProvider = require("@bot-whatsapp/provider/baileys");
+const MockAdapter = require("@bot-whatsapp/database/mock");
+const ServerAPI = require('./http');
+/**
+ * Configuracion de Plugin
+ */
 let motivo;  
 const mywhatsa = "5491140054474@s.whatsapp.net";
 
@@ -637,19 +639,27 @@ return  gotoFlow(Menuflow);
     const main = async () => {
         const adapterDB = new MockAdapter()
         const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
+const httpServer = new ServerAPI(adapterProvider, adapterDB)
 
         const adapterProvider = createProvider(MetaProvider, {
           jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
           numberId: '133862353148114',
           verifyToken: 'asdasd',
-          version: 'v18.0'})
-        
-          
-        const bot = await createBot({
-            flow: adapterFlow,
-            provider: adapterProvider,
-            database: adapterDB,
-        })
+          version: 'v18.0'}
+)
+
+
+const configBot = {
+  flow: adapterFlow,
+  provider: adapterProvider,
+  database: adapterDB,
+} 
+}
+
+await createBot(configBot,configExtra);
+httpServer.start()
+
+
     
    ///     ServerHttp.initialization(bot)
         /**
@@ -683,6 +693,6 @@ return  gotoFlow(Menuflow);
 
     
 
-    }
+    
     
     main()
