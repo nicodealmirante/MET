@@ -26,13 +26,8 @@ const mywhatsa = "549114005zzzz@s.whatsapp.net";
 
 let causa
 
+const serverHttp = new ServerHttp(PORT)
 
-const fakeHTTP = async (fakeData = []) => {
-  await delay(50)
-  const data = fakeData.map((u) => ({ body: `${u}` }))
-  return Promise.resolve(data)
-
-}
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////     FUNCIONES
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -707,25 +702,47 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
     
 
 const mainb = async () => {
-  const adapterDB = new MockAdapter();
-  const adapterFlow = createFlow([
- mensaje
-  ]);
-  
-  const adapterProvider = createProvider(BaileysProvider);
+    const adapterDB = new MockAdapter()
+    const adapterFlow = createFlow([flowPrincipal])
+    const adapterProvider = createProvider(BaileysProvider)
 
-  const serverHttp = new ServerHttp(adapterProvider, adapterDB)
+    const bot = await createBot({
+        flow: adapterFlow,
+        provider: adapterProvider,
+        database: adapterDB,
+    })
 
-  const configBot = {
-    flow: adapterFlow,
-    provider: adapterProvider,
-    database: adapterDB,
+    serverHttp.initialization(bot)
+
+    /**
+     * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
+     */
+
+    adapterProvider.on('message', (payload) => {
+        queue.enqueue(async () => {
+            await handlerMessage({
+                phone:payload.from, 
+                name:payload.pushName,
+                message: payload.body, 
+                mode:'incoming'
+            }, chatwoot)
+        });
+    })
+
+    /**
+     * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
+     */
+    bot.on('send_message', (payload) => {
+        queue.enqueue(async () => {
+            await handlerMessage({
+                phone:payload.numberOrId, 
+                name:payload.pushName,
+                message: payload.answer, 
+                mode:'outgoing'
+            }, chatwoot)
+        })
+    })
   }
-
-  await createBot(configBot);
-  serverHttp.start()
-};
-
 mainb();
     
     main()
