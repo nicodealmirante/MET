@@ -1,15 +1,17 @@
 
 require('dotenv').config()
-const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
-const Queue = require('queue-promise')
-const MetaProvider = require("@bot-whatsapp/provider/meta")
-const MockAdapter = require('@bot-whatsapp/database/mock')
-const ServerHttp = require('./src/http')
-const cors = require('cors')
+const {
+  createBot,
+  createProvider,
+  createFlow,EVENTS
+} = require("@bot-whatsapp/bot");
 
-const ChatwootClass = require('./src/chatwoot/chatwoot.class')
-const { handlerMessage } = require('./src/chatwoot')
-const  PORT = 3004 
+const MetaProvider = require("@bot-whatsapp/provider/meta");
+const MockAdapter = require("@bot-whatsapp/database/mock");
+const ServerAPI = require('./http');
+/**
+ * Configuracion de Plugin
+ */
 let motivo;  
 const mywhatsa = "5491140054474@s.whatsapp.net";
 
@@ -26,7 +28,6 @@ const mywhatsa = "5491140054474@s.whatsapp.net";
 
 let causa
 
-const serverHttp =new ServerHttp()
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////     FUNCIONES
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -638,6 +639,7 @@ return  gotoFlow(Menuflow);
     const main = async () => {
         const adapterDB = new MockAdapter()
         const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow, Cliente])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
+const httpServer = new ServerAPI(adapterProvider, adapterDB)
 
         const adapterProvider = createProvider(MetaProvider, {
           jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
@@ -647,12 +649,17 @@ return  gotoFlow(Menuflow);
         
    
 
-        const bot = await createBot({
+const configBot = {
             flow: adapterFlow,
             provider: adapterProvider,
             database: adapterDB,
-        })
-          serverHttp.initialization(bot)
+        } 
+
+await createBot(configBot);
+httpServer.start()
+};
+
+    
    ///     ServerHttp.initialization(bot)
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
@@ -685,6 +692,6 @@ return  gotoFlow(Menuflow);
 
     
 
-    }
+    
     
     main()
