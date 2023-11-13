@@ -638,7 +638,7 @@ return  gotoFlow(Menuflow);
     
     const main = async () => {
         const adapterDB = new MockAdapter()
-        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
+        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow, Cliente])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
 const httpServer = new ServerAPI(adapterProvider, adapterDB)
 
         const adapterProvider = createProvider(MetaProvider, {
