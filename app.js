@@ -9,7 +9,6 @@ const cors = require('cors')
 
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
-const { downloadExternalBlob } = require('@whiskeysockets/baileys')
 const  PORT = 3004 
 let motivo;  
 const mywhatsa = "5491140054474@s.whatsapp.net";
