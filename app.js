@@ -6,7 +6,8 @@ const {
 } = require("@bot-whatsapp/bot");
 const MetaProvider = require("@bot-whatsapp/provider/meta");
 const MockAdapter = require("@bot-whatsapp/database/mock");
-const { createDashboard } = require("./src/");
+const { createDashboard } = require("./src");
+const express = require ("express")
 
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
 *
