@@ -645,7 +645,7 @@ return  gotoFlow(Menuflow);
           verifyToken: 'asdasd',
           version: 'v18.0'})
         
-         ServerHttp.initialization(bot)
+         serverHttp.initialization(bot)
 
         const bot = await createBot({
             flow: adapterFlow,
