@@ -650,8 +650,7 @@ httpServer.start()
 
     
    ///     ServerHttp.initialization(bot)
-        /**
-         * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
+      
          
     
         adapterProvider.on('message', (payload) => {
@@ -662,9 +661,9 @@ httpServer.start()
                     message: payload.body, 
                     mode:'incoming'
                 }, chatwoot)
-            });
+             });
         })
-    
+     /**
         /**
          * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
         
