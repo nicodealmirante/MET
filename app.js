@@ -636,8 +636,8 @@ const main = async () => {
     jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
     numberId: '133862353148114',
     verifyToken: 'asdasd',
-    version: 'v18.0'})
-  }
+    version: 'v18.0'
+  });
 
   const BotCreate = await createBot({
     flow: adapterFlow,
@@ -652,6 +652,6 @@ const main = async () => {
       CHATWOOT_API_ACCESS_TOKEN: "RzqiiFrYqQUrx5FPuuMXoM3e",
     }, BotCreate)
 
-
+};
 
 main(); 
