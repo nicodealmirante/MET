@@ -2,7 +2,7 @@
 require('dotenv').config()
 const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
 const Queue = require('queue-promise')
-///const MetaProvider = require("@bot-whatsapp/provider/meta")
+const MetaProvider = require("@bot-whatsapp/provider/meta")
 const BaileysProvider = require("@bot-whatsapp/provider/baileys")
 const MockAdapter = require('@bot-whatsapp/database/mock')
 const ServerHttp = require('./src/http')
@@ -700,7 +700,7 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
     
 
     }    */
-    
+  }
 
 const mainb = async () => {
   const BOTNAME = 'botbai' 
@@ -744,7 +744,7 @@ const mainb = async () => {
             }, chatwoot)
         }) 
     })
-}}
+}
 mainb();
     
 main()
