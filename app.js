@@ -637,7 +637,7 @@ const main = async () => {
     numberId: '133862353148114',
     verifyToken: 'asdasd',
     version: 'v18.0'})
-  });
+  }
 
   const BotCreate = await createBot({
     flow: adapterFlow,
@@ -652,6 +652,6 @@ const main = async () => {
       CHATWOOT_API_ACCESS_TOKEN: "RzqiiFrYqQUrx5FPuuMXoM3e",
     }, BotCreate)
 
-};
+
 
 main(); 
