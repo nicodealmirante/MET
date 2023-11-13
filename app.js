@@ -624,12 +624,6 @@ return  gotoFlow(Menuflow);
 
 
 
-    const chatwoot = new ChatwootClass({
-        account: '1',
-        token: 'RzqiiFrYqQUrx5FPuuMXoM3e',
-        endpoint: 'https://chatwoot-production-9374.up.railway.app'
-        
-    })
     
     const queue = new Queue({
         concurrent: 1,
