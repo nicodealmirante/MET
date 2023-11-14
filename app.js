@@ -7,6 +7,11 @@ const MetaProvider = require("@bot-whatsapp/provider/meta")
 const MockAdapter = require('@bot-whatsapp/database/mock')
 const ServerHttp = require('./src/http')
 
+const { join } = require("path");
+const { createReadStream } = require("fs");
+
+
+const BaileysProvider = require("@bot-whatsapp/provider/baileys");
 
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
@@ -643,6 +648,7 @@ return  gotoFlow(Menuflow);
       const PORT=3003
         const adapterDB = new MockAdapter()
         const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow,Cliente])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
+        const adapterProviderb = createProvider(BaileysProvider);
 
         const adapterProvider = createProvider(MetaProvider, {
           jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
@@ -670,17 +676,9 @@ return  gotoFlow(Menuflow);
     
 
 
-const { join } = require("path");
-const { createReadStream } = require("fs");
-
-
-const BaileysProvider = require("@bot-whatsapp/provider/baileys");
 
 
 
-const main = async () => {
-  const adapterProviderb = createProvider(BaileysProvider);}
-main()
 
       
   
