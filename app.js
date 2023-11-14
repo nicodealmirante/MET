@@ -664,7 +664,7 @@ return  gotoFlow(Menuflow);
           version: 'v18.0'})
         
           
-    const bot = new createBot({
+    const bot = await createBot({
             flow: adapterFlow,
             provider: adapterProvider,
             database: adapterDB,
