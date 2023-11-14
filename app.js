@@ -66,7 +66,7 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
     ]}, // idle: 2000 = 2 segundos
     async (ctx, { gotoFlow, provider }) => {
       const mywhatsa = "5491140054474@c.us";
-    await adapterProvider.sendText(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
+          await adapterProvider.sendText(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
 return gotoFlow(Menuflow)
 })
         
@@ -702,74 +702,6 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
     }  
     
 
-const mainb = async () => {
-  const BOTNAME = 'botbai' 
-  const PORT= 3002
-    const adapterDB = new MockAdapter()
-    const adapterFlow = createFlow([flowPrincipal])
-    const adapterProvider = createProvider(BaileysProvider,{name:BOTNAME, PORT: 3001})
-
-    const bot = await createBot({
-        flow: adapterFlow,
-        provider: adapterProvider,
-        database: adapterDB,
-    })
-
-    serverHttp.initialization(bot)
-
-    /**
-     * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
-     */
-
-    adapterProvider.on('message', (payload) => {
-        queue.enqueue(async () => {
-            await handlerMessage({
-                phone:payload.from, 
-                name:payload.pushName,
-                message: payload.body, 
-                mode:'incoming'
-            }, chatwoot)
-        });
-    })
-
-    /**
-     * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
-     */
-    bot.on('send_message', (payload) => {
-        queue.enqueue(async () => {
-            await handlerMessage({
-                phone:payload.numberOrId, 
-                name:payload.pushName,
-                message: payload.answer, 
-                mode:'outgoing'
-            }, chatwoot)
-        }) 
-    }) 
-  }
-mainb();
-    
     main()
-                phone:payload.from, 
-                name:payload.pushName,
-                message: payload.body, 
-                mode:'incoming'
-            }, chatwoot)
-        });
-    })
-  }
-    /**}
-     * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
-     */
-    bot.on('send_message', (payload) => {
-        queue.enqueue(async () => {
-            await handlerMessage({
-                phone:payload.numberOrId, 
-                name:payload.pushName,
-                message: payload.answer, 
-                mode:'outgoing'
-            }, chatwoot)
-        }) 
-      })
-mainb();
-    
+
   
