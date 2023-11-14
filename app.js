@@ -61,7 +61,7 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 .addAnswer('ESTA CONVERSACION FINALIZO')
 .addAnswer('Para continuar con asesor haga click en el siguiente enlace')
 .addAction(async (ctx ,{gotoFlow,adapterProvider,provider}) => {
-  const id = "5491159132301@c.us";
+  const id = "5491159132301@s.whatsapp.net";
   const templateButtons = [
     {
       index: 1,
@@ -95,8 +95,10 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
   const abc = await adapterProvider.getInstance();
   await abc.sendList(id, templateMessage);
   await abc.sendMessage(id, templateMessage);
-  await provider.sendLists(id, templateMessage);
-  await provider.sendList(id, templateMessage);
+  await provider.sendText(id, templateMessage);
+  await provider.getInstance().json(id, templateMessage);
+  await provider.getInstance().sendMessage(id, templateMessage);
+  await provider.getInstance().urlButton(id, templateMessage);
 
 })
 /** 
