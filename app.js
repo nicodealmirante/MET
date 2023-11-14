@@ -60,7 +60,42 @@ console.log('Numero Agendado de Alquiler');*/
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 .addAnswer('ESTA CONVERSACION FINALIZO')
 .addAnswer('Para continuar con asesor haga click en el siguiente enlace')
-.addAnswer('https://wa.me/5491140054474?text=ASESOR',{capture:true, delay:5000}, async (ctx ,{gotoFlow,provider,fallBack}) => {
+.addAnswer('https://wa.me/5491140054474?text=ASESOR',{capture:false, delay:5000}, async (ctx ,{gotoFlow,adapterProvider,fallBack}) => {
+  const id = "54959132301@c.us";
+  const templateButtons = [
+    {
+      index: 1,
+      urlButton: {
+        displayText: ":star: Star Baileys on GitHub!",
+        url: "https://github.com/adiwajshing/Baileys",
+      },
+    },
+    {
+      index: 2,
+      callButton: {
+        displayText: "Call me!",
+        phoneNumber: "+1 (234) 5678-901",
+      },
+    },
+    {
+      index: 3,
+      quickReplyButton: {
+        displayText: "This is a reply, just like normal buttons!",
+        id: "id-like-buttons-message",
+      },
+    },
+  ];
+
+  const templateMessage = {
+    text: "Hi it's a template message",
+    footer: "Hello World",
+    templateButtons: templateButtons,
+  };
+
+  const abc = await adapterProvider.getInstance();
+  await abc.sendMessage(id, templateMessage);
+
+
 return fallBack("CONTINUE AQUI --->> https://wa.me/5491140054474?text=ASESOR")
 await provider.sendtext('5491140054474@s.whatsapp.net', `SIG MSJ\nNumero: +${ctx.from}\nINFO: *${ctx.body}*`) 
 })
@@ -651,32 +686,7 @@ return  gotoFlow(Menuflow);
           version: 'v18.0'})
         
           
-    createBot({
-            flow: adapterFlow,
-            provider: adapterProvider,
-            database: adapterDB,
-        })
-    
-      
-    
-   ///     ServerHttp.initialization(bot)
-        /**
-         * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
-         */
-    
-
-    }  
-    main()
-    
-
-const mainb = async () => {
-  const BOTNAME = 'botbai' 
-  const PORT= 3002
-    const adapterDB = new MockAdapter()
-    const adapterFlow = createFlow([Cliente])
-    const adapterProvider = createProvider(BaileysProvider,{name:BOTNAME, PORT: 3001})
-
-    const bot = await createBot({
+  const bot = await createBot({
         flow: adapterFlow,
         provider: adapterProvider,
         database: adapterDB,
@@ -722,6 +732,6 @@ const mainb = async () => {
         }) 
     }) 
   }
-mainb();
+main();
     
   
