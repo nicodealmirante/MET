@@ -66,14 +66,14 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
     {
       index: 1,
       urlButton: {
-        displayText: ":star: Star Baileys on GitHub!",
-        url: "https://github.com/adiwajshing/Baileys",
+        displayText: "Continuar Conversacion",
+        url: "https://wa.me/5491140054474?text=ASESOR",
       },
     },
     {
       index: 2,
       callButton: {
-        displayText: "Call me!",
+        displayText: "",
         phoneNumber: "+1 (234) 5678-901",
       },
     },
@@ -684,29 +684,17 @@ return  gotoFlow(Menuflow);
           numberId: '133862353148114',
           verifyToken: 'asdasd',
           version: 'v18.0'})
-            serverHttp.initialization(bot)
 
-          
   const bot = await createBot({
         flow: adapterFlow,
         provider: adapterProvider,
         database: adapterDB,
     })  
-
+            serverHttp.initialization(bot)
   }
     /**
      * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
      */
-    adapterProvider.on('create_message', (payload) => {
-      queue.enqueue(async () => {
-          await handlerMessage({
-              phone:payload.from, 
-              name:payload.pushName,
-              message: payload.body, 
-              mode:'incoming'
-          }, chatwoot)
-      });
-  })
     adapterProvider.on('message', (payload) => {
         queue.enqueue(async () => {
             await handlerMessage({

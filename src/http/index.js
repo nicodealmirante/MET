@@ -16,8 +16,6 @@ class ServerHttp {
         this.port = _port
     }
 
-    /**
-     * este es el controlador para mostar el qr code
 
     /**
      * Este el controlador del los enventos del Chatwoot
