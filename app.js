@@ -696,7 +696,7 @@ const mainb = async () => {
             }, chatwoot)
         });
     })
-
+mainb();
     /**
      * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
      */
@@ -711,6 +711,5 @@ const mainb = async () => {
         }) 
     }) 
   }
-mainb();
+
     
-    main()
