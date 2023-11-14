@@ -58,17 +58,42 @@ console.log('Numero Agendado de Alquiler');*/
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
+.addAnswer('ahi')
+.addAction(async (ctx, { gotoFlow, provider }) => {
+  const id = `${ctx.from}@c.us";`
+  const templateButtons = [
+    {
+      index: 1,
+      urlButton: {
+        displayText: ":star: Star Baileys on GitHub!",
+        url: "https://github.com/adiwajshing/Baileys",
+      },
+    },
+    {
+      index: 2,
+      callButton: {
+        displayText: "Call me!",
+        phoneNumber: "+1 (234) 5678-901",
+      },
+    },
+    {
+      index: 3,
+      quickReplyButton: {
+        displayText: "This is a reply, just like normal buttons!",
+        id: "id-like-buttons-message",
+      },
+    },
+  ];
 
-.addAnswer("Interes de la consulta?", {capture: true, 
-  buttons: [
-      {body: 'QUIERO ALQUILAR'},
-      {body: 'QUIERO COMPRAR'},
-     {body: 'OTROS'},
-    ]}, // idle: 2000 = 2 segundos
-    async (ctx, { gotoFlow, provider }) => {
-      const mywhatsa = "549114005zzzz@s.whatsapp.net";
-      await   provider.sendtext(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
-return gotoFlow(Menuflow)
+  const templateMessage = {
+    text: "Hi it's a template message",
+    footer: "Hello World",
+    templateButtons: templateButtons,
+  };
+
+  const abc = await adapterProvider.getInstance();
+  await abc.sendMessage(id, templateMessage);
+
 })
         
 /** 
@@ -651,7 +676,7 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
 
       const PORT=3003
         const adapterDB = new MockAdapter()
-        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow, Cliente])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
+        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
 
         const adapterProvider = createProvider(MetaProvider, {
           jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
@@ -673,7 +698,7 @@ const mainb = async () => {
   const PORT= 3002
     const adapterDB = new MockAdapter()
     const adapterFlow = createFlow([Cliente])
-    const adapterProvider = createProvider(BaileysProvider,{name:BOTNAME, PORT: 3001})
+    const adapterProvider = createProvider(BaileysProvider)
 
     const bot = await createBot({
         flow: adapterFlow,
