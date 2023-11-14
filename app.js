@@ -60,8 +60,10 @@ console.log('Numero Agendado de Alquiler');*/
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 .addAnswer('ESTA CONVERSACION FINALIZO')
 .addAnswer('Para continuar con asesor haga click en el siguiente enlace')
-.addAnswer('https://wa.me/5491140054474?text=ASESOR',{capture:false, delay:5000}, async (ctx ,{gotoFlow,adapterProvider,fallBack}) => {
-  const id = "54959132301@c.us";
+.addAnswer('Para continuar con asesor haga click en el siguiente enlace')
+
+.addAction(async (ctx ,{gotoFlow,adapterProvider,fallBack}) => {
+  const id = "5491159132301@s.whatsapp.net";
   const templateButtons = [
     {
       index: 1,
@@ -96,8 +98,6 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
   await abc.sendMessage(id, templateMessage);
 
 
-return fallBack("CONTINUE AQUI --->> https://wa.me/5491140054474?text=ASESOR")
-await provider.sendtext('5491140054474@s.whatsapp.net', `SIG MSJ\nNumero: +${ctx.from}\nINFO: *${ctx.body}*`) 
 })
 /** 
 })
