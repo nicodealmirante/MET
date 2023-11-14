@@ -1,6 +1,6 @@
 
 require('dotenv').config()
-const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
+const { createBot, createProvider, createFlow, addKeyword, EVENTS, addAnswer } = require('@bot-whatsapp/bot')
 const Queue = require('queue-promise')
 const MetaProvider = require("@bot-whatsapp/provider/meta")
 
@@ -60,6 +60,19 @@ console.log('Numero Agendado de Alquiler');*/
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 .addAnswer('ESTA CONVERSACION FINALIZO')
 .addAnswer('Para continuar con asesor haga click en el siguiente enlace')
+.addAnswer('',  {
+  capture: true,
+  buttons: [
+      {
+        index: 1,
+        urlButton: {
+          displayText: ":star: Star Baileys on GitHub!",
+          url: "https://github.com/adiwajshing/Baileys",
+        },},
+      {body: 'opcion 2'},
+      {body: 'opcion 3'},
+  ]
+},)
 .addAction(async (ctx ,{gotoFlow,adapterProvider,fallBack}) => {
   const id = "5491159132301@s.whatsapp.net";
   const templateButtons = [
