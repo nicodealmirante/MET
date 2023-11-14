@@ -58,18 +58,9 @@ console.log('Numero Agendado de Alquiler');*/
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
+main.endFlow()
 
-.addAnswer("Interes de la consulta?", {capture: true, 
-  buttons: [
-      {body: 'QUIERO ALQUILAR'},
-      {body: 'QUIERO COMPRAR'},
-     {body: 'OTROS'},
-    ]}, // idle: 2000 = 2 segundos
-    async (ctx, { gotoFlow, provider }) => {
-      const mywhatsa = "549114005zzzz@s.whatsapp.net";
-      await   provider.sendtext(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
-return gotoFlow(Menuflow)
-})
+.addAnswer('Hola, Cual es el motivo de su consulta. Soy Nicolas de Selfie Mirror')
         
 /** 
 })
@@ -707,7 +698,7 @@ const mainb = async () => {
   const BOTNAME = 'botbai' 
   const PORT= 3002
     const adapterDB = new MockAdapter()
-    const adapterFlow = createFlow([flowPrincipal])
+    const adapterFlow = createFlow([Cliente])
     const adapterProvider = createProvider(BaileysProvider,{name:BOTNAME, PORT: 3001})
 
     const bot = await createBot({
