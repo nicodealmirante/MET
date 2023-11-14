@@ -19,6 +19,9 @@ const  PORT = 3004
 let motivo;  
 const mywhatsa = "549114005zzzz@s.whatsapp.net";
 
+const BaileysProvider = require("@bot-whatsapp/provider/baileys");
+
+  const adapterProvider2 = createProvider(BaileysProvider);
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
  *
  *          Menu Principal
@@ -58,21 +61,23 @@ console.log('Numero Agendado de Alquiler');*/
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 
+  const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
+  .addAnswer('ESTA CONVERSACION FINALIZO')
+  .addAnswer('Para continuar con asesor haga click en el siguiente enlace')
+  .addAnswer('https://wa.me/5491140054474?text=ASESOR')
+  
+  .addAction(async(ctx,{adapterProvider2,asdads}) => {
+  
+  asdads('2222')
+            await adapterProvider2.sendText("5491159132301@s.whatsapp.net", "mensaje");})
+      
 /////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////// FLUJO CLIENTE
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
+function asdads(chuchu){
+console.log(chuchu)
+          await adapterProvider2.sendText("5491159132301@s.whatsapp.net", "mensaje");}
 
-const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
-.addAnswer('ESTA CONVERSACION FINALIZO')
-.addAnswer('Para continuar con asesor haga click en el siguiente enlace')
-.addAnswer('https://wa.me/5491140054474?text=ASESOR',{capture:true}, async (ctx ,{axios,fallBack}) => {
-
-
-  return fallBack("CONTINUE AQUI --->> https://wa.me/5491140054474?text=ASESOR")
-
-  
-  });
- 
 
 
 /** 
