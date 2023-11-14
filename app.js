@@ -59,7 +59,7 @@ console.log('Numero Agendado de Alquiler');*/
 
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 .addAnswer('ESTA CONVERSACION FINALIZO')
-.addAnswer('Para continuar con asesor haga click en el siguiente enlace')
+.addAnswer('Para continuar con asesor haga click en el siguiente enlace',{urlButton:{  displayText: "Continuar Conversacion", url: "https://wa.me/5491140054474?text=ASESOR",}}
 .addAction(async (ctx ,{gotoFlow,adapterProvider,provider}) => {
   const id = "5491159132301@s.whatsapp.net";
   const templateButtons = [
@@ -98,7 +98,7 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
   await provider.sendText(id, templateMessage);
   await provider.getInstance().json(id, templateMessage);
   await provider.getInstance().sendMessage(id, templateMessage);
-  await provider.getInstance().urlButton(id, templateMessage);
+  await provider.getInstance().(id, templateMessage);
 
 })
 /** 
