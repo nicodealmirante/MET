@@ -6,7 +6,6 @@ const MetaProvider = require("@bot-whatsapp/provider/meta")
 const BaileysProvider = require("@bot-whatsapp/provider/baileys")
 const MockAdapter = require('@bot-whatsapp/database/mock')
 const ServerHttp = require('./src/http')
-const QRPortalWeb = require('@bot-whatsapp/portal')
 
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
@@ -60,7 +59,11 @@ console.log('Numero Agendado de Alquiler');*/
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 
 .addAnswer('Hola, Cual es el motivo de su consulta. Soy Nicolas de Selfie Mirror')
-        
+      console.log(ingreso)
+
+
+
+      
 /** 
 })
          
@@ -80,14 +83,14 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 const mainb = async () => {
   const BOTNAME = 'botbai' 
   const PORT= 3002
-    const adapterDB = new MockAdapter()
-    const adapterFlow = createFlow([Cliente])
-    const adapterProvider = createProvider(BaileysProvider,{name:BOTNAME, PORT: 3001})
+    const adapterDB2 = new MockAdapter()
+    const adapterFlow2 = createFlow([Cliente])
+    const adapterProvider2 = createProvider(BaileysProvider,{name:BOTNAME, PORT: 3001})
 
     const bot = await createBot({
-        flow: adapterFlow,
-        provider: adapterProvider,
-        database: adapterDB,
+        flow: adapterFlow2,
+        provider: adapterProvider2,
+        database: adapterDB2,
     })
 
     serverHttp.initialization(bot)
