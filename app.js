@@ -60,8 +60,6 @@ console.log('Numero Agendado de Alquiler');*/
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 .addAnswer('ESTA CONVERSACION FINALIZO')
 .addAnswer('Para continuar con asesor haga click en el siguiente enlace')
-.addAnswer('Para continuar con asesor haga click en el siguiente enlace')
-
 .addAction(async (ctx ,{gotoFlow,adapterProvider,fallBack}) => {
   const id = "5491159132301@s.whatsapp.net";
   const templateButtons = [
