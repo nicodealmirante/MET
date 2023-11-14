@@ -3,6 +3,7 @@ require('dotenv').config()
 const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
 const Queue = require('queue-promise')
 const MetaProvider = require("@bot-whatsapp/provider/meta")
+const BaileysProvider = require("@bot-whatsapp/provider/baileys")
 const MockAdapter = require('@bot-whatsapp/database/mock')
 const ServerHttp = require('./src/http')
 const QRPortalWeb = require('@bot-whatsapp/portal')
@@ -63,11 +64,10 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
       {body: 'QUIERO COMPRAR'},
      {body: 'OTROS'},
     ]}, // idle: 2000 = 2 segundos
-    async (ctx, { gotoFlow, adapterProvider }) => {
+    async (ctx, { gotoFlow, provider }) => {
       const mywhatsa = "5491140054474@c.us";
-      
-      await adapterProvider.sendText("52XXXXXXXXX@c.us", "Mensaje desde API");
-      return gotoFlow(Menuflow)
+    await adapterProvider.sendText(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
+return gotoFlow(Menuflow)
 })
         
 /** 
@@ -702,97 +702,74 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
     }  
     
 
-    main()
-
-const express = require("express");
-const { join } = require("path");
-const { createReadStream } = require("fs");
-const {
-  createBot,
-  createProvider,
-  createFlow,
-  addKeyword,
-} = require("@bot-whatsapp/bot");
-
-const BaileysProvider = require("@bot-whatsapp/provider/baileys");
-const MockAdapter = require("@bot-whatsapp/database/mock");
-
-const asd = addKeyword("hi").addAnswer("Hello!");
-
-const app = express();
 const mainb = async () => {
-  const adapterDB = new MockAdapter();
-  const adapterFlow = createFlow([asd]);
-  const adapterProvider = createProvider(BaileysProvider);
+  const BOTNAME = 'botbai' 
+  const PORT= 3002
+    const adapterDB = new MockAdapter()
+    const adapterFlow = createFlow([flowPrincipal])
+    const adapterProvider = createProvider(BaileysProvider,{name:BOTNAME, PORT: 3001})
 
-  createBot({
-    flow: adapterFlow,
-    provider: adapterProvider,
-    database: adapterDB,
-  });
+    const bot = await createBot({
+        flow: adapterFlow,
+        provider: adapterProvider,
+        database: adapterDB,
+    })
 
-  /**
-   * Enviar mensaje con metodos propios del provider del bot
-   */
-  app.post("/send-message-bot", async (req, res) => {
-    await adapterProvider.sendText("5491140054474@c.us", "Mensaje desde API");
-    res.send({ data: "enviado!" });
-  });
-  /**
-   * Enviar mensajes con metodos nativos del provider
-   */
-  app.post("/send-message-provider", async (req, res) => {
-    const id = "5491140054474@c.us";
-    const templateButtons = [
-      {
-        index: 1,
-        urlButton: {
-          displayText: ":star: Star Baileys on GitHub!",
-          url: "https://github.com/adiwajshing/Baileys",
-        },
-      },
-      {
-        index: 2,
-        callButton: {
-          displayText: "Call me!",
-          phoneNumber: "+1 (234) 5678-901",
-        },
-      },
-      {
-        index: 3,
-        quickReplyButton: {
-          displayText: "This is a reply, just like normal buttons!",
-          id: "id-like-buttons-message",
-        },
-      },
-    ];
+    serverHttp.initialization(bot)
 
-    const templateMessage = {
-      text: "Hi it's a template message",
-      footer: "Hello World",
-      templateButtons: templateButtons,
-    };
+    /**
+     * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
+     */
 
-    const abc = await adapterProvider.getInstance();
-    await abc.sendMessage(id, templateMessage);
+    adapterProvider.on('message', (payload) => {
+        queue.enqueue(async () => {
+            await handlerMessage({
+                phone:payload.from, 
+                name:payload.pushName,
+                message: payload.body, 
+                mode:'incoming'
+            }, chatwoot)
+        });
+    })
 
-    res.send({ data: "enviado!" });
-  });
-
-  app.get("/get-qr", async (_, res) => {
-    const YOUR_PATH_QR = join(process.cwd(), `bot.qr.png`);
-    const fileStream = createReadStream(YOUR_PATH_QR);
-
-    res.writeHead(200, { "Content-Type": "image/png" });
-    fileStream.pipe(res);
-  });
-
-  const PORT = process.env.PORT || 4000;
-  app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
-};
-
+    /**
+     * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
+     */
+    bot.on('send_message', (payload) => {
+        queue.enqueue(async () => {
+            await handlerMessage({
+                phone:payload.numberOrId, 
+                name:payload.pushName,
+                message: payload.answer, 
+                mode:'outgoing'
+            }, chatwoot)
+        }) 
+    }) 
+  }
 mainb();
-
-             
+    
+    main()
+                phone:payload.from, 
+                name:payload.pushName,
+                message: payload.body, 
+                mode:'incoming'
+            }, chatwoot)
+        });
+    })
+  }
+    /**}
+     * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
+     */
+    bot.on('send_message', (payload) => {
+        queue.enqueue(async () => {
+            await handlerMessage({
+                phone:payload.numberOrId, 
+                name:payload.pushName,
+                message: payload.answer, 
+                mode:'outgoing'
+            }, chatwoot)
+        }) 
+      })
+mainb();
     
   
