@@ -669,5 +669,19 @@ return  gotoFlow(Menuflow);
     main()
     
 
-    
+              await adapterProviderb.sendText("5491159132301@s.whatsapp.net", "mensaje");
+
+const { join } = require("path");
+const { createReadStream } = require("fs");
+
+
+const BaileysProvider = require("@bot-whatsapp/provider/baileys");
+
+
+
+const main = async () => {
+  const adapterProviderb = createProvider(BaileysProvider);}
+main()
+
+      
   
