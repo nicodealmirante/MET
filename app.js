@@ -73,7 +73,7 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
       {body: 'opcion 3'},
   ]
 },)
-.addAction(async (ctx ,{gotoFlow,adapterProvider,fallBack}) => {
+.addAction(async (ctx ,{gotoFlow,provider,fallBack}) => {
   const id = "5491159132301@s.whatsapp.net";
   const templateButtons = [
     {
