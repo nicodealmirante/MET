@@ -58,9 +58,12 @@ console.log('Numero Agendado de Alquiler');*/
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
-
-.addAnswer('Hola, Cual es el motivo de su consulta. Soy Nicolas de Selfie Mirror')
-        
+.addAnswer('ESTA CONVERSACION FINALIZO')
+.addAnswer('Para continuar con asesor haga click en el siguiente enlace')
+.addAnswer('https://wa.me/5491140054474?text=ASESOR',{capture:true, delay:5000}, async (ctx ,{gotoFlow,provider,fallBack}) => {
+return fallBack("CONTINUE AQUI --->> https://wa.me/5491140054474?text=ASESOR")
+await provider.sendtext('5491140054474@s.whatsapp.net', `SIG MSJ\nNumero: +${ctx.from}\nINFO: *${ctx.body}*`) 
+})
 /** 
 })
          
