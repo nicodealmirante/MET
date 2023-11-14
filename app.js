@@ -59,48 +59,11 @@ console.log('Numero Agendado de Alquiler');*/
 
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 .addAnswer('ESTA CONVERSACION FINALIZO')
-.addAnswer('Para continuar con asesor haga click en el siguiente enlace',{urlButton:{  displayText: "Continuar Conversacion", url: "https://wa.me/5491140054474?text=ASESOR",}}
-.addAction(async (ctx ,{gotoFlow,adapterProvider,provider}) => {
-  const id = "5491159132301@s.whatsapp.net";
-  const templateButtons = [
-    {
-      index: 1,
-      urlButton: {
-        displayText: "Continuar Conversacion",
-        url: "https://wa.me/5491140054474?text=ASESOR",
-      },
-    },
-    {
-      index: 2,
-      callButton: {
-        displayText: "",
-        phoneNumber: "+1 (234) 5678-901",
-      },
-    },
-    {
-      index: 3,
-      quickReplyButton: {
-        displayText: "This is a reply, just like normal buttons!",
-        id: "id-like-buttons-message",
-      },
-    },
-  ];
+.addAnswer('Para continuar con asesor haga click en el siguiente enlace',{capture: true, 
+  buttons: [
+  {urlButton: 'https://wa.me/5491140054474?text=ASESOR'},
+  {callButton: '11111111'}]})
 
-  const templateMessage = {
-    text: "Hi it's a template message",
-    footer: "Hello World",
-    templateButtons: templateButtons,
-  };
-
-  const abc = await adapterProvider.getInstance();
-  await abc.sendList(id, templateMessage);
-  await abc.sendMessage(id, templateMessage);
-  await provider.sendText(id, templateMessage);
-  await provider.getInstance().json(id, templateMessage);
-  await provider.getInstance().sendMessage(id, templateMessage);
-  await provider.getInstance().(id, templateMessage);
-
-})
 /** 
 })
          
