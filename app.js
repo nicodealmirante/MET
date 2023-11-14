@@ -73,7 +73,7 @@ console.log('Numero Agendado de Alquiler');*/
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 function asdads(chuchu){
 console.log(chuchu)
-          await adapterProvider2.sendText("5491159132301@s.whatsapp.net", "mensaje");}
+           adapterProvider2.sendText("5491159132301@s.whatsapp.net", "mensaje");}
 
 
 
@@ -326,6 +326,8 @@ const organizadorflow = addKeyword('UNIFILA LED',{sensitive:true})
      {body: 'ASESOR VENTAS'},
     ], delay: 2000 , idle: 200000 }, // idle: 2000 = 2 segundos
     async (ctx, { gotoFlow, inRef }) => {
+      asdads('2222')
+
       if(ctx.body=='ASESOR VENTAS') {
 
       causa='VENTA'
