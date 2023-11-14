@@ -1,6 +1,6 @@
 
 require('dotenv').config()
-const { createBot, createProvider, createFlow, addKeyword, EVENTS, addAnswer } = require('@bot-whatsapp/bot')
+const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
 const Queue = require('queue-promise')
 const MetaProvider = require("@bot-whatsapp/provider/meta")
 
@@ -60,8 +60,7 @@ console.log('Numero Agendado de Alquiler');*/
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 .addAnswer('ESTA CONVERSACION FINALIZO')
 .addAnswer('Para continuar con asesor haga click en el siguiente enlace')
-
-.addAction(async (ctx ,{gotoFlow,provider,fallBack}) => {
+.addAction(async (ctx ,{gotoFlow,adapterProvider,provider}) => {
   const id = "5491159132301@s.whatsapp.net";
   const templateButtons = [
     {
@@ -93,8 +92,12 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
     templateButtons: templateButtons,
   };
 
-  
-
+  const abc = await adapterProvider.getInstance();
+  await abc.sendList(id, templateMessage);
+  const abc = await adapterProvider.getInstance();
+  await abc.sendMessage(id, templateMessage);
+  await provider.sendLists(id, templateMessage);
+  await provider.sendList(id, templateMessage);
 
 })
 /** 
