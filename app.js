@@ -638,27 +638,8 @@ return  gotoFlow(Menuflow);
         interval: 500 
     })
     
-  
-
-const mainb = async () => {
-  const BOTNAME = 'botbai' 
-
-    const adapterDB = new MockAdapter()
-    const adapterFlow = createFlow([Cliente])
-    const adapterProvider = createProvider(BaileysProvider,{name:BOTNAME, PORT: 3001})
-
-    createBot({
-        flow: adapterFlow,
-        provider: adapterProvider,
-        database: adapterDB,
-    })  
-
-  }
-    /**}
-     * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
-     */
     const main = async () => {
-BOTNAME='hola'
+
       const PORT=3003
         const adapterDB = new MockAdapter()
         const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
@@ -667,10 +648,10 @@ BOTNAME='hola'
           jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
           numberId: '133862353148114',
           verifyToken: 'asdasd',
-          version: 'v18.0'},{name:BOTNAME, PORT: 3003})
+          version: 'v18.0'})
         
           
-          const bot = await createBot({
+    createBot({
             flow: adapterFlow,
             provider: adapterProvider,
             database: adapterDB,
@@ -678,14 +659,44 @@ BOTNAME='hola'
     
       
     
-   serverHttp.initialization(bot)
+   ///     ServerHttp.initialization(bot)
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
          */
     
 
     }  
+    main()
+    
 
+const mainb = async () => {
+  const BOTNAME = 'botbai' 
+  const PORT= 3002
+    const adapterDB = new MockAdapter()
+    const adapterFlow = createFlow([Cliente])
+    const adapterProvider = createProvider(BaileysProvider,{name:BOTNAME, PORT: 3001})
+
+    const bot = await createBot({
+        flow: adapterFlow,
+        provider: adapterProvider,
+        database: adapterDB,
+    })  
+
+    serverHttp.initialization(bot)
+
+    /**
+     * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
+     */
+    adapterProvider.on('create_message', (payload) => {
+      queue.enqueue(async () => {
+          await handlerMessage({
+              phone:payload.from, 
+              name:payload.pushName,
+              message: payload.body, 
+              mode:'incoming'
+          }, chatwoot)
+      });
+  })
     adapterProvider.on('message', (payload) => {
         queue.enqueue(async () => {
             await handlerMessage({
@@ -710,8 +721,7 @@ BOTNAME='hola'
             }, chatwoot)
         }) 
     }) 
-     main()
-
+  }
 mainb();
     
   
