@@ -670,9 +670,9 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
 const mainb = async () => {
   const BOTNAME = 'botbai' 
   const PORT= 3002
-    const adapterDBb = new MockAdapter()
-    const adapterFlowb = createFlow([Cliente])
-    const adapterProviderb = createProvider(BaileysProvider,{name:BOTNAME, PORT: 3001})
+    const adapterDB = new MockAdapter()
+    const adapterFlow = createFlow([Cliente])
+    const adapterProvider = createProvider(BaileysProvider,{name:BOTNAME, PORT: 3001})
 
     const bot = await createBot({
         flow: adapterFlow,
