@@ -65,7 +65,7 @@ console.log('Numero Agendado de Alquiler');*/
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 .addAnswer('ESTA CONVERSACION FINALIZO')
 .addAnswer('Para continuar con asesor haga click en el siguiente enlace')
-.addAnswer('https://wa.me/5491140054474?text=ASESOR',{capture:true}, async (ctx ,{axios}) => {
+.addAnswer('https://wa.me/5491140054474?text=ASESOR',{capture:false}, async (ctx ,{axios}) => {
 
   await axios(`https://api-production-34a0.up.railway.app/enviar-mensaje/:${ctx.from}`)
   await axios(`https://api-production-34a0.up.railway.app/enviar-mensaje:${ctx.from}`)
