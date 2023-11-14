@@ -623,8 +623,6 @@ return  gotoFlow(Menuflow);
         
  */
 ////////////////////////////////////////////////////////////////////////////////////////
-const mensaje = addKeyword(["mennnn"], { sensitive: true })
-
   .addAnswer("*Info*", { 
             capture: true,
             buttons: [
@@ -666,7 +664,21 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
             database: adapterDB,
         })
     
+<<<<<<< HEAD
     }
+=======
+      
+    
+   ///     ServerHttp.initialization(bot)
+        /**
+         * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
+         */
+    
+
+    }  
+    main()
+    
+>>>>>>> 7cfc7482322fefb347bf5b8ec65d91d38d368568
 
 const mainb = async () => {
   const BOTNAME = 'botbai' 
@@ -679,7 +691,7 @@ const mainb = async () => {
         flow: adapterFlow,
         provider: adapterProvider,
         database: adapterDB,
-    })
+    })  
 
     serverHttp.initialization(bot)
 
@@ -713,4 +725,4 @@ const mainb = async () => {
       })
 mainb();
     
-    main()
+  
