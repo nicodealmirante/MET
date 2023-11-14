@@ -67,7 +67,7 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 .addAnswer('Para continuar con asesor haga click en el siguiente enlace')
 .addAnswer('https://wa.me/5491140054474?text=ASESOR',{capture:true, delay:5000}, async (ctx ,{createProvider,adapterProviderb,BaileysProvider}) => {
 
-  await axios(`http://api.railway.internal:3000/enviar-mensaje/:${ctx.from}`)
+  await axios(`https://api-production-34a0.up.railway.app:3000/enviar-mensaje/:${ctx.from}`)
     await adapterProviderb.sendText("5491159132301@s.whatsapp.net", "mensaje");
 
   return fallBack("CONTINUE AQUI --->> https://wa.me/5491140054474?text=ASESOR")
