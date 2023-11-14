@@ -19,9 +19,6 @@ const  PORT = 3004
 let motivo;  
 const mywhatsa = "549114005zzzz@s.whatsapp.net";
 
-const BaileysProvider = require("@bot-whatsapp/provider/baileys");
-
-  const adapterProvider2 = createProvider(BaileysProvider);
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
  *
  *          Menu Principal
@@ -665,8 +662,9 @@ return  gotoFlow(Menuflow);
           jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
           numberId: '133862353148114',
           verifyToken: 'asdasd',
-          version: 'v18.0'})
-        
+          version: 'v18.0'}  
+)
+        const adapterProvider2 = createProvider(BaileysProvider);
           
     const bot = await createBot({
             flow: adapterFlow,
