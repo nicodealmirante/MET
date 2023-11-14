@@ -666,42 +666,7 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
             database: adapterDB,
         })
     
-      
-    
-   ///     ServerHttp.initialization(bot)
-        /**
-         * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
-         */
-    
-        adapterProvider.on('message', (payload) => {
-            queue.enqueue(async () => {
-                await handlerMessage({
-                    phone:payload.from, 
-                    name:payload.pushName,
-                    message: payload.body, 
-                    mode:'incoming'
-                }, chatwoot)
-            });
-        })
-    
-        /**
-         * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
-         */
-        bot.on('send_message', (payload) => {
-            queue.enqueue(async () => {
-                await handlerMessage({
-                    phone:payload.numberOrId, 
-                    name:payload.pushName,
-                    message: payload.answer, 
-                    mode:'outgoing'
-                }, chatwoot)
-            })
-        })
-
-    
-
-    }  
-    
+    }
 
 const mainb = async () => {
   const BOTNAME = 'botbai' 
@@ -732,8 +697,8 @@ const mainb = async () => {
             }, chatwoot)
         });
     })
-
-    /**
+  }
+    /**}
      * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
      */
     bot.on('send_message', (payload) => {
@@ -745,8 +710,7 @@ const mainb = async () => {
                 mode:'outgoing'
             }, chatwoot)
         }) 
-    }) 
-  }
+      })
 mainb();
     
     main()
