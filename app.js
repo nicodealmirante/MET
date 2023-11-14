@@ -164,7 +164,8 @@ media: 'banner3.jpg'})
         }
         )
 
-    const flujoFinal = addKeyword('HH').addAnswer('Sigue ahi? Quiere que me comunique despues? Le dejo mi telefono *+5491140054474 - NICOLAS*')
+    const flujoFinal = addKeyword('HH').addAnswer('Sigue ahi? Le dejo mi numero personal. *+5491140054474 - NICOLAS*')
+    .addAnswer('CHAT AUTOMATICO FINALIZADO')
 
 /* 
 if(ctx.body == 'CONTINUAR CON AGENTE'){
