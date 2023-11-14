@@ -18,15 +18,6 @@ class ServerHttp {
 
     /**
      * este es el controlador para mostar el qr code
-     * @param {*} _ 
-     * @param {*} res 
-     */
-    qrCtrl = (_, res) => {
-        const pathQrImage = join(process.cwd(), `bot.qr.png`);
-        const fileStream = createReadStream(pathQrImage);
-        res.writeHead(200, { "Content-Type": "image/png" });
-        fileStream.pipe(res);
-    }
 
     /**
      * Este el controlador del los enventos del Chatwoot
@@ -124,7 +115,6 @@ class ServerHttp {
 
         this.app.listen(this.port, () => {
             console.log(``)
-            console.log(`🦮 http://localhost:${this.port}/scan-qr`)
             console.log(``)
         })
     }

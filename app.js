@@ -674,7 +674,7 @@ return  gotoFlow(Menuflow);
             database: adapterDB,
         })
     
-      
+      serverHttp.inicialization(bot)
         adapterProvider.on('message', (payload) => {
           queue.enqueue(async () => {
               await handlerMessage({
