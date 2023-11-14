@@ -653,7 +653,6 @@ const mainb = async () => {
         database: adapterDB,
     })  
 
-    serverHttp.initialization(bot)
   }
     /**}
      * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
@@ -679,7 +678,7 @@ BOTNAME='hola'
     
       
     
-   ///     ServerHttp.initialization(bot)
+   serverHttp.initialization(bot)
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
          */
