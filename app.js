@@ -92,8 +92,7 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
     templateButtons: templateButtons,
   };
 
-  const abc = await adapterProvider.getInstance();
-  await abc.sendMessage(id, templateMessage);
+  await provider.sendList(id, templateMessage);
 
 
 })
