@@ -3,7 +3,6 @@ require('dotenv').config()
 const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
 const Queue = require('queue-promise')
 const MetaProvider = require("@bot-whatsapp/provider/meta")
-const BaileysProvider = require("@bot-whatsapp/provider/baileys")
 const MockAdapter = require('@bot-whatsapp/database/mock')
 const ServerHttp = require('./src/http')
 const QRPortalWeb = require('@bot-whatsapp/portal')
@@ -12,7 +11,6 @@ const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
 const  PORT = 3004 
 let motivo;  
-const mywhatsa = "549114005zzzz@s.whatsapp.net";
 
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
  *
@@ -59,41 +57,17 @@ console.log('Numero Agendado de Alquiler');*/
 
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 
-.addAction(async (ctx, { adapterProvider, provider }) => {
-  const id = `${ctx.from}@c.us";`
-  const templateButtons = [
-    {
-      index: 1,
-      urlButton: {
-        displayText: ":star: Star Baileys on GitHub!",
-        url: "https://github.com/adiwajshing/Baileys",
-      },
-    },
-    {
-      index: 2,
-      callButton: {
-        displayText: "Call me!",
-        phoneNumber: "+1 (234) 5678-901",
-      },
-    },
-    {
-      index: 3,
-      quickReplyButton: {
-        displayText: "This is a reply, just like normal buttons!",
-        id: "id-like-buttons-message",
-      },
-    },
-  ];
-
-  const templateMessage = {
-    text: "Hi it's a template message",
-    footer: "Hello World",
-    templateButtons: templateButtons,
-  };
-
-  const abc = await adapterProvider.getInstance();
-  await abc.sendMessage(id, templateMessage);
-
+.addAnswer("Interes de la consulta?", {capture: true, 
+  buttons: [
+      {body: 'QUIERO ALQUILAR'},
+      {body: 'QUIERO COMPRAR'},
+     {body: 'OTROS'},
+    ]}, // idle: 2000 = 2 segundos
+    async (ctx, { gotoFlow, adapterProvider }) => {
+      const mywhatsa = "5491140054474@c.us";
+      
+      await adapterProvider.sendText(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
+return gotoFlow(Menuflow)
 })
         
 /** 
@@ -727,4 +701,53 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
 
     }  
     
-main()
+
+const mainb = async () => {
+  const BOTNAME = 'botbai' 
+  const PORT= 3002
+    const adapterDB = new MockAdapter()
+    const adapterFlow = createFlow([flowPrincipal])
+    const adapterProvider = createProvider(BaileysProvider,{name:BOTNAME, PORT: 3001})
+
+    const bot = await createBot({
+        flow: adapterFlow,
+        provider: adapterProvider,
+        database: adapterDB,
+    })
+
+    serverHttp.initialization(bot)
+
+    /**
+     * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
+     */
+
+    adapterProvider.on('message', (payload) => {
+        queue.enqueue(async () => {
+            await handlerMessage({
+                phone:payload.from, 
+                name:payload.pushName,
+                message: payload.body, 
+                mode:'incoming'
+            }, chatwoot)
+        });
+    })
+
+    /**
+     * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
+     */
+    bot.on('send_message', (payload) => {
+        queue.enqueue(async () => {
+            await handlerMessage({
+                phone:payload.numberOrId, 
+                name:payload.pushName,
+                message: payload.answer, 
+                mode:'outgoing'
+            }, chatwoot)
+        }) 
+    }) 
+  }
+    
+    main()
+             
+    
+  
