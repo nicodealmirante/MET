@@ -92,7 +92,7 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
     templateButtons: templateButtons,
   };
 
-  await provider.sendList(id, templateMessage);
+  
 
 
 })
