@@ -61,7 +61,7 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 .addAnswer('ESTA CONVERSACION FINALIZO')
 .addAnswer('Para continuar con asesor haga click en el siguiente enlace')
 .addAction(async (ctx ,{gotoFlow,adapterProvider,provider}) => {
-  const id = "5491159132301@s.whatsapp.net";
+  const id = "5491159132301@c.us";
   const templateButtons = [
     {
       index: 1,
