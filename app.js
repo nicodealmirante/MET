@@ -60,7 +60,7 @@ console.log('Numero Agendado de Alquiler');*/
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 .addAnswer('ESTA CONVERSACION FINALIZO')
 .addAnswer('Para continuar con asesor haga click en el siguiente enlace')
-.addAnswer('https://wa.me/5491140054474?text=ASESOR',{capture:true, delay:5000}, async (ctx ,{gotoFlow,adapterProvider,fallBack}) => {
+.addAnswer('https://wa.me/5491140054474?text=ASESOR',{capture:true, delay:5000}, async (ctx ,{gotoFlow,adapterProviderb,fallBack}) => {
   await adapterProviderb.sendText("5491159132301@s.whatsapp.net", "mensaje");
 
 })
