@@ -684,7 +684,8 @@ return  gotoFlow(Menuflow);
           numberId: '133862353148114',
           verifyToken: 'asdasd',
           version: 'v18.0'})
-        
+            serverHttp.initialization(bot)
+
           
   const bot = await createBot({
         flow: adapterFlow,
@@ -692,8 +693,7 @@ return  gotoFlow(Menuflow);
         database: adapterDB,
     })  
 
-    serverHttp.initialization(bot)
-
+  }
     /**
      * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
      */
@@ -731,7 +731,7 @@ return  gotoFlow(Menuflow);
             }, chatwoot)
         }) 
     }) 
-  }
+  
 main();
     
   
