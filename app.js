@@ -58,7 +58,6 @@ console.log('Numero Agendado de Alquiler');*/
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
-main.endFlow()
 
 .addAnswer('Hola, Cual es el motivo de su consulta. Soy Nicolas de Selfie Mirror')
         
@@ -642,7 +641,7 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
 
       const PORT=3003
         const adapterDB = new MockAdapter()
-        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow, Cliente])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
+        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
 
         const adapterProvider = createProvider(MetaProvider, {
           jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
@@ -651,7 +650,7 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
           version: 'v18.0'})
         
           
-        const bot = await createBot({
+    createBot({
             flow: adapterFlow,
             provider: adapterProvider,
             database: adapterDB,
@@ -664,32 +663,6 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
          */
     
-        adapterProvider.on('message', (payload) => {
-            queue.enqueue(async () => {
-                await handlerMessage({
-                    phone:payload.from, 
-                    name:payload.pushName,
-                    message: payload.body, 
-                    mode:'incoming'
-                }, chatwoot)
-            });
-        })
-    
-        /**
-         * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
-         */
-        bot.on('send_message', (payload) => {
-            queue.enqueue(async () => {
-                await handlerMessage({
-                    phone:payload.numberOrId, 
-                    name:payload.pushName,
-                    message: payload.answer, 
-                    mode:'outgoing'
-                }, chatwoot)
-            })
-        })
-
-    
 
     }  
     
@@ -697,9 +670,9 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
 const mainb = async () => {
   const BOTNAME = 'botbai' 
   const PORT= 3002
-    const adapterDB = new MockAdapter()
-    const adapterFlow = createFlow([Cliente])
-    const adapterProvider = createProvider(BaileysProvider,{name:BOTNAME, PORT: 3001})
+    const adapterDBb = new MockAdapter()
+    const adapterFlowb = createFlow([Cliente])
+    const adapterProviderb = createProvider(BaileysProvider,{name:BOTNAME, PORT: 3001})
 
     const bot = await createBot({
         flow: adapterFlow,
