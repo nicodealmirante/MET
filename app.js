@@ -65,8 +65,11 @@ console.log('Numero Agendado de Alquiler');*/
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 .addAnswer('ESTA CONVERSACION FINALIZO')
 .addAnswer('Para continuar con asesor haga click en el siguiente enlace')
-.addAnswer('https://wa.me/5491140054474?text=ASESOR',{capture:true, delay:5000}, async (ctx ,{gotoFlow,adapterProviderb,fallBack}) => {
-  await adapterProviderb.sendText("5491159132301@s.whatsapp.net", "mensaje");
+.addAnswer('https://wa.me/5491140054474?text=ASESOR',{capture:true, delay:5000}, async (ctx ,{createProvider,adapterProviderb,BaileysProvider}) => {
+  const adapterProviderb = createProvider(BaileysProvider);
+ 
+await adapterProviderb.sendText("5491159132301@s.whatsapp.net", "mensaje");
+
 
 })
 /** 
@@ -648,7 +651,6 @@ return  gotoFlow(Menuflow);
       const PORT=3003
         const adapterDB = new MockAdapter()
         const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow,Cliente])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
-        const adapterProviderb = createProvider(BaileysProvider);
 
         const adapterProvider = createProvider(MetaProvider, {
           jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
@@ -664,14 +666,38 @@ return  gotoFlow(Menuflow);
         })
     
       
-    
+        adapterProvider.on('message', (payload) => {
+          queue.enqueue(async () => {
+              await handlerMessage({
+                  phone:payload.from, 
+                  name:payload.pushName,
+                  message: payload.body, 
+                  mode:'incoming'
+              }, chatwoot)
+          });
+      })
+  
+      /**
+       * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
+       */
+      bot.on('send_message', (payload) => {
+          queue.enqueue(async () => {
+              await handlerMessage({
+                  phone:payload.numberOrId, 
+                  name:payload.pushName,
+                  message: payload.answer, 
+                  mode:'outgoing'
+              }, chatwoot)
+          }) 
+      }) 
+    }
    ///     ServerHttp.initialization(bot)
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
          */
     
 
-    }  
+    
     main()
     
 
