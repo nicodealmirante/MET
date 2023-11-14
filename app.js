@@ -674,8 +674,6 @@ return  gotoFlow(Menuflow);
     })
     
     const main = async () => {
-
-      const PORT=3003
         const adapterDB = new MockAdapter()
         const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow,Cliente])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
 
