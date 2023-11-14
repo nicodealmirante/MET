@@ -663,6 +663,7 @@ return  gotoFlow(Menuflow);
     
 
     }  
+    main()
     
 
 const mainb = async () => {
@@ -676,7 +677,7 @@ const mainb = async () => {
         flow: adapterFlow,
         provider: adapterProvider,
         database: adapterDB,
-    })
+    })  
 
     serverHttp.initialization(bot)
 
@@ -711,4 +712,4 @@ const mainb = async () => {
   }
 mainb();
     
-    main()
+  
