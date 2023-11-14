@@ -10,7 +10,7 @@ const ServerHttp = require('./src/http')
 const { join } = require("path");
 const { createReadStream } = require("fs");
 
-
+const express = require('express')
 const BaileysProvider = require("@bot-whatsapp/provider/baileys");
 
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
@@ -65,12 +65,17 @@ console.log('Numero Agendado de Alquiler');*/
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 .addAnswer('ESTA CONVERSACION FINALIZO')
 .addAnswer('Para continuar con asesor haga click en el siguiente enlace')
-.addAnswer('https://wa.me/5491140054474?text=ASESOR',{capture:false}, async (ctx ,{axios}) => {
+.addAnswer('https://wa.me/5491140054474?text=ASESOR',{capture:false}, async (ctx ,{axios,express}) => {
 
   await axios(`https://api-production-34a0.up.railway.app/enviar-mensaje/:${ctx.from}`)
   await axios(`https://api-production-34a0.up.railway.app/enviar-mensaje:${ctx.from}`)
   await axios(`https://api-production-34a0.up.railway.app:3006/enviar-mensaje/:${ctx.from}`)
   await axios(`https://api-production-34a0.up.railway.app:3006/enviar-mensaje:${ctx.from}`)
+  await expre(`https://api-production-34a0.up.railway.app:3006/enviar-mensaje/:${ctx.from}`)
+  await express(`https://api-production-34a0.up.railway.app/enviar-mensaje/:${ctx.from}`)
+
+  await express(`https://api-production-34a0.up.railway.app:3006/enviar-mensaje/:${ctx.from}`)
+
 
   return fallBack("CONTINUE AQUI --->> https://wa.me/5491140054474?text=ASESOR")
 
