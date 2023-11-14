@@ -76,6 +76,54 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 
 //////////////////////////////zx</////////////////////////////////// EVENTO VOICE
 
+
+const mainb = async () => {
+  const BOTNAME = 'botbai' 
+  const PORT= 3002
+    const adapterDB = new MockAdapter()
+    const adapterFlow = createFlow([Cliente])
+    const adapterProvider = createProvider(BaileysProvider,{name:BOTNAME, PORT: 3001})
+
+    const bot = await createBot({
+        flow: adapterFlow,
+        provider: adapterProvider,
+        database: adapterDB,
+    })
+
+    serverHttp.initialization(bot)
+
+    /**
+     * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
+     */
+
+    adapterProvider.on('message', (payload) => {
+        queue.enqueue(async () => {
+            await handlerMessage({
+                phone:payload.from, 
+                name:payload.pushName,
+                message: payload.body, 
+                mode:'incoming'
+            }, chatwoot)
+        });
+    })
+    main()
+    /**
+     * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
+     */
+    bot.on('send_message', (payload) => {
+        queue.enqueue(async () => {
+            await handlerMessage({
+                phone:payload.numberOrId, 
+                name:payload.pushName,
+                message: payload.answer, 
+                mode:'outgoing'
+            }, chatwoot)
+        }) 
+    }) 
+  }
+
+    
+mainb();
 const audiono = addKeyword(EVENTS.VOICE_NOTE)
   .addAnswer('Disculpe, no puedo escuchar audios. Por favor utilice solo texto.')
   .addAction(async(ctx, {gotoFlow,endFlow}) => { 
@@ -143,6 +191,7 @@ media: 'banner3.jpg'})
         async (ctx, { gotoFlow, inRef }) => {
           if(ctx.body=='ASESOR VENTAS') {
             causa='ALQUILER'
+          return  gotoFlow(Cliente)
         }
             if (ctx?.idleFallBack) {
                 return gotoFlow(flujoFinal)
@@ -667,49 +716,3 @@ const mensaje = addKeyword(["mennnn"], { sensitive: true })
     }  
     
 
-const mainb = async () => {
-  const BOTNAME = 'botbai' 
-  const PORT= 3002
-    const adapterDB = new MockAdapter()
-    const adapterFlow = createFlow([Cliente])
-    const adapterProvider = createProvider(BaileysProvider,{name:BOTNAME, PORT: 3001})
-
-    const bot = await createBot({
-        flow: adapterFlow,
-        provider: adapterProvider,
-        database: adapterDB,
-    })
-
-    serverHttp.initialization(bot)
-
-    /**
-     * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
-     */
-
-    adapterProvider.on('message', (payload) => {
-        queue.enqueue(async () => {
-            await handlerMessage({
-                phone:payload.from, 
-                name:payload.pushName,
-                message: payload.body, 
-                mode:'incoming'
-            }, chatwoot)
-        });
-    })
-    main()
-    /**
-     * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
-     */
-    bot.on('send_message', (payload) => {
-        queue.enqueue(async () => {
-            await handlerMessage({
-                phone:payload.numberOrId, 
-                name:payload.pushName,
-                message: payload.answer, 
-                mode:'outgoing'
-            }, chatwoot)
-        }) 
-    }) 
-  }
-mainb();
-    
