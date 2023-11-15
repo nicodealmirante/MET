@@ -689,7 +689,7 @@ createBot({
 
   
   );
-    QRPortalWeb({name: 'bot-1' , PORT: 4001})
+    QRPortalWeb()
 }
 mainBot1() 
 
