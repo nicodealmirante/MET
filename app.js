@@ -689,6 +689,7 @@ return  gotoFlow(Menuflow);
   ); 
    serverHttp.initialization(bot)
 
+ QRPortalWeb()
 
 }/**
    * Enviar mensaje con metodos propios del provider del bot
