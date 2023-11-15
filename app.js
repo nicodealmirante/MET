@@ -679,7 +679,7 @@ return  gotoFlow(Menuflow);
   const adapterFlow = createFlow([Cliente]);
   const adapterProvider = createProvider(BaileysProvider({name: BOTNAME, PORT: 3005}))
 
-  const bot = await createBot({
+createBot({
     flow: adapterFlow,
     provider: adapterProvider,
     database: adapterDB
