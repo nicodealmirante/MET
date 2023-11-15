@@ -734,7 +734,7 @@ const mainBot2 = async () => {
   const adapterFlow = createFlow([Cliente]);
   const adapterProvider = createProvider(BaileysProvider,{name: BOTNAME, PORT: 3005});
 
-  createBot({
+  const bot = await createBot({
     flow: adapterFlow,
     provider: adapterProvider,
     database: adapterDB,
