@@ -26,7 +26,6 @@ const mywhatsa = "549114005zzzz@s.whatsapp.net";
  */
 
 let causa
-var XMLHttpRequest = require('xhr2');
 
 const serverHttp = new ServerHttp(PORT)
 
@@ -58,21 +57,18 @@ console.log('Numero Agendado de Alquiler');*/
 /////////////////////// FLUJO CLIENTE
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 const axios = require('axios')
-const xhr = new XMLHttpRequest();
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 .addAnswer('ESTA CONVERSACION FINALIZO')
 .addAnswer('Haga click en el siguiente enlace para continuar')
 
 .addAction(async(ctx,{fetch,axios,xhr}) => {
-  xhr.open("GET", "https://api-production-34a0.up.railway.app/enviar-mensaje");
+     await axios.get(
+      
+    `https://api-production-34a0.up.railway.app/enviar-mensaje`,
 
- await fetch(
-    `https://api-production-34a0.up.railway.app/enviar-mensaje`  )
-
-}
-) 
  
-  
+)}
+)
 
 /** 
 })
