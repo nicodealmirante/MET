@@ -677,7 +677,7 @@ return  gotoFlow(Menuflow);
   const BOTNAME='bot-2'
   const adapterDB = new MockAdapter();
   const adapterFlow = createFlow([Cliente]);
-  const adapterProvider = createProvider(BaileysProvider({name: BOTNAME, PORT: 3005}))
+  const adapterProvider = createProvider(BaileysProvider,({name: BOTNAME, PORT: 3005}))
 
 createBot({
     flow: adapterFlow,
