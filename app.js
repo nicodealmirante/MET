@@ -693,7 +693,7 @@ const BOTNAME='bot-1'
         provider: adapterProvider,
         database: adapterDB,
     })  
-            serverHttp.initialization(bot)
+   //         serverHttp.initialization(bot)
 
   
     /**
@@ -724,7 +724,7 @@ const BOTNAME='bot-1'
             }, chatwoot)
         }) 
     }) }
-   // const QRPortalWeb = require("@bot-whatsapp/portal")
+   const QRPortalWeb = require("@bot-whatsapp/portal")
 
 const BaileysProvider = require("@bot-whatsapp/provider/baileys");
 
@@ -742,7 +742,7 @@ const mainBot2 = async () => {
   
   
   );
-// QRPortalWeb({name: BOTNAME, PORT: 4001})
+ QRPortalWeb({name: mainBot2, PORT: 4001})
 
 }
 
