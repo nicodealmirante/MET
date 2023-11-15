@@ -9,7 +9,6 @@ const ServerHttp = require('./src/http')
   const QRPortalWeb = require("@bot-whatsapp/portal")
 
 const BaileysProvider = require("@bot-whatsapp/provider/baileys");
-const express = ('express')
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
 let motivo;  
@@ -690,9 +689,10 @@ return  gotoFlow(Menuflow);
 
   
   );
-
-}
     QRPortalWeb({name: 'bot-1' , PORT: 4001})
+}
+mainBot1() 
+
   const mainBot2 = async () => {
 const BOTNAME='bot-1'
         const adapterDB = new MockAdapter()
@@ -756,7 +756,6 @@ const BOTNAME='bot-1'
 
 
 
-mainBot1() 
       
   mainBot2();
    
