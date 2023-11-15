@@ -673,7 +673,7 @@ return  gotoFlow(Menuflow);
     })
     
    
-   const mainBot1 = async () => {
+ //  const mainBot1 = async () => {
 const BOTNAME='bot-1'
         const adapterDB = new MockAdapter()
         const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
@@ -693,7 +693,7 @@ const BOTNAME='bot-1'
         provider: adapterProvider,
         database: adapterDB,
     })  
-   //         serverHttp.initialization(bot)
+         serverHttp.initialization(bot)
 
   
     /**
@@ -723,8 +723,8 @@ const BOTNAME='bot-1'
                 mode:'outgoing'
             }, chatwoot)
         }) 
-    }) }
-   const QRPortalWeb = require("@bot-whatsapp/portal")
+    }) 
+  // const QRPortalWeb = require("@bot-whatsapp/portal")
 
 const BaileysProvider = require("@bot-whatsapp/provider/baileys");
 
@@ -742,7 +742,7 @@ const mainBot2 = async () => {
   
   
   );
- QRPortalWeb({name: 'bot-2' , PORT: 4001})
+ //QRPortalWeb({name: 'bot-2' , PORT: 4001})
 
 }
 
@@ -755,6 +755,6 @@ const mainBot2 = async () => {
 
 
       
+  mainBot2();
+mainBot1()    
 
-//mainBot1()    
-  mainBot2()
