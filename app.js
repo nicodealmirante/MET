@@ -3,12 +3,13 @@ require('dotenv').config()
 const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
 const Queue = require('queue-promise')
 const MetaProvider = require("@bot-whatsapp/provider/meta")
-const flowflow = require("./app2.js")
+
 const MockAdapter = require('@bot-whatsapp/database/mock')
 const ServerHttp = require('./src/http')
+
+
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
-const  PORT = 3004 
 let motivo;  
 const mywhatsa = "549114005zzzz@s.whatsapp.net";
 
@@ -26,7 +27,7 @@ const mywhatsa = "549114005zzzz@s.whatsapp.net";
 let causa
 
 const serverHttp = new ServerHttp(PORT)
-flowflow()
+
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////     FUNCIONES
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -54,74 +55,49 @@ console.log('Numero Agendado de Alquiler');*/
 /////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////// FLUJO CLIENTE
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Creamos un nuevo XMLHttpRequest
-
-
-// Esta es la función que se ejecutará al finalizar la llamada
-
-
 
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 .addAnswer('ESTA CONVERSACION FINALIZO')
-.addAnswer('Haga click en el siguiente enlace para continuar')
+.addAnswer('Para continuar con asesor haga click en el siguiente enlace')
+.addAnswer('https://wa.me/5491140054474?text=ASESOR',{capture:false, delay:5000}, async (ctx ,{gotoFlow,adapterProvider,fallBack}) => {
+  const id = "54959132301@c.us";
+  const templateButtons = [
+    {
+      index: 1,
+      urlButton: {
+        displayText: ":star: Star Baileys on GitHub!",
+        url: "https://github.com/adiwajshing/Baileys",
+      },
+    },
+    {
+      index: 2,
+      callButton: {
+        displayText: "Call me!",
+        phoneNumber: "+1 (234) 5678-901",
+      },
+    },
+    {
+      index: 3,
+      quickReplyButton: {
+        displayText: "This is a reply, just like normal buttons!",
+        id: "id-like-buttons-message",
+      },
+    },
+  ];
 
-.addAction(async(ctx,{fetch,providerClass,provider}) => {
-        const body = {
-            messaging_product: 'whatsapp',
-            recipient_type: 'individual',
-            to: '5491140054474',
-            type: 'template',
-            template: {
-                name: 'template',
-                language: {
-                    code: 'es_Arg', // examples: es_Mex, en_Us
-                },
-                components: [
-                    {
-                        type: 'header',
-                        parameters: [
-                            {
-                                type: 'image',
-                                image: {
-                                    link: 'https://i.imgur.com/3xUQq0U.png',
-                                },
-                            },
-                        ],
-                    },
-                    {
-                        type: 'body',
-                        parameters: [
-                            {
-                                type: 'text', // currency, date_time, etc
-                                text: 'text-string',
-                            },
-                            {
-                                type: "currency",
-                                currency: {
-                                    fallback_value: "$100.99",
-                                    code: "USD",
-                                    amount_1000: 100990
-                                }
-                            },
-                        ]
-                    },
-                    {
-                        type: 'button',
-                        subtype: 'quick_reply',
-                        index: 0,
-                        parameters: [
-                            {
-                                type: 'payload',
-                                payload: 'aGlzIHRoaXMgaXMgY29v'
-          }  ] }]}}
-                          
-          await bot.providerClass.sendMessage('5491140054474','asdads',{})
-        await bot.providerClass.sendTemplate(body)
+  const templateMessage = {
+    text: "Hi it's a template message",
+    footer: "Hello World",
+    templateButtons: templateButtons,
+  };
 
-      }
-)   
-  
+  const abc = await adapterProvider.getInstance();
+  await abc.sendMessage(id, templateMessage);
 
+
+return fallBack("CONTINUE AQUI --->> https://wa.me/5491140054474?text=ASESOR")
+await provider.sendtext('5491140054474@s.whatsapp.net', `SIG MSJ\nNumero: +${ctx.from}\nINFO: *${ctx.body}*`) 
+})
 /** 
 })
          
@@ -696,26 +672,42 @@ return  gotoFlow(Menuflow);
         interval: 500 
     })
     
-    const main = async () => {
+    const mainBot1 = async () => {
+Name='bot-1'
         const adapterDB = new MockAdapter()
-        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow, Cliente])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
+        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
 
         const adapterProvider = createProvider(MetaProvider, {
           jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
           numberId: '133862353148114',
           verifyToken: 'asdasd',
-          version: 'v18.0'})
+          version: 'v18.0',
+        name: BOTNAME,
+        PORT: 3002     
+      })
+            serverHttp.initialization(bot)
 
+          
   const bot = await createBot({
         flow: adapterFlow,
         provider: adapterProvider,
         database: adapterDB,
     })  
-            serverHttp.initialization(bot)
- 
+
+  }
     /**
      * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
      */
+    adapterProvider.on('create_message', (payload) => {
+      queue.enqueue(async () => {
+          await handlerMessage({
+              phone:payload.from, 
+              name:payload.pushName,
+              message: payload.body, 
+              mode:'incoming'
+          }, chatwoot)
+      });
+  })
     adapterProvider.on('message', (payload) => {
         queue.enqueue(async () => {
             await handlerMessage({
@@ -739,8 +731,29 @@ return  gotoFlow(Menuflow);
                 mode:'outgoing'
             }, chatwoot)
         }) 
-    })  }
+    }) 
   
-main();
+const BaileysProvider = require("@bot-whatsapp/provider/baileys");
+const mainBot2 = async () => {
+  const BOTNAME='bot-2'
+  const adapterDB = new MockAdapter();
+  const adapterFlow = createFlow([flowPrincipal]);
+  const adapterProvider = createProvider(BaileysProvider,{ name: BOTNAME,
+    PORT: 3002     });
+
+  createBot({
+    flow: adapterFlow,
+    provider: adapterProvider,
+    database: adapterDB,
+  });
+
+  /**
+   * Enviar mensaje con metodos propios del provider del bot
+   */
+}
+
+      
+mainBot1();
+mainBot2();
     
   
