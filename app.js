@@ -66,7 +66,20 @@ console.log('Numero Agendado de Alquiler');*/
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
   .addAnswer('LA CONVERSACION CON LUNA IA A TERMINADO. ')
   .addAnswer('CONTINUE CON UN VENDEDOR TOCANDO EN EL SIGUIENTE NUMERO ')
-  .addAnswer('+5491140054474 - NICOLAS SE COMUNICARA CON')
+  .addAnswer('+5491140054474 - NICOLAS SE COMUNICARA CON USTED')
+  .addAnswer('***** RECUERDE ******')
+  .addAnswer('ESTA LINEA ES SOLO UN CODIGO DE PROGRAMACION')
+  .addAnswer('PARA COMUNICARSE OCN UN AGENTE --->>> +5491140054474 - NICOLAS', {capture: true,
+       delay: 2000 , idle: 200000 }, // idle: 2000 = 2 segundos
+      async (ctx, { gotoFlow, inRef }) => {
+   
+          if (ctx?.idleFallBack) {
+              return gotoFlow(flujoFinalil)
+          }
+      }
+      )
+
+  const flujoFinalil = addKeyword('HH').addAnswer('Sigue ahi? PARA CONTINUAR CON LA CONSULTA COMUNIQUESE AL WHATSAPP +5491140054474 - NICOLAS')
 
 
 
