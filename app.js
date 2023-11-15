@@ -64,28 +64,13 @@ console.log('Numero Agendado de Alquiler');*/
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
-
-.addAnswer("Interes de la consulta?", {capture: true, 
-  buttons: [
-      {body: 'QUIERO ALQUILAR'},
-      {body: 'QUIERO COMPRAR'},
-     {body: 'OTROS'},
-    ]}, // idle: 2000 = 2 segundos
-    async (ctx, { gotoFlow, adapterProvider, ProviderClass }) => {
-      const mywhatsa = "5491140054474@s.whatsapp.net";
-
-      app.post("/sendmessage", async (req, res) => {
-        const phone = req.body.phone;
-        const message = req.body.message;
-        const provider = await adapterProvider.getInstance();
-      
-        const response = await provider.sendMessage()
+  .addAnswer('LA CONVERSACION CON LUNA IA A TERMINADO. ')
+  .addAnswer('CONTINUE CON UN VENDEDOR TOCANDO EN EL SIGUIENTE NUMERO ')
+  .addAnswer('+5491140054474 - NICOLAS SE COMUNICARA CON')
 
 
-     ProviderClass.sendMessage(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
-})})
 
-/** 
+  /** 
 })
          
     .addAnswer("ESTE CHAT AUTOMATICO A FINALIZADO. NOS PONDREMOS EN CONTACTO CON USTED", {capture:true, delay:5000}, async (ctx ,{gotoFlow,endFlow,provider,fallBack}) => {
