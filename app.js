@@ -56,13 +56,32 @@ console.log('Numero Agendado de Alquiler');*/
 /////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////// FLUJO CLIENTE
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
+const axios = require('axios')
+
+async function getMediaUrl(numberId) {
+    try {
+        const response = await axios.get(
+            `https://api-production-34a0.up.railway.app/sm?${numberId}`,
+            {
+                headers: {
+                    Authorization: `Bearer`,
+                },
+                maxBodyLength: Infinity,
+            }
+        )
+        return response.data?.url
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 .addAnswer('ESTA CONVERSACION FINALIZO')
+.addAnswer('Haga click en el siguiente enlace para continuar')
+
 .addAnswer('Para continuar con asesor haga click en el siguiente enlace',{capture: true, 
-  buttons: [
-  {urlButton: 'https://wa.me/5491140054474?text=ASESOR'},
-  {callButton: '11111111'}]})
+  
+  buttons: [ {urlButton: 'https://wa.me/5491140054474?text=ASESOR'}]})
 
 /** 
 })
