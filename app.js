@@ -686,7 +686,6 @@ const BOTNAME='bot-1'
         name: BOTNAME,
         PORT: 3002     
       })
-            serverHttp.initialization(bot)
 
           
   const bot = await createBot({
@@ -694,6 +693,7 @@ const BOTNAME='bot-1'
         provider: adapterProvider,
         database: adapterDB,
     })  
+            serverHttp.initialization(bot)
 
   
     /**
