@@ -742,7 +742,7 @@ const mainBot2 = async () => {
   
   
   );
-QRPortalWeb(mainBot2)
+QRPortalWeb({name: BOTNAME, PORT: 4001})
 
 }
 
