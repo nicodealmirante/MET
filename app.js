@@ -674,8 +674,26 @@ return  gotoFlow(Menuflow);
         interval: 500 
     })
     
-   
-  const mainBot1 = async () => {
+   const mainBot1 = async () => {
+  const BOTNAME='bot-2'
+  const adapterDB = new MockAdapter();
+  const adapterFlow = createFlow([Cliente]);
+  const adapterProvider = createProvider(BaileysProvider({name: BOTNAME, PORT: 3005}))
+
+  const bot = await createBot({
+    flow: adapterFlow,
+    provider: adapterProvider,
+    database: adapterDB
+    
+
+  }
+
+  
+  );
+
+}
+    QRPortalWeb({name: 'bot-1' , PORT: 4001})
+  const mainBot2 = async () => {
 const BOTNAME='bot-1'
         const adapterDB = new MockAdapter()
         const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
@@ -729,25 +747,7 @@ const BOTNAME='bot-1'
     }) }
 
 
-const mainBot2 = async () => {
-  const BOTNAME='bot-2'
-  const adapterDB = new MockAdapter();
-  const adapterFlow = createFlow([Cliente]);
-  const adapterProvider = createProvider(BaileysProvider({name: BOTNAME, PORT: 3005}))
 
-  const bot = await createBot({
-    flow: adapterFlow,
-    provider: adapterProvider,
-    database: adapterDB
-    
-
-  }
-
-  
-  );
-
-}
-    QRPortalWeb({name: 'bot-2' , PORT: 4001})
 
   /**
    * Enviar mensaje con metodos propios del provider del bot
@@ -756,8 +756,8 @@ const mainBot2 = async () => {
 
 
 
-
+mainBot1() 
       
   mainBot2();
-mainBot1()    
+   
 
