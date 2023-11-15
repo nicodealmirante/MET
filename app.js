@@ -673,7 +673,7 @@ return  gotoFlow(Menuflow);
     })
     
    
- /**  const mainBot1 = async () => {
+   const mainBot1 = async () => {
 const BOTNAME='bot-1'
         const adapterDB = new MockAdapter()
         const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
@@ -687,7 +687,7 @@ const BOTNAME='bot-1'
         PORT: 3002     
       })
 
-     
+          
   const bot = await createBot({
         flow: adapterFlow,
         provider: adapterProvider,
@@ -695,7 +695,11 @@ const BOTNAME='bot-1'
     })  
             serverHttp.initialization(bot)
 
-
+  
+    /**
+     * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
+     */
+  
     adapterProvider.on('message', (payload) => {
         queue.enqueue(async () => {
             await handlerMessage({
@@ -705,7 +709,11 @@ const BOTNAME='bot-1'
                 mode:'incoming'
             }, chatwoot)
         });
-    })  
+    })
+
+    /**
+     * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
+     */
     bot.on('send_message', (payload) => {
         queue.enqueue(async () => {
             await handlerMessage({
@@ -715,7 +723,7 @@ const BOTNAME='bot-1'
                 mode:'outgoing'
             }, chatwoot)
         }) 
-    }) }   */
+    }) }
     const QRPortalWeb = require("@bot-whatsapp/portal")
 
 const BaileysProvider = require("@bot-whatsapp/provider/baileys");
@@ -748,5 +756,5 @@ QRPortalWeb({name: BOTNAME, PORT: 4001})
 
       
 
-//mainBot1()    
+mainBot1()    
   mainBot2()
