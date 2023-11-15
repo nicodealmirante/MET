@@ -68,7 +68,6 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 .addAnswer('Haga click en el siguiente enlace para continuar')
 
 .addAction(async(ctx,{fetch,adapterProvider,provider}) => {
-     await adapterProvider.sendTemplate(body)
         const body = {
             messaging_product: 'whatsapp',
             recipient_type: 'individual',
@@ -116,11 +115,12 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
                             {
                                 type: 'payload',
                                 payload: 'aGlzIHRoaXMgaXMgY29v'
-          }  ] }]}}}
+          }  ] }]}}
                           
           
+     await adapterProvider.sendTemplate(body)
 
-      
+      }
 )   
   
 
