@@ -677,18 +677,18 @@ return  gotoFlow(Menuflow);
   const BOTNAME='bot-2'
   const adapterDB = new MockAdapter();
   const adapterFlow = createFlow([Cliente]);
-  const adapterProvider = createProvider(BaileysProvider,({name: BOTNAME, PORT: 3005}))
+  const adapterProvider = createProvider(BaileysProvider)
 
   const bot = await createBot({
     flow: adapterFlow,
     provider: adapterProvider,
     database: adapterDB
        
-
   }
-  
-  );
- QRPortalWeb()
+
+  ); 
+   serverHttp.initialization(bot)
+
 
 }/**
    * Enviar mensaje con metodos propios del provider del bot
