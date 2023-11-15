@@ -77,14 +77,62 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 .addAnswer('ESTA CONVERSACION FINALIZO')
 .addAnswer('Haga click en el siguiente enlace para continuar')
 
-.addAction(async(ctx,{fetch,axios,xhr}) => {
-     await axios.get(
-      
-    `https://api-production-34a0.up.railway.app/enviar-mensaje`,
+.addAction(async(ctx,{fetch,adapterProvider,provider}) => {
+     await adapterProvider.sendTemplate(number, template, languageCode)
+        const body = {
+            messaging_product: 'whatsapp',
+            recipient_type: 'individual',
+            to: number,
+            type: 'template',
+            template: {
+                name: template,
+                language: {
+                    code: languageCode, // examples: es_Mex, en_Us
+                },
+                components: [
+                    {
+                        type: 'header',
+                        parameters: [
+                            {
+                                type: 'image',
+                                image: {
+                                    link: 'https://i.imgur.com/3xUQq0U.png',
+                                },
+                            },
+                        ],
+                    },
+                    {
+                        type: 'body',
+                        parameters: [
+                            {
+                                type: 'text', // currency, date_time, etc
+                                text: 'text-string',
+                            },
+                            {
+                                type: "currency",
+                                currency: {
+                                    fallback_value: "$100.99",
+                                    code: "USD",
+                                    amount_1000: 100990
+                                }
+                            },
+                        ]
+                    },
+                    {
+                        type: 'button',
+                        subtype: 'quick_reply',
+                        index: 0,
+                        parameters: [
+                            {
+                                type: 'payload',
+                                payload: 'aGlzIHRoaXMgaXMgY29v'
+          }  ] }]}}}
+                          
+          
 
- 
-)}
-)
+      
+)   
+  
 
 /** 
 })
