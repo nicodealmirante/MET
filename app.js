@@ -687,7 +687,7 @@ return  gotoFlow(Menuflow);
   }
 
   ); 
-   serverHttp.initialization(bot)
+  // serverHttp.initialization(bot)
 
  QRPortalWeb({PORT: 4005})
 
