@@ -61,7 +61,7 @@ const axios = require('axios')
 async function getMediaUrl(numberId) {
     try {
         const response = await axios.get(
-            `https://api-production-34a0.up.railway.app/sm?${numberId}`,
+            `https://api-production-34a0.up.railway.app/enviar-mensaje`,
             {
                 headers: {
                     Authorization: `Bearer`,
