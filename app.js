@@ -26,12 +26,7 @@ const mywhatsa = "549114005zzzz@s.whatsapp.net";
 let causa
 
 
-const fakeHTTP = async (fakeData = []) => {
-  await delay(50)
-  const data = fakeData.map((u) => ({ body: `${u}` }))
-  return Promise.resolve(data)
 
-}
 
 
 
@@ -71,12 +66,15 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
   .addAnswer('ESTA LINEA ES SOLO UN CODIGO DE PROGRAMACION')
   .addAnswer('PARA COMUNICARSE OCN UN AGENTE --->>> +5491140054474 - NICOLAS', {capture: true,
        delay: 2000 , idle: 200000 }, // idle: 2000 = 2 segundos
-      async (ctx, { gotoFlow, inRef }) => {
+      async (ctx, { gotoFlow, inRef,provider }) => {
    
           if (ctx?.idleFallBack) {
               return gotoFlow(flujoFinalil)
-          }
+          }    
+            await provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+
       }
+
       )
 
   const flujoFinalil = addKeyword('HH').addAnswer('Sigue ahi? PARA CONTINUAR CON LA CONSULTA COMUNIQUESE AL WHATSAPP +5491140054474 - NICOLAS')
