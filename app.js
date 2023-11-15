@@ -695,7 +695,7 @@ const BOTNAME='bot-1'
         database: adapterDB,
     })  
 
-  }
+  
     /**
      * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
      */
@@ -723,7 +723,7 @@ const BOTNAME='bot-1'
                 mode:'outgoing'
             }, chatwoot)
         }) 
-    }) 
+    }) }
   
 const BaileysProvider = require("@bot-whatsapp/provider/baileys");
 const mainBot2 = async () => {
