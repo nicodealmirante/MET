@@ -3,11 +3,10 @@ require('dotenv').config()
 const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
 const Queue = require('queue-promise')
 const MetaProvider = require("@bot-whatsapp/provider/meta")
-
+const flowflow = require("./app2.js")
 const MockAdapter = require('@bot-whatsapp/database/mock')
 const ServerHttp = require('./src/http')
-
-
+const 
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
 const  PORT = 3004 
@@ -28,7 +27,7 @@ const mywhatsa = "549114005zzzz@s.whatsapp.net";
 let causa
 
 const serverHttp = new ServerHttp(PORT)
-
+const fllowww = new flowflow()
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////     FUNCIONES
 /////////////////////////////////////////////////////////////////////////////////////////
