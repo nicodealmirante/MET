@@ -63,8 +63,9 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
   .addAnswer('+5491140054474 - NICOLAS SE COMUNICARA CON USTED',{capture: false,
        idle: 200000 }, // idle: 2000 = 2 segundos
       async (ctx, { gotoFlow, inRef,provider }) => {
+     await provider.sendtext(mywhatsa, `${causa} ${ctx.from}`)
      await provider.sendtext(mywhatsa, `*${causa}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
-    
+
      
      if (ctx?.idleFallBack) {
               return gotoFlow(flujoFinalil)
