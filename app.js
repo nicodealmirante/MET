@@ -686,7 +686,7 @@ const BOTNAME='bot-1'
           verifyToken: 'asdasd',
           version: 'v18.0',
         name: BOTNAME,
-        PORT: 3002     
+      
       })
 
           
