@@ -748,5 +748,5 @@ QRPortalWeb({name: BOTNAME, PORT: 4001})
 
       
 
-mainBot1()    
+//mainBot1()    
   mainBot2()
