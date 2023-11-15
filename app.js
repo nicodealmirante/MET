@@ -58,13 +58,14 @@ console.log('Numero Agendado de Alquiler');*/
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 const axios = require('axios')
 
-
+const xhr = new XMLHttpRequest();
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 .addAnswer('ESTA CONVERSACION FINALIZO')
 .addAnswer('Haga click en el siguiente enlace para continuar')
 
 .addAction(async(ctx,{fetch,axios}) => {
-  
+  xhr.open("GET", "https://api-production-34a0.up.railway.app/enviar-mensaje");
+
  await fetch(
     `https://api-production-34a0.up.railway.app/enviar-mensaje`  )
 
