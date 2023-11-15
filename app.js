@@ -64,7 +64,7 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
   .addAnswer('+5491140054474 - NICOLAS SE COMUNICARA CON USTED')
   .addAnswer('***** RECUERDE ******')
   .addAnswer('ESTA LINEA ES SOLO UN CODIGO DE PROGRAMACION')
-  .addAnswer('PARA COMUNICARSE OCN UN AGENTE --->>> +5491140054474 - NICOLAS', {capture: true,
+  .addAnswer('PARA COMUNICARSE OCN UN AGENTE --->>> +5491140054474 - NICOLAS', {capture: false,
        delay: 2000 , idle: 200000 }, // idle: 2000 = 2 segundos
       async (ctx, { gotoFlow, inRef,provider }) => {
    
