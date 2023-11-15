@@ -1,6 +1,6 @@
 
 require('dotenv').config()
-const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
+const { createBot, createProvider, createFlow, addKeyword, EVENTS, ProviderClass } = require('@bot-whatsapp/bot')
 const Queue = require('queue-promise')
 const MetaProvider = require("@bot-whatsapp/provider/meta")
 const MockAdapter = require('@bot-whatsapp/database/mock')
@@ -71,7 +71,7 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
       {body: 'QUIERO COMPRAR'},
      {body: 'OTROS'},
     ]}, // idle: 2000 = 2 segundos
-    async (ctx, { gotoFlow, adapterProvider }) => {
+    async (ctx, { gotoFlow, adapterProvider, ProviderClass }) => {
       const mywhatsa = "5491140054474@s.whatsapp.net";
 
       app.post("/sendmessage", async (req, res) => {
@@ -82,7 +82,7 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
         const response = await provider.sendMessage()
 
 
-     provider.getInstance.sendMessage(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
+     ProviderClass.sendMessage(mywhatsa,`${causa}\n NOMBRE ${ctx.name}\n \nNumero: +${ctx.from}\nINFO: * ${ctx.body}*`) 
 })})
 
 /** 
@@ -654,7 +654,7 @@ return  gotoFlow(Menuflow);
     
     const main = async () => {
         const adapterDB = new MockAdapter()
-        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
+        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow,Cliente])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
 
         const adapterProvider = createProvider(MetaProvider, {
           jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
