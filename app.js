@@ -699,16 +699,7 @@ const BOTNAME='bot-1'
     /**
      * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
      */
-    adapterProvider.on('create_message', (payload) => {
-      queue.enqueue(async () => {
-          await handlerMessage({
-              phone:payload.from, 
-              name:payload.pushName,
-              message: payload.body, 
-              mode:'incoming'
-          }, chatwoot)
-      });
-  })
+  
     adapterProvider.on('message', (payload) => {
         queue.enqueue(async () => {
             await handlerMessage({
