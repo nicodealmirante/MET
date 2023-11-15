@@ -679,41 +679,19 @@ return  gotoFlow(Menuflow);
   const adapterFlow = createFlow([Cliente]);
   const adapterProvider = createProvider(BaileysProvider,({name: BOTNAME, PORT: 3005}))
 
-createBot({
+  const bot = await createBot({
     flow: adapterFlow,
     provider: adapterProvider,
     database: adapterDB
-    
+       
 
   }
-
   
   );
-    QRPortalWeb()
+ QRPortalWeb()
+
 }
-mainBot1() 
 
-  const mainBot2 = async () => {
-const BOTNAME='bot-1'
-        const adapterDB = new MockAdapter()
-        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
-
-        const adapterProvider = createProvider(MetaProvider, {
-          jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
-          numberId: '133862353148114',
-          verifyToken: 'asdasd',
-          version: 'v18.0',
-        name: BOTNAME,
-      PORT: 3001
-      
-      })
-
-          
-  const bot = await createBot({
-        flow: adapterFlow,
-        provider: adapterProvider,
-        database: adapterDB,
-    })  
         // serverHttp.initialization(bot)
 
   
@@ -744,7 +722,7 @@ const BOTNAME='bot-1'
                 mode:'outgoing'
             }, chatwoot)
         }) 
-    }) }
+    }) 
 
 
 
@@ -754,8 +732,30 @@ const BOTNAME='bot-1'
    */
  
 
+mainBot1() 
 
+  const mainBot2 = async () => {
+const BOTNAME='bot-1'
+        const adapterDB = new MockAdapter()
+        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
 
+        const adapterProvider = createProvider(MetaProvider, {
+          jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
+          numberId: '133862353148114',
+          verifyToken: 'asdasd',
+          version: 'v18.0',
+        name: BOTNAME,
+      PORT: 3001
+      
+      })
+
+          
+createBot({
+        flow: adapterFlow,
+        provider: adapterProvider,
+        database: adapterDB,
+    })  
+  }
       
   mainBot2();
    
