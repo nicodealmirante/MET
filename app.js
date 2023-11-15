@@ -732,19 +732,21 @@ const mainBot2 = async () => {
   const BOTNAME='bot-2'
   const adapterDB = new MockAdapter();
   const adapterFlow = createFlow([Cliente]);
-  const adapterProvider = createProvider(BaileysProvider,{name: BOTNAME, PORT: 3005});
+  const adapterProvider = createProvider(BaileysProvider({name: BOTNAME, PORT: 3005}))
 
   const bot = await createBot({
     flow: adapterFlow,
     provider: adapterProvider,
-    database: adapterDB,
+    database: adapterDB
+    
+
   }
-  
+
   
   );
-QRPortalWeb({name: 'bot-2' , PORT: 4001})
 
 }
+    QRPortalWeb({name: 'bot-2' , PORT: 4001})
 
   /**
    * Enviar mensaje con metodos propios del provider del bot
