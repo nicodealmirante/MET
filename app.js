@@ -59,24 +59,19 @@ console.log('Numero Agendado de Alquiler');*/
 const mywhatsa = "5491140054474@s.whatsapp.net";
 
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
-  .addAnswer('LA CONVERSACION CON LUNA IA A TERMINADO. ')
   .addAnswer('CONTINUE CON UN VENDEDOR TOCANDO EN EL SIGUIENTE NUMERO ')
-  .addAnswer('+5491140054474 - NICOLAS SE COMUNICARA CON USTED')
-  .addAnswer('***** RECUERDE ******')
-  .addAnswer('ESTA LINEA ES SOLO UN CODIGO DE PROGRAMACION')
-  .addAnswer('PARA COMUNICARSE OCN UN AGENTE --->>> +5491140054474 - NICOLAS', {capture: false,
-       delay: 2000 , idle: 200000 }, // idle: 2000 = 2 segundos
+  .addAnswer('+5491140054474 - NICOLAS SE COMUNICARA CON USTED',{capture: false,
+       idle: 200000 }, // idle: 2000 = 2 segundos
       async (ctx, { gotoFlow, inRef,provider }) => {
-     await provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
-       
-     await provider.sendButtonsMedia(mywhatsa, "Continuar", "https//.com", './banner3.jpg')
+     await provider.sendtext(mywhatsa, `*${causa}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+    
      
      if (ctx?.idleFallBack) {
               return gotoFlow(flujoFinalil)
           }    
               }
       )
-  const flujoFinalil = addKeyword('HH').addAnswer('Sigue ahi? PARA CONTINUAR CON LA CONSULTA COMUNIQUESE AL WHATSAPP +5491140054474 - NICOLAS')
+  const flujoFinalil = addKeyword('HH').addAnswer('CONTINUE CON LA CONSULTA AL +5491140054474 - NICOLAS')
 
 
 
