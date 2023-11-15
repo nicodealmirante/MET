@@ -10,6 +10,7 @@ const ServerHttp = require('./src/http')
 
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
+const  PORT = 3004 
 let motivo;  
 const mywhatsa = "549114005zzzz@s.whatsapp.net";
 
@@ -682,7 +683,7 @@ Name='bot-1'
           numberId: '133862353148114',
           verifyToken: 'asdasd',
           version: 'v18.0',
-        name: BOTNAME,
+        name: BOTNAME;
         PORT: 3002     
       })
             serverHttp.initialization(bot)
@@ -738,22 +739,23 @@ const mainBot2 = async () => {
   const BOTNAME='bot-2'
   const adapterDB = new MockAdapter();
   const adapterFlow = createFlow([flowPrincipal]);
-  const adapterProvider = createProvider(BaileysProvider,{ name: BOTNAME,
-    PORT: 3002     });
+  const adapterProvider = createProvider(BaileysProvider);
 
   createBot({
     flow: adapterFlow,
     provider: adapterProvider,
     database: adapterDB,
-  });
+  });}
 
   /**
    * Enviar mensaje con metodos propios del provider del bot
    */
-}
+ 
+
+
+
 
       
-mainBot1();
-mainBot2();
-    
-  
+
+mainBot1()    
+  mainBot2()
