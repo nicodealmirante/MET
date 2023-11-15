@@ -674,7 +674,7 @@ return  gotoFlow(Menuflow);
     })
     
     const mainBot1 = async () => {
-Name='bot-1'
+const BOTNAME='bot-1'
         const adapterDB = new MockAdapter()
         const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
 
@@ -683,7 +683,7 @@ Name='bot-1'
           numberId: '133862353148114',
           verifyToken: 'asdasd',
           version: 'v18.0',
-        name: BOTNAME;
+        name: BOTNAME,
         PORT: 3002     
       })
             serverHttp.initialization(bot)
@@ -739,7 +739,7 @@ const mainBot2 = async () => {
   const BOTNAME='bot-2'
   const adapterDB = new MockAdapter();
   const adapterFlow = createFlow([flowPrincipal]);
-  const adapterProvider = createProvider(BaileysProvider);
+  const adapterProvider = createProvider(BaileysProvider,{name: BOTNAME, PORT: 3005});
 
   createBot({
     flow: adapterFlow,
