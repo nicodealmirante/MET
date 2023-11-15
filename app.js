@@ -26,6 +26,7 @@ const mywhatsa = "549114005zzzz@s.whatsapp.net";
  */
 
 let causa
+var XMLHttpRequest = require('xhr2');
 
 const serverHttp = new ServerHttp(PORT)
 
@@ -57,7 +58,6 @@ console.log('Numero Agendado de Alquiler');*/
 /////////////////////// FLUJO CLIENTE
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 const axios = require('axios')
-
 const xhr = new XMLHttpRequest();
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 .addAnswer('ESTA CONVERSACION FINALIZO')
