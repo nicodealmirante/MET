@@ -109,7 +109,7 @@ class ServerHttp {
         })
 
         this.app.post(`/chatwoot`, this.chatwootCtrl)
-        this.app.listen(this.port, () => {
+        this.app.listen(3008, () => {
             console.log(``)
             console.log(``)
         })
