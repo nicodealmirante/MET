@@ -738,7 +738,7 @@ const BaileysProvider = require("@bot-whatsapp/provider/baileys");
 const mainBot2 = async () => {
   const BOTNAME='bot-2'
   const adapterDB = new MockAdapter();
-  const adapterFlow = createFlow([flowPrincipal]);
+  const adapterFlow = createFlow([Cliente]);
   const adapterProvider = createProvider(BaileysProvider,{name: BOTNAME, PORT: 3005});
 
   createBot({
