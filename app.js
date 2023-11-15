@@ -755,6 +755,6 @@ QRPortalWeb({name: 'bot-2' , PORT: 4001})
 
 
       
-  mainBot2({PORT:3004});
+  mainBot2();
 mainBot1()    
 
