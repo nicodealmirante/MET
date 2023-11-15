@@ -67,16 +67,15 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
   .addAnswer('PARA COMUNICARSE OCN UN AGENTE --->>> +5491140054474 - NICOLAS', {capture: false,
        delay: 2000 , idle: 200000 }, // idle: 2000 = 2 segundos
       async (ctx, { gotoFlow, inRef,provider }) => {
-   
-          if (ctx?.idleFallBack) {
+     await provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+       
+     await provider.sendButtonsMedia(mywhatsa, "Continuar", "https//.com", './banner3.jpg')
+     
+     if (ctx?.idleFallBack) {
               return gotoFlow(flujoFinalil)
           }    
-            await provider.sendtext(mywhatsa, `*${motivo}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
-
-      }
-
+              }
       )
-
   const flujoFinalil = addKeyword('HH').addAnswer('Sigue ahi? PARA CONTINUAR CON LA CONSULTA COMUNIQUESE AL WHATSAPP +5491140054474 - NICOLAS')
 
 
