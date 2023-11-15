@@ -10,7 +10,6 @@ const ServerHttp = require('./src/http')
 const express = ('express')
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
-const  PORT = 3004 
 let motivo;  
 const mywhatsa = "549114005zzzz@s.whatsapp.net";
 
@@ -27,7 +26,7 @@ const mywhatsa = "549114005zzzz@s.whatsapp.net";
 
 let causa
 
-const serverHttp = new ServerHttp(PORT)
+const serverHttp = new ServerHttp()
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////     FUNCIONES
