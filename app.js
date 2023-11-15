@@ -673,7 +673,7 @@ return  gotoFlow(Menuflow);
     })
     
    
- //  const mainBot1 = async () => {
+  const mainBot1 = async () => {
 const BOTNAME='bot-1'
         const adapterDB = new MockAdapter()
         const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
@@ -723,7 +723,7 @@ const BOTNAME='bot-1'
                 mode:'outgoing'
             }, chatwoot)
         }) 
-    }) 
+    }) }
   // const QRPortalWeb = require("@bot-whatsapp/portal")
 
 const BaileysProvider = require("@bot-whatsapp/provider/baileys");
