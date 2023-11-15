@@ -75,7 +75,7 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
             to: '5491140054474',
             type: 'template',
             template: {
-                name: template,
+                name: 'template',
                 language: {
                     code: 'es_Arg', // examples: es_Mex, en_Us
                 },
