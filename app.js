@@ -68,16 +68,16 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 .addAnswer('Haga click en el siguiente enlace para continuar')
 
 .addAction(async(ctx,{fetch,adapterProvider,provider}) => {
-     await adapterProvider.sendTemplate(number, template, languageCode)
+     await adapterProvider.sendTemplate(body)
         const body = {
             messaging_product: 'whatsapp',
             recipient_type: 'individual',
-            to: number,
+            to: '5491140054474',
             type: 'template',
             template: {
                 name: template,
                 language: {
-                    code: languageCode, // examples: es_Mex, en_Us
+                    code: 'es_Arg', // examples: es_Mex, en_Us
                 },
                 components: [
                     {
