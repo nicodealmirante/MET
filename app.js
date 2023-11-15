@@ -63,9 +63,9 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
 .addAnswer('ESTA CONVERSACION FINALIZO')
 .addAnswer('Haga click en el siguiente enlace para continuar')
 
-.addAction(async(ctx,{adapterpovider,axios}) => {
+.addAction(async(ctx,{fetch,axios}) => {
   
- await axios.get(
+ await fetch(
     `https://api-production-34a0.up.railway.app/enviar-mensaje`  )
 
 }
