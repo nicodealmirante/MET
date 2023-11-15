@@ -724,7 +724,8 @@ const BOTNAME='bot-1'
             }, chatwoot)
         }) 
     }) }
-  
+    const QRPortalWeb = require("@bot-whatsapp/portal")
+
 const BaileysProvider = require("@bot-whatsapp/provider/baileys");
 
 const mainBot2 = async () => {
@@ -737,25 +738,18 @@ const mainBot2 = async () => {
     flow: adapterFlow,
     provider: adapterProvider,
     database: adapterDB,
-  });}
+  }
+  
+  
+  );
+QRPortalWeb(mainBot2)
+
+}
 
   /**
    * Enviar mensaje con metodos propios del provider del bot
    */
  
-const app = express();
-
-app.get("/get-qr", async (_, res) => {
-  const YOUR_PATH_QR = join(process.cwd(), `bot.qr.png`);
-  const fileStream = createReadStream(YOUR_PATH_QR);
-
-  res.writeHead(200, { "Content-Type": "image/png" });
-  fileStream.pipe(res);
-});
-
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
-
 
 
 
