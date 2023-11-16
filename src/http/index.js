@@ -16,23 +16,7 @@ class ServerHttp {
         this.port = _port
     }
 
-    /**
-     * este es el controlador para mostar el qr code
-     * @param {*} _ 
-     * @param {*} res 
-     */
-    qrCtrl = (_, res) => {
-        const pathQrImage = join(process.cwd(), `bot.qr.png`);
-        const fileStream = createReadStream(pathQrImage);
-        res.writeHead(200, { "Content-Type": "image/png" });
-        fileStream.pipe(res);
-    }
 
-    /**
-     * Este el controlador del los enventos del Chatwoot
-     * @param {*} req 
-     * @param {*} res 
-     */
     chatwootCtrl = async (req, res) => {
         const body = req.body;
         const attachments = body?.attachments
@@ -63,7 +47,7 @@ class ServerHttp {
             /**
              * La parte que se encarga de determinar si un mensaje es enviado al whatsapp del cliente
              */
-            const checkIfMessage = body?.private == false && body?.event == "message_created" && body?.message_type === "outgoing" && body?.conversation?.channel.includes("Channel::Api")
+            const checkIfMessage = body?.private == false && body?.event == "message_created" && body?.message_type === "outgoing"
             if (checkIfMessage) {
                 const phone = body.conversation?.meta?.sender?.phone_number.replace('+', '')
                 const content = body?.content ?? '';
@@ -85,10 +69,10 @@ class ServerHttp {
                 /**
                  * esto envia un mensaje de texto al ws
                  */
-                await bot.provider.sendtext(
+               await bot.providerClass.sendMessage(
                     `${phone}`,
-                    content
-                    
+                    content,
+                   {}
                 );
 
                 res.send('ok');
