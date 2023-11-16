@@ -636,7 +636,6 @@ return  gotoFlow(Menuflow);
         endpoint: 'https://chatwoot-production-9374.up.railway.app'
         
     })
-        const serverhttp = new ServerHttp();
 
     const queue = new Queue({
         concurrent: 1,
@@ -658,9 +657,10 @@ return  gotoFlow(Menuflow);
             flow: adapterFlow,
             provider: adapterProvider,
             database: adapterDB,
-        })
+      const httpServer = new ServerHttp(bot)
+    })
     
-     ServerHttp.initialization(bot)
+
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
          */
@@ -692,5 +692,5 @@ return  gotoFlow(Menuflow);
 
 
     }
-    
+    httpServer.inicialization()
     main()
