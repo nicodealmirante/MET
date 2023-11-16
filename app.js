@@ -659,7 +659,6 @@ return  gotoFlow(Menuflow);
             database: adapterDB,
     
     })
-      const httpServer = new ServerHttp(bot)
 
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
@@ -692,5 +691,4 @@ return  gotoFlow(Menuflow);
 
 
     }
-    httpServer.inicialization()
     main()
