@@ -1,4 +1,3 @@
-
 require('dotenv').config()
 const { createBot, createProvider, createFlow, addKeyword, EVENTS, ProviderClass } = require('@bot-whatsapp/bot')
 const Queue = require('queue-promise')
@@ -59,13 +58,15 @@ console.log('Numero Agendado de Alquiler');*/
 const mywhatsa = "5491140054474@s.whatsapp.net";
 
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
-  .addAnswer('CONTINUE CON UN VENDEDOR TOCANDO EN EL SIGUIENTE NUMERO ')
+  .addAnswer('CONTINUE CON UN VENDEDOR TOCANDO EN EL SIGUIENTE NUMERO ', {capture: false}, // idle: 2000 = 2 segundos
+      async (ctx, { gotoFlow, inRef,provider }) => {
+     await provider.sendtext(mywhatsa, `*${causa}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+  }
+      )
   .addAnswer('+5491140054474 - NICOLAS SE COMUNICARA CON USTED',{capture: false,
        idle: 200000 }, // idle: 2000 = 2 segundos
       async (ctx, { gotoFlow, inRef,provider }) => {
-     await provider.sendtext(mywhatsa, `*${causa}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
-
-     
+          
      if (ctx?.idleFallBack) {
               return gotoFlow(flujoFinalil)
           }    
@@ -636,7 +637,7 @@ return  gotoFlow(Menuflow);
         endpoint: 'https://chatwoot-production-9374.up.railway.app'
         
     })
-
+    
     const queue = new Queue({
         concurrent: 1,
         interval: 500 
@@ -657,9 +658,9 @@ return  gotoFlow(Menuflow);
             flow: adapterFlow,
             provider: adapterProvider,
             database: adapterDB,
+        })
     
-    })
-
+   ///     ServerHttp.initialization(bot)
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
          */
@@ -691,4 +692,5 @@ return  gotoFlow(Menuflow);
 
 
     }
+    
     main()
