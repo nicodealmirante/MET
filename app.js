@@ -72,7 +72,7 @@ const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
           }    
               }
       )
-  const flujoFinalil = addKeyword('HH').addAnswer('CONTINUE CON LA CONSULTA AL +5491140054474 - NICOLAS')
+  const flujoFinalil = addKeyword('HH').addAnswer('AUTORESPUESTA FINALIZADA - CONTINUE CON LA CONSULTA AL +5491140054474 - NICOLAS')
 
 
 
