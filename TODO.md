@@ -1,0 +1,6 @@
+- [ ] Readme
+- [ ] Package.json agregar link repositorio 
+- [ ] Instrucciones / Ejemplo de uso
+- [ ] Autores
+- [ ] CD/CI Release
+- [ ] Test Coverage > 90
