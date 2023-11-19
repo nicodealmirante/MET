@@ -1,14 +1,11 @@
 
 require('dotenv').config()
-const { createBot, createProvider, createFlow, addKeyword, EVENTS, ProviderClass } = require('@bot-whatsapp/bot')
-const Queue = require('queue-promise')
+const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
 const MetaProvider = require("@bot-whatsapp/provider/meta")
 const MockAdapter = require('@bot-whatsapp/database/mock')
-const ServerHttp = require('./src/http')
+const { createDashboard } = require("../src");
+  
 
-const ChatwootClass = require('./src/chatwoot/chatwoot.class')
-const { handlerMessage } = require('./src/chatwoot')
-const  PORTS = 3004 
 let motivo;  
 
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
@@ -629,68 +626,31 @@ return  gotoFlow(Menuflow);
 ////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-    const chatwoot = new ChatwootClass({
-        account: '1',
-        token: 'RzqiiFrYqQUrx5FPuuMXoM3e',
-        endpoint: 'https://chatwoot-production-9374.up.railway.app'
-        
-    })
-
-    const queue = new Queue({
-        concurrent: 1,
-        interval: 500 
-    })
-    
-    const main = async () => {
-        const adapterDB = new MockAdapter()
-        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow,Cliente])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
-
-        const adapterProvider = createProvider(MetaProvider, {
-          jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
-          numberId: '133862353148114',
+  const main = async () => {
+    const adapterDB = new MockAdapter();
+    const adapterFlow = createFlow([flowPrincipal]);
+  
+    const adapterProvider = createProvider(MetaProvider, {
+      jwtToken: "EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe",
+      numberId: "133862353148114",
           verifyToken: 'asdasd',
           version: 'v18.0'})
-        
-          
-        const bot = await createBot({
-            flow: adapterFlow,
-            provider: adapterProvider,
-            database: adapterDB,
-    
-    })
-      const httpServer = new ServerHttp(bot)
+    });
+      createDashboard({
+        CHATWOOT_URL: "https://chatwoot-production-9374.up.railway.app",
+        CHATWOOT_ID: "account: '1",
+        CHATWOOT_INBOX_ID: "4",
+        CHATWOOT_API_ACCESS_TOKEN: "RzqiiFrYqQUrx5FPuuMXoM3e"
+      }, BotCreate)
 
-        /**
-         * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
-         */
-    
-        adapterProvider.on('message', (payload) => {
-            queue.enqueue(async () => {
-                await handlerMessage({
-                    phone:payload.from, 
-                    name:payload.pushName,
-                    message: payload.body, 
-                    mode:'incoming'
-                }, chatwoot)
-            });
-        })
-    
-        /**
-         * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
-         */
-        bot.on('send_message', (payload) => {
-            queue.enqueue(async () => {
-                await handlerMessage({
-                    phone:payload.numberOrId, 
-                    name:payload.pushName,
-                    message: payload.answer, 
-                    mode:'outgoing'
-                }, chatwoot)
-            })
-        })
+  };    
+  
+    const BotCreate = await createBot({
+      flow: adapterFlow,
+      provider: adapterProvider,
+      database: adapterDB,
+    });
+  
 
-
-    }
-    httpServer.inicialization()
-    main()
+  main();
+    
