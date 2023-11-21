@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rollup --omit=dev --config ./rollup.config.js"
+    "build": "rollup --config --omit=dev ./rollup.config.js"
   },
   "contributors": [
     {
@@ -29,11 +29,7 @@
     "body-parser": "^1.20.1",
     "form-data": "^4.0.0",
     "mime": "^3.0.0",
-    "queue-promise": "^2.2.1" ,
-    "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-json": "^6.0.1",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "rollup": "^4.1.4"
+    "queue-promise": "^2.2.1"
   },
   "packageManager": "pnpm@8.6.12",
   "engines": {
@@ -41,7 +37,11 @@
     "npm": "please-use-pnpm",
     "yarn": "please-use-pnpm",
     "pnpm": ">=8.6.12"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "rollup": "^4.1.4"
   }
- 
-  }
-
+}
