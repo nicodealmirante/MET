@@ -653,7 +653,7 @@ return  gotoFlow(Menuflow);
           version: 'v18.0'})
         
           
-        createBot({
+       const bot = await createBot({
             flow: adapterFlow,
             provider: adapterProvider,
             database: adapterDB,
@@ -662,11 +662,13 @@ return  gotoFlow(Menuflow);
           })
           app.get("/chatwoot", async (req, res) => {
             console.log('sda1')
+            await provider.sendtext(mywhatsa, `*${causa}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
 
             await adapterProvider.sendText("5491166704322@c.us", "Mensaje desde API");
             res.send({ data: "enviado!" });
           });
           app.post("/chatwoot", async (req, res) => {
+            await provider.sendtext(mywhatsa, `*${causa}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
 
           console.log('sda')
             await adapterProvider.sendText("5491166704322@c.us", "Mensaje desde API");
