@@ -23,7 +23,7 @@ let motivo;
 
 let causa
 
-
+serverHttp = ServerHttp()
 
 
 
@@ -660,7 +660,7 @@ return  gotoFlow(Menuflow);
             database: adapterDB,
         })
     
-   ///     ServerHttp.initialization(bot)
+    serverHttp.initialization(bot)
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
          */
