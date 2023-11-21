@@ -3,6 +3,7 @@ const FormData = require("form-data");
 const Queue = require("queue-promise");
 const mime = require("mime");
 
+
 class ChatwootClient {
   static locks = {};
   static queue = new Queue({

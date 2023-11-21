@@ -11,6 +11,10 @@ module.exports = {
         file: PATH,
         format: 'cjs',
     },
+    external: (id) => {
+        if (id.includes('timers')) return true;
+        return false;
+    },
     plugins: [
         commonjs(),
         json(),
