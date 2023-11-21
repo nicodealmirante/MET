@@ -69,6 +69,9 @@ class ServerHttp {
                 /**
                  * esto envia un mensaje de texto al ws
                  */
+                let asd
+                app.get('/enviar-mensaje', async (req, res) => {
+                
                await bot.providerClass.sendMessage(
                     `${phone}`,
                     content,
@@ -91,11 +94,7 @@ class ServerHttp {
      * Incia tu server http sera encargador de injectar el instanciamiento del bot
      */
     initialization = (bot = undefined) => {
-        if(!bot){
-            throw new Error('DEBES_DE_PASAR_BOT')
-        }
-        this.app = express()
-        this.app.use(cors())
+              this.app = express()
         this.app.use(express.json())
 
         this.app.use((req, _, next) => {

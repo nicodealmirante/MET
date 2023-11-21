@@ -3,10 +3,10 @@ const { createBot, createProvider, createFlow, addKeyword, EVENTS, ProviderClass
 const Queue = require('queue-promise')
 const MetaProvider = require("@bot-whatsapp/provider/meta")
 const MockAdapter = require('@bot-whatsapp/database/mock')
-const ServerHttp = require('./src/http')
-
+const ServerHttp = require('express')
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
+const { appendFile } = require('fs')
 const  PORTS = 3004 
 let motivo;  
 
@@ -658,39 +658,23 @@ return  gotoFlow(Menuflow);
             flow: adapterFlow,
             provider: adapterProvider,
             database: adapterDB,
-        })
-    
+        }
+        
+       
+        )
+    const app = server() ;
    ///     ServerHttp.initialization(bot)
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
          */
-    
-        adapterProvider.on('message', (payload) => {
-            queue.enqueue(async () => {
-                await handlerMessage({
-                    phone:payload.from, 
-                    name:payload.pushName,
-                    message: payload.body, 
-                    mode:'incoming'
-                }, chatwoot)
-            });
-        })
-    
-        /**
-         * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
-         */
-        bot.on('send_message', (payload) => {
-            queue.enqueue(async () => {
-                await handlerMessage({
-                    phone:payload.numberOrId, 
-                    name:payload.pushName,
-                    message: payload.answer, 
-                    mode:'outgoing'
-                }, chatwoot)
-            })
-        })
+        app.post('/hook', async (req, res) => {
+          await provider.sendtext(mywhatsa, `*${causa}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
 
+             
+           res.send('ok');
+           return;
 
-    }
+    })
+  }
     
     main()
