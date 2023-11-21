@@ -20,6 +20,9 @@ const {createReadStream} = require('fs')
 
 app.listen(4000, () => {
              console.log("asd")
+             
+             /**
+] 
    const body = req.body;
         const attachments = body?.attachments
         const app = req.bot;
@@ -28,12 +31,7 @@ app.listen(4000, () => {
 
             const mapperAttributes = body?.changed_attributes?.map((a) => Object.keys(a)).flat(2)
 
-            /**
-             * Esta funcion se encarga de agregar o remover el numero a la blacklist
-             * eso quiere decir que podemos hacer que el chatbot responda o no
-             * para que nos sirve, para evitar que el chatbot responda mientras
-             * un agente humano esta escribiendo desde chatwoot
-             */
+
             if (body?.event === 'conversation_updated' && mapperAttributes.includes('assignee_id')) {
                 const phone = body?.meta?.sender?.phone_number.replace('+', '')
                 const idAssigned = body?.changed_attributes[0]?.assignee_id?.current_value ?? null
@@ -47,9 +45,7 @@ app.listen(4000, () => {
                 return
             }
 
-            /**
-             * La parte que se encarga de determinar si un mensaje es enviado al whatsapp del cliente
-             */
+          
             const checkIfMessage = body?.private == false && body?.event == "message_created" && body?.message_type === "outgoing"
             if (checkIfMessage) {
                 const phone = body.conversation?.meta?.sender?.phone_number.replace('+', '')
@@ -69,9 +65,8 @@ app.listen(4000, () => {
         
 
 
-                /**
-                 * esto envia un mensaje de texto al ws
-                 */
+             
+               
                 bot.provider.sendtext(
                     `${phone}`,
                     content,
@@ -89,8 +84,8 @@ app.listen(4000, () => {
             return res.status(405).send('Error')
         }
     }
-)
+)*/
 
-}
-
+})
+    }
 
