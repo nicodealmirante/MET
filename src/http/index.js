@@ -99,7 +99,7 @@ class ServerHttp {
         this.app.use((req, _, next) => {
             req.bot = bot;
 
-console.log(bot)           
+console.log("adssad")           
  next()
         })
 
