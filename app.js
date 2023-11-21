@@ -662,7 +662,7 @@ return  gotoFlow(Menuflow);
     
           })
     
-    serverHttp.initialization(bot)
+    serverHttp(bot)
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
          */

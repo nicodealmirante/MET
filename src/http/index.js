@@ -15,7 +15,6 @@ const {createReadStream} = require('fs')
      * Incia tu server http sera encargador de injectar el instanciamiento del bot
      */
     const serverHttp = async (bot) => {
-        initialization  => {
         app = express()
         app.use(express.json())
 
@@ -88,5 +87,5 @@ app.listen(4000, () => {
 )*/
 
 })
-    }
+    
     }
