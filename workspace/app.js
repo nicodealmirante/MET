@@ -633,10 +633,10 @@ return  gotoFlow(Menuflow);
     const adapterFlow = createFlow([flowPrincipal]);
   
     const adapterProvider = createProvider(MetaProvider, {
-      jwtToken: "",
-      numberId: "",
-      verifyToken: "",
-      version: "",
+      jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
+      numberId: '133862353148114',
+      verifyToken: 'asdasd',
+      version: 'v18.0'
     });
   
     const BotCreate = await createBot({
@@ -646,10 +646,10 @@ return  gotoFlow(Menuflow);
     });
   
     createDashboard({
-        CHATWOOT_URL: "",
-        CHATWOOT_ID: "",
-        CHATWOOT_INBOX_ID: "",
-        CHATWOOT_API_ACCESS_TOKEN: "",
+      CHATWOOT_URL: "https://chatwoot-production-9374.up.railway.app",
+      CHATWOOT_ID: "1",
+      CHATWOOT_INBOX_ID: "4",
+      CHATWOOT_API_ACCESS_TOKEN: "RzqiiFrYqQUrx5FPuuMXoM3e",
       }, BotCreate)
 
   };
