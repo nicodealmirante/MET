@@ -646,7 +646,7 @@ return  gotoFlow(Menuflow);
     });
   
     createDashboard({
-      CHATWOOT_URL: "https://chatwoot-production-9374.up.railway.app",
+      CHATWOOT_URL: "http://chatwoot-production-9374.up.railway.app",
       CHATWOOT_ID: "1",
       CHATWOOT_INBOX_ID: "4",
       CHATWOOT_API_ACCESS_TOKEN: "RzqiiFrYqQUrx5FPuuMXoM3e",
