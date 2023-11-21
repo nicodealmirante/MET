@@ -91,22 +91,20 @@ class ServerHttp {
      * Incia tu server http sera encargador de injectar el instanciamiento del bot
      */
     initialization = (bot = undefined) => {
-        if(!bot){
-            throw new Error('DEBES_DE_PASAR_BOT')
-        }
         this.app = express()
         this.app.use(express.json())
 
         this.app.use((req, _, next) => {
             req.bot = bot;
-console.log(req)           
+
+console.log(bot)           
  next()
         })
 
         this.app.post(`/chatwoot`, this.chatwootCtrl)
 
 
-        this.app.listen(3003, () => {
+        this.app.listen(4000, () => {
             console.log(``)
             console.log(`🦮 http://localhost:${this.port}/scan-qr`)
             console.log(``)
