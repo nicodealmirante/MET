@@ -12,7 +12,7 @@ module.exports = {
         format: 'cjs',
     },
     external: (id) => {
-        if (id.includes('timers')) return true;
+        if (id.includes('express')) return true;
         return false;
     },
     plugins: [
