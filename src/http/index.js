@@ -21,8 +21,8 @@ class ServerHttp {
         const body = req.body;
         const attachments = body?.attachments
         const bot = req.bot;
+        console.log("asd")
 
-        console.log(body)
         try {
 
             const mapperAttributes = body?.changed_attributes?.map((a) => Object.keys(a)).flat(2)
@@ -53,7 +53,7 @@ class ServerHttp {
             if (checkIfMessage) {
                 const phone = body.conversation?.meta?.sender?.phone_number.replace('+', '')
                 const content = body?.content ?? '';
-
+     console.log(content)
                 const file = attachments?.length ? attachments[0] : null;
                 if (file) {
                     console.log(`Este es el archivo adjunto...`, file.data_url)
@@ -71,7 +71,7 @@ class ServerHttp {
                 /**
                  * esto envia un mensaje de texto al ws
                  */
-               await bot.providerClass.sendMessage(
+               await bot.provider.sendtext(
                     `${phone}`,
                     content,
                    {}
@@ -110,6 +110,7 @@ console.log(bot)
             console.log(``)
             console.log(`🦮 http://localhost:${this.port}/scan-qr`)
             console.log(``)
+            
         })
     }
 
