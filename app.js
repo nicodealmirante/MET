@@ -4,7 +4,8 @@ const Queue = require('queue-promise')
 const MetaProvider = require("@bot-whatsapp/provider/meta")
 const MockAdapter = require('@bot-whatsapp/database/mock')
 const express = require('express')
-
+const { join } = require("path");
+const { createReadStream } = require("fs");
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
 const  PORTS = 3004 
