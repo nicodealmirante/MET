@@ -95,18 +95,18 @@ class ServerHttp {
             throw new Error('DEBES_DE_PASAR_BOT')
         }
         this.app = express()
-        this.app.use(cors())
         this.app.use(express.json())
 
         this.app.use((req, _, next) => {
             req.bot = bot;
-            next()
+console.log(req)           
+ next()
         })
 
         this.app.post(`/chatwoot`, this.chatwootCtrl)
 
 
-        this.app.listen(this.port, () => {
+        this.app.listen(3004, () => {
             console.log(``)
             console.log(`🦮 http://localhost:${this.port}/scan-qr`)
             console.log(``)
