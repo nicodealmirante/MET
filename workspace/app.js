@@ -6,7 +6,7 @@ const {
   } = require("@bot-whatsapp/bot");
   const MetaProvider = require("@bot-whatsapp/provider/meta");
   const MockAdapter = require("@bot-whatsapp/database/mock");
-const { createDashboard } = require("./src");
+const { createDashboard } = require("./../src");
   
 let motivo;  
 

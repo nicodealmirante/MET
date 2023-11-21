@@ -1,9 +1,8 @@
-
 {
-  "name": "@bot-whatsapp-extensions/chatwoot",
-  "version": "0.0.1",
+  "name": "lib-chatwoot-adapter",
+  "version": "1.0.0",
   "description": "",
-  "main": "lib/chatwoot.cjs",
+  "main": "index.js",
   "scripts": {
     "build": "rollup --config ./rollup.config.js"
   },
@@ -15,7 +14,7 @@
     },
     {
       "name": "Carlos Moran",
-      "email": "bl4ckdll@gmail.com",
+      "email": "carlos@carlos.com",
       "url": "https://github.com/C4rlos-Mor4n"
     }
   ],
@@ -46,4 +45,3 @@
     "rollup": "^4.1.4"
   }
 }
-
