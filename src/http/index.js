@@ -21,6 +21,8 @@ class ServerHttp {
         const body = req.body;
         const attachments = body?.attachments
         const bot = req.bot;
+
+        console.log(body)
         try {
 
             const mapperAttributes = body?.changed_attributes?.map((a) => Object.keys(a)).flat(2)
