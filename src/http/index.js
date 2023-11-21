@@ -8,19 +8,22 @@ const {createReadStream} = require('fs')
  * con un endpoint o rutas de express para tener un punto de entrada
  * externo y flexible
  */
-class ServerHttp {
-    app;
-    port;
-
-    constructor(_port = 4000){
-        this.port = _port
-    }
 
 
-    chatwootCtrl = async (req, res) => {
+  
+    /**
+     * Incia tu server http sera encargador de injectar el instanciamiento del bot
+     */
+    initialization  => {
+        app = express()
+        app.use(express.json())
+
+app.listen(4000, () => console.log(`http://localhost:${4000}`));
+
+  chatwootCtrl = async (req, res) => {
         const body = req.body;
         const attachments = body?.attachments
-        const bot = req.bot;
+        const app = req.bot;
         console.log("asd")
 
         try {
@@ -87,31 +90,6 @@ class ServerHttp {
             console.log(error)
             return res.status(405).send('Error')
         }
-    }
-
-    /**
-     * Incia tu server http sera encargador de injectar el instanciamiento del bot
-     */
-    initialization = (bot = undefined) => {
-        this.app = express()
-        this.app.use(express.json())
-
-        this.app.use((req, _, next) => {
-            req.bot = bot;
-
-console.log("adssad")           
- next()
-        })
-
-        this.app.post(`/chatwoot`, this.chatwootCtrl)
-
-
-        this.app.listen(4000, () => {
-            console.log(``)
-            console.log(`🦮 http://localhost:${this.port}/scan-qr`)
-            console.log(``)
-            
-        })
     }
 
 }
