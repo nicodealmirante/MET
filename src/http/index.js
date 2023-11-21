@@ -10,17 +10,22 @@ const {createReadStream} = require('fs')
  */
 
 
-  
     /**
      * Incia tu server http sera encargador de injectar el instanciamiento del bot
      */
-    const serverHttp = async (bot) => {
-        app = express()
+    app.post('/chatwoot', async (req, res) => {
+     
+
+
+
+
+    })
+                app = express()
+
         app.use(express.json())
 
-app.listen(4000, () => {
-             console.log("asd")
-             
+      app.listen(4000, () => {
+
              /**
 ] 
    const body = req.body;
@@ -88,4 +93,4 @@ app.listen(4000, () => {
 
 })
     
-    }
+    
