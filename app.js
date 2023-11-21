@@ -675,6 +675,10 @@ return  gotoFlow(Menuflow);
            return;
 
     })
-  }
+
+    const PORT = process.env.PORT || 3004;
+    app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
+  };
+  
     
     main()
