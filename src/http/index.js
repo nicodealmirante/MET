@@ -18,13 +18,11 @@ const {createReadStream} = require('fs')
         app = express()
         app.use(express.json())
 
-app.listen(4000, () => console.log(`http://localhost:${4000}`));
-
-  chatwootCtrl = async (req, res) => {
-        const body = req.body;
+app.listen(4000, () => {
+             console.log("asd")
+   const body = req.body;
         const attachments = body?.attachments
         const app = req.bot;
-        console.log("asd")
 
         try {
 
@@ -91,6 +89,8 @@ app.listen(4000, () => console.log(`http://localhost:${4000}`));
             return res.status(405).send('Error')
         }
     }
+)
 
 }
+
 

@@ -23,7 +23,7 @@ let motivo;
 
 let causa
 
-serverHttp = new ServerHttp()
+serverHttp = ServerHttp()
 
 
 
