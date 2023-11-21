@@ -58,7 +58,7 @@ app.listen(4000, () => {
                 const file = attachments?.length ? attachments[0] : null;
                 if (file) {
                     console.log(`Este es el archivo adjunto...`, file.data_url)
-                    await bot.provider.sendMedia(
+                     bot.provider.sendMedia(
                         `${phone}@c.us`,
                         file.data_url,
                         content,
@@ -72,7 +72,7 @@ app.listen(4000, () => {
                 /**
                  * esto envia un mensaje de texto al ws
                  */
-               await bot.provider.sendtext(
+                bot.provider.sendtext(
                     `${phone}`,
                     content,
                    {}
