@@ -668,7 +668,7 @@ return  gotoFlow(Menuflow);
             await adapterProvider.sendText("5491166704322@c.us", "Mensaje desde API");
             res.send({ data: "enviado!" });
           });
-          app.post("/chatwoot", async (req, res) => {
+          app.post("/chatwoott", async (req, res) => {
             await provider.sendtext(mywhatsa, `*${causa}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
 
           console.log('sda')
@@ -703,6 +703,7 @@ return  gotoFlow(Menuflow);
                 }, chatwoot)
             })
         })
+        
         app.listen(4000, () => console.log(`http://localhost:4000`));
 
 
