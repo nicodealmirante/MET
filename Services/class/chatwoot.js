@@ -1,4 +1,3 @@
-const axios = require("axios");
 const FormData = require("form-data");
 const Queue = require("queue-promise");
 const mime = require("mime");
