@@ -3,12 +3,7 @@ const { createBot, createProvider, createFlow, addKeyword, EVENTS, ProviderClass
 const Queue = require('queue-promise')
 const MetaProvider = require("@bot-whatsapp/provider/meta")
 const MockAdapter = require('@bot-whatsapp/database/mock')
-const express = require('express')
-const { join } = require("path");
-const { createReadStream } = require("fs");
-const ChatwootClass = require('./src/chatwoot/chatwoot.class')
-const { handlerMessage } = require('./src/chatwoot')
-const  PORTS = 3004 
+const BotWrapper = require("./Services/class/botWrapper");
 let motivo;  
 
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
@@ -631,18 +626,6 @@ return  gotoFlow(Menuflow);
 
 
 
-    const chatwoot = new ChatwootClass({
-        account: '1',
-        token: 'RzqiiFrYqQUrx5FPuuMXoM3e',
-        endpoint: 'https://chatwoot-production-9374.up.railway.app'
-        
-    })
-    
-    const queue = new Queue({
-        concurrent: 1,
-        interval: 500 
-    })
-    const app=express()
     const main = async () => {
         const adapterDB = new MockAdapter()
         const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow,Cliente])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
@@ -654,59 +637,17 @@ return  gotoFlow(Menuflow);
           version: 'v18.0'})
         
           
-       const bot = await createBot({
+          const BotCreate = await createBot({
             flow: adapterFlow,
             provider: adapterProvider,
             database: adapterDB,
-    
-    
-          })
-          app.get("/chatwoot", async (req, res) => {
-            console.log('sda1')
-            await provider.sendtext(mywhatsa, `*${causa}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
-
-            await adapterProvider.sendText("5491166704322@c.us", "Mensaje desde API");
-            res.send({ data: "enviado!" });
           });
-          app.post("/chatwoott", async (req, res) => {
-            await provider.sendtext(mywhatsa, `*${causa}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
-
-          console.log('sda')
-            await adapterProvider.sendText("5491166704322@c.us", "Mensaje desde API");
-            res.send({ data: "enviado!" });
-          });
-        /**
-         * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
-         */
-    
-        adapterProvider.on('message', (payload) => {
-            queue.enqueue(async () => {
-                await handlerMessage({
-                    phone:payload.from, 
-                    name:payload.pushName,
-                    message: payload.body, 
-                    mode:'incoming'
-                }, chatwoot)
-            });
-        })
-    
-        /**
-         * Los mensajes salientes (cuando el bot le envia un mensaje al cliente ---> )
-         */
-        bot.on('send_message', (payload) => {
-            queue.enqueue(async () => {
-                await handlerMessage({
-                    phone:payload.numberOrId, 
-                    name:payload.pushName,
-                    message: payload.answer, 
-                    mode:'outgoing'
-                }, chatwoot)
-            })
-        })
         
-        app.listen(4000, () => console.log(`http://localhost:4000`));
-
-
-    }
-    
-    main()
+          BotWrapper.initialize(BotCreate, {
+            CHATWOOT_URL: "https://chatwoot-production-9374.up.railway.app",
+            CHATWOOT_ID: "1",
+            CHATWOOT_INBOX_ID: "4",
+            CHATWOOT_API_ACCESS_TOKEN: "RzqiiFrYqQUrx5FPuuMXoM3e",
+          });
+        };
+        
