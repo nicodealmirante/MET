@@ -21,7 +21,7 @@ dependencies:
     specifier: ^2.2.1
     version: 2.2.1
 
-devDependencies:
+Dependencies:
   '@rollup/plugin-commonjs':
     specifier: ^25.0.7
     version: 25.0.7(rollup@4.1.4)

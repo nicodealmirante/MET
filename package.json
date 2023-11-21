@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rollup --config --omit=dev ./rollup.config.js"
+    "build": "rollup --config  ./rollup.config.js"
   },
   "contributors": [
     {
