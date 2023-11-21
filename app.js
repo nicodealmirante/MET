@@ -1,13 +1,11 @@
+
 require('dotenv').config()
-const { createBot, createProvider, createFlow, addKeyword, EVENTS, ProviderClass } = require('@bot-whatsapp/bot')
-const Queue = require('queue-promise')
+const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
 const MetaProvider = require("@bot-whatsapp/provider/meta")
 const MockAdapter = require('@bot-whatsapp/database/mock')
-const ServerHttp = require('express')
-const ChatwootClass = require('./src/chatwoot/chatwoot.class')
-const { handlerMessage } = require('./src/chatwoot')
-const { appendFile } = require('fs')
-const  PORTS = 3004 
+const { createDashboard } = require("../src/http");
+  
+
 let motivo;  
 
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
@@ -58,21 +56,19 @@ console.log('Numero Agendado de Alquiler');*/
 const mywhatsa = "5491140054474@s.whatsapp.net";
 
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
-  .addAnswer('CONTINUE CON UN VENDEDOR TOCANDO EN EL SIGUIENTE NUMERO ', {capture: false}, // idle: 2000 = 2 segundos
-      async (ctx, { gotoFlow, inRef,provider }) => {
-     await provider.sendtext(mywhatsa, `*${causa}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
-  }
-      )
-  .addAnswer('+5491140054474 - NICOLAS SE COMUNICARA CON USTED',{capture: true,
+  .addAnswer('CONTINUE CON UN VENDEDOR TOCANDO EN EL SIGUIENTE NUMERO ')
+  .addAnswer('+5491140054474 - NICOLAS SE COMUNICARA CON USTED',{capture: false,
        idle: 200000 }, // idle: 2000 = 2 segundos
       async (ctx, { gotoFlow, inRef,provider }) => {
-          
+     await provider.sendtext(mywhatsa, `*${causa}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+
+     
      if (ctx?.idleFallBack) {
               return gotoFlow(flujoFinalil)
           }    
               }
       )
-  const flujoFinalil = addKeyword('HH').addAnswer('AUTORESPUESTA FINALIZADA - CONTINUE CON LA CONSULTA AL +5491140054474 - NICOLAS')
+  const flujoFinalil = addKeyword('HH').addAnswer('CONTINUE CON LA CONSULTA AL +5491140054474 - NICOLAS')
 
 
 
@@ -630,55 +626,31 @@ return  gotoFlow(Menuflow);
 ////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-    const chatwoot = new ChatwootClass({
-        account: '1',
-        token: 'RzqiiFrYqQUrx5FPuuMXoM3e',
-        endpoint: 'https://chatwoot-production-9374.up.railway.app'
-        
-    })
-    
-    const queue = new Queue({
-        concurrent: 1,
-        interval: 500 
-    })
-    
-    const main = async () => {
-        const adapterDB = new MockAdapter()
-        const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow,Cliente])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
-
-        const adapterProvider = createProvider(MetaProvider, {
-          jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
-          numberId: '133862353148114',
+  const main = async () => {
+    const adapterDB = new MockAdapter();
+    const adapterFlow = createFlow([flowPrincipal]);
+  
+    const adapterProvider = createProvider(MetaProvider, {
+      jwtToken: "EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe",
+      numberId: "133862353148114",
           verifyToken: 'asdasd',
           version: 'v18.0'})
-        
-          
-        const bot = await createBot({
-            flow: adapterFlow,
-            provider: adapterProvider,
-            database: adapterDB,
-        }
-        
-       
-        )
-    const app = ServerHttp() ;
-   ///     ServerHttp.initialization(bot)
-        /**
-         * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
-         */
-        app.post('/hook', async (req, res) => {
-          await provider.sendtext(mywhatsa, `*${causa}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
-
-             
-           res.send('ok');
-           return;
-
-    })
-
-  
-    app.listen(3004, () => console.log(`http://localhost:3004`));
-  };
-  
     
-    main()
+      createDashboard({
+        CHATWOOT_URL: "https://chatwoot-production-9374.up.railway.app",
+        CHATWOOT_ID: "account: '1",
+        CHATWOOT_INBOX_ID: "4",
+        CHATWOOT_API_ACCESS_TOKEN: "RzqiiFrYqQUrx5FPuuMXoM3e"
+      }, BotCreate)
+
+  
+  
+    const BotCreate = await createBot({
+      flow: adapterFlow,
+      provider: adapterProvider,
+      database: adapterDB,
+    });
+  
+  }
+  main();
+    
