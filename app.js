@@ -3,7 +3,7 @@ const { createBot, createProvider, createFlow, addKeyword, EVENTS, ProviderClass
 const Queue = require('queue-promise')
 const MetaProvider = require("@bot-whatsapp/provider/meta")
 const MockAdapter = require('@bot-whatsapp/database/mock')
-const ServerHttp = require('./src/http')
+const express = require('express')
 
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
@@ -23,7 +23,6 @@ let motivo;
 
 let causa
 
-const serverHttp = ServerHttp()
 
 
 
@@ -642,7 +641,7 @@ return  gotoFlow(Menuflow);
         concurrent: 1,
         interval: 500 
     })
-    
+    const app=express()
     const main = async () => {
         const adapterDB = new MockAdapter()
         const adapterFlow = createFlow([flowPrincipal, flowVenta, flowsAlquiler, Menuflow,Cliente])//Cliente, Menuflow, audiono, Menuflow2, alquila22])
@@ -654,15 +653,25 @@ return  gotoFlow(Menuflow);
           version: 'v18.0'})
         
           
-        const bot = await createBot({
+        createBot({
             flow: adapterFlow,
             provider: adapterProvider,
             database: adapterDB,
     
     
           })
-    
-    serverHttp(bot)
+          app.get("/chatwoot", async (req, res) => {
+            console.log('sda1')
+
+            await adapterProvider.sendText("5491166704322@c.us", "Mensaje desde API");
+            res.send({ data: "enviado!" });
+          });
+          app.post("/chatwoot", async (req, res) => {
+
+          console.log('sda')
+            await adapterProvider.sendText("5491166704322@c.us", "Mensaje desde API");
+            res.send({ data: "enviado!" });
+          });
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
          */
@@ -691,6 +700,7 @@ return  gotoFlow(Menuflow);
                 }, chatwoot)
             })
         })
+        app.listen(4000, () => console.log(`http://localhost:4000`));
 
 
     }
