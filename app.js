@@ -4,7 +4,7 @@ const MetaProvider = require("@bot-whatsapp/provider/meta");
 
 const ServerAPI = require("./http");
 const { adapterDB } = require("./provider/database");
-const ChatWood = require("./http/services/chatwood");
+const ChatWood = require("./services/chatwood");
 // const loadSmartFlows = require("./smartFlow");
 
 const mywhatsa = "5491140054474@s.whatsapp.net";

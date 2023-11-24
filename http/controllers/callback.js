@@ -1,5 +1,5 @@
 const { decryptData } = require("../../utils/hash");
-const { exchange, register } = require("../services/e-learning");
+const { exchange, register } = require("../../services/e-learning");
 
 const COURSE_ID = process.env.COURSE_ID ?? "";
 
