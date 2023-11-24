@@ -4,7 +4,7 @@ const MetaProvider = require("@bot-whatsapp/provider/meta");
 
 const ServerAPI = require("./http");
 const { adapterDB } = require("./provider/database/mock");
-const ChatWood = require("./../services/chatwood");
+const ChatWood = require("./services/chatwood");
 
 let motivo;  
 
