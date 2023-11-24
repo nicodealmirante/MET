@@ -1,7 +1,7 @@
 class ChatWood {
   token = "";
   config = { accounts: 1 };
-  api = ``;
+ CHATWOOT_ID
 
   constructor(_token = "", _api = "", _config = {}) {
     this.token = _token;
