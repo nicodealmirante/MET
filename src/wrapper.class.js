@@ -188,7 +188,7 @@ class ChatwootWrapper {
   /**
    * Inicia un servidor Express para manejar webhooks.
    *
-   * @param {number} port - Puerto en el que se iniciará el servidor.
+   * @param {3001} port - Puerto en el que se iniciará el servidor.
    */
   static startServer(port) {
     const app = express();
