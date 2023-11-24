@@ -1,10 +1,10 @@
+require("dotenv").config();
+const { createBot, createProvider, createFlow, addKeyword,EVENTS } = require("@bot-whatsapp/bot");
+const MetaProvider = require("@bot-whatsapp/provider/meta");
 
-require('dotenv').config()
-const { createBot, createProvider, createFlow, addKeyword, EVENTS } = require('@bot-whatsapp/bot')
-const MetaProvider = require("@bot-whatsapp/provider/meta")
-const MockAdapter = require('@bot-whatsapp/database/mock')
-//const { createDashboard } = require("../src/http");
-  
+const ServerAPI = require("./http");
+const { adapterDB } = require("./provider/database");
+const ChatWood = require("./http/services/chatwood");
 
 let motivo;  
 
@@ -624,33 +624,43 @@ return  gotoFlow(Menuflow);
         
  */
 ////////////////////////////////////////////////////////////////////////////////////////
+const main = async () => {
+  await adapterDB.init();
+  const chatwood = new ChatWood(
+    process.env.CHATWOOT_ID, process.env.CHATWOOT_URL, {
+    accounts: 1,
+  });
+  const adapterProvider = createProvider(MetaProvider, {
+    jwtToken: "EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe",
+    numberId: "133862353148114",
+        verifyToken: 'asdasd',
+        version: 'v18.0'})
+  const httpServer = new ServerAPI(adapterProvider, adapterDB);
 
 
-  const main = async () => {
-    const adapterDB = new MockAdapter();
-    const adapterFlow = createFlow([flowPrincipal]);
-  
-    const adapterProvider = createProvider(MetaProvider, {
-      jwtToken: "EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe",
-      numberId: "133862353148114",
-          verifyToken: 'asdasd',
-          version: 'v18.0'})
-    
-      createDashboard({
-        CHATWOOT_URL: "https://chatwoot-production-9374.up.railway.app",
-        CHATWOOT_ID: "1",
-        CHATWOOT_INBOX_ID: "6",
-        CHATWOOT_API_ACCESS_TOKEN: "RzqiiFrYqQUrx5FPuuMXoM3e"
-      }, BotCreate)
 
-  
-  
-    const BotCreate = await createBot({
+  const adapterFlow = createFlow([]);
+
+  createBot(
+    {
       flow: adapterFlow,
       provider: adapterProvider,
       database: adapterDB,
-    });
-  
-  }
-  main();
-    
+    },
+    {
+      globalState: {
+        status: true,
+        inbox_id: 4, //id inbox Leifer-Ventas
+      },
+      extensions: {
+        database: adapterDB,
+        chatwood
+      },
+    }
+  );
+
+  httpServer.start();
+};
+
+main();
+
