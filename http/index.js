@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const ChatwootClass = require('./chatwoot/chatwoot.class')
 
-const PORT = process.env.PORT ?? 4000;
 
 /**
  * Clase de API REST
@@ -23,7 +22,7 @@ class ServerAPI {
     }
     app.use(express.json())
     app.use("/api", middleware, require("./routes"));
-    app.listen(3007, () => console.log(`http://localhost:${3007}`));
+    app.listen(3000, () => console.log(`http://localhost:${3000}`));
   }
 }
 
