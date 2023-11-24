@@ -3,7 +3,7 @@ const { createBot, createProvider, createFlow, addKeyword,EVENTS } = require("@b
 const MetaProvider = require("@bot-whatsapp/provider/meta");
 
 const ServerAPI = require("./http");
-const { adapterDB } = require("./provider/database");
+const { adapterDB } = require("./provider/database/mock");
 const ChatWood = require("./../services/chatwood");
 
 let motivo;  
