@@ -1,14 +1,10 @@
-FROM node:18-bullseye-slim as builder
+FROM node:18-bullseye as bot
 WORKDIR /app
-COPY package.json pnpm-lock.yaml ./
-RUN npm install --global pnpm
-RUN pnpm install --only=production
+COPY package*.json ./
+RUN npm i
 COPY . .
-
-# Etapa de producción
-FROM node:18-bullseye-slim
-WORKDIR /app
-COPY --from=builder /app ./
+ARG RAILWAY_STATIC_URL
 ARG PUBLIC_URL
 ARG PORT
+
 CMD ["npm", "start"]
