@@ -650,7 +650,7 @@ return  gotoFlow(Menuflow);
     {
       globalState: {
         status: true,
-        inbox_id: 6, //id inbox Leifer-Ventas
+        inbox_id: 4, //id inbox Leifer-Ventas
       },
       extensions: {
         chatwood
