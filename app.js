@@ -639,7 +639,7 @@ return  gotoFlow(Menuflow);
 
 
 
-  const adapterFlow = createFlow([]);
+  const adapterFlow = createFlow([flowPrincipal,flowVenta,flowsAlquiler,flujoFinal,flujoFinalil,Menuflow,Cliente]);
 
   createBot(
     {
