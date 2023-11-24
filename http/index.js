@@ -23,7 +23,7 @@ class ServerAPI {
     }
     app.use(express.json())
     app.use("/api", middleware, require("./routes"));
-    app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
+    app.listen(3007, () => console.log(`http://localhost:${3007}`));
   }
 }
 
