@@ -1,8 +1,7 @@
 class ChatWood {
-  token = "RzqiiFrYqQUrx5FPuuMXoM3e";
+  token = "";
   config = { accounts: 1 };
-  api = `https://chatwoot-production-9374.up.railway.app`;
-
+  api = ``;
 
   constructor(_token = "", _api = "", _config = {}) {
     this.token = _token;
@@ -203,7 +202,7 @@ class ChatWood {
     };
 
     const dataAPI = await fetch(
-      `${this.api}/api/v1/accounts/1/conversations//messages`,
+      `${this.api}/api/v1/accounts/${this.config.accounts}/conversations/${dataIn.conversationId}/messages`,
       requestOptions
     );
     const data = await dataAPI.json();

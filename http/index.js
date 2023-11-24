@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const ChatwootClass = require('./chatwoot/chatwoot.class')
 
 const PORT = process.env.PORT ?? 4000;
 
