@@ -3,7 +3,7 @@ const { createBot, createProvider, createFlow, addKeyword,EVENTS } = require("@b
 const MetaProvider = require("@bot-whatsapp/provider/meta");
 
 const ServerAPI = require("./http");
-const { adapterDB } = require("./provider/database/mock");
+const MockAdapter = require('@bot-whatsapp/database/mock')
 const ChatWood = require("./services/chatwood");
 
 let motivo;  
@@ -625,7 +625,7 @@ return  gotoFlow(Menuflow);
  */
 ////////////////////////////////////////////////////////////////////////////////////////
 const main = async () => {
-  await adapterDB.init();
+  const adapterDB = new MockAdapter()
   const chatwood = new ChatWood(
     process.env.CHATWOOT_ID, process.env.CHATWOOT_URL, {
     accounts: 1,
