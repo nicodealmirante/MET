@@ -11,7 +11,7 @@ const {
 const MetaProvider = require("@bot-whatsapp/provider/meta");
 const MockAdapter = require("@bot-whatsapp/database/mock");
 
-const flowflow = addKeyword("hi").addAction(async(ctx,{adapterProvider}) =>{
+
   
 app.post('/enviar-mensaje', async (req, res) => {
 
@@ -25,7 +25,7 @@ app.post('/enviar-mensaje', async (req, res) => {
   res.send({phone, message})
 
 })
-
+const flowflow = addKeyword("hi").addAction(async(ctx,{adapterProvider}) =>{
 })
 
 const main = async () => {
