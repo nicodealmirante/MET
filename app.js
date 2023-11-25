@@ -8,7 +8,7 @@ const {
   addKeyword,
 } = require("@bot-whatsapp/bot");
 
-const BaileysProvider = require("@bot-whatsapp/provider/baileys");
+const MetaProvider = require("@bot-whatsapp/provider/meta");
 const MockAdapter = require("@bot-whatsapp/database/mock");
 
 const flowflow = addKeyword("hi").addAction(async(ctx,{adapterProvider}) =>{
@@ -30,7 +30,11 @@ app.post('/enviar-mensaje', async (req, res) => {
 const main = async () => {
   const adapterDB = new MockAdapter();
   const adapterFlow = createFlow([flowflow]);
-  const adapterProvider = createProvider(BaileysProvider);
+  const adapterProvider = createProvider(MetaProvider, {
+    jwtToken: "EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe",
+    numberId: "133862353148114",
+        verifyToken: 'asdasd',
+        version: 'v18.0'})
 
   createBot({
     flow: adapterFlow,
