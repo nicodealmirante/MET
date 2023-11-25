@@ -39,15 +39,7 @@ const main = async () => {
 const app = express();
 app.post('/enviar-mensaje', async (req, res) => {
 
-  const adapterProvider = req.ws;
-const body = req.body
-const message = body.content
-const phone = body.conversation.meta.sender.phone_number.replace('+','')
-console.log(`${phone} asd ${body}`)
-await provider.sendtext(`${phone}@c.us`,message)
 
-res.send({phone, message})
-})
   const PORT = process.env.PORT || 4000;
   app.listen(3005, async() => {
 
@@ -60,7 +52,15 @@ await provider.sendtext(`${phone}@c.us`,message)
   
 res.send({phone, message})
     
-  
+    const adapterProvider = req.ws;
+const body = req.body
+const message = body.content
+const phone = body.conversation.meta.sender.phone_number.replace('+','')
+console.log(`${phone} asd ${body}`)
+await provider.sendtext(`${phone}@c.us`,message)
+
+res.send({phone, message})
+})
   })
   
 main()
