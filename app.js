@@ -13,18 +13,13 @@ const MockAdapter = require("@bot-whatsapp/database/mock");
 
 
   
-app.post('/enviar-mensaje', async (req, res) => {
 
-    const adapterProvider = req.ws;
-  const body = req.body
-  const message = body.content
-  const phone = body.conversation.meta.sender.phone_number.replace('+','')
-  console.log(`${phone} asd ${body}`)
-  await provider.sendtext(`${phone}@c.us`,message)
-
-  res.send({phone, message})
-})
 const flowflow = addKeyword("hi").addAction(async(ctx,{adapterProvider}) =>{
+
+
+
+
+
 })
 
 const main = async () => {
@@ -42,7 +37,17 @@ const main = async () => {
     database: adapterDB,
   });
 const app = express();
+app.post('/enviar-mensaje', async (req, res) => {
 
+  const adapterProvider = req.ws;
+const body = req.body
+const message = body.content
+const phone = body.conversation.meta.sender.phone_number.replace('+','')
+console.log(`${phone} asd ${body}`)
+await provider.sendtext(`${phone}@c.us`,message)
+
+res.send({phone, message})
+})
   const PORT = process.env.PORT || 4000;
   app.listen(3005, async() => {
 
