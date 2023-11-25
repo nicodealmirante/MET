@@ -44,7 +44,7 @@ const main = async () => {
 const app = express();
 
   const PORT = process.env.PORT || 4000;
-  app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
+  app.listen(3005, () => console.log(`http://localhost:${3005}`));
 };
 
 main();
