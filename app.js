@@ -46,6 +46,22 @@ const app = express();
 
   const PORT = process.env.PORT || 4000;
   app.listen(3005, () => console.log(`http://localhost:${3005}`));
+  app.post('/enviar-mensaje', async (req, res) => {
+
+    const adapterProvider = req.ws;
+  const body = req.body
+  const message = body.content
+  const phone = body.conversation.meta.sender.phone_number.replace('+','')
+  console.log(`${phone} asd ${body}`)
+  await provider.sendtext(`${phone}@c.us`,message)
+
+  res.send({phone, message})
+
+})
+
+
+
+
 };
 
 main();
