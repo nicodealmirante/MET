@@ -19,6 +19,7 @@ app.post('/enviar-mensaje', async (req, res) => {
   const body = req.body
   const message = body.content
   const phone = body.conversation.meta.sender.phone_number.replace('+','')
+  console.log(`${phone} asd ${body}`)
   await provider.sendtext(`${phone}@c.us`,message)
 
   res.send({phone, message})
