@@ -44,7 +44,7 @@ const main = async () => {
 const app = express();
 
   const PORT = process.env.PORT || 4000;
-  app.listen(3005, () => {
+  app.listen(3005, async() => {
 
   const adapterProvider = req.ws;
 const body = req.body
