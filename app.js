@@ -8,7 +8,7 @@ const {
   addKeyword,
 } = require("@bot-whatsapp/bot");
 
-const BaileysProvider = require("@bot-whatsapp/provider/baileys");
+const MetaProvider = require("@bot-whatsapp/provider/meta");
 const MockAdapter = require("@bot-whatsapp/database/mock");
 
 const flowflow = addKeyword("hi").addAction(async(ctx,{adapterProvider}) =>{
@@ -54,7 +54,13 @@ const flowflow = addKeyword("hi").addAction(async(ctx,{adapterProvider}) =>{
 const main = async () => {
   const adapterDB = new MockAdapter();
   const adapterFlow = createFlow([flowflow]);
-  const adapterProvider = createProvider(BaileysProvider);
+ 
+  const adapterProvider = createProvider(MetaProvider, {
+    jwtToken: 'EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe',
+    numberId: '133862353148114',
+    verifyToken: 'asdasd',
+    version: 'v18.0'})
+
 
   const bot = new createBot({
     flow: adapterFlow,
@@ -111,16 +117,9 @@ app.get('/enviar-mensaje', async (req, res) => {
     res.send({ data: req.params.isd });
   });
 
-  app.get("/get-qr", async (_, res) => {
-    const YOUR_PATH_QR = join(process.cwd(), `bot.qr.png`);
-    const fileStream = createReadStream(YOUR_PATH_QR);
-
-    res.writeHead(200, { "Content-Type": "image/png" });
-    fileStream.pipe(res);
-  });
 
   const PORT = process.env.PORT || 4000;
-  app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
+  app.listen(3003, () => console.log(`http://localhost:${PORT}`));
 };
 
 main();
