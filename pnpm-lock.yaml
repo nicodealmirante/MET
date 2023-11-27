@@ -3337,11 +3337,19 @@ packages:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
     dev: false
 
+  git@github.com+adiwajshing/libsignal-node/11dbd962ea108187c79a7c46fe4d6f790e23da97:
+    resolution: {commit: 11dbd962ea108187c79a7c46fe4d6f790e23da97, repo: git@github.com:adiwajshing/libsignal-node.git, type: git}
+    name: libsignal
+    version: 2.0.1
+    dependencies:
+      curve25519-js: 0.0.4
+      protobufjs: 6.8.8
+    dev: false
+
   github.com/WhiskeySockets/Baileys/ef6b38f8cf4d5372eff8d516fb0e65af5ab49d34:
     resolution: {tarball: https://codeload.github.com/WhiskeySockets/Baileys/tar.gz/ef6b38f8cf4d5372eff8d516fb0e65af5ab49d34}
     name: '@whiskeysockets/baileys'
     version: 6.4.0
-    prepare: true
     requiresBuild: true
     peerDependencies:
       jimp: ^0.16.1
@@ -3365,7 +3373,7 @@ packages:
       cache-manager: 5.2.3
       futoin-hkdf: 1.5.2
       libphonenumber-js: 1.10.39
-      libsignal: github.com/adiwajshing/libsignal-node/11dbd962ea108187c79a7c46fe4d6f790e23da97
+      libsignal: git@github.com+adiwajshing/libsignal-node/11dbd962ea108187c79a7c46fe4d6f790e23da97
       music-metadata: 7.13.4
       node-cache: 5.1.2
       pino: 7.11.0
@@ -3377,13 +3385,4 @@ packages:
       - debug
       - supports-color
       - utf-8-validate
-    dev: false
-
-  github.com/adiwajshing/libsignal-node/11dbd962ea108187c79a7c46fe4d6f790e23da97:
-    resolution: {tarball: https://codeload.github.com/adiwajshing/libsignal-node/tar.gz/11dbd962ea108187c79a7c46fe4d6f790e23da97}
-    name: libsignal
-    version: 2.0.1
-    dependencies:
-      curve25519-js: 0.0.4
-      protobufjs: 6.8.8
     dev: false
