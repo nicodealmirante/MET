@@ -119,7 +119,7 @@ app.get('/enviar-mensaje', async (req, res) => {
 
 
   const PORT = process.env.PORT || 4000;
-  app.listen(3003, () => console.log(`http://localhost:${PORT}`));
+  app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
 };
 
 main();
