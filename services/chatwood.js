@@ -1,7 +1,7 @@
 class ChatWood {
-  token = "ys1SMvW4GidyzVfK8BjMgJj";
-  config = { accounts: 2 };
- api="https://5260-190-106-131-101.ngrok-free.app"
+  token= "";
+  config= { accounts: 2 };
+ api=""
 
   constructor(_token = "", _api = "", _config = {}) {
     this.token = _token;

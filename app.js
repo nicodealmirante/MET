@@ -626,9 +626,10 @@ return  gotoFlow(Menuflow);
 ////////////////////////////////////////////////////////////////////////////////////////
   const main = async () => {
     const adapterDB = new MockAdapter()
-    const chatwood = new ChatWood(
-    process.env.CHATWOOT_ID, process.env.CHATWOOT_URL, {
-    accounts: 2,
+    const chatwood = new ChatWood({
+      token: "ys1SMvW4GidyzVfK8BjMgJj",
+      config: { accounts: 2 },
+     api:"https://5260-190-106-131-101.ngrok-free.app"
   });
     const adapterProvider = createProvider(MetaProvider, {
       jwtToken: "EAAMziR3dWTwBOyI5iwUFZCeBqo2F3yZCvipXQlqUxlvtQkb122Sc91lLMJvZC72DobxvZBwO4lXWIdJ4FCTMISIqfpEPtxbWC9zkeffcbBU7W2Dn9cefzdRNDQEmdma9nxsmz6WfFKsK9Es7RwuZAteGov0mIZA0WPlusxgmmJNpcydS37cmjNa558ETrgfbIkQJJaba4Cv5ZCu8GZAe",
