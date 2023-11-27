@@ -648,13 +648,14 @@ return  gotoFlow(Menuflow);
           version: 'v18.0'})
         
           
-        const bot = await createBot({
+          createBot({
             flow: adapterFlow,
             provider: adapterProvider,
             database: adapterDB,
-        })
+          });
+        const app = express();
     
-      const app=new ServerHttp(bot)
+    
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
          */
