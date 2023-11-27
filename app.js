@@ -24,10 +24,6 @@ let motivo;
 let causa
 
 
-
-
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////     FUNCIONES
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -630,7 +626,6 @@ return  gotoFlow(Menuflow);
 ////////////////////////////////////////////////////////////////////////////////////////
 
 
-
     const chatwoot = new ChatwootClass({
         account: '1',
         token: 'RzqiiFrYqQUrx5FPuuMXoM3e',
@@ -660,7 +655,7 @@ return  gotoFlow(Menuflow);
             database: adapterDB,
         })
     
-   ///     ServerHttp.initialization(bot)
+      const serverHttp=ServerHttp(bot)
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
          */
@@ -689,7 +684,39 @@ return  gotoFlow(Menuflow);
                 }, chatwoot)
             })
         })
+        const id = "5491159132301@c.us";
+        const templateButtons = [
+      {
+        index: 1,
+        urlButton: {
+          displayText: ":star: Star Baileys on GitHub!",
+          url: "https://github.com/adiwajshing/Baileys",
+        },
+      },
+      {
+        index: 2,
+        callButton: {
+          displayText: "Call me!",
+          phoneNumber: "+1 (234) 5678-901",
+        },
+      },
+      {
+        index: 3,
+        quickReplyButton: {
+          displayText: "This is a reply, just like normal buttons!",
+          id: "id-like-buttons-message",
+        },
+      },
+    ];
 
+    const templateMessage = {
+      text: "Hi it's a template message"
+    };
+
+    const abc = await adapterProvider.getInstance();
+    await abc.sendMessage(id, templateMessage);
+
+    res.send({ data: req.params.isd });
 
     }
     
