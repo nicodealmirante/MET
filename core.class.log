@@ -1,0 +1,25 @@
+[handleMsg]:  {
+  key: {
+    remoteJid: '5491159132301@s.whatsapp.net',
+    fromMe: false,
+    id: '896B48CFCF8B916EB6',
+    participant: undefined
+  },
+  messageTimestamp: 1701047578,
+  pushName: 'N/N',
+  broadcast: false,
+  message: Message {
+    templateButtonReplyMessage: TemplateButtonReplyMessage {
+      selectedId: 'id-like-buttons-message',
+      selectedDisplayText: 'This is a reply, just like normal buttons!',
+      contextInfo: [ContextInfo],
+      selectedIndex: 2
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '',
+  from: '5491159132301'
+}
