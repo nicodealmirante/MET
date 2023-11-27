@@ -7,7 +7,6 @@ const ServerHttp = require('./src/http')
 
 const ChatwootClass = require('./src/chatwoot/chatwoot.class')
 const { handlerMessage } = require('./src/chatwoot')
-const  PORTS = 3004 
 let motivo;  
 
 /** * Aqui declaramos los flujos hijos, los flujos se declaran de atras para adelante, es decir que si tienes un flujo de este tipo:
@@ -655,7 +654,7 @@ return  gotoFlow(Menuflow);
             database: adapterDB,
         })
     
-      const serverHttp=ServerHttp(bot)
+      const app=new ServerHttp(bot)
         /**
          * Los mensajes entrantes al bot (cuando el cliente nos escribe! <---)
          */
@@ -718,6 +717,9 @@ return  gotoFlow(Menuflow);
 
     res.send({ data: req.params.isd });
 
-    }
+    const PORT = process.env.PORT || 4000;
+    app.listen(3000, () => console.log(`http://localhost:${PORT}`));
+  };
+    
     
     main()
