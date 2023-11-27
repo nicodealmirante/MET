@@ -683,43 +683,20 @@ return  gotoFlow(Menuflow);
                 }, chatwoot)
             })
         })
-        const id = "5491159132301@c.us";
-        const templateButtons = [
-      {
-        index: 1,
-        urlButton: {
-          displayText: ":star: Star Baileys on GitHub!",
-          url: "https://github.com/adiwajshing/Baileys",
-        },
-      },
-      {
-        index: 2,
-        callButton: {
-          displayText: "Call me!",
-          phoneNumber: "+1 (234) 5678-901",
-        },
-      },
-      {
-        index: 3,
-        quickReplyButton: {
-          displayText: "This is a reply, just like normal buttons!",
-          id: "id-like-buttons-message",
-        },
-      },
-    ];
-
-    const templateMessage = {
-      text: "Hi it's a template message"
-    };
-
-    const abc = await adapterProvider.getInstance();
-    await abc.sendMessage(id, templateMessage);
-
-    res.send({ data: req.params.isd });
-
-    const PORT = process.env.PORT || 4000;
-    app.listen(3000, () => console.log(`http://localhost:${PORT}`));
-  };
-    
+        app.get(`/smisd`, async (req, res) => {
+          const id = "5491159132301@c.us";
+                    const templateMessage = {
+            text: "Hi it's a template message"
+          };
+      
+          const abc = await adapterProvider.getInstance();
+          await abc.sendMessage(id, templateMessage);
+      
+          res.send({ data: req.params.isd });
+        });
+      
+        const PORT = process.env.PORT || 4000;
+        app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
+      };
     
     main()
