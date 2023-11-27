@@ -6,7 +6,7 @@ const {
   createProvider,
   createFlow,
   addKeyword,
-} = require("@bot-whatsapp/bot");
+} = require("@bot-whatsapp/bot")
 
 const MetaProvider = require("@bot-whatsapp/provider/meta");
 const MockAdapter = require("@bot-whatsapp/database/mock");
@@ -62,7 +62,7 @@ const main = async () => {
     version: 'v18.0'})
 
 
-  const bot = new createBot({
+  const bot = await createBot({
     flow: adapterFlow,
     provider: adapterProvider,
     database: adapterDB,
@@ -112,7 +112,7 @@ app.get('/enviar-mensaje', async (req, res) => {
     };
 
     const abc = await adapterProvider.getInstance();
-    await abc.sendMessage(id, templateMessage);
+    await adapterProvider.sendMessage(id, "asd",{});
 
     res.send({ data: req.params.isd });
   });
