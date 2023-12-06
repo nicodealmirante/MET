@@ -1,0 +1,80 @@
+[handleMsg]:  {
+  type: 'text',
+  from: '5491159132301',
+  to: '5491166704322',
+  body: 'asdsadads',
+  pushName: 'N/N'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_9a3644f2-b53a-42c8-a003-fcf6f8cc047a',
+  keyword: 'key_9d39f539-015b-4104-912f-ae0943b5c5e6',
+  answer: 'Hola. Soy Luna, una IA encargada de responder instantaneamente preguntas frecuentes. Para hablar con un asesor continua al\n' +
+    ' +5491140054474 - Nicolás',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: 'f7010137313bb2ed46a04e1bd80de8d1'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_0e625e5a-d898-4042-a593-ff94e84d9489',
+  keyword: 'ans_9a3644f2-b53a-42c8-a003-fcf6f8cc047a',
+  answer: 'Selfie Mirror',
+  options: {
+    media: 'banner22.jpg',
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '29392253f26a644558cdc6875557f954'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_cb098439-a22b-4c3b-89ab-cc42ebe431ca',
+  keyword: 'ans_0e625e5a-d898-4042-a593-ff94e84d9489',
+  answer: 'UNIFILAS',
+  options: {
+    media: 'colum3.mp4',
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 3000,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: '4543ee180d372aaa92a6a91c65241065'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_ed2544db-e656-4f23-95a6-612fac006e80',
+  keyword: 'ans_cb098439-a22b-4c3b-89ab-cc42ebe431ca',
+  answer: 'Opciones',
+  options: {
+    media: null,
+    buttons: [ [Object], [Object], [Object] ],
+    capture: true,
+    child: null,
+    delay: 2000,
+    idle: 200000,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'c8380d1af8d9918806951c8ce5f46767'
+}

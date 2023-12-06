@@ -1,6 +1,5 @@
 node_modules
-workspace/node_modules
-*.env
+.env
+*.png
+*_sessions
 *.log
-lib/
-!lib/.gitkeep
