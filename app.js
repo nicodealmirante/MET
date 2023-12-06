@@ -631,9 +631,9 @@ return  gotoFlow(Menuflow);
 
 
     const chatwoot = new ChatwootClass({
-        account: '2',
+        account: '1',
         token: 'Mys1SMvW4GidyzVfK8BjMgJj',
-        endpoint: 'http://localhost:3001'
+        endpoint: 'chatwoot.railway.internal'
     })
     0
     const queue = new Queue({
