@@ -58,20 +58,19 @@ console.log('Numero Agendado de Alquiler');*/
 const mywhatsa = "5491140054474@s.whatsapp.net";
 
 const Cliente = addKeyword(["ASESOR VENTAS"],{sensitive:true})
-  .addAnswer("Continue con Nicolas al numero +5491140054474", async (ctx, {ProviderClass}) => {
-     await ProviderClass.sendText(mywhatsa, `*${causa}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
-  }
-      )
-  .addAnswer('+5491140054474 - NICOLAS SE COMUNICARA CON USTED',{capture: true,
+  .addAnswer('CONTINUE CON UN VENDEDOR TOCANDO EN EL SIGUIENTE NUMERO ')
+  .addAnswer('+5491140054474 - NICOLAS SE COMUNICARA CON USTED',{capture: false,
        idle: 200000 }, // idle: 2000 = 2 segundos
       async (ctx, { gotoFlow, inRef,provider }) => {
-          
+     await provider.sendtext(mywhatsa, `*${causa}* \nNumero: +${ctx.from}\nNombre: *${ctx.pushName}*\nINFO: \n*${ctx.body}*`)
+
+     
      if (ctx?.idleFallBack) {
               return gotoFlow(flujoFinalil)
           }    
               }
       )
-  const flujoFinalil = addKeyword('HH').addAnswer('AUTORESPUESTA FINALIZADA - CONTINUE CON LA CONSULTA AL +5491140054474 - NICOLAS')
+  const flujoFinalil = addKeyword('HH').addAnswer('CONTINUE CON LA CONSULTA AL +5491140054474 - NICOLAS')
 
 
 
@@ -569,6 +568,7 @@ curl 'https://graph.facebook.com/v18.0/106540352242922/messages' \
             ],
           }
 ) 
+/*
 /*
 .addAnswer("*CONTACTO*", { 
   capture: true,
